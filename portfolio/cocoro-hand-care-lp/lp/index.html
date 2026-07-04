@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>COCORO ハンドケア | グローブ型ハンドマッサージャー</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Cormorant+Garamond:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+  :root{
+    --beige-bg:#cbb59d;
+    --beige-dark:#b9a186;
+    --cork:#dcc09a;
+    --ink:#3a2f28;
+    --ink-soft:#5a4c40;
+    --cream:#f7f1e9;
+    --pink:#e9b9c4;
+    --pink-deep:#caa2ab;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans JP", sans-serif;
+    color:var(--ink);
+    background:var(--beige-bg);
+  }
+  img{display:block; max-width:100%; height:auto;}
+  .wrap{max-width:1200px; margin:0 auto;}
+  .center{text-align:center;}
+
+  .script{
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    color:#fff;
+    letter-spacing:0.06em;
+    font-size:22px;
+    opacity:0.85;
+  }
+  .script.dark{color:var(--ink-soft);}
+
+  /* Section 1: Hero */
+  .hero{position:relative; background:var(--beige-bg);}
+  .hero img{width:100%; display:block;}
+  .hero-logo{
+    position:absolute; top:28px; left:32px;
+    color:#fff; font-size:22px; letter-spacing:0.18em; font-weight:500;
+    text-shadow:0 1px 6px rgba(0,0,0,0.25);
+  }
+  .hero-caption{
+    position:absolute; left:50%; bottom:10%; transform:translateX(-50%);
+    text-align:center; color:#fff;
+  }
+  .hero-caption .script{font-size:34px;}
+  .hero-caption .sub{
+    margin-top:10px; font-size:14px; letter-spacing:0.08em; color:#fff;
+    text-shadow:0 1px 6px rgba(0,0,0,0.3);
+  }
+  .hero-caption .model{
+    margin-top:4px; font-size:11px; letter-spacing:0.12em; color:#fdf0e6; opacity:0.9;
+  }
+
+  /* Section 2: brand band */
+  .brand-band{
+    background:linear-gradient(135deg,#e3c9a4 0%, #dcc09a 40%, #cbab7e 100%);
+    padding:56px 32px;
+  }
+  .brand-band .inner{
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns: 220px 1fr 300px; gap:40px; align-items:center;
+  }
+  .brand-band .badge{
+    width:190px; height:190px; border-radius:50%;
+    border:1px solid rgba(58,47,40,0.35);
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; text-align:center; letter-spacing:0.1em; color:var(--ink-soft);
+    position:relative;
+  }
+  .brand-band .badge span{padding:0 20px;}
+  .brand-band h2{
+    font-family:"Noto Serif JP", serif; font-weight:700; letter-spacing:0.2em;
+    font-size:26px; text-align:center; margin:0 0 18px;
+  }
+  .brand-band p.lead{
+    font-size:16px; line-height:2; text-align:center; color:var(--ink); margin:0;
+  }
+  .brand-band .note{font-size:13px; line-height:1.9; color:var(--ink-soft);}
+  .brand-band .note strong{display:block; font-size:14px; margin-bottom:8px; color:var(--ink);}
+
+  /* Section 3: lifestyle */
+  .lifestyle{background:var(--beige-bg); padding-bottom:10px;}
+  .lifestyle img{width:100%;}
+  .lifestyle-caption{
+    text-align:center; padding:40px 20px 60px;
+  }
+  .lifestyle-caption h2{
+    font-family:"Noto Serif JP", serif; font-size:28px; font-weight:500; margin:0 0 16px;
+    letter-spacing:0.06em;
+  }
+  .lifestyle-caption p{
+    font-size:14px; color:var(--ink-soft); line-height:1.9; margin:0;
+  }
+
+  hr.rule{
+    border:none; border-top:1px solid rgba(58,47,40,0.35);
+    max-width:1100px; margin:0 auto;
+  }
+  .rule-wrap{padding:36px 20px;}
+
+  /* Section 4/5 shared product section style */
+  .product-section{background:var(--beige-bg); padding:10px 20px 70px;}
+  .product-section .heading{text-align:center; margin-bottom:36px;}
+  .product-section .heading h2{
+    font-family:"Noto Serif JP", serif; font-size:30px; font-weight:500; margin:10px 0 0;
+    letter-spacing:0.04em;
+  }
+  .product-section .frame{
+    max-width:900px; margin:0 auto 24px; border-radius:10px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  }
+  .product-section .desc{
+    max-width:640px; margin:0 auto; text-align:center; font-size:14px; color:var(--ink-soft); line-height:1.9;
+  }
+
+  .diagram-frame{max-width:900px; margin:0 auto 24px; border-radius:6px; overflow:hidden;}
+
+  /* Section 6: programs */
+  .programs{background:var(--beige-bg); padding:20px 20px 70px;}
+  .programs h2.main{
+    text-align:center; font-family:"Noto Serif JP", serif; font-weight:500; font-size:26px;
+    margin:0 0 50px;
+  }
+  .program-row{
+    max-width:1100px; margin:0 auto 60px; display:grid; grid-template-columns: 1fr 1fr;
+    gap:40px; align-items:center;
+  }
+  .program-row.reverse .program-text{order:2;}
+  .program-row.reverse .program-img{order:1;}
+  .program-num{font-family:"Cormorant Garamond", serif; font-style:italic; color:#fff; opacity:0.8; font-size:16px;}
+  .program-num b{
+    display:block; font-family:"Noto Sans JP",sans-serif; font-style:normal; font-size:44px;
+    font-weight:700; color:#fff; letter-spacing:0.05em; margin-top:2px;
+  }
+  .program-title{
+    margin:18px 0 14px; font-size:20px; font-weight:500;
+    border-bottom:1px solid rgba(58,47,40,0.4); display:inline-block; padding-bottom:10px;
+  }
+  .program-title b{font-weight:700;}
+  .program-desc{font-size:14px; color:var(--ink-soft); line-height:1.9; max-width:360px;}
+  .program-img img{border-radius:6px; box-shadow:0 10px 24px rgba(0,0,0,0.18);}
+
+  /* Section 7 icons + section 10 icons */
+  .icon-strip{background:var(--beige-bg); padding:20px 20px 60px; text-align:center;}
+  .icon-strip h3{
+    font-size:14px; letter-spacing:0.3em; color:var(--ink-soft); margin:0 0 30px; font-weight:500;
+  }
+  .icon-strip .frame{max-width:1000px; margin:0 auto; border-radius:8px; overflow:hidden;}
+
+  /* Section 8 usage tips */
+  .tips{background:var(--beige-bg); padding:10px 20px 60px;}
+  .tips h3{
+    text-align:center; font-size:14px; letter-spacing:0.2em; color:var(--ink-soft); margin:0 0 36px;
+  }
+  .tips h3 em{font-style:italic; color:var(--ink); font-size:18px; margin-left:6px;}
+  .tips-grid{max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:44px;}
+  .tips-grid h4{font-size:15px; font-weight:700; margin:16px 0 10px; line-height:1.7;}
+  .tips-grid p{font-size:13px; color:var(--ink-soft); line-height:1.8; margin:0;}
+  .tips-grid .frame{border-radius:8px; overflow:hidden; margin-bottom:6px;}
+
+  /* Section 9 storage + CTA */
+  .storage{background:var(--beige-bg); padding:20px 20px 10px;}
+  .storage .inner{
+    max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  .storage .badge-new{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%; background:#fff; color:var(--ink);
+    font-size:10px; font-weight:700; margin-right:10px; font-style:italic;
+  }
+  .storage h4{font-size:20px; font-weight:500; display:flex; align-items:center; margin:0 0 16px;}
+  .storage p{font-size:14px; color:var(--ink-soft); line-height:1.9;}
+  .storage .frame{border-radius:8px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,0.18);}
+
+  .cta-wrap{max-width:900px; margin:50px auto 70px; padding:0 20px;}
+  .cta-btn{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    background:var(--cream); color:var(--ink); text-decoration:none;
+    padding:22px; font-size:16px; letter-spacing:0.08em; border-radius:2px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  /* Section 10 other function */
+  .other-function{background:var(--beige-bg); padding:10px 20px 60px; text-align:center;}
+  .other-function h3{font-size:14px; letter-spacing:0.3em; color:var(--ink-soft); margin:0 0 30px;}
+
+  /* Section 11 colors + spec */
+  .colors{background:var(--beige-bg); padding:10px 20px 20px; text-align:center;}
+  .colors h3{font-size:14px; letter-spacing:0.3em; color:var(--ink-soft); margin:0 0 30px;}
+  .colors .frame{max-width:1000px; margin:0 auto 20px; border-radius:8px; overflow:hidden;}
+  .color-labels{
+    max-width:1000px; margin:0 auto 40px; display:grid; grid-template-columns:repeat(3,1fr);
+    font-size:13px; color:var(--ink-soft); letter-spacing:0.05em;
+  }
+  .model-name{
+    text-align:left; max-width:1000px; margin:0 auto 20px; font-size:15px; font-weight:500;
+    border-top:1px solid rgba(58,47,40,0.3); padding-top:20px;
+  }
+  .spec-table{
+    max-width:1000px; margin:0 auto 40px; width:100%; border-collapse:collapse; font-size:13px;
+    text-align:left; color:var(--ink-soft);
+  }
+  .spec-table tr{border-top:1px solid rgba(58,47,40,0.2);}
+  .spec-table th, .spec-table td{padding:14px 10px; font-weight:400;}
+  .spec-table th{width:220px; color:var(--ink);}
+  .medical-box{
+    max-width:1000px; margin:0 auto 60px; display:grid; grid-template-columns:200px 1fr; gap:24px;
+    text-align:left; align-items:center;
+  }
+  .medical-box .box{
+    border:1px solid var(--ink); padding:34px 10px; text-align:center; font-size:14px; letter-spacing:0.1em;
+  }
+  .medical-box p{font-size:12px; color:var(--ink-soft); line-height:1.9; margin:0;}
+
+  /* Section 12 footer */
+  .footer{background:var(--cream); padding:60px 20px;}
+  .footer .inner{
+    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:340px 1fr; gap:50px; align-items:center;
+  }
+  .footer h2{font-size:24px; font-weight:500; line-height:1.6; margin:0 0 20px;}
+  .footer p{font-size:13px; color:var(--ink-soft); line-height:1.9; margin:0;}
+  .footer .frame{border-radius:8px; overflow:hidden;}
+  .footer-logo{
+    margin-top:40px; text-align:center; font-size:22px; letter-spacing:0.2em; color:var(--ink); font-weight:500;
+  }
+
+  @media (max-width:820px){
+    .brand-band .inner{grid-template-columns:1fr; text-align:center;}
+    .program-row, .program-row.reverse{grid-template-columns:1fr;}
+    .program-row.reverse .program-text{order:1;}
+    .program-row.reverse .program-img{order:2;}
+    .tips-grid{grid-template-columns:1fr;}
+    .storage .inner{grid-template-columns:1fr;}
+    .medical-box{grid-template-columns:1fr;}
+    .footer .inner{grid-template-columns:1fr;}
+    .color-labels{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Section 01: Hero -->
+  <section class="hero">
+    <div class="hero-logo">COCORO</div>
+    <img src="./images/sec01_hero.png" alt="COCORO ハンドケア ヒーロー画像">
+    <div class="hero-caption">
+      <div class="script">Hand Care</div>
+      <div class="sub">がんばる手に、とろけるご褒美を。</div>
+      <div class="model">COCORO ハンドケア HC-100</div>
+    </div>
+  </section>
+
+  <!-- Section 02: Brand belief band -->
+  <section class="brand-band">
+    <div class="inner">
+      <div class="badge"><span>PROJECT COCORO SUSTAINABLE WISH</span></div>
+      <div>
+        <h2>COCORO'S WISH</h2>
+        <p class="lead">
+          私たちが今すぐにできることは、まだ小さいかもしれない。<br>
+          それでも一歩ずつ、できることから。<br>
+          がんばる手に、寄り添うものづくりを続けていきます。
+        </p>
+      </div>
+      <div class="note">
+        <strong>この商品のパッケージは<br>環境にやさしい紙素材を採用。</strong>
+        プラスチック使用量の削減を目指しています。
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 03: Lifestyle -->
+  <section class="lifestyle">
+    <img src="./images/sec03_lifestyle.png" alt="ライフスタイル写真">
+    <div class="lifestyle-caption">
+      <h2>がんばる手に、ご褒美マッサージを。</h2>
+      <p>家事に、仕事に、育児に。一日中働いた手のひらを、おうち時間でゆっくりほぐす。</p>
+    </div>
+  </section>
+
+  <div class="rule-wrap"><hr class="rule"></div>
+
+  <!-- Section 04: Glove intro -->
+  <section class="product-section">
+    <div class="heading">
+      <div class="script dark">Air Massager</div>
+      <h2>指を1本ずつ包み込む<br>グローブ型ハンドマッサージャー</h2>
+    </div>
+    <div class="frame"><img src="./images/sec04_glove_detail.png" alt="グローブ型ハンドマッサージャー"></div>
+    <p class="desc">
+      15層のエアバッグが手のひらはもちろん、指の1本1本までていねいにもみ出しマッサージ。<br>
+      手全体の血行を良くし、疲れをやさしく取り除きます。
+    </p>
+  </section>
+
+  <!-- Section 05: Massage plate -->
+  <section class="product-section">
+    <div class="heading">
+      <div class="script dark">Massage Plate</div>
+      <h2>『指圧プレート』搭載</h2>
+    </div>
+    <div class="diagram-frame"><img src="./images/sec05_massage_plate.png" alt="指圧プレート機構図"></div>
+    <p class="desc">
+      新しく搭載した指圧プレートが手のひらをしっかり押さえ込み、指ぬき感をさらに強化。<br>
+      心地よい圧をキープしたまま、奥までじんわり効かせます。
+    </p>
+  </section>
+
+  <!-- Section 06: 2 programs -->
+  <section class="programs">
+    <h2 class="main">2つのプログラムコースで、至福のひとときを</h2>
+
+    <div class="program-row">
+      <div class="program-text">
+        <div class="program-num">Program<b>01</b></div>
+        <div class="program-title">手を包み込む『<b>全体コース</b>』</div>
+        <p class="program-desc">手のひら全体を包みながら、コリポイントをしっかり指圧するモード。</p>
+      </div>
+      <div class="program-img"><img src="./images/sec06a_program01.png" alt="全体コース"></div>
+    </div>
+
+    <div class="program-row reverse">
+      <div class="program-text">
+        <div class="program-num">Program<b>02</b></div>
+        <div class="program-title">指を押しもむ『<b>指先コース</b>』</div>
+        <p class="program-desc">指をとらえ、1本ずつ伸ばし&ひっぱる手技をイメージしたモード。</p>
+      </div>
+      <div class="program-img"><img src="./images/sec06b_program02.png" alt="指先コース"></div>
+    </div>
+  </section>
+
+  <!-- Section 07: easy buttons -->
+  <section class="icon-strip">
+    <h3>簡単操作ボタン</h3>
+    <div class="frame"><img src="./images/sec07_buttons.png" alt="簡単操作ボタン"></div>
+  </section>
+
+  <!-- Section 08: usage tips -->
+  <section class="tips">
+    <h3>こんな使い方も <em>Good</em></h3>
+    <div class="tips-grid">
+      <div>
+        <div class="frame"><img src="./images/sec08a_rotate.png" alt="本体を回転"></div>
+        <h4>手の向きを変えて親指を集中マッサージ</h4>
+        <p>90度回転させることで、親指を重点的にマッサージ。</p>
+      </div>
+      <div>
+        <div class="frame"><img src="./images/sec08b_tips.png" alt="ハンドクリームと手袋の使い方"></div>
+        <h4>ハンドクリームとビニール手袋(付属)で保湿しながらハンドマッサージ</h4>
+        <p>手の乾燥が気になるときは、お手持ちのハンドクリームを塗った後、ビニール手袋をしてマッサージできます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 09: slim storage + CTA -->
+  <section class="storage">
+    <div class="inner">
+      <div>
+        <h4><span class="badge-new">New</span>スリム収納</h4>
+        <p>本体が自立し、コンパクトに収納できるようになりました。</p>
+      </div>
+      <div class="frame"><img src="./images/sec09_storage.png" alt="スリム収納"></div>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <a href="#" class="cta-btn">ご購入はこちらから <span>&gt;</span></a>
+  </div>
+
+  <!-- Section 10: other function -->
+  <section class="other-function">
+    <h3>OTHER FUNCTION</h3>
+    <div class="icon-strip" style="padding:0;">
+      <div class="frame"><img src="./images/sec10_icons.png" alt="その他機能"></div>
+    </div>
+  </section>
+
+  <!-- Section 11: colors + spec -->
+  <section class="colors">
+    <h3>COLOR LINEUP</h3>
+    <div class="frame"><img src="./images/sec11_colors.png" alt="カラーラインナップ"></div>
+    <div class="color-labels">
+      <div>wh(ホワイト)</div>
+      <div>bk(ブラック)</div>
+      <div>pk(ピンク)</div>
+    </div>
+
+    <div class="model-name">COCORO ハンドケア HC-100</div>
+    <table class="spec-table">
+      <tr><th>サイズ/重量</th><td>本体:(約)W170×L185×H100mm/約750g</td></tr>
+      <tr><th>定格消費電力</th><td>12W(ヒーター5W)</td></tr>
+      <tr><th>付属品</th><td>ACアダプター、ビニール手袋、フェイスシール</td></tr>
+      <tr><th>管理医療機器認証番号</th><td>302AABZX00005000</td></tr>
+    </table>
+
+    <div class="medical-box">
+      <div class="box">管理医療機器</div>
+      <p>
+        〈使用目的または効果〉あんま、マッサージの代用。一般家庭で使用すること。<br>
+        疲労回復、血行を良くする、筋肉の疲れをとる、筋肉のこりをほぐす、神経痛・筋肉痛の痛みの緩解
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 12: brand footer -->
+  <section class="footer">
+    <div class="inner">
+      <div>
+        <h2>すべての女性の毎日を、<br>やさしく癒したい。</h2>
+        <p>COCOROは、癒しの総合ブランドとして、癒されながらも心ときめくアイテムをお届けします。</p>
+      </div>
+      <div class="frame"><img src="./images/sec12_footer.png" alt="ブランドライフスタイル"></div>
+    </div>
+    <div class="footer-logo">COCORO</div>
+  </section>
+
+</body>
+</html>
