@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTA Button Preview</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      color: #111111;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      background: #E8F8EE;
+    }
+
+    .cta-preview {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      padding: 18px 14px 28px;
+      background: #F6FFF9;
+      box-shadow: 0 20px 60px rgba(26, 107, 58, 0.18);
+    }
+
+    .cta-preview__header {
+      padding: 8px 4px 18px;
+      text-align: center;
+    }
+
+    .cta-preview__title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .cta-preview__note {
+      margin: 8px 0 0;
+      color: #13804D;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .cta-preview__item {
+      margin: 0 0 16px;
+      padding: 14px 10px 18px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(46, 204, 113, 0.12) 0 18px, transparent 19px),
+        radial-gradient(circle at 84% 76%, rgba(217, 167, 46, 0.14) 0 22px, transparent 23px),
+        #FFFFFF;
+      border: 1px solid rgba(13, 123, 67, 0.12);
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(26, 107, 58, 0.08);
+    }
+
+    .cta-preview__label {
+      display: block;
+      margin: 0 0 10px;
+      color: #0F7A49;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .cta-preview__slot {
+      display: flex;
+      justify-content: center;
+      min-height: 104px;
+      padding: 14px 0 8px;
+      overflow: visible;
+    }
+
+    .cta-preview__slot .lp-cta-button {
+      width: var(--preview-width, 94%);
+    }
+  </style>
+</head>
+<body>
+  <main class="cta-preview" aria-label="CTAボタン素材プレビュー">
+    <header class="cta-preview__header">
+      <h1 class="cta-preview__title">CTAボタン素材プレビュー</h1>
+      <p class="cta-preview__note">背景画像から分離して、HTML/CSSで上から配置する共通ボタンです。</p>
+    </header>
+
+    <section class="cta-preview__item" aria-label="HERO">
+      <span class="cta-preview__label">HERO / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button" href="#">
+          <span class="lp-cta-button__label">60分の無料講座に申し込む</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-preview__item" aria-label="ルート選択CTA">
+      <span class="cta-preview__label">ルート選択CTA / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button" href="#">
+          <span class="lp-cta-button__label">AIスキルの全貌を60分で見る</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-preview__item" aria-label="WHY NOW">
+      <span class="cta-preview__label">WHY NOW / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button" href="#">
+          <span class="lp-cta-button__label">今のチャンスを講座で確認する</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-preview__item" aria-label="BENEFITS">
+      <span class="cta-preview__label">BENEFITS / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button" href="#">
+          <span class="lp-cta-button__label">ロードマップ特典を受け取る</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-preview__item" aria-label="CAMPAIGN">
+      <span class="cta-preview__label">CAMPAIGN / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button lp-cta-button--compact" href="#">
+          <span class="lp-cta-button__label">無料条件を確認する</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-preview__item" aria-label="FINAL CTA">
+      <span class="cta-preview__label">FINAL CTA / 幅97%</span>
+      <div class="cta-preview__slot" style="--preview-width: 97%">
+        <a class="lp-cta-button lp-cta-button--final" href="#">
+          <span class="lp-cta-button__label">無料講座で最初の一歩へ</span>
+          <span class="lp-cta-button__icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

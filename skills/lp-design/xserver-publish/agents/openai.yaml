@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xserver Publish"
+  short_description: "airth-ai.jp のXserver公開・更新を安全に実行"
+  default_prompt: "Use $xserver-publish to publish or update the LP on airth-ai.jp via Xserver."

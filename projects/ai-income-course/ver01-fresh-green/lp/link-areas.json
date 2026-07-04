@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-06-04T03:27:15.750Z",
+  "areas": [
+    {
+      "id": "SEC-01-area-1780166269198",
+      "sectionId": "SEC-01",
+      "label": "HERO CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "IMG_hero_bg.png",
+      "x": 3,
+      "y": 5.4956,
+      "width": 94,
+      "height": 0.7214,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 83.8,
+        "width": 94,
+        "height": 11
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "60分の無料講座に申し込む",
+      "shineRadius": 11,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88
+    },
+    {
+      "id": "SEC-05-area-1780166364741",
+      "sectionId": "SEC-05",
+      "label": "WHY NOW CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "IMG_why_now.png",
+      "x": 3,
+      "y": 31.9374,
+      "width": 94,
+      "height": 0.6361,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 87,
+        "width": 94,
+        "height": 9.7
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "今のチャンスを講座で確認する",
+      "shineRadius": 12,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88
+    },
+    {
+      "id": "SEC-09-area-1780166414349",
+      "sectionId": "SEC-09",
+      "label": "BENEFITS CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "IMG_benefits.png",
+      "x": 3,
+      "y": 57.3384,
+      "width": 94,
+      "height": 0.6689,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 87.2,
+        "width": 94,
+        "height": 10.2
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "ロードマップ特典を受け取る",
+      "shineRadius": 24,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88,
+      "shineRect": {
+        "x": 6.4,
+        "y": 88,
+        "width": 86.8,
+        "height": 9.2
+      }
+    },
+    {
+      "id": "SEC-10-area-1780166446639",
+      "sectionId": "SEC-10",
+      "label": "CAMPAIGN CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "IMG_campaign.png",
+      "x": 3,
+      "y": 63.8374,
+      "width": 94,
+      "height": 0.623,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 86.3,
+        "width": 94,
+        "height": 9.5
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "無料条件を確認する",
+      "shineRadius": 0,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88
+    },
+    {
+      "id": "SEC-14-area-1780166473958",
+      "sectionId": "SEC-14",
+      "label": "FINAL CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "IMG_final_cta.png",
+      "x": 3,
+      "y": 99.2032,
+      "width": 94,
+      "height": 0.6406,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 89.8,
+        "width": 94,
+        "height": 8.2
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "無料講座で最初の一歩へ",
+      "shineRadius": 0,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88,
+      "shineRect": {
+        "x": 1.8,
+        "y": 90.7,
+        "width": 91.8,
+        "height": 7.2
+      }
+    },
+    {
+      "id": "HTML-route-choice-cta-area-1780166237333",
+      "sectionId": "HTML-route-choice-cta",
+      "label": "ルート選択CTA",
+      "url": "https://mcxgj72y.autosns.app/addfriend/s/U9fUl4xC0L/@589cmwfw",
+      "imageName": "showcase-final/bg/route-choice-cta.webp",
+      "x": 3,
+      "y": 88.4,
+      "width": 94,
+      "height": 10.2,
+      "radius": 8,
+      "local": {
+        "x": 3,
+        "y": 88.4,
+        "width": 94,
+        "height": 10.2
+      },
+      "shine": true,
+      "cta": true,
+      "ctaCopy": "AIスキルの全貌を60分で見る",
+      "shineRadius": 9,
+      "shineAngle": 105,
+      "shineWidth": 24,
+      "shineDuration": 2.4,
+      "shineOpacity": 88
+    }
+  ]
+}

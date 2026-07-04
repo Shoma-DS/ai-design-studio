@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 124" fill="none">
+  <g transform="rotate(-4 120 62)">
+    <text x="14" y="28" fill="#2F7D44" font-family="Hiragino Maru Gothic ProN, Yu Gothic, system-ui, sans-serif" font-size="21" font-weight="700" letter-spacing="1.2">横にスライドして</text>
+    <text x="32" y="58" fill="#2F7D44" font-family="Hiragino Maru Gothic ProN, Yu Gothic, system-ui, sans-serif" font-size="21" font-weight="700" letter-spacing="1.2">他の声も見る</text>
+    <path d="M48 96C73 74 125 73 162 90" stroke="#2F7D44" stroke-width="5" stroke-linecap="round"/>
+    <path d="M143 74C153 81 163 86 178 91C162 95 151 101 141 110" stroke="#2F7D44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M51 101C82 82 121 81 157 94" stroke="#2F7D44" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+</svg>

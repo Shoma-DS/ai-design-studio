@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "storyNav": {
+    "prevX": 18,
+    "prevYOffset": 0,
+    "nextX": 18,
+    "nextYOffset": 0
+  },
+  "slides": {
+    "tsukino": {
+      "photoYPercent": 2.92,
+      "voiceIconXPercent": -0.1,
+      "voiceIconYPercent": -1.5
+    },
+    "kato": {
+      "photoYPercent": 3.6,
+      "voiceIconXPercent": -1.4,
+      "voiceIconYPercent": 0.7
+    },
+    "yuna": {
+      "photoYPercent": 4,
+      "voiceIconXPercent": -5.8,
+      "voiceIconYPercent": -3.2
+    },
+    "nakamura": {
+      "photoYPercent": 2.9,
+      "voiceIconXPercent": 0.7,
+      "voiceIconYPercent": -0.6
+    },
+    "shimizu": {
+      "photoYPercent": 3,
+      "voiceIconXPercent": -8,
+      "voiceIconYPercent": -0.1
+    },
+    "sasaki": {
+      "photoYPercent": 4.9,
+      "voiceIconXPercent": -8,
+      "voiceIconYPercent": -4.15
+    },
+    "yamamoto": {
+      "photoYPercent": 2.7,
+      "voiceIconXPercent": -4.19,
+      "voiceIconYPercent": 2.1
+    }
+  }
+}
