@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #fdf3e7;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(120, 80, 40, 0.15);
+}
+
+.lp-full {
+  display: block;
+  width: 100%;
+  height: auto;
+}

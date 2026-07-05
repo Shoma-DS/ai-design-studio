@@ -1,7 +1,7 @@
 # LP Workflow
 
 1. 商材、ターゲット、CV、参考LP、法務制約を確認する。
-2. 保存先の案件フォルダを決めて先に作る（`projects/<client>/<project-name>/` または `portfolio/<project-name>/`）。以降のファイルはすべてこの配下に作る。詳細は `skills/design/lp-creator/SKILL.md` の「保存先」を参照。
+2. 保存先の案件フォルダを決めて先に作る（`projects/<client>/<project-name>/` または `portfolio/<project-name>/`）。以降のファイルはすべてこの配下に作る。参考LPのスクリーンショットも撮った時点でこの配下の `references/` に直接保存し、リポジトリ直下には置かない。詳細は `skills/design/lp-creator/SKILL.md` の「保存先」「参考スクリーンショットの保存」を参照。
 3. セクション構成を作る。
 4. セクション別LP原稿を作る（案件フォルダの `copy/` へ）。
 5. セクション別画像プロンプトを nanobanana pro 形式で作る。
