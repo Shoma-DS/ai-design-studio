@@ -88,6 +88,27 @@ npm run publish:vercel
 - `404` や画像欠落: 相対パス、ファイル名の大文字小文字、公開元フォルダ、`index.html` からの参照先を確認する。
 - 無料枠や課金関連の警告: 作業を止め、公式のPlan/Limitと表示内容をユーザーへ要約して判断を仰ぐ。
 
+## ギャラリーサイトへの追加
+
+公開したLPは `gallery/`（ポートフォリオギャラリーサイト、`lp-portfolio-gallery`としてVercel公開済み）に必ず追加する。LPをVercel本番公開したら、次を行う。
+
+1. `node scripts/generate-thumbnail.mjs <lp/index.htmlへのパス> gallery/assets/thumbnails/<slug>.jpg` でサムネイルを生成する。
+2. `gallery/data.js` の配列に、次のスキーマでエントリを追加する。
+   ```js
+   {
+     slug: "<プロジェクトフォルダのslug>",
+     title: "<lp/index.htmlの<title>>",
+     heading: "<コピー原稿のキャッチコピー・見出し>",
+     category: "<カテゴリ1つ>",
+     tags: ["タグ1", "タグ2", "タグ3"],
+     url: "<vercelの本番URL>",
+     thumbnail: "assets/thumbnails/<slug>.jpg"
+   }
+   ```
+   カテゴリは既存エントリで使っているものを優先して再利用し、フィルタが際限なく増えないようにする。
+3. `cd gallery && npx vercel --prod --yes` でギャラリーサイトを再公開する。
+4. `curl -I` で新しいLPと更新後のギャラリーサイト、両方のHTTP 200を確認する。
+
 ## 公式参照
 
 - Vercel Plans: `https://vercel.com/docs/plans`

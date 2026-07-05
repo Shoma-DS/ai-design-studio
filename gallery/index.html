@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LP Portfolio Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>LP Portfolio Gallery</h1>
+      <p class="page-subtitle">制作したLPを検索・カテゴリ・タグで一覧できるポートフォリオです。</p>
+    </header>
+
+    <main>
+      <div class="controls">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="タイトル・見出し・タグで検索"
+          aria-label="LPを検索"
+        />
+        <div id="category-filters" class="chip-row" role="group" aria-label="カテゴリで絞り込み"></div>
+      </div>
+
+      <p id="result-count" class="result-count"></p>
+
+      <div id="card-grid" class="card-grid"></div>
+      <p id="empty-state" class="empty-state" hidden>該当するLPが見つかりませんでした。</p>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

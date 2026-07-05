@@ -8,3 +8,4 @@
 6. Codex app-server / gpt-image-2 でラスター画像を生成する（案件フォルダの `lp/images/` へ）。
 7. セクション画像を縦結合し、`<案件フォルダ>/lp/images/lp-full.png` を作る。
 8. `<案件フォルダ>/lp/index.html` でローカルプレビューする。
+9. Vercelに公開する場合は、`skills/lp-design/vercel-free-deploy/SKILL.md` の手順で公開し、同スキルの「ギャラリーサイトへの追加」に従って `gallery/`（ポートフォリオギャラリーサイト）にも追加する。
