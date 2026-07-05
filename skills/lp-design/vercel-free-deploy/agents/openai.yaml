@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vercel Free Deploy"
+  short_description: "Vercel無料枠でLPや静的サイト公開を安全運用する"
+  default_prompt: "Use $vercel-free-deploy to publish this LP to Vercel after checking local state and free-plan constraints."
