@@ -260,6 +260,24 @@ a {
   justify-content: center;
   padding: clamp(6rem, 12vh, 9rem) clamp(1.25rem, 5vw, 3rem) 4rem;
   background: linear-gradient(160deg, var(--mint-light) 0%, var(--aqua) 55%, var(--yellow-pale) 100%);
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+  z-index: 0;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0) 62%);
 }
 
 .hero-inner {
@@ -268,10 +286,10 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+}
+
+.hero-copy {
+  max-width: 640px;
 }
 
 .eyebrow {
@@ -297,10 +315,6 @@ a {
   line-height: 2;
   color: var(--ink-soft);
   margin: 0 0 2.2rem;
-}
-
-.hero-visual img {
-  border-radius: 18px;
 }
 
 .scroll-cue {
@@ -332,12 +346,16 @@ a {
 
 @media (max-width: 860px) {
   .hero-inner {
-    grid-template-columns: 1fr;
     text-align: center;
   }
-  .hero-visual {
-    max-width: 320px;
-    margin: 0 auto;
+  .hero-copy {
+    max-width: none;
+  }
+  .hero-bg-img {
+    object-position: 78% center;
+  }
+  .hero-scrim {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0.55) 100%);
   }
   .eyebrow, .hero-copy .lead br {
     display: none;
