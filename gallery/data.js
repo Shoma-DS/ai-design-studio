@@ -119,5 +119,14 @@ window.LP_GALLERY_DATA = [
     tags: ["自転車", "公式アプリ", "会員証", "アプリ紹介"],
     url: "https://wheelbase-cycle-app-lp.vercel.app",
     thumbnail: "assets/thumbnails/wheelbase-cycle-app-lp.jpg"
+  },
+  {
+    slug: "awavie-carbonated-skincare-lp",
+    title: "AWAVIE 微炭酸うるおい発想スキンケアLP",
+    heading: "肌の奥まで、はじける潤い。",
+    category: "美容・コスメ",
+    tags: ["スキンケア", "コスメ", "アニメーション", "レスポンシブ"],
+    url: "https://awavie-carbonated-skincare-lp.vercel.app",
+    thumbnail: "assets/thumbnails/awavie-carbonated-skincare-lp.jpg"
   }
 ];
