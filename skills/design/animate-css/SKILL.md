@@ -92,7 +92,18 @@ const animateCSS = (el, animation, prefix = "animate__") =>
 - **`prefers-reduced-motion`を無効化しない**。Animate.css自体が対応しているので、そのメディアクエリを上書きしない。
 - 1ページで使うアニメーションの種類を絞り、UIの一貫性を保つ。
 
+## Animate.cssのプリセットで足りない場合（実サイト分析パターン集）
+
+スクロール連動の帯ワイプ演出、ヘッダー縮小、marquee風の無限ループスライダー、スクロール誘導アイコンなど、Animate.cssのキーフレーム一覧（`fading_entrances/`等）には無いがコーポレートLPでよく使われる演出は `references/site-animations/` を確認する。実在サイトの実装を解析し、技法だけを汎用CSS/JSに書き直して保存したカタログ。
+
+| ファイル | 主なパターン |
+|---|---|
+| `references/site-animations/enatural-co-jp.md` | スクロール連動フェードイン（ScrollReveal風・IntersectionObserver実装）、カーテンワイプ型ヒーロースライドショー、ヘッダー縮小、下線ホバー、画像オーバーレイホバー、無限ループスライダー、スクロール誘導アイコン、gotopボタン |
+
+新しい参考サイトを解析したら、`references/site-animations/README.md`の収録一覧に追記し、同じ形式（技法を汎用化・元コピー/商標は再現しない）でファイルを追加する。
+
 ## 関連
 
 - ホバー演出: `skills/design/hover-animations/SKILL.md`（Hover.css）
 - ソース: `references/animate-css/`（`source/`配下がカテゴリ別、`animate.css`が全部入りビルド）
+- 実サイト分析パターン集: `references/site-animations/`
