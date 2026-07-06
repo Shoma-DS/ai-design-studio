@@ -152,6 +152,7 @@ main {
 .card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -159,6 +160,10 @@ main {
   box-shadow: var(--shadow);
   text-decoration: none;
   color: var(--text);
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -228,4 +233,164 @@ main {
   text-align: center;
   color: var(--text-muted);
   padding: 3rem 0;
+}
+
+/* プレビューモーダル */
+
+.preview-modal[hidden] {
+  display: none;
+}
+
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.preview-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 16, 12, 0.55);
+}
+
+.preview-modal-panel {
+  position: relative;
+  width: min(1200px, 100%);
+  height: min(88vh, 960px);
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.preview-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.preview-modal-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.device-toggle {
+  display: flex;
+  gap: 0.3rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem;
+  flex: none;
+}
+
+.device-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.device-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.preview-modal-open {
+  flex: none;
+  font-size: 0.82rem;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.preview-modal-open:hover {
+  text-decoration: underline;
+}
+
+.preview-modal-close {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.preview-modal-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.preview-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.device-frame {
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+.device-frame[data-device="pc"] {
+  width: 100%;
+}
+
+.device-frame[data-device="mobile"] {
+  width: 390px;
+  flex: none;
+  border: 10px solid #1a1a1a;
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .preview-modal {
+    padding: 0.75rem;
+  }
+
+  .device-frame[data-device="mobile"] {
+    width: 100%;
+    max-width: 390px;
+    border-width: 6px;
+    border-radius: 20px;
+  }
 }

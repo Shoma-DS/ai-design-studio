@@ -6,6 +6,47 @@
   const resultCount = document.getElementById("result-count");
   const emptyState = document.getElementById("empty-state");
 
+  const previewModal = document.getElementById("preview-modal");
+  const previewTitle = document.getElementById("preview-modal-title");
+  const previewOpenLink = document.getElementById("preview-modal-open");
+  const previewIframe = document.getElementById("preview-iframe");
+  const deviceFrame = document.getElementById("device-frame");
+  const deviceButtons = previewModal.querySelectorAll(".device-btn");
+
+  function setDevice(device) {
+    deviceFrame.dataset.device = device;
+    deviceButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.device === device);
+    });
+  }
+
+  function openPreview(item) {
+    previewTitle.textContent = item.title;
+    previewOpenLink.href = item.url;
+    previewIframe.src = item.url;
+    setDevice("pc");
+    previewModal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePreview() {
+    previewModal.hidden = true;
+    previewIframe.src = "about:blank";
+    document.body.style.overflow = "";
+  }
+
+  previewModal.addEventListener("click", (event) => {
+    if (event.target.hasAttribute("data-close")) closePreview();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !previewModal.hidden) closePreview();
+  });
+
+  deviceButtons.forEach((btn) => {
+    btn.addEventListener("click", () => setDevice(btn.dataset.device));
+  });
+
   const categories = ["すべて", ...new Set(data.map((item) => item.category))];
   let activeCategory = "すべて";
   let query = "";
@@ -40,11 +81,9 @@
 
     cardGrid.innerHTML = "";
     filtered.forEach((item) => {
-      const card = document.createElement("a");
+      const card = document.createElement("button");
+      card.type = "button";
       card.className = "card";
-      card.href = item.url;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
 
       card.innerHTML = `
         <img class="card-thumb" src="${item.thumbnail}" alt="${item.title}" />
@@ -57,6 +96,7 @@
           </div>
         </div>
       `;
+      card.addEventListener("click", () => openPreview(item));
       cardGrid.appendChild(card);
     });
 

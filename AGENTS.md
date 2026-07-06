@@ -51,6 +51,7 @@
 - LP制作では `skills/design/lp-creator/SKILL.md` と `skills/design/image-prompt-generator/SKILL.md` を使う。
 - 原稿、セクション別画像プロンプト、生成画像、結合LPを分けて保存する。
 - セクションが1枚に収まらない場合は、情報の流れが自然につながるよう複数セクションに分割する。
+- 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする。明示的に頼まれていなくても標準工程として行う。
 
 ## Git
 

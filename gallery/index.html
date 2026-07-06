@@ -29,6 +29,26 @@
       <p id="empty-state" class="empty-state" hidden>該当するLPが見つかりませんでした。</p>
     </main>
 
+    <div id="preview-modal" class="preview-modal" hidden>
+      <div class="preview-modal-backdrop" data-close></div>
+      <div class="preview-modal-panel" role="dialog" aria-modal="true" aria-labelledby="preview-modal-title">
+        <div class="preview-modal-header">
+          <p id="preview-modal-title" class="preview-modal-title"></p>
+          <div class="device-toggle" role="group" aria-label="PC/スマホ表示切り替え">
+            <button type="button" class="device-btn active" data-device="pc">PC</button>
+            <button type="button" class="device-btn" data-device="mobile">スマホ</button>
+          </div>
+          <a id="preview-modal-open" class="preview-modal-open" target="_blank" rel="noopener noreferrer">新しいタブで開く ↗</a>
+          <button type="button" class="preview-modal-close" data-close aria-label="閉じる">×</button>
+        </div>
+        <div class="preview-modal-body">
+          <div id="device-frame" class="device-frame" data-device="pc">
+            <iframe id="preview-iframe" class="preview-iframe" title="LPプレビュー" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
   </body>
