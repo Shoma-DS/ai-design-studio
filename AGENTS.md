@@ -44,6 +44,7 @@
 - OpenAI APIキー、OpenAI Images REST API、外部画像生成APIは使わない。
 - 参考画像がある場合は、構造・雰囲気・視線誘導のみ抽出し、コピー／トレース／商標再現は禁止。
 - 生成した画像は、該当プロジェクト配下または `portfolio/` / `exports/` に保存する。
+- ログイン切れ・リフレッシュトークン失効時の確認/復旧手順は `skills/common/codex-image-auth/SKILL.md` を使う。ユーザーへの再ログイン依頼は1回にまとめ、何度も催促しない。
 
 ## LP制作
 
