@@ -110,5 +110,14 @@ window.LP_GALLERY_DATA = [
     tags: ["副業", "オンライン講座", "マーケティング"],
     url: "https://ai-income-course.vercel.app",
     thumbnail: "assets/thumbnails/ai-income-course.jpg"
+  },
+  {
+    slug: "wheelbase-cycle-app-lp",
+    title: "ホイールベース公式アプリ紹介LP",
+    heading: "ホイールベースが 公式アプリで もっと身近に!!",
+    category: "自転車・モビリティ",
+    tags: ["自転車", "公式アプリ", "会員証", "アプリ紹介"],
+    url: "https://wheelbase-cycle-app-lp.vercel.app",
+    thumbnail: "assets/thumbnails/wheelbase-cycle-app-lp.jpg"
   }
 ];
