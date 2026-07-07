@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLEXA（フレクサ）｜つくる自由が、ひろがる。フレキシブルな倉庫建築</title>
+    <meta
+      name="description"
+      content="FLEXAはシステム建築による倉庫・施設建築を、設計・コスト・スタッフ対応まで柔軟にサポートする架空のブランドLPです。"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="#top" class="logo">FLEXA</a>
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <nav class="nav" id="site-nav" aria-label="サイト内ナビゲーション">
+      <a href="#concept">LP紹介</a>
+      <a href="#case-study">ケーススタディ</a>
+      <a href="#products">商品一覧</a>
+      <a href="#photo-grid">施工事例</a>
+      <a href="#faq">Q&amp;A</a>
+    </nav>
+
+    <main>
+      <!-- 02 Hero -->
+      <section class="section hero" id="top">
+        <div class="img-frame">
+          <img src="./images/02-hero.png" alt="つくる自由が、ひろがる。フレキシブルな倉庫建築。" />
+          <div class="overlay hero-ctas reveal">
+            <a href="#concept" class="btn btn-outline hvr-grow">資料を見る</a>
+            <a href="#case-study" class="btn btn-solid hvr-grow">ご相談窓口</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 Concept -->
+      <section class="section concept" id="concept">
+        <div class="img-frame reveal">
+          <img src="./images/03-concept.png" alt="設計・コスト・スタッフ　全てに、柔軟な対応力" />
+          <a href="#case-study" class="overlay text-link hvr-underline-from-left">会社情報を見る</a>
+        </div>
+      </section>
+
+      <!-- 04 News -->
+      <section class="section news">
+        <div class="img-frame reveal">
+          <img src="./images/04-news.png" alt="お知らせ" />
+        </div>
+      </section>
+
+      <!-- 05 Case Study -->
+      <section class="section case-study" id="case-study">
+        <div class="img-frame reveal">
+          <img
+            src="./images/05-case-study.png"
+            alt="システム建築を活かして、お客様の様々なCASEにお応えします"
+          />
+          <a href="#products" class="overlay case-link case-link-1 hvr-icon-forward">
+            事例を見る <span class="arrow">›</span>
+          </a>
+          <a href="#products" class="overlay case-link case-link-2 hvr-icon-forward">
+            事例を見る <span class="arrow">›</span>
+          </a>
+          <a href="#products" class="overlay case-link case-link-3 hvr-icon-forward">
+            事例を見る <span class="arrow">›</span>
+          </a>
+          <a href="#products" class="overlay case-link case-link-4 hvr-icon-forward">
+            事例を見る <span class="arrow">›</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 06 Photo Grid -->
+      <section class="section photo-grid" id="photo-grid">
+        <div class="img-frame reveal">
+          <img src="./images/06-photo-grid.png" alt="業種も規模もさまざまな倉庫" />
+        </div>
+      </section>
+
+      <!-- 07 Product Carousel (pure HTML/CSS/JS) -->
+      <section class="section carousel-section" id="products">
+        <div class="section-inner reveal">
+          <h2>さまざまな需要に対応できる、豊富な商品シリーズ</h2>
+          <div class="carousel" id="product-carousel">
+            <button type="button" class="carousel-arrow carousel-arrow-prev" id="carousel-prev" aria-label="前の商品へ">
+              ‹
+            </button>
+            <div class="carousel-track-wrap">
+              <ul class="carousel-track" id="carousel-track">
+                <li class="carousel-card">
+                  <span class="carousel-card-name">FLEX-Panel</span>
+                  <span class="carousel-card-desc">標準規格パネルで、コストと納期を両立する基本シリーズ</span>
+                </li>
+                <li class="carousel-card">
+                  <span class="carousel-card-name">FLEX-Bulk</span>
+                  <span class="carousel-card-desc">大容量保管に対応する、大スパン構造の倉庫シリーズ</span>
+                </li>
+                <li class="carousel-card">
+                  <span class="carousel-card-name">FLEX-Range</span>
+                  <span class="carousel-card-desc">増改築・拡張に強い、フレキシブルな可変対応シリーズ</span>
+                </li>
+                <li class="carousel-card">
+                  <span class="carousel-card-name">MATCH-Order</span>
+                  <span class="carousel-card-desc">用途に合わせて設計を最適化する、オーダーメイドシリーズ</span>
+                </li>
+                <li class="carousel-card">
+                  <span class="carousel-card-name">MATCH-Duo</span>
+                  <span class="carousel-card-desc">倉庫と事務所を一体化した、複合機能シリーズ</span>
+                </li>
+              </ul>
+            </div>
+            <button type="button" class="carousel-arrow carousel-arrow-next" id="carousel-next" aria-label="次の商品へ">
+              ›
+            </button>
+          </div>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </section>
+
+      <!-- 08 FAQ Accordion (pure HTML/CSS/JS) -->
+      <section class="section faq-section" id="faq">
+        <div class="section-inner reveal">
+          <h2>よくあるご質問</h2>
+          <div class="accordion">
+            <div class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>システム建築とは何ですか？</span>
+                <span class="accordion-icon"></span>
+              </button>
+              <div class="accordion-panel">
+                <p>あらかじめ規格化された部材と工法を組み合わせて設計・施工する建築手法です。品質を保ちながら、工期とコストを抑えることができます。</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>どのくらいの規模まで対応できますか？</span>
+                <span class="accordion-icon"></span>
+              </button>
+              <div class="accordion-panel">
+                <p>小規模な店舗倉庫から、大スパン構造の大型物流センターまで、幅広い規模のご相談に対応しています。</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>資材価格やコストフレーム特有の仕組みはありますか？</span>
+                <span class="accordion-icon"></span>
+              </button>
+              <div class="accordion-panel">
+                <p>規格化された部材を活用することで、資材価格の変動幅を抑えた見積もりフレームをご提案しています。詳細はご相談窓口にてご案内します。</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button type="button" class="accordion-trigger" aria-expanded="false">
+                <span>倉庫と事務所を両方つくることはできますか？</span>
+                <span class="accordion-icon"></span>
+              </button>
+              <div class="accordion-panel">
+                <p>はい。倉庫と事務所機能を一体化した設計に対応しており、動線を考慮したレイアウトをご提案します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 Footer -->
+      <section class="section footer-section">
+        <div class="img-frame reveal">
+          <img src="./images/09-footer.png" alt="ビジネスと創造を支える、倉庫づくり。" />
+          <div class="overlay footer-ctas">
+            <a href="#concept" class="btn btn-footer-outline hvr-grow">お問合せはこちら</a>
+            <a href="#concept" class="btn btn-footer-solid hvr-grow">資料ダウンロード</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -128,5 +128,14 @@ window.LP_GALLERY_DATA = [
     tags: ["スキンケア", "コスメ", "アニメーション", "レスポンシブ"],
     url: "https://awavie-carbonated-skincare-lp.vercel.app",
     thumbnail: "assets/thumbnails/awavie-carbonated-skincare-lp.jpg"
+  },
+  {
+    slug: "flexa-warehouse-lp",
+    title: "FLEXA システム建築・倉庫建築LP",
+    heading: "つくる自由が、ひろがる。フレキシブルな倉庫建築。",
+    category: "建築・システム建築",
+    tags: ["倉庫建築", "システム建築", "B2B", "カルーセル", "アコーディオン"],
+    url: "https://flexa-warehouse-lp.vercel.app",
+    thumbnail: "assets/thumbnails/flexa-warehouse-lp.jpg"
   }
 ];

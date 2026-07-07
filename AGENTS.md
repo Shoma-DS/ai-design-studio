@@ -49,6 +49,7 @@
 ## LP制作
 
 - LP制作では `skills/design/lp-creator/SKILL.md` と `skills/design/image-prompt-generator/SKILL.md` を使う。
+- ボタン・ナビ・カルーセル・アコーディオンなど操作が必要な要素があるLPは `skills/design/lp-hybrid-image-html/SKILL.md`（画像+HTML/CSS/JSのハイブリッド構成）を使う。
 - 原稿、セクション別画像プロンプト、生成画像、結合LPを分けて保存する。
 - セクションが1枚に収まらない場合は、情報の流れが自然につながるよう複数セクションに分割する。
 - 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする。明示的に頼まれていなくても標準工程として行う。
