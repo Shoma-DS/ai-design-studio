@@ -6,6 +6,28 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("site-nav");
+
+  const setMenuOpen = (open) => {
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    nav.classList.toggle("is-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+    });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    });
+  }
+
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     const observer = new IntersectionObserver(

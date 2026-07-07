@@ -11,15 +11,27 @@
     <header class="site-header" id="site-header">
       <div class="header-inner">
         <a href="#top" class="logo">AWAVIE</a>
-        <nav class="nav" aria-label="サイト内ナビゲーション">
-          <a href="#top">TOP</a>
-          <a href="#concept">CONCEPT</a>
-          <a href="#product">PRODUCT</a>
-          <a href="#faq">FAQ</a>
-          <a href="#shop">SHOP</a>
-        </nav>
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+    <nav class="nav" id="site-nav" aria-label="サイト内ナビゲーション">
+      <a href="#top">TOP</a>
+      <a href="#concept">CONCEPT</a>
+      <a href="#product">PRODUCT</a>
+      <a href="#faq">FAQ</a>
+      <a href="#shop">SHOP</a>
+    </nav>
 
     <main>
       <!-- 01 Hero -->
