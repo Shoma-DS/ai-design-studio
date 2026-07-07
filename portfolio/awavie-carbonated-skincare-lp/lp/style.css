@@ -285,7 +285,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% center;
+  object-position: 60% center;
   z-index: 0;
 }
 
@@ -293,7 +293,7 @@ a {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0) 62%);
+  background: radial-gradient(60% 55% at 50% 42%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.22) 55%, rgba(255, 255, 255, 0) 80%);
 }
 
 .hero::after {
@@ -314,10 +314,13 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-copy {
-  max-width: 640px;
+  max-width: 680px;
+  text-align: center;
 }
 
 .eyebrow {
@@ -377,11 +380,8 @@ a {
     justify-content: flex-start;
     padding-top: clamp(6.5rem, 20vh, 9rem);
   }
-  .hero-inner {
-    text-align: left;
-  }
   .hero-copy {
-    max-width: none;
+    max-width: 440px;
   }
   .hero-bg-img {
     object-position: center top;
@@ -467,6 +467,7 @@ a {
 @media (max-width: 860px) {
   .concept-detail .inner {
     grid-template-columns: 1fr;
+    text-align: center;
   }
   .detail-visual {
     order: -1;
