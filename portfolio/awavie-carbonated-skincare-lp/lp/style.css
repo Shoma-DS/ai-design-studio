@@ -94,6 +94,31 @@ a {
   color: var(--ink-soft);
 }
 
+/* PC限定: グローバルナビのホバー時に下線を左から右へ描画（高級感のあるミニマルな挙動） */
+@media (min-width: 861px) and (hover: hover) and (pointer: fine) {
+  .site-header .nav a {
+    position: relative;
+  }
+
+  .site-header .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 0.68, 0.32, 1);
+  }
+
+  .site-header .nav a:hover::after,
+  .site-header .nav a:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
 @media (max-width: 640px) {
   .nav {
     gap: 0.9rem;
