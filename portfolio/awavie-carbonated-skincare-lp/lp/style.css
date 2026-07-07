@@ -103,6 +103,22 @@ a {
   }
 }
 
+@media (max-width: 520px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+  .nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem 0.9rem;
+  }
+}
+
 /* ---------- Buttons (Hover.css snippets, extracted per skills/design/hover-animations) ---------- */
 
 .btn {
@@ -358,16 +374,23 @@ a {
 
 @media (max-width: 860px) {
   .hero-inner {
-    text-align: center;
+    text-align: left;
   }
   .hero-copy {
     max-width: none;
+    position: relative;
+    padding: 1.4rem 1.2rem;
+    margin: 0 -1.2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   .hero-bg-img {
-    object-position: 78% center;
+    object-position: 88% center;
   }
   .hero-scrim {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0.55) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.4) 100%);
   }
   .eyebrow, .hero-copy .lead br {
     display: none;
