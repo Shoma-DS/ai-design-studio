@@ -77,6 +77,7 @@ npm run publish:vercel
 2. ブラウザまたは `curl -I <URL>` でHTTP 200、HTTPS、リダイレクトを確認する。
 3. LPならファーストビュー、画像読み込み、CTAリンク、レスポンシブ表示を確認する。
 4. 必要なら `LP_PUBLIC_URL` をローカルの未追跡 `.env.local` などへ保存する。Git追跡ファイルに秘密情報は書かない。
+5. **Production URL（本番デプロイ）が新しくできた、または更新された場合は、確認を取らずに `open -a "Google Chrome" "<本番URL>"` で自動的にChromeで開く。** ユーザーから明示された標準運用。Preview URLでは行わない。ローカル確認用サーバー（`python3 -m http.server` 等）のURLも対象外。
 5. 公開URL、実行コマンド、検証結果、残リスクをユーザーへ簡潔に報告する。
 
 ## 失敗時の切り分け
