@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LP構成テンプレート ワイヤーフレーム（構成01〜04）</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 40px;
+        background: #e9e9e9;
+        font-family: "Hiragino Sans", "Yu Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #333;
+      }
+      .board {
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+      }
+      .col {
+        width: 240px;
+        flex: none;
+      }
+      .col h2 {
+        font-size: 20px;
+        font-weight: 500;
+        color: #666;
+        margin: 0 0 12px;
+      }
+      .frame {
+        background: #fff;
+        border: 1px solid #d8d8d8;
+      }
+      .block {
+        border-bottom: 1px solid #e2e2e2;
+        padding: 14px 12px;
+      }
+      .block:last-child {
+        border-bottom: none;
+      }
+      .center {
+        text-align: center;
+      }
+      .label-sm {
+        font-size: 9px;
+        color: #999;
+      }
+      .headline {
+        font-size: 15px;
+        font-weight: 700;
+        color: #222;
+        margin: 4px 0;
+      }
+      .text-line {
+        font-size: 8px;
+        color: #bbb;
+        line-height: 1.6;
+      }
+      .circle {
+        border-radius: 50%;
+        background: #eee;
+        border: 1px solid #d5d5d5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        font-size: 9px;
+        margin: 0 auto;
+      }
+      .row {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+      }
+      .rect {
+        background: #eee;
+        border: 1px solid #d5d5d5;
+        flex: 1;
+        height: 42px;
+      }
+      .badge {
+        display: inline-block;
+        border-radius: 999px;
+        background: #eee;
+        border: 1px solid #d5d5d5;
+        font-size: 8px;
+        color: #999;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+      .cta-bar {
+        background: #888;
+        color: #fff;
+        font-size: 10px;
+        text-align: center;
+        padding: 6px 4px;
+      }
+      .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+      }
+      .price-sm {
+        font-size: 9px;
+        color: #999;
+      }
+      .btn {
+        background: #ccc;
+        color: #555;
+        text-align: center;
+        font-size: 10px;
+        padding: 8px;
+        border-radius: 3px;
+      }
+      .dark {
+        background: #6b6b6b;
+        color: #fff;
+      }
+      .dark .headline {
+        color: #fff;
+      }
+      .dark .text-line {
+        color: #ddd;
+      }
+      .list-item {
+        font-size: 9px;
+        color: #bbb;
+        padding: 3px 0;
+      }
+      .numbered {
+        display: flex;
+        gap: 6px;
+        font-size: 9px;
+        color: #555;
+        padding: 4px 0;
+      }
+      .numbered .n {
+        color: #999;
+      }
+      .img-box {
+        background: #f2f2f2;
+        border: 1px solid #d5d5d5;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #bbb;
+        font-size: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <!-- 構成01 -->
+      <div class="col">
+        <h2>構成01</h2>
+        <div class="frame">
+          <div class="block center">
+            <div class="label-sm">サブキャッチ1</div>
+            <div class="headline">キャッチコピー</div>
+            <div class="circle" style="width:40px;height:40px;">メダル</div>
+            <div class="text-line" style="margin-top:8px;">ターゲット層や生活感をメインイメージに使用</div>
+          </div>
+          <div class="block">
+            <div style="display:flex;gap:8px;align-items:center;">
+              <div style="flex:1;">
+                <div class="label-sm">商品名</div>
+                <div class="text-line">テキストテキストテキスト</div>
+                <div class="circle" style="width:70px;height:70px;margin-top:6px;">商品画像</div>
+                <div class="text-line">テキストテキスト</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div class="badge">訴求1</div>
+                <div class="badge">訴求2</div>
+                <div class="badge">訴求3</div>
+              </div>
+            </div>
+          </div>
+          <div class="block center" style="background:#fafafa;">
+            <div class="text-line">期間限定キャンペーン実施中！</div>
+            <div class="text-line">＼一番人気／ ○○定期コース</div>
+          </div>
+          <div class="block center">
+            <div class="headline" style="font-size:16px;">商品名</div>
+            <div class="text-line">テキストテキスト</div>
+            <div class="text-line">たっぷり●月分　分量　純日本製</div>
+            <div class="circle" style="width:90px;height:90px;margin-top:6px;">商品画像</div>
+            <div class="price-sm" style="margin-top:6px;">通常価格 0,000円+税0000円</div>
+          </div>
+          <div class="cta-bar">初回限定●●OFF</div>
+          <div class="block center">
+            <div class="price">特別価格 0,000<span style="font-size:10px;">円(税込)</span></div>
+          </div>
+          <div class="block">
+            <div class="btn">ずっと送料無料！</div>
+          </div>
+          <div class="block">
+            <div class="text-line" style="text-align:center;font-weight:700;color:#555;">○○定期コース◯大特典</div>
+            <div class="numbered"><span class="n">1</span> 初回限定00%OFF</div>
+            <div class="numbered"><span class="n">2</span> ずっと送料無料</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 構成02 -->
+      <div class="col">
+        <h2>構成02</h2>
+        <div class="frame">
+          <div class="block">
+            <div class="headline" style="font-size:16px;">ベネフィットキャッチ</div>
+          </div>
+          <div class="block">
+            <div class="row">
+              <div class="rect"></div>
+              <div class="rect"></div>
+              <div class="rect"></div>
+            </div>
+            <div class="row" style="margin-top:4px;">
+              <div class="text-line" style="flex:1;text-align:center;">テキストテキストテキスト</div>
+              <div class="text-line" style="flex:1;text-align:center;">テキストテキストテキスト</div>
+              <div class="text-line" style="flex:1;text-align:center;">テキストテキストテキスト</div>
+            </div>
+          </div>
+          <div class="block center">
+            <div class="headline" style="font-size:13px;">口コミも好評！</div>
+            <div class="headline" style="font-size:13px;">リピートする人続出中</div>
+          </div>
+          <div class="block" style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:8px;align-items:flex-start;">
+              <div style="flex:1;">
+                <div class="text-line">口コミ●●●</div>
+                <div class="text-line">テキストテキストテキストテキスト</div>
+              </div>
+              <div class="circle" style="width:26px;height:26px;flex:none;"></div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:flex-start;">
+              <div style="flex:1;">
+                <div class="text-line">口コミ●●●</div>
+                <div class="text-line">テキストテキストテキストテキスト</div>
+              </div>
+              <div class="circle" style="width:26px;height:26px;flex:none;"></div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:flex-start;">
+              <div style="flex:1;">
+                <div class="text-line">口コミ●●●</div>
+                <div class="text-line">テキストテキストテキストテキスト</div>
+              </div>
+              <div class="circle" style="width:26px;height:26px;flex:none;"></div>
+            </div>
+          </div>
+          <div class="block dark center">
+            <div class="headline" style="font-size:12px;">こんなお悩み、ありませんか？</div>
+            <div class="text-line">○○や○○のお悩み、ありませんか？</div>
+          </div>
+          <div class="block dark">
+            <div class="list-item">・悩み</div>
+            <div class="list-item">・自信がない</div>
+            <div class="list-item">・うんざり・・・</div>
+            <div class="list-item">・洗顔だけしかない</div>
+            <div class="list-item">・悩み</div>
+            <div class="list-item">・悩み</div>
+            <div class="list-item">・未来と時間がない</div>
+            <div class="list-item">・会いたくない</div>
+            <div class="list-item">・○○がない</div>
+          </div>
+          <div class="block dark center">
+            <div class="text-line">○○（悩み）のせいで</div>
+            <div class="headline" style="font-size:12px;">最悪な印象に</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 構成03 -->
+      <div class="col">
+        <h2>構成03</h2>
+        <div class="frame">
+          <div class="block center">
+            <div class="label-sm">商品名で○○のような</div>
+            <div class="headline">ベネフィットキャッチ</div>
+          </div>
+          <div class="block">
+            <div style="display:flex;gap:10px;align-items:center;">
+              <div style="flex:1;">
+                <div class="text-line">テキスト、テキスト</div>
+                <div class="text-line" style="font-weight:700;color:#555;">もう悩まない！</div>
+              </div>
+              <div class="circle" style="width:70px;height:70px;flex:none;">女性画像</div>
+            </div>
+          </div>
+          <div class="block center" style="background:#fafafa;">
+            <div class="text-line">期間限定キャンペーン実施中！</div>
+            <div class="text-line">＼一番人気／ ○○定期コース</div>
+          </div>
+          <div class="block center">
+            <div class="headline" style="font-size:16px;">商品名</div>
+            <div class="text-line">テキストテキスト</div>
+            <div class="text-line">たっぷり●月分　分量　純日本製</div>
+            <div class="circle" style="width:90px;height:90px;margin-top:6px;">商品画像</div>
+            <div class="price-sm" style="margin-top:6px;">通常価格 0,000円+税0000円</div>
+          </div>
+          <div class="cta-bar">初回限定●●OFF</div>
+          <div class="block center">
+            <div class="price">特別価格 0,000<span style="font-size:10px;">円(税込)</span></div>
+          </div>
+          <div class="block">
+            <div class="btn">ずっと送料無料！</div>
+          </div>
+          <div class="block">
+            <div class="text-line" style="text-align:center;font-weight:700;color:#555;">○○定期コース◯大特典</div>
+            <div class="numbered"><span class="n">1</span> 初回限定00%OFF</div>
+            <div class="numbered"><span class="n">2</span> ずっと送料無料</div>
+            <div class="numbered"><span class="n">3</span> 購入回数の縛りは一切なし！</div>
+            <div class="numbered"><span class="n">4</span> ○○でプレゼント</div>
+            <div class="text-line" style="text-align:center;">特典名</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 構成04 -->
+      <div class="col">
+        <h2>構成04</h2>
+        <div class="frame">
+          <div class="block center">
+            <div class="label-sm">しかも</div>
+            <div class="headline" style="font-size:14px;">テキストテキスト（サブメリット）！</div>
+            <div class="headline" style="font-size:14px;">○○でも使える</div>
+          </div>
+          <div class="block">
+            <div style="display:flex;align-items:center;gap:8px;justify-content:center;">
+              <div class="badge" style="border-radius:4px;width:36px;height:36px;line-height:36px;">画像</div>
+              <div class="circle" style="width:60px;height:60px;">商品画像</div>
+              <div class="badge" style="border-radius:4px;width:36px;height:36px;line-height:36px;">画像</div>
+            </div>
+            <div class="text-line" style="text-align:center;margin-top:6px;">クレンジングと洗顔・保湿がこれ一本！</div>
+          </div>
+          <div class="block">
+            <div class="headline" style="font-size:13px;text-align:center;">商品の性能 訴求</div>
+            <div class="text-line">テキストテキストテキストテキストテキストテキストテキストテキスト</div>
+            <div class="text-line">テキストテキストテキストテキスト</div>
+          </div>
+          <div class="block">
+            <div class="headline" style="font-size:13px;text-align:center;">商品の性能 訴求</div>
+            <div class="text-line">テキストテキストテキストテキストテキストテキストテキストテキスト</div>
+            <div class="text-line">テキストテキストテキストテキスト</div>
+          </div>
+          <div class="block">
+            <div class="headline" style="font-size:13px;text-align:center;">商品の性能 訴求</div>
+            <div class="text-line">テキストテキストテキストテキストテキストテキストテキストテキスト</div>
+            <div class="text-line">テキストテキストテキストテキスト</div>
+          </div>
+          <div class="block center">
+            <div class="headline" style="font-size:13px;">メリット</div>
+            <div class="text-line">テキストテキストテキスト</div>
+            <div class="img-box" style="margin-top:6px;">イメージ画像</div>
+            <div class="text-line" style="margin-top:6px;">テキストテキストテキストテキストテキスト</div>
+            <div class="text-line">テキストテキストテキストテキスト</div>
+            <div class="text-line">テキストテキストテキストテキストテキストテキスト</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

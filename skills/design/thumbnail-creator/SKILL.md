@@ -7,6 +7,7 @@ description: YouTube、記事、教材、動画などのサムネイルを作る
 ## 使う場面
 
 ユーザーが「サムネ」を作りたいと明示したときに使う。
+ココナラの出品サービス一覧サムネイル(6:5、要素単位の反復修正が前提)は `skills/design/coconala-thumbnail-creator/SKILL.md` を使う。
 
 ## 手順
 

@@ -1,0 +1,114 @@
+.txt_more {
+  text-align: right;
+  font-weight: 400;
+}
+.txt_more span {
+  position: relative;
+  display: inline-block;
+}
+.txt_more span::after {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #000000;
+  transform: scale(1, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+
+.top_container .main_visual_area .main_visual .slick-list {
+  pointer-events: auto;
+}
+
+.topics_sec .slide a:hover .txt_more span::after {
+  transform-origin: right top;
+  transform: scale(0, 1);
+}
+
+.top_container .topics_sec .topics_list .slide .txt_area .date {
+  font-weight: 400;
+}
+
+.top_container .topics_sec .topics_list .slide .txt_area .tit {
+  line-height: 1.5;
+}
+
+.top_container .topics_sec .topics_list .slide .img_area:before {
+  padding-top: 69.7%;
+}
+
+@media screen and (max-width: 767px) {
+  .top_container .topics_sec {
+    padding-bottom: 0;
+  }
+  .top_container .topics_sec .topics_list .slide .txt_area .tit {
+    font-size: 3.5897435897vw;
+  }
+  .top_container .topics_sec .txt_more {
+    margin-top: 2.3076923077vw;
+  }
+  .top_container .intro_sec .bg_blue {
+    background-image: url(../../img/top/bg_intro_sp.jpg);
+  }
+  .top_container .intro_sec .catchphrase {
+    font-size: 6.1538461538vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .top_container .topics_sec {
+    padding-bottom: 0;
+  }
+  .top_container .topics_sec .topics_list .slide .txt_area .tit {
+    font-size: 1.0248901903vw;
+  }
+  .top_container .topics_sec .site_inner {
+    max-width: 88.579795022vw;
+  }
+  .top_container .topics_sec .txt_more {
+    margin-top: 1.0248901903vw;
+  }
+  .top_container .intro_sec .bg_blue {
+    background-image: url(../../img/top/bg_intro_pc.jpg);
+  }
+  .top_container .product_list .product {
+    width: 33.3333333333%;
+  }
+  .top_container .product_list .product_img_area .tit_area .name .jp {
+    font-size: 1.4641288433vw;
+  }
+  .top_container .product_list .product_img_area .tit_area {
+    bottom: 1.0980966325vw;
+  }
+  .top_container .product_list .product:nth-child(3) .product_img_area .tit_area {
+    bottom: 0.439238653vw;
+  }
+  .top_container .product_list .btn_area .btn {
+    max-width: 17.5695461201vw;
+  }
+  .top_container .product_list .product_img_area .category {
+    top: 0.878477306vw;
+    left: 0.878477306vw;
+  }
+  .top_container .product_list .annotation {
+    margin-top: 1.0248901903vw;
+  }
+  .top_container .product_list .product:nth-child(2) .btn_area {
+    margin-top: 0.9516837482vw;
+  }
+  .top_container .product_list .product:nth-child(1) .btn_area {
+    margin-top: 2.0497803807vw;
+  }
+  .top_container .product_list .product:nth-child(3) .btn_area {
+    margin-top: 3.1478770132vw;
+  }
+  .top_container .banner_slider img {
+    width: 100%;
+  }
+  .top_container .intro_sec .catchphrase {
+    font-size: 2.3426061493vw;
+    line-height: 1;
+  }
+}

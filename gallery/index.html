@@ -20,7 +20,37 @@
           placeholder="タイトル・見出し・タグで検索"
           aria-label="LPを検索"
         />
-        <div id="category-filters" class="chip-row" role="group" aria-label="カテゴリで絞り込み"></div>
+        <div class="filter-dropdown">
+          <div class="filter-trigger-row">
+            <button type="button" class="filter-trigger" data-facet="mood">
+              雰囲気で探す
+              <span id="mood-active-count" class="filter-count-badge" hidden>0</span>
+              <span class="filter-trigger-chevron" aria-hidden="true">▾</span>
+            </button>
+            <button type="button" class="filter-trigger" data-facet="product">
+              商品で探す
+              <span id="product-active-count" class="filter-count-badge" hidden>0</span>
+              <span class="filter-trigger-chevron" aria-hidden="true">▾</span>
+            </button>
+            <button type="button" class="filter-trigger" data-facet="feature">
+              機能で探す
+              <span id="feature-active-count" class="filter-count-badge" hidden>0</span>
+              <span class="filter-trigger-chevron" aria-hidden="true">▾</span>
+            </button>
+          </div>
+
+          <div id="filter-panel" class="filter-panel" hidden>
+            <div class="filter-panel-body">
+              <div id="filter-panel-options" class="mid-category-list"></div>
+            </div>
+            <div class="filter-panel-footer">
+              <button type="button" id="filter-clear-btn" class="filter-clear-btn">すべてクリア</button>
+              <button type="button" id="filter-apply-btn" class="filter-apply-btn">
+                絞り込む（<span id="filter-preview-count">0</span>件）
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <p id="result-count" class="result-count"></p>

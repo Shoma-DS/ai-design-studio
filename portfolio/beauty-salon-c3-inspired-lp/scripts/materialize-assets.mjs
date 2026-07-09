@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 import { project, sections, buildPrompt } from "../sections.mjs";
 
 const execFileAsync = promisify(execFile);
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
-const projectRoot = path.join(repoRoot, "projects/beauty-salon-portfolio/c3-inspired-lp");
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const projectRoot = path.join(repoRoot, "portfolio/beauty-salon-c3-inspired-lp");
 const promptDir = path.join(projectRoot, "prompts");
 const refDir = path.join(projectRoot, "references");
 const copyPath = path.join(projectRoot, "copy/lp-copy.md");

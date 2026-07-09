@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { generateImageWithCodexAppServer } from "../../../../server/codexImageClient.mjs";
+import { generateImageWithCodexAppServer } from "../../../server/codexImageClient.mjs";
 import { project, sections, buildPrompt } from "../sections.mjs";
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
-const projectRoot = path.join(repoRoot, "projects/beauty-salon-portfolio/c3-inspired-lp");
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const projectRoot = path.join(repoRoot, "portfolio/beauty-salon-c3-inspired-lp");
 const imageDir = path.join(projectRoot, "lp/images");
 const refDir = path.join(projectRoot, "references");
 const codexHome = process.env.CODEX_HOME || process.env.LP_CODEX_HOME || "/private/tmp/lp-design-codex-home";

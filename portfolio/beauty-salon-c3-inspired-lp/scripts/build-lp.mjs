@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 import { project, sections } from "../sections.mjs";
 
 const execFileAsync = promisify(execFile);
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
-const projectRoot = path.join(repoRoot, "projects/beauty-salon-portfolio/c3-inspired-lp");
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const projectRoot = path.join(repoRoot, "portfolio/beauty-salon-c3-inspired-lp");
 const lpRoot = path.join(projectRoot, "lp");
 const imageDir = path.join(lpRoot, "images");
 const tmpDir = path.join(projectRoot, ".tmp/resized");
