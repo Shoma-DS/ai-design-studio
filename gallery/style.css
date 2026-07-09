@@ -1,26 +1,13 @@
 :root {
-  color-scheme: light dark;
-  --bg: #faf8f5;
-  --surface: #ffffff;
-  --text: #201d1a;
-  --text-muted: #6b6560;
-  --border: #e7e2db;
-  --accent: #c2542f;
-  --accent-soft: #f3e3da;
-  --shadow: 0 1px 2px rgba(32, 29, 26, 0.06), 0 8px 24px rgba(32, 29, 26, 0.06);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #17140f;
-    --surface: #211d18;
-    --text: #f2ede6;
-    --text-muted: #ada59b;
-    --border: #38322a;
-    --accent: #e08a5f;
-    --accent-soft: #3a2a20;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
+  color-scheme: light;
+  --bg: #faf5f3;
+  --surface: #fffdfc;
+  --text: #2c2326;
+  --text-muted: #8a7a80;
+  --border: #ecdfe1;
+  --accent: #a8677c;
+  --accent-soft: #f5e6e8;
+  --shadow: 0 1px 2px rgba(70, 40, 50, 0.05), 0 12px 28px rgba(70, 40, 50, 0.08);
 }
 
 :root[data-theme="dark"] {
@@ -35,14 +22,14 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #faf8f5;
-  --surface: #ffffff;
-  --text: #201d1a;
-  --text-muted: #6b6560;
-  --border: #e7e2db;
-  --accent: #c2542f;
-  --accent-soft: #f3e3da;
-  --shadow: 0 1px 2px rgba(32, 29, 26, 0.06), 0 8px 24px rgba(32, 29, 26, 0.06);
+  --bg: #faf5f3;
+  --surface: #fffdfc;
+  --text: #2c2326;
+  --text-muted: #8a7a80;
+  --border: #ecdfe1;
+  --accent: #a8677c;
+  --accent-soft: #f5e6e8;
+  --shadow: 0 1px 2px rgba(70, 40, 50, 0.05), 0 12px 28px rgba(70, 40, 50, 0.08);
 }
 
 * {
@@ -64,15 +51,19 @@ body {
 }
 
 .page-header h1 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  letter-spacing: 0.02em;
+  margin: 0 0 0.6rem;
+  font-family: "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+  color: var(--text);
 }
 
 .page-subtitle {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
 }
 
 main {
@@ -356,7 +347,7 @@ main {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
   text-decoration: none;
@@ -370,7 +361,7 @@ main {
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(32, 29, 26, 0.1), 0 16px 32px rgba(32, 29, 26, 0.1);
+  box-shadow: 0 4px 10px rgba(70, 40, 50, 0.08), 0 18px 36px rgba(70, 40, 50, 0.12);
 }
 
 .card-thumb {

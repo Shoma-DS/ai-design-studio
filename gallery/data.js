@@ -185,5 +185,16 @@ window.LP_GALLERY_DATA = [
     featureTags: [],
     url: "https://usubeni-pink-plum-liqueur-lp.vercel.app",
     thumbnail: "assets/thumbnails/usubeni-pink-plum-liqueur-lp.jpg"
+  },
+  {
+    slug: "belle-rouge-lip-cheek-lp",
+    title: "BELLE ROUGE 彩香リップ&チーク LP",
+    heading: "唇に、灯れ。女性の色香",
+    category: "美容・コスメ",
+    moodTags: ["上品", "ロマンティック"],
+    productTags: ["美容", "コスメ", "リップ"],
+    featureTags: [],
+    url: "https://belle-rouge-lip-cheek-lp.vercel.app",
+    thumbnail: "assets/thumbnails/belle-rouge-lip-cheek-lp.jpg"
   }
 ];
