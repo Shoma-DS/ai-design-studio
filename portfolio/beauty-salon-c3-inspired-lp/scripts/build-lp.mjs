@@ -10,7 +10,6 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../
 const projectRoot = path.join(repoRoot, "portfolio/beauty-salon-c3-inspired-lp");
 const lpRoot = path.join(projectRoot, "lp");
 const imageDir = path.join(lpRoot, "images");
-const tmpDir = path.join(projectRoot, ".tmp/resized");
 const fullPath = path.join(imageDir, "lp-full.png");
 
 async function mustExist(filePath) {
@@ -21,19 +20,40 @@ async function mustExist(filePath) {
   }
 }
 
-await fs.mkdir(tmpDir, { recursive: true });
 await fs.mkdir(imageDir, { recursive: true });
 
-const resized = [];
 for (const section of sections) {
-  const src = path.join(imageDir, section.imageName);
-  await mustExist(src);
-  const out = path.join(tmpDir, section.imageName);
-  await execFileAsync("magick", [src, "-resize", `${project.outputWidth}x`, out]);
-  resized.push(out);
+  await mustExist(path.join(imageDir, section.imageName));
 }
 
-await execFileAsync("magick", [...resized, "-append", fullPath]);
+const imageNames = sections.map((s) => s.imageName);
+const pyScript = `
+import sys
+from PIL import Image
+
+image_dir = sys.argv[1]
+names = sys.argv[2:-1]
+out_width = int(sys.argv[-1])
+
+imgs = []
+for name in names:
+    im = Image.open(f"{image_dir}/{name}").convert("RGB")
+    if im.width != out_width:
+        ratio = out_width / im.width
+        im = im.resize((out_width, round(im.height * ratio)))
+    imgs.append(im)
+
+total_height = sum(im.height for im in imgs)
+canvas = Image.new("RGB", (out_width, total_height), "white")
+y = 0
+for im in imgs:
+    canvas.paste(im, (0, y))
+    y += im.height
+
+canvas.save(f"{image_dir}/lp-full.png")
+`;
+
+await execFileAsync("python3", ["-c", pyScript, imageDir, ...imageNames, String(project.outputWidth)]);
 
 const html = `<!doctype html>
 <html lang="ja">

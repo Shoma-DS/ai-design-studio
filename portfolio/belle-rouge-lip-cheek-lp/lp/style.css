@@ -21,3 +21,25 @@ body {
   width: 100%;
   height: auto;
 }
+
+.hero-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 動画は人物マスクで背景合成済み(既存FV背景をそのまま焼き込み)のため、
+   パネル装飾なしで864x1821の背景画像に対する正確な割合で重ねる。 */
+.hero-video {
+  position: absolute;
+  top: 9.01%;
+  left: 43.06%;
+  width: 51.85%;
+  height: 50.96%;
+  object-fit: cover;
+}
