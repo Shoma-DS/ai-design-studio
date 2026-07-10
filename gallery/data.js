@@ -1,6 +1,7 @@
-// LPポートフォリオギャラリーのデータ。
-// 新しいLPをVercelに公開したら、ここにエントリを追加してから
-// `cd gallery && npx vercel --prod --yes` で再公開する。
+// LPポートフォリオギャラリーのデータ（オフラインフォールバック用）。
+// 正本はNeon Postgres（landing_pagesテーブル）。通常はgallery/scripts/add-landing-page.mjsで
+// DBに登録し、/api/landing-pages経由でサイトに反映される。このファイルはDB取得失敗時の
+// フォールバックとしてのみ使われる。
 // 詳細: skills/lp-design/vercel-free-deploy/SKILL.md の「ギャラリーサイトへの追加」を参照。
 //
 // タグの分類:

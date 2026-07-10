@@ -80,6 +80,21 @@
     </div>
 
     <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script>
+      (async () => {
+        try {
+          const res = await fetch("/api/landing-pages");
+          if (res.ok) {
+            const rows = await res.json();
+            if (Array.isArray(rows) && rows.length) window.LP_GALLERY_DATA = rows;
+          }
+        } catch (error) {
+          console.warn("DBからの取得に失敗したため、data.jsのフォールバックを使用します。", error);
+        }
+        const script = document.createElement("script");
+        script.src = "script.js";
+        document.body.appendChild(script);
+      })();
+    </script>
   </body>
 </html>

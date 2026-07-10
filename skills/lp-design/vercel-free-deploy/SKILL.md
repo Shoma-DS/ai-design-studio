@@ -91,24 +91,7 @@ npm run publish:vercel
 
 ## ギャラリーサイトへの追加
 
-公開したLPは `gallery/`（ポートフォリオギャラリーサイト、`lp-portfolio-gallery`としてVercel公開済み）に必ず追加する。LPをVercel本番公開したら、次を行う。
-
-1. `node scripts/generate-thumbnail.mjs <lp/index.htmlへのパス> gallery/assets/thumbnails/<slug>.jpg` でサムネイルを生成する。
-2. `gallery/data.js` の配列に、次のスキーマでエントリを追加する。
-   ```js
-   {
-     slug: "<プロジェクトフォルダのslug>",
-     title: "<lp/index.htmlの<title>>",
-     heading: "<コピー原稿のキャッチコピー・見出し>",
-     category: "<カテゴリ1つ>",
-     tags: ["タグ1", "タグ2", "タグ3"],
-     url: "<vercelの本番URL>",
-     thumbnail: "assets/thumbnails/<slug>.jpg"
-   }
-   ```
-   カテゴリは既存エントリで使っているものを優先して再利用し、フィルタが際限なく増えないようにする。
-3. `cd gallery && npx vercel --prod --yes` でギャラリーサイトを再公開する。
-4. `curl -I` で新しいLPと更新後のギャラリーサイト、両方のHTTP 200を確認する。
+公開したLPは `gallery/`（ポートフォリオギャラリーサイト、`lp-portfolio-gallery`としてVercel公開済み、データ正本はNeon Postgresの`landing_pages`テーブル）に必ず追加する。手順・スキーマ・検証方法は `skills/lp-design/lp-gallery-sync/SKILL.md` を使う。2026-07-10からユーザー承認済みの標準工程なので、LP本体をVercel本番公開したら都度確認を取らずにギャラリー登録まで行う。
 
 ## 公式参照
 
