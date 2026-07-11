@@ -1,0 +1,247 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(11, 26, 43, 0.55), rgba(11, 26, 43, 0));
+  transition: background 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  color: var(--color-white);
+}
+
+.headerScrolled {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 0 var(--color-border);
+  color: var(--color-ink);
+}
+
+.headerMenuOpen {
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logoMark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--color-amber-500), var(--color-amber-600));
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logoMark::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 3px;
+  background: var(--color-white);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.logoText {
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logoSub {
+  font-family: var(--font-jp);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.nav {
+  flex: 1;
+  display: none;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav a {
+  position: relative;
+  padding: 6px 0;
+  transition: opacity 0.25s ease;
+}
+
+.nav a:hover {
+  opacity: 0.65;
+}
+
+.actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.buttonOutline,
+.buttonFilled {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
+}
+
+.buttonOutline {
+  border: 1px solid currentColor;
+}
+
+.buttonFilled {
+  background: var(--color-amber-600);
+  color: var(--color-white);
+}
+
+.buttonOutline:hover,
+.buttonFilled:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.menuToggle {
+  width: 32px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+  z-index: 101;
+}
+
+.menuToggle span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out), top 0.3s var(--ease-out);
+}
+
+.menuToggle span:nth-child(1) {
+  top: 0;
+}
+
+.menuToggle span:nth-child(2) {
+  top: 10px;
+}
+
+.menuToggle span:nth-child(3) {
+  top: 20px;
+}
+
+.headerMenuOpen .menuToggle span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.headerMenuOpen .menuToggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.headerMenuOpen .menuToggle span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 26, 43, 0.4);
+}
+
+.mobileNav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(360px, 84vw);
+  background: var(--color-white);
+  padding: 96px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: -8px 0 32px rgba(11, 26, 43, 0.18);
+}
+
+.mobileNav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileNav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 17px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-navy-900);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.mobileActions .buttonOutline {
+  color: var(--color-navy-900);
+  text-align: center;
+}
+
+.mobileActions .buttonFilled {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+
+  .actions {
+    display: flex;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+}
