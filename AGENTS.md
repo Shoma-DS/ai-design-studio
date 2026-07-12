@@ -19,13 +19,14 @@
 - サムネ
 - SNS投稿
 - スライド
-- LP
+- LP（1枚絵のラスターLP）
+- HP（実コードのコーポレートサイト。参考サイト分析→Next.js実装→デプロイまで。LPとの違いは`skills/design/hp-creator/SKILL.md`参照）
 - その他
 
 質問例:
 
 ```text
-今回作るものは、バナー、サムネ、SNS投稿、スライド、LPのどれですか？
+今回作るものは、バナー、サムネ、SNS投稿、スライド、LP、HPのどれですか？
 ```
 
 ## 正本フォルダ
@@ -54,6 +55,13 @@
 - セクションが1枚に収まらない場合は、情報の流れが自然につながるよう複数セクションに分割する。
 - 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする。明示的に頼まれていなくても標準工程として行う。
 - LPをVercelに本番公開したら、`skills/lp-design/lp-gallery-sync/SKILL.md` に従いポートフォリオギャラリー（Neon DB `landing_pages`）へ登録し、ギャラリーサイトを再公開する。2026-07-10からユーザー承認済みの標準工程なので、都度確認は不要。
+
+## HP制作（実コードのコーポレートサイト）
+
+- 1枚絵のLPではなく、Next.js（App Router）で実際に動くコーポレートサイトを作る場合は `skills/design/hp-creator/SKILL.md` を使う。参考サイトの分析（配色・余白・フォント・構成・導線・アニメーション・世界観の抽出）→オリジナル企画→独立Next.jsプロジェクトとしての実装（`projects/<slug>/`）→画像生成→ドキュメント化（`docs/research/`）→QA→ローカル確認、までを一気通貫で行う。
+- 画像生成はLPと同様、Codex app-server / `gpt-image-2` のみを使う。PC/SP別コンポジションで生成し、1枚を引き伸ばして両対応させない。
+- Vercelへの公開、Vercel環境変数への秘密情報書き込みは、LPと異なり2026-07-12時点でまだ標準運用として承認されていない。**都度チャットで明示的な許可を得てから実行する。**
+- 公開後にポートフォリオギャラリー（`gallery-hp/`、Neon DB `websites`テーブル）へ登録する場合は `skills/design/hp-gallery-sync/SKILL.md` を使う。
 
 ## Git
 
