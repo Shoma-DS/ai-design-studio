@@ -325,37 +325,42 @@ a {
   transform: translateX(5px);
 }
 
-/* Hero overlay positions (image 1024x1536) */
+/* Hero overlay positions (image 1536x1024, PC版新方針で作り直し) */
 .hero-ctas {
-  top: 80%;
+  top: 63%;
   left: 6.5%;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-/* Concept overlay position (image 1717x916) */
+/* Concept overlay position (image 1717x916, PC版新方針で作り直し) */
 .concept .overlay.text-link {
-  left: 5.5%;
-  top: 79%;
+  left: auto;
+  right: 3%;
+  top: 88%;
 }
 
-/* Case study overlay positions (image 864x1821, 4 stacked cards) */
+/* Case study overlay positions (image 1690x931, PC版新方針で4列横並びに再構成) */
 .case-link-1 {
-  top: 29%;
-  right: 9%;
+  top: 88%;
+  left: 8%;
+  right: auto;
 }
 .case-link-2 {
-  top: 52.5%;
-  right: 9%;
+  top: 88%;
+  left: 32%;
+  right: auto;
 }
 .case-link-3 {
-  top: 76%;
-  right: 9%;
+  top: 88%;
+  left: 56%;
+  right: auto;
 }
 .case-link-4 {
-  top: 95%;
-  right: 9%;
+  top: 88%;
+  left: 80%;
+  right: auto;
 }
 
 /* Footer overlay position (image 1536x1024) */

@@ -1,7 +1,7 @@
 export const project = {
   title: "薄紅 -usubeni- プレミアムピンク梅酒セットLP",
   sourceImage: "references/01-hero.png",
-  outputWidth: 1080,
+  outputWidth: 1200,
 };
 
 export const sections = [
