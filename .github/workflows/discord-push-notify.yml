@@ -17,10 +17,12 @@ jobs:
       REF_NAME: ${{ github.ref_name }}
       ACTOR: ${{ github.actor }}
       SHA: ${{ github.sha }}
-      COMPARE_URL: ${{ github.event.compare }}
       HEAD_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
       HEAD_COMMIT_URL: ${{ github.event.head_commit.url }}
-      RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      HEAD_COMMIT_AUTHOR_NAME: ${{ github.event.head_commit.author.name }}
+      ADDED_FILES_JSON: ${{ toJSON(github.event.head_commit.added) }}
+      REMOVED_FILES_JSON: ${{ toJSON(github.event.head_commit.removed) }}
+      MODIFIED_FILES_JSON: ${{ toJSON(github.event.head_commit.modified) }}
     steps:
       - name: Send push notification
         run: |
@@ -36,32 +38,87 @@ jobs:
           const actor = process.env.ACTOR;
           const sha = process.env.SHA;
           const shortSha = sha.slice(0, 7);
-          const compareUrl = process.env.COMPARE_URL || "";
           const commitUrl = process.env.HEAD_COMMIT_URL || "";
-          const runUrl = process.env.RUN_URL || "";
-          const rawMessage = process.env.HEAD_COMMIT_MESSAGE || "(commit message unavailable)";
-          const message = rawMessage.length > 900 ? `${rawMessage.slice(0, 897)}...` : rawMessage;
+          const authorName = process.env.HEAD_COMMIT_AUTHOR_NAME || actor || "unknown";
+          const rawMessage = process.env.HEAD_COMMIT_MESSAGE || "";
 
-          const payload = {
-            username: "GitHub Push",
-            embeds: [
-              {
-                title: `Push: ${repo}@${branch}`,
-                url: compareUrl || commitUrl || runUrl,
-                description: message,
-                color: 0x2f81f7,
-                fields: [
-                  { name: "Repository", value: repo, inline: true },
-                  { name: "Branch", value: branch, inline: true },
-                  { name: "Actor", value: actor, inline: true },
-                  { name: "Commit", value: commitUrl ? `[${shortSha}](${commitUrl})` : shortSha, inline: true },
-                  { name: "Compare", value: compareUrl ? `[View changes](${compareUrl})` : "Unavailable", inline: true },
-                  { name: "Workflow", value: runUrl ? `[Run log](${runUrl})` : "Unavailable", inline: true }
-                ],
-                timestamp: new Date().toISOString()
+          function safeJsonArray(value) {
+            try {
+              const parsed = JSON.parse(value || "[]");
+              return Array.isArray(parsed) ? parsed : [];
+            } catch {
+              return [];
+            }
+          }
+
+          const added = safeJsonArray(process.env.ADDED_FILES_JSON);
+          const removed = safeJsonArray(process.env.REMOVED_FILES_JSON);
+          const modified = safeJsonArray(process.env.MODIFIED_FILES_JSON);
+          const changedFiles = [...added, ...modified, ...removed];
+
+          // コミットメッセージの1行目 = 要約、「何をしたか:」「何が変わったの:」セクションを抽出する。
+          // このリポジトリのコミット規約（skills/common/git-workflow/SKILL.md）に沿った書式を前提にする。
+          const lines = rawMessage.split("\n");
+          const summary = (lines[0] || "(コミットメッセージなし)").trim();
+
+          function extractSection(bodyLines, header) {
+            const startIndex = bodyLines.findIndex((line) => line.trim().startsWith(header));
+            if (startIndex === -1) return null;
+            const bullets = [];
+            for (let i = startIndex + 1; i < bodyLines.length; i++) {
+              const line = bodyLines[i];
+              const trimmed = line.trim();
+              if (trimmed === "") {
+                if (bullets.length > 0) break;
+                continue;
               }
-            ]
-          };
+              if (/^(何をしたか|何が変わったの|Co-Authored-By)/.test(trimmed)) break;
+              bullets.push(trimmed.replace(/^[・\-*]\s*/, ""));
+            }
+            return bullets;
+          }
+
+          const whatBullets = extractSection(lines, "何をしたか") || [];
+          const changeBullets = extractSection(lines, "何が変わったの") || [];
+
+          if (whatBullets.length === 0) {
+            // 新書式に沿っていないコミットの場合は、本文をそのまま「何をしたか」として使う。
+            const fallback = lines.slice(1).map((l) => l.trim()).filter(Boolean);
+            whatBullets.push(...(fallback.length ? fallback : ["(詳細はコミットを確認してね)"]));
+          }
+
+          const FILE_DISPLAY_LIMIT = 4;
+          let filesLine = null;
+          if (changedFiles.length > 0) {
+            const shown = changedFiles.slice(0, FILE_DISPLAY_LIMIT).map((f) => `\`${f}\``);
+            const restCount = changedFiles.length - shown.length;
+            filesLine = `いじった/作ったファイル: ${shown.join(", ")}${restCount > 0 ? ` ほか ${restCount}こ` : ""}`;
+          }
+
+          const whatLines = [...whatBullets.map((b) => `・${b}`)];
+          if (filesLine) whatLines.push(`・${filesLine}`);
+          whatLines.push(`・プッシュしたブランチは \`${branch}\` です。`);
+
+          const parts = [
+            `👤 **作業した人:** ${authorName}`,
+            "",
+            "📤 **プッシュ**",
+            `「${summary}」をプッシュしたよ。`,
+            "",
+            "📝 **何をしたか:**",
+            whatLines.join("\n"),
+          ];
+
+          if (changeBullets.length > 0) {
+            parts.push("", "✨ **何が変わったの？:**", changeBullets.map((b) => `・${b}`).join("\n"));
+          }
+
+          parts.push("", "🔗 **見る場所:**", commitUrl || `https://github.com/${repo}/commit/${sha}`);
+
+          let content = parts.join("\n");
+          if (content.length > 1900) content = `${content.slice(0, 1897)}...`;
+
+          const payload = { username: "GitHub Push", content };
 
           (async () => {
             const response = await fetch(webhook, {
