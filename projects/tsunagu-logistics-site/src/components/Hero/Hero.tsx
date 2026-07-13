@@ -1,14 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { topics } from "@/data/site";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const [isMovieOpen, setIsMovieOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMovieOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMovieOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMovieOpen]);
+
   return (
     <section className={styles.hero}>
       <div className={styles.bgWrap}>
-        <picture>
+        <video
+          className={styles.bgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-pc.png"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <picture className={styles.bgImageFallback}>
           <source media="(min-width: 1024px)" srcSet="/images/hero-pc.png" />
           <img src="/images/hero-sp.png" alt="前を見据えるツナグ物流のドライバー" />
         </picture>
@@ -48,11 +70,13 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        <motion.div
+        <motion.button
+          type="button"
           className={styles.movie}
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 0.7, 0.3, 1] }}
+          onClick={() => setIsMovieOpen(true)}
         >
           <picture>
             <source media="(min-width: 1024px)" srcSet="/images/control-room-pc.png" />
@@ -66,9 +90,9 @@ export default function Hero() {
           <span className={styles.movieLabel}>
             会社紹介動画を見る
             <br />
-            60 sec.
+            30 sec.
           </span>
-        </motion.div>
+        </motion.button>
       </div>
 
       <div className={styles.topicsBar}>
@@ -80,6 +104,44 @@ export default function Hero() {
           →
         </span>
       </div>
+
+      <AnimatePresence>
+        {isMovieOpen ? (
+          <motion.div
+            className={styles.movieModalBackdrop}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsMovieOpen(false)}
+          >
+            <motion.div
+              className={styles.movieModal}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: [0.16, 0.7, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                className={styles.movieModalClose}
+                aria-label="閉じる"
+                onClick={() => setIsMovieOpen(false)}
+              >
+                ×
+              </button>
+              <video
+                className={styles.movieModalVideo}
+                src="/videos/company-intro.mp4"
+                controls
+                autoPlay
+                playsInline
+              />
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }
