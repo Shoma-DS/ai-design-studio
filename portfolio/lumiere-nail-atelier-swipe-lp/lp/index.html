@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Lumière Nail Atelier | プライベートネイルサロン スワイプ型LP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <div class="carousel" id="carousel">
+        <div class="track" id="track">
+          <section class="card" data-card="1">
+            <img class="card-bg" src="images/01-hook.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content">
+              <p class="brand-mark">Lumière Nail Atelier</p>
+              <h1 class="card-headline">指先にまとう、<br />上質な物語。</h1>
+            </div>
+          </section>
+
+          <section class="card" data-card="2">
+            <img class="card-bg" src="images/02-portfolio-1.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content card-content--label">
+              <p class="design-label">Design — Rose Quartz</p>
+            </div>
+          </section>
+
+          <section class="card" data-card="3">
+            <img class="card-bg" src="images/03-portfolio-2.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content card-content--label">
+              <p class="design-label">Design — Sheer Beige</p>
+            </div>
+          </section>
+
+          <section class="card" data-card="4">
+            <img class="card-bg" src="images/04-portfolio-3.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content card-content--label">
+              <p class="design-label">Design — Marble Gold</p>
+            </div>
+          </section>
+
+          <section class="card" data-card="5">
+            <img class="card-bg" src="images/05-salon-interior.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content">
+              <p class="trust-line">完全予約制のプライベートサロン</p>
+            </div>
+          </section>
+
+          <section class="card" data-card="6">
+            <img class="card-bg" src="images/06-final-cta.png" alt="" />
+            <div class="card-scrim card-scrim--bottom"></div>
+            <div class="card-content">
+              <h2 class="card-headline card-headline--sm">あなたの指先に、<br />新しい物語を。</h2>
+            </div>
+          </section>
+        </div>
+
+        <button class="nav nav--prev" id="prevBtn" aria-label="前のカード">︿</button>
+        <button class="nav nav--next" id="nextBtn" aria-label="次のカード">﹀</button>
+
+        <div class="indicator" id="indicator"></div>
+
+        <div class="sticky-cta" id="stickyCta">
+          <button class="sticky-cta-button" id="stickyCtaButton">今すぐ予約する</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

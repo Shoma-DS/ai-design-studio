@@ -5,37 +5,57 @@ description: 縦スワイプ型カルーセルLP（構成05）を、架空ブラ
 
 # スワイプ型LP制作（構成05）
 
-構成の型そのものは `skills/design/lp-layout-templates/SKILL.md` の「構成05」を参照する。このスキルは、その型を実際に動くLPとして作り切るための実装フロー（原稿→画像生成→HTML/CSS/JS→公開→ギャラリー登録）を扱う。
-実装例: `portfolio/nobiru-consulting-swipe-lp/`。
+構成の型そのものは `skills/design/lp-layout-templates/SKILL.md` の「構成05」を参照する。このスキルは、その型を実際に動くLPとして作り切るための実装フロー（原稿→画像プロンプト→画像生成→HTML/CSS/JS→公開→ギャラリー登録）を扱う。
+実装例: `portfolio/nobiru-consulting-swipe-lp/`（情報訴求型）、`portfolio/lumiere-nail-atelier-swipe-lp/`（ポートフォリオ型、セクション別ファイル管理の最新形）。
 
 ## Step 0: スタイルを決める
 
-構成05には2系統ある。ユーザー指定がなければ商材の性質で判断し、迷う場合はユーザーに確認する。
+構成05には3系統ある。ユーザー指定がなければ商材の性質で判断し、迷う場合はユーザーに確認する。
 
 - **感情訴求型**（5枚程度、写真主体、コピー少なめ）: 美容室・サロン・飲食店など、雰囲気で惹きつける業種向け。
 - **情報訴求型**（7〜8枚、数字・チェックリスト・お客様の声・代表挨拶を積み上げる）: 士業・コンサル・BtoBなど、検討期間が長く納得感の積み上げが必要な業種向け。カード構成の目安: フック→実績数字→悩みチェックリスト→解決策（番号リスト）→お客様の声（1人1カード）→代表挨拶→最終オファー。
+- **ポートフォリオ型**（5〜6枚、コピーはブランド名・タグライン・一言ラベル程度に極限まで削る）: ネイルサロン・ヘアサロン・写真スタジオなど、作品の写真そのものが訴求力を持つ業種向け。カード構成の目安: フック（ブランド名＋一言）→作品ポートフォリオ×3〜4（デザイン名ラベルのみ）→世界観・信頼カード（一言トラスト訴求）→最終CTA。参考: Tokify社のスワイプLP（`voguenail.tokify.shop`等）はこの型の実例で、コピーを一切持たず写真/動画だけで見せる構成だった。
 
-## Step 1: 架空ブランド・原稿
+## Step 1: 架空ブランド・原稿（セクションごとに個別ファイル化する）
 
-`skills/design/lp-creator` と同じ注意点に従う（実在企業・商品・ロゴ・コピーの模写は禁止、完全オリジナルの架空ブランド）。`portfolio/<slug>/copy/構成.md` にカード構成表（各カードのコピー・画像内容）を作る。
+`skills/design/lp-creator` と同じ注意点に従う（実在企業・商品・ロゴ・コピーの模写は禁止、完全オリジナルの架空ブランド）。
+
+1. `portfolio/<slug>/copy/構成.md` に、ブランド設定・参考分析・カード構成の全体像（一覧表）を作る。
+2. 各カードの画像プロンプトは `portfolio/<slug>/copy/prompts/<section-id>.md` として**1カード1ファイル**で作る。1ファイルにまとめない（AGENTS.mdの「原稿、セクション別画像プロンプト、生成画像、結合LPを分けて保存する」に従う）。ファイル内フォーマット:
+   ```markdown
+   # <section-id>（カードの役割）
+
+   共通ルール（全セクション共通）:
+   - 縦型9:16、1080×1920px相当のスマホ縦画面いっぱいに写る構図
+   - 写真（実写風）のみで、文字・ロゴ・グラフィック装飾・キャプションは一切焼き込まない
+   - 商標・実在人物・実在ブランドの模写は禁止、完全にオリジナルとして生成する
+
+   ## プロンプト
+
+   （実際のプロンプト本文）
+   ```
+   `section-id` は生成する画像ファイル名（`01-hook` など）と一致させ、あとで画像・HTML・スクリプトを横断して同じ名前で追跡できるようにする。
+   実装例: `portfolio/lumiere-nail-atelier-swipe-lp/copy/prompts/`（6ファイル）。
 
 ## Step 2: フォルダ構成
 
 ```
 portfolio/<slug>/
   copy/構成.md
+  copy/prompts/<section-id>.md   # カードごとの画像プロンプト（Step 1）
   lp/images/
   scripts/generate-images.mjs
   outputs/
   references/
 ```
 
-## Step 3: 画像生成（重要な落とし穴）
+## Step 3: 画像生成（プロンプトファイルから読み込む・重要な落とし穴）
 
+- `scripts/generate-images.mjs` はプロンプト文字列をスクリプト内にハードコードせず、`copy/prompts/<section-id>.md` を読み込んで `## プロンプト` 以降を抽出して使う。原稿（プロンプト）とコード（生成ロジック）を分離し、プロンプトだけを見直したいときにスクリプトを触らずに済むようにする。実装例: `portfolio/lumiere-nail-atelier-swipe-lp/scripts/generate-images.mjs` の `loadPrompt(id)`。
 - 各カード背景は縦9:16のポートレート写真1枚。文字・ロゴは画像に焼き込まず、後からHTML/CSSで重ねる。
 - `generateImageWithCodexAppServer` を呼ぶとき、**`taskType: "section"`（デフォルト）を使わない。** このtaskTypeは「PC/デスクトップ表示前提、最大幅1200pxで自然な高さに」という指示が内部で強制的に付与され、プロンプトで9:16を明記していても横長〜正方形の画像が返ってくる（実際に8枚中6枚が横長で返ってきた実績あり）。`taskType: "showcase"` を使うと、プロンプトのアスペクト比指定がそのまま尊重される。
 - プロンプトには次を明記する: 「幅1080px×高さ1920px（width < height）」「横長・正方形の構図は禁止」「被写体はカメラを寄せる／立ち位置を工夫して縦構図に収める」。
-- 実装例スクリプト: `portfolio/nobiru-consulting-swipe-lp/scripts/generate-images.mjs`（`refImages: []`、`taskType: "showcase"`、並列生成、生成済みファイルはスキップ）。
+- スクリプトの基本形（`refImages: []`、`taskType: "showcase"`、並列生成、生成済みファイルはスキップ）は `portfolio/nobiru-consulting-swipe-lp/scripts/generate-images.mjs` と `portfolio/lumiere-nail-atelier-swipe-lp/scripts/generate-images.mjs` を参照。後者がプロンプトファイル読み込み対応版で、新規プロジェクトはこちらの形を基本にする。
 
 ## Step 4: HTML/CSS/JS実装
 
@@ -65,4 +85,5 @@ LP単体を公開して終わりにせず、必ずポートフォリオギャラ
 - 画像生成の基盤: `server/codexImageClient.mjs`
 - 公開: `skills/lp-design/vercel-free-deploy/SKILL.md`
 - ギャラリー登録: `skills/lp-design/lp-gallery-sync/SKILL.md`
-- 実装例: `portfolio/nobiru-consulting-swipe-lp/`
+- 実装例（情報訴求型）: `portfolio/nobiru-consulting-swipe-lp/`
+- 実装例（ポートフォリオ型、プロンプトのセクション別ファイル管理版）: `portfolio/lumiere-nail-atelier-swipe-lp/`
