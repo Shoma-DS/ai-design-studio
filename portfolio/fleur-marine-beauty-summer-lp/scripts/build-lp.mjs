@@ -1,0 +1,128 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
+import { project, sections } from "../sections.mjs";
+
+const execFileAsync = promisify(execFile);
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
+const projectRoot = path.join(repoRoot, "portfolio/fleur-marine-beauty-summer-lp");
+const lpRoot = path.join(projectRoot, "lp");
+const pcImageDir = path.join(lpRoot, "images");
+const mobileImageDir = path.join(pcImageDir, "mobile");
+
+async function mustExist(filePath) {
+  try {
+    await fs.access(filePath);
+  } catch {
+    throw new Error(`Missing image: ${path.relative(repoRoot, filePath)}`);
+  }
+}
+
+await fs.mkdir(pcImageDir, { recursive: true });
+await fs.mkdir(mobileImageDir, { recursive: true });
+
+for (const section of sections) {
+  await mustExist(path.join(pcImageDir, section.imageName));
+  await mustExist(path.join(mobileImageDir, section.imageName));
+}
+
+const imageNames = sections.map((s) => s.imageName);
+
+const pyScript = `
+import sys
+from PIL import Image
+
+image_dir = sys.argv[1]
+out_name = sys.argv[2]
+out_width = int(sys.argv[3])
+names = sys.argv[4:]
+
+imgs = []
+for name in names:
+    im = Image.open(f"{image_dir}/{name}").convert("RGB")
+    if im.width != out_width:
+        ratio = out_width / im.width
+        im = im.resize((out_width, round(im.height * ratio)))
+    imgs.append(im)
+
+total_height = sum(im.height for im in imgs)
+canvas = Image.new("RGB", (out_width, total_height), "white")
+y = 0
+for im in imgs:
+    canvas.paste(im, (0, y))
+    y += im.height
+
+canvas.save(f"{image_dir}/{out_name}")
+`;
+
+await execFileAsync("python3", [
+  "-c",
+  pyScript,
+  pcImageDir,
+  "lp-full.png",
+  String(project.pcOutputWidth),
+  ...imageNames,
+]);
+
+await execFileAsync("python3", [
+  "-c",
+  pyScript,
+  mobileImageDir,
+  "lp-full-mobile.png",
+  String(project.mobileOutputWidth),
+  ...imageNames,
+]);
+
+const html = `<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${project.title}</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="lp-shell" aria-label="${project.title}">
+      <picture>
+        <source media="(max-width: 767px)" srcset="./images/mobile/lp-full-mobile.png">
+        <img class="lp-full" src="./images/lp-full.png" alt="${project.title}" decoding="async" fetchpriority="high">
+      </picture>
+    </main>
+  </body>
+</html>
+`;
+
+const css = `html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #fdf3ee;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(200, 90, 100, 0.15);
+}
+
+.lp-full {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+`;
+
+await fs.writeFile(path.join(lpRoot, "index.html"), html, "utf8");
+await fs.writeFile(path.join(lpRoot, "style.css"), css, "utf8");
+
+console.log(path.relative(repoRoot, path.join(pcImageDir, "lp-full.png")));
+console.log(path.relative(repoRoot, path.join(mobileImageDir, "lp-full-mobile.png")));
+console.log(path.relative(repoRoot, path.join(lpRoot, "index.html")));
