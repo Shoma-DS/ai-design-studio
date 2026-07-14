@@ -42,12 +42,85 @@ body {
   overflow: hidden;
 }
 
+.card--group {
+  padding: 0;
+}
+
+.h-track {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.h-card {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.h-indicator {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.h-indicator .indicator-dot {
+  width: 16px;
+  height: 3px;
+  border-radius: 999px;
+}
+
+.h-indicator .indicator-dot.active {
+  width: 16px;
+  background: #f3e2d8;
+}
+
+.h-nav {
+  right: auto;
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+}
+
+.h-nav--prev {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.h-nav--next {
+  right: 14px;
+  top: calc(50% + 54px);
+}
+
 .card-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 静止画カードにも常時ゆっくりズームをかけ、動画カードとの質感差をなくす（動画側は既にKen Burns済みなので対象外）。 */
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+img.card-bg {
+  animation: kenburns 10s ease-in-out infinite alternate;
 }
 
 .card-scrim {
@@ -76,8 +149,240 @@ body {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 
+/* カードが表示されたときに、テキストを1行ずつ時間差でスライドインさせる。
+   コンテナ自体（card-content等）は常に表示したままにし、直接の子要素ひとつひとつに
+   entrance演出とnth-childの遅延をつける（動画に焼き込む代わりの、画面比率に左右されない実装）。
+   card-content--menu / divider-content はすでに中央寄せでtranslateY(-50%)を使っているため、
+   コンテナのtransformには触れず、子要素側だけをスライドさせる。 */
+.card-content > *,
+.about-box > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.about-title {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.divider-title {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.divider-arrow {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.25s;
+}
+
+.card-content > *:nth-child(1),
+.about-box > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.card-content > *:nth-child(2),
+.about-box > *:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+.card-content > *:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.card.is-active > .card-content > *,
+.h-card.is-active .card-content > *,
+.card.is-active > .about-title,
+.card.is-active > .about-box > *,
+.h-card.is-active .divider-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.h-card.is-active .divider-arrow {
+  opacity: 1;
+}
+
 .card-content--label {
   bottom: 108px;
+}
+
+.card-scrim--top {
+  background: linear-gradient(to bottom, rgba(20, 14, 12, 0.55) 0%, rgba(20, 14, 12, 0) 30%);
+}
+
+.card-content--top {
+  bottom: auto;
+  top: 34px;
+}
+
+.card-content--menu {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card-content--review {
+  bottom: 108px;
+}
+
+.price-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.price-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(58, 42, 36, 0.25);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #3a2a24;
+  text-shadow: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.h-card.is-active .price-list li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.price-list li:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.price-list li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.price-list li:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.price-list li:nth-child(4) {
+  transition-delay: 0.5s;
+}
+
+.price-list li span:last-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.menu-note {
+  margin: 16px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #7a675e;
+  text-shadow: none;
+}
+
+.review-quote {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
+.review-stars {
+  margin: 14px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #f3e2d8;
+}
+
+.access-line {
+  margin: 8px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+}
+
+.about-title {
+  position: absolute;
+  top: 34px;
+  left: 30px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.about-box {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 108px;
+  padding: 22px 22px 24px;
+  background: rgba(243, 226, 216, 0.92);
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.about-headline {
+  margin: 0 0 12px;
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #3a2a24;
+}
+
+.about-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: #5a4a42;
+}
+
+.divider-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #3a2a24;
+}
+
+.divider-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.divider-arrow {
+  margin: 10px 0 0;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #7a675e;
+  display: inline-block;
+  animation: arrow-nudge 1.6s ease-in-out infinite;
+}
+
+@keyframes arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
 }
 
 .brand-mark {
@@ -134,11 +439,19 @@ body {
   cursor: pointer;
   backdrop-filter: blur(3px);
   z-index: 5;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, background 0.2s, transform 0.15s ease;
 }
 
 .nav:hover {
   background: rgba(255, 255, 255, 0.28);
+}
+
+.nav:active {
+  transform: scale(0.88);
+}
+
+.h-nav--prev:active {
+  transform: translateY(-50%) scale(0.88);
 }
 
 .nav--prev {
@@ -203,4 +516,9 @@ body {
   background: linear-gradient(135deg, #f3e2d8, #d9b8a3);
   box-shadow: 0 8px 22px rgba(217, 184, 163, 0.35);
   cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.sticky-cta-button:active {
+  transform: scale(0.97);
 }

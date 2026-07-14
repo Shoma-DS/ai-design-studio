@@ -43,7 +43,8 @@ description: 縦スワイプ型カルーセルLP（構成05）を、架空ブラ
 portfolio/<slug>/
   copy/構成.md
   copy/prompts/<section-id>.md   # カードごとの画像プロンプト（Step 1）
-  lp/images/
+  lp/images/                     # 静止画（全カード共通のフォールバック/posterも含む）
+  lp/videos/                     # Remotionで作ったループ動画を使う場合のみ（Step 3の補足）
   scripts/generate-images.mjs
   outputs/
   references/
@@ -57,6 +58,30 @@ portfolio/<slug>/
 - プロンプトには次を明記する: 「幅1080px×高さ1920px（width < height）」「横長・正方形の構図は禁止」「被写体はカメラを寄せる／立ち位置を工夫して縦構図に収める」。
 - スクリプトの基本形（`refImages: []`、`taskType: "showcase"`、並列生成、生成済みファイルはスキップ）は `portfolio/nobiru-consulting-swipe-lp/scripts/generate-images.mjs` と `portfolio/lumiere-nail-atelier-swipe-lp/scripts/generate-images.mjs` を参照。後者がプロンプトファイル読み込み対応版で、新規プロジェクトはこちらの形を基本にする。
 
+### 補足: 特に見せたいカードだけRemotionでループ動画にする
+
+ポートフォリオ型のように「写真の質そのもの」が訴求力になるカード（作品ショーケースなど）は、静止画の代わりに`projects/remotion-sandbox/`でループ動画を作ると質感が上がる。全カードを動画化する必要はなく、費用対効果の高い1〜数枚（フック、ポートフォリオ/ギャラリー系カードなど）に絞るのが基本。
+
+1. 対象カードの静止画（Step 3で生成済みのもの）を `projects/remotion-sandbox/public/<slug>/` にコピーする。
+2. `src/NailPortfolioLoop.tsx`（実装例）のように、`bgImage`を受け取りKen Burnsズーム（往復させてループの継ぎ目をなくす）＋控えめなシマー/光の演出を加えるコンポジションを作る。**テキストは焼き込まない**（HTMLオーバーレイと役割分担する、Step 3の方針と一貫させる）。サイズはカードに合わせて縦型（例: 1080×1920）にする。
+3. `src/Root.tsx` に `<Composition>` として登録し、`npx remotion render <id> out/<name>.mp4 --codec=h264` でレンダリングする。
+4. Web配信用に圧縮する（音声トラックがないので `-an` で除去してよい）。目安は6秒・1080×1920で1〜1.5MB程度。
+   ```bash
+   ffmpeg -y -i out/<name>.mp4 -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart out/<name>-web.mp4
+   ```
+5. `portfolio/<slug>/lp/videos/<section-id>.mp4` に配置し、HTML側で `<img class="card-bg">` の代わりに以下を使う。`poster`には元の静止画（Step 3の出力）を指定し、動画が読み込めない環境でもフォールバックが効くようにする。
+   ```html
+   <video class="card-bg" src="videos/<section-id>.mp4" poster="images/<section-id>.png" autoplay muted loop playsinline></video>
+   ```
+   `.card-bg` のCSSは `img`/`video` どちらにも同じスタイル（`position:absolute; inset:0; object-fit:cover;`）が適用されるよう、タグ名を含まないクラスセレクタのままにしておく。
+6. **ローカルの `python3 -m http.server` では動画を確認しない。** Pythonの`http.server`はHTTP Range Requestに対応しておらず、`<video>`の読み込みが止まって見えることがある（ファイル自体は正常でも再生できない）。ローカル確認する場合は `npx serve` 等Range対応のサーバーを使うか、Vercelにデプロイして確認する。
+7. 実装例: `projects/remotion-sandbox/src/NailPortfolioLoop.tsx`（テキストを焼き込まないポートフォリオ/ギャラリー系）、`projects/remotion-sandbox/src/HookIntro.tsx`（フックカード限定でテキストを動画に焼き込みspringでフェード/スライドインさせる、Tokify型に寄せたいときの型）、`portfolio/lumiere-nail-atelier-swipe-lp/lp/videos/`。
+8. フックカードだけテキストを動画に焼き込む場合、その1枚だけHTML側の`.card-content`テキストを持たせない（重複表示になるため）。他のカードはStep 4の方針どおりHTMLオーバーレイのままにする。
+
+### 補足: 動画化しないカードにも軽いフェードインを入れる
+
+全カードを動画化しなくても、`.card`/`.h-card`が現在表示中かどうかで`.card-content`等のopacityを切り替えるだけで体感の質感が上がる。`transform`はカードごとの位置指定（中央寄せ等）と衝突しやすいので、entrance演出は**opacityのみ**にする。JS側は`render()`/`renderH()`で現在表示中のカード/章内カードに`is-active`クラスを付け替えるだけでよい。実装例: `portfolio/lumiere-nail-atelier-swipe-lp/lp/style.css`・`lp/script.js`。
+
 ## Step 4: HTML/CSS/JS実装
 
 カルーセルの基本JSロジック（Pointer Events + `setPointerCapture` によるマウス/タッチ/ペン統一、矢印ナビ、インジケータードット）は `skills/design/lp-layout-templates/SKILL.md` 構成05の「実装上の注意」を参照。加えて、情報訴求型で確立した以下のパターンを使う。
@@ -65,6 +90,22 @@ portfolio/<slug>/
 - **下部scrimは情報量に応じて強める**: テキストが多いカードでは、最初の行（eyebrow）が写真の明るい部分にかかりやすくコントラスト不足になる。`card-scrim--bottom` は最低でも `rgba(0,0,0,0.85) 0% → 0.6 40% → 0.28 62% → 0 85%` 程度の多段グラデーションにする。1段階の弱いグラデーションだとeyebrowが白飛びした背景に埋もれる。
 - **常時表示CTAバー**: 最終カードだけにCTAボタンを置くと、そこまでスワイプしないと申込導線が見えない。`.carousel` 直下に `position: absolute; bottom: 0;` の固定バー（`.sticky-cta`）を置き、全カード共通で表示する。最終カード自体には重複ボタンを置かず固定バーに一本化し、タップ時は `goTo(cards.length - 1)` で最終オファーカードへジャンプさせる。
 - **インジケーターの位置**: 固定CTAバーと重ならないよう、`.indicator` の `bottom` をCTAバーの高さ分（目安94px）上げる。
+
+### 補足: 章の中に複数カードを持たせる（2軸グリッド、Tokify型の忠実な構造再現）
+
+参考にしたTokify系のスワイプLPは「縦スワイプ＝章の切り替え、横スワイプ＝章内カードの切り替え」という2軸グリッド構造で、全ての章がこの形とは限らない（単一カードの章もある）。忠実に再現したい場合はこの2軸構造を必要な章にだけ適用する。よくある章内カードのパターン:
+
+- **予告カード→本編カード**: 章の1枚目に「MENU --→」のようなタイトルのみのカードを置き、2枚目以降に本編を続ける。複数の予告カードで同じ背景画像を使い回してよい（Tokify自身もそうしている）。
+- **反復カード**: 口コミなど同じ形式のカードを複数並べる（背景画像も使い回してよく、テキストだけを差し替える）。
+- **バリエーション一覧**: ポートフォリオ/ギャラリーのように、同種のコンテンツを複数横に並べる。
+
+実装:
+
+1. 該当カードに `class="card card--group"` を付け、内部に `.h-track`（`display:flex; flex-direction:row;`）と、その中に章内カードの数だけ `.h-card`（`.card`と同じ `position:relative; flex:0 0 100%; height:100%; overflow:hidden;`）を並べる。`.card-bg`・`.card-content`等の中身は通常のカードと同じ書き方でよい。
+2. 章の中に、章専用の横方向インジケーター（`.h-indicator`、小さいドット、上部に配置）と横方向ナビボタン（`.h-nav--prev` / `.h-nav--next`）を置く。縦方向の `.nav--prev/.nav--next`（右端・画面中央）と位置が重ならないよう、横方向の「次へ」は縦ナビの下（例: `top: calc(50% + 54px)`）にずらす。
+3. JSは「グループを持つカードの配列」を汎用的に扱う設計にする（1個のグループカードだけを想定した専用変数にしない）。`cards`を走査して `card--group` を持つものだけ `{ childIndex, hTrack, hCards, hDots, hPrevBtn, hNextBtn }` を持たせ、`index`（何番目の章か）をキーにして参照する。
+4. ポインタージェスチャーは、動き始めのdeltaX/deltaYを比較して**縦方向か横方向かを一度だけ判定してロックする**（`AXIS_LOCK_THRESHOLD`程度動くまでは未確定のままにする）。ロックするのは現在表示中の章が `card--group` を持つ場合のみで、それ以外の章では常に縦方向として扱う。斜め方向のドラッグでジェスチャーがブレるのを防ぐための必須ロジック。
+5. 実装例: `portfolio/lumiere-nail-atelier-swipe-lp/lp/script.js`（`groups`配列による汎用実装）、`lp/index.html`（PORTFOLIO/MENU/ACCESSの予告カード→本編カード、REVIEWSの反復カード）。
 
 ## Step 5: モバイルファースト固定幅（PC対応はしない）
 

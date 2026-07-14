@@ -23,6 +23,11 @@ const sections = [
   { id: "04-portfolio-3", imageName: "04-portfolio-3.png" },
   { id: "05-salon-interior", imageName: "05-salon-interior.png" },
   { id: "06-final-cta", imageName: "06-final-cta.png" },
+  { id: "07-menu", imageName: "07-menu.png" },
+  { id: "08-reviews", imageName: "08-reviews.png" },
+  { id: "09-access", imageName: "09-access.png" },
+  { id: "10-divider", imageName: "10-divider.png" },
+  { id: "11-about", imageName: "11-about.png" },
 ].map((section) => ({ ...section, prompt: loadPrompt(section.id) }));
 
 const wantedIds = new Set(process.argv.slice(2));

@@ -3,8 +3,10 @@ import { Composition } from "remotion";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 import { LpHeroPromo, lpHeroPromoSchema } from "./LpHeroPromo";
+import { BeforeAfterWipe } from "./BeforeAfterWipe";
 import { TsunaguIntro } from "./TsunaguIntro";
 import { TsunaguHeroBg } from "./TsunaguHeroBg";
+import { NailPortfolioLoop, nailPortfolioLoopSchema } from "./NailPortfolioLoop";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -50,6 +52,15 @@ export const RemotionRoot: React.FC = () => {
       />
 
       <Composition
+        id="BeforeAfterWipe"
+        component={BeforeAfterWipe}
+        durationInFrames={120}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
         id="TsunaguIntro"
         component={TsunaguIntro}
         durationInFrames={900}
@@ -65,6 +76,62 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1920}
         height={1080}
+      />
+
+      <Composition
+        id="NailPortfolioRoseQuartz"
+        component={NailPortfolioLoop}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={nailPortfolioLoopSchema}
+        defaultProps={{
+          bgImage: "lumiere-nail/02-portfolio-1.png",
+          shimmerColor: "#ffe4ec",
+        }}
+      />
+
+      <Composition
+        id="NailPortfolioSheerBeige"
+        component={NailPortfolioLoop}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={nailPortfolioLoopSchema}
+        defaultProps={{
+          bgImage: "lumiere-nail/03-portfolio-2.png",
+          shimmerColor: "#fff3e2",
+        }}
+      />
+
+      <Composition
+        id="NailPortfolioMarbleGold"
+        component={NailPortfolioLoop}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={nailPortfolioLoopSchema}
+        defaultProps={{
+          bgImage: "lumiere-nail/04-portfolio-3.png",
+          shimmerColor: "#f4dfa8",
+        }}
+      />
+
+      <Composition
+        id="LumiereHookLoop"
+        component={NailPortfolioLoop}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={nailPortfolioLoopSchema}
+        defaultProps={{
+          bgImage: "lumiere-nail/01-hook.png",
+          shimmerColor: "#ffe9df",
+        }}
       />
 
       {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
