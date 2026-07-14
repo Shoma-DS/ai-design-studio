@@ -51,9 +51,10 @@
 
 - LP制作では `skills/design/lp-creator/SKILL.md` と `skills/design/image-prompt-generator/SKILL.md` を使う。
 - ボタン・ナビ・カルーセル・アコーディオンなど操作が必要な要素があるLPは `skills/design/lp-hybrid-image-html/SKILL.md`（画像+HTML/CSS/JSのハイブリッド構成）を使う。
+- 縦スワイプ型カルーセルLP（構成05、Instagram/TikTokリール風の1画面1カード形式）は `skills/design/swipe-lp-creator/SKILL.md` を使う。このタイプはスマホ専用として作り、下のPC/スマホ両対応の原則は適用しない。
 - 原稿、セクション別画像プロンプト、生成画像、結合LPを分けて保存する。
 - セクションが1枚に収まらない場合は、情報の流れが自然につながるよう複数セクションに分割する。
-- 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする。明示的に頼まれていなくても標準工程として行う。
+- 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする（スワイプ型LPを除く）。明示的に頼まれていなくても標準工程として行う。
 - LPをVercelに本番公開したら、`skills/lp-design/lp-gallery-sync/SKILL.md` に従いポートフォリオギャラリー（Neon DB `landing_pages`）へ登録し、ギャラリーサイトを再公開する。2026-07-10からユーザー承認済みの標準工程なので、都度確認は不要。
 - クライアントのWordPress／Wix／STUDIO／ペライチへ納品する場合は `skills/lp-design/platform-embed/SKILL.md` を使い、静的LP出力を各プラットフォームのカスタムHTML・埋め込み機能に貼れる形式へ変換する。実際の管理画面への貼り付け・画像アップロード・公開作業はこのリポジトリから自動化できないため、人が行う作業として案内する。
 

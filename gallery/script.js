@@ -48,11 +48,20 @@
     });
   }
 
+  // スマホ幅固定のスワイプ型LP（PC非対応）は、PCタブ自体を出さずスマホ表示に固定する。
+  function isMobileOnlyItem(item) {
+    return Array.isArray(item.featureTags) && item.featureTags.includes("スワイプ");
+  }
+
   function openPreview(item) {
     previewTitle.textContent = item.title;
     previewOpenLink.href = item.url;
     previewIframe.src = item.url;
-    setDevice("pc");
+    const mobileOnly = isMobileOnlyItem(item);
+    deviceButtons.forEach((btn) => {
+      btn.hidden = mobileOnly && btn.dataset.device === "pc";
+    });
+    setDevice(mobileOnly ? "mobile" : "pc");
     previewModal.hidden = false;
     lockBodyScroll();
   }
