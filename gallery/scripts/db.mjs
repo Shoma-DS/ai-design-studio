@@ -51,3 +51,34 @@ export async function upsertLandingPage(entry) {
       updated_at = now()
   `;
 }
+
+export async function upsertAnimation(entry) {
+  const {
+    slug,
+    name,
+    category,
+    description,
+    cssCode,
+    htmlSnippet = null,
+    jsCode = null,
+    tags = [],
+    useCase = null,
+    moodTags = []
+  } = entry;
+
+  await sql`
+    insert into animations (slug, name, category, description, css_code, html_snippet, js_code, tags, use_case, mood_tags, updated_at)
+    values (${slug}, ${name}, ${category}, ${description}, ${cssCode}, ${htmlSnippet}, ${jsCode}, ${tags}, ${useCase}, ${moodTags}, now())
+    on conflict (slug) do update set
+      name = excluded.name,
+      category = excluded.category,
+      description = excluded.description,
+      css_code = excluded.css_code,
+      html_snippet = excluded.html_snippet,
+      js_code = excluded.js_code,
+      tags = excluded.tags,
+      use_case = excluded.use_case,
+      mood_tags = excluded.mood_tags,
+      updated_at = now()
+  `;
+}

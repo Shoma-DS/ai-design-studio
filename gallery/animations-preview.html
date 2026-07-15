@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>アニメーションスニペット プレビュー</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+    margin: 0;
+    padding: 32px;
+    background: #f5f5f7;
+    color: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #16161a; color: #eee; }
+    .card { background: #222 !important; border-color: #333 !important; }
+  }
+  h1 { font-size: 24px; margin-bottom: 6px; }
+  .sub { color: #777; font-size: 14px; margin-bottom: 32px; line-height: 1.6; }
+  @media (prefers-color-scheme: dark) { .sub { color: #aaa; } }
+  h2.category {
+    font-size: 18px;
+    margin: 40px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ddd;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .demo {
+    height: 220px;
+    border-bottom: 1px solid #e2e2e2;
+    position: relative;
+  }
+  .demo iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .replay {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .demo:hover .replay,
+  .demo:focus-within .replay {
+    opacity: 1;
+  }
+  .cardbody { padding: 16px 18px; }
+  .name { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .slug { font-size: 12px; color: #999; margin-bottom: 10px; }
+  .desc { font-size: 14px; line-height: 1.7; color: #444; margin-bottom: 10px; }
+  @media (prefers-color-scheme: dark) { .desc { color: #ccc; } }
+  .use-case { font-size: 13px; color: #6a4fd6; margin-bottom: 10px; line-height: 1.6; }
+  @media (prefers-color-scheme: dark) { .use-case { color: #b8a6ff; } }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11.5px;
+    background: #f0eefc;
+    color: #6a4fd6;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .tag { background: #2a2440; color: #b8a6ff; }
+  }
+  .mood-tag {
+    font-size: 11.5px;
+    background: #eef6f0;
+    color: #1f8a4c;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  @media (prefers-color-scheme: dark) {
+    .mood-tag { background: #16321f; color: #6fd695; }
+  }
+  .hover-hint {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(26, 26, 26, 0.8);
+    color: #fff;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+  }
+  .demo:hover .hover-hint {
+    opacity: 0;
+  }
+  .mood-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .mood-filter button {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+  }
+  .mood-filter button.is-active {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    .mood-filter button { background: #222; color: #eee; border-color: #444; }
+    .mood-filter button.is-active { background: #6fd695; color: #111; border-color: #6fd695; }
+  }
+  .card.is-hidden { display: none; }
+</style>
+</head>
+<body>
+<h1>アニメーションスニペット プレビュー</h1>
+<div class="sub">Neon DB (animations テーブル) の内容をローカルで確認する一覧。ホバー・クリック・スクロールで動きを確認できます。一度きりの演出は右上の「再生」で再実行できます。</div>
+<div class="mood-filter" id="mood-filter"></div>
+<div id="root"></div>
+
+<script id="animations-data" type="application/json">[{"slug":"title-fade-up-blur","name":"見出しフェードアップ(ぼかし)","category":"title","description":"見出しが下から浮かび上がりながら、ぼかしが晴れて表示される。上品で落ち着いた第一印象を作る。","cssCode":".fade-up-blur {\n  opacity: 0;\n  transform: translateY(24px);\n  filter: blur(6px);\n  animation: fadeUpBlur 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}\n@keyframes fadeUpBlur {\n  to {\n    opacity: 1;\n    transform: translateY(0);\n    filter: blur(0);\n  }\n}","htmlSnippet":"<h1 class=\"fade-up-blur\">Sample</h1>","jsCode":null,"tags":["title","hero","fade","blur","上品","美容"],"useCase":"LPファーストビューの見出し、HPのヒーロータイトル","moodTags":["オシャレ","見やすい"]},{"slug":"title-char-stagger","name":"見出し1文字ずつ表示","category":"title","description":"見出しの文字が1文字ずつ時間差でふわっと現れる。キャッチコピーを印象づけたい時に。","cssCode":".char-stagger span {\n  display: inline-block;\n  opacity: 0;\n  transform: translateY(0.4em);\n  animation: charIn 0.6s ease forwards;\n}\n@keyframes charIn {\n  to { opacity: 1; transform: translateY(0); }\n}","htmlSnippet":"<h2 class=\"char-stagger\" data-text=\"Sample\"></h2>","jsCode":"function staggerText(el) {\n  const text = el.dataset.text || el.textContent;\n  el.textContent = \"\";\n  [...text].forEach((ch, i) => {\n    const span = document.createElement(\"span\");\n    span.textContent = ch === \" \" ? \"\\u00A0\" : ch;\n    span.style.animationDelay = `${i * 0.05}s`;\n    el.appendChild(span);\n  });\n}\ndocument.querySelectorAll(\".char-stagger\").forEach(staggerText);","tags":["title","text","stagger","キャッチコピー"],"useCase":"キャッチコピーの強調演出","moodTags":["ポップ","見やすい"]},{"slug":"gradient-text-shimmer","name":"グラデーション文字シマー","category":"title","description":"見出し文字にグラデーションが左右に流れ、光沢のあるテキストに見せる。高級感の演出に。","cssCode":".gradient-shimmer {\n  background: linear-gradient(90deg, #b08d57, #f5e6c8, #b08d57);\n  background-size: 200% auto;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  animation: shimmer 3s linear infinite;\n}\n@keyframes shimmer {\n  to { background-position: -200% center; }\n}","htmlSnippet":"<span class=\"gradient-shimmer\">Sample</span>","jsCode":null,"tags":["title","gradient","gold","高級感","美容","ネイル"],"useCase":"高級感・美容系LPのロゴやキャッチコピー","moodTags":["オシャレ","派手"]},{"slug":"typewriter","name":"タイプライター表示","category":"title","description":"文字が左から順にタイプされるように表示され、カーソルが点滅する。width/stepsの数値は表示する文字数に合わせて調整する。","cssCode":".typewriter {\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  width: 6ch; /* 文字数に応じて調整 */\n  border-right: 2px solid currentColor;\n  animation: typing 2.5s steps(6, end), blink 0.75s step-end infinite;\n}\n@keyframes typing {\n  from { width: 0; }\n  to { width: 6ch; }\n}\n@keyframes blink { 50% { border-color: transparent; } }","htmlSnippet":"<span class=\"typewriter\">Sample</span>","jsCode":null,"tags":["title","typewriter","キャッチコピー"],"useCase":"サービス紹介の一言キャッチコピー","moodTags":["シンプル"]},{"slug":"underline-grow","name":"下線が伸びる強調","category":"title","description":"見出しやキーワードの下線が左から右へ伸びて表示され、視線を誘導する。","cssCode":".underline-grow {\n  position: relative;\n  display: inline-block;\n}\n.underline-grow::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: -4px;\n  width: 100%;\n  height: 2px;\n  background: currentColor;\n  transform: scaleX(0);\n  transform-origin: left;\n  animation: growLine 0.8s ease forwards 0.3s;\n}\n@keyframes growLine { to { transform: scaleX(1); } }","htmlSnippet":"<span class=\"underline-grow\">Sample</span>","jsCode":null,"tags":["title","underline","強調"],"useCase":"キーワードの強調、見出しの装飾","moodTags":["シンプル","見やすい"]},{"slug":"scroll-fade-up","name":"スクロールで下から表示","category":"scroll","description":"要素が画面内に入ったタイミングで下からふわっと表示される、最も汎用的なセクション登場演出。","cssCode":".reveal {\n  opacity: 0;\n  transform: translateY(32px);\n  transition: opacity 0.8s ease, transform 0.8s ease;\n}\n.reveal.is-visible {\n  opacity: 1;\n  transform: translateY(0);\n}","htmlSnippet":"<div class=\"reveal\">Sample</div>","jsCode":"const observer = new IntersectionObserver((entries) => {\n  entries.forEach((entry) => {\n    if (entry.isIntersecting) {\n      entry.target.classList.add(\"is-visible\");\n      observer.unobserve(entry.target);\n    }\n  });\n}, { threshold: 0.2 });\ndocument.querySelectorAll(\".reveal\").forEach((el) => observer.observe(el));","tags":["scroll","reveal","fade","汎用"],"useCase":"LP各セクションの登場演出(全カテゴリ共通で使える)","moodTags":["シンプル","見やすい"]},{"slug":"button-shine-sweep","name":"ボタン光沢スイープ","category":"button","description":"ボタンにカーソルを乗せると、光の帯が斜めに通過するホバー演出。","cssCode":".btn-shine {\n  position: relative;\n  overflow: hidden;\n}\n.btn-shine::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -75%;\n  width: 50%;\n  height: 100%;\n  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);\n  transform: skewX(-20deg);\n  transition: left 0.6s ease;\n}\n.btn-shine:hover::before { left: 125%; }","htmlSnippet":"<button class=\"btn-shine\">Sample</button>","jsCode":null,"tags":["button","hover","shine","cta"],"useCase":"CTAボタンのホバー演出","moodTags":["派手","オシャレ"]},{"slug":"pulse-cta","name":"CTAボタンの脈動","category":"button","description":"CTAボタンが呼吸するようにゆっくり拡大縮小を繰り返し、自然に目線を誘導する。","cssCode":".pulse-cta {\n  animation: pulseCta 2s ease-in-out infinite;\n}\n@keyframes pulseCta {\n  0%, 100% {\n    transform: scale(1);\n    box-shadow: 0 0 0 0 rgba(200, 150, 80, 0.5);\n  }\n  50% {\n    transform: scale(1.04);\n    box-shadow: 0 0 0 10px rgba(200, 150, 80, 0);\n  }\n}","htmlSnippet":"<button class=\"pulse-cta\">Sample</button>","jsCode":null,"tags":["button","pulse","cta","予約","購入"],"useCase":"予約・購入ボタンなど最重要CTA","moodTags":["派手","見やすい"]},{"slug":"image-hover-zoom","name":"画像ホバーズーム","category":"image","description":"画像にマウスを乗せるとゆっくり拡大表示される。カード型のギャラリーや商品一覧に。","cssCode":".hover-zoom {\n  overflow: hidden;\n}\n.hover-zoom img {\n  display: block;\n  width: 100%;\n  transition: transform 0.6s ease;\n}\n.hover-zoom:hover img {\n  transform: scale(1.08);\n}","htmlSnippet":"<div class=\"hover-zoom\"><img src=\"https://picsum.photos/seed/sample/400/300\" alt=\"Sample\"></div>","jsCode":null,"tags":["image","hover","zoom","gallery","商品"],"useCase":"ギャラリー・商品画像カードのホバー演出","moodTags":["シンプル","見やすい"]},{"slug":"count-up-number","name":"数字カウントアップ","category":"number","description":"数字が0から目標値まで一気にカウントアップする。実績や満足度の表示に説得力を出す。","cssCode":"/* CSSのみでは実現不可。JSで textContent を書き換える */","htmlSnippet":"<span class=\"count-up\" data-target=\"1000\">0</span>","jsCode":"function countUp(el, duration = 1500) {\n  const target = Number(el.dataset.target);\n  const start = performance.now();\n  function tick(now) {\n    const progress = Math.min((now - start) / duration, 1);\n    el.textContent = Math.floor(progress * target).toLocaleString();\n    if (progress < 1) requestAnimationFrame(tick);\n  }\n  requestAnimationFrame(tick);\n}\ndocument.querySelectorAll(\".count-up\").forEach((el) => countUp(el));","tags":["number","count-up","実績","満足度"],"useCase":"「導入実績1000件」「満足度98%」などの実績訴求","moodTags":["見やすい","シンプル"]},{"slug":"parallax-bg","name":"パララックス背景","category":"background","description":"背景画像がスクロール速度と異なる速度で動き、奥行きを演出する。CTA・予約導線セクション向け。","cssCode":".parallax-section {\n  background-attachment: fixed;\n  background-position: center;\n  background-size: cover;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #fff;\n  font-size: 20px;\n}\n/* iOS Safariはbackground-attachment:fixedが効きにくいため、\n   モバイルはJSでtransformを使ったフォールバックを推奨 */","htmlSnippet":"<section class=\"parallax-section\" style=\"background-image:url('https://picsum.photos/seed/parallax/800/600')\">Sample</section>","jsCode":null,"tags":["background","parallax","cta","問い合わせ","予約"],"useCase":"CTA(問い合わせ・予約誘導)セクションの背景演出","moodTags":["オシャレ"]},{"slug":"marquee-loop","name":"ロゴ無限マーキー","category":"装飾","description":"導入企業ロゴやメディア掲載バッジが横方向に途切れなく無限スクロールする。","cssCode":".marquee {\n  overflow: hidden;\n  white-space: nowrap;\n}\n.marquee__track {\n  display: inline-flex;\n  gap: 48px;\n  animation: marqueeScroll 20s linear infinite;\n}\n.marquee__track span {\n  padding: 8px 20px;\n  border: 1px solid #ddd;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #888;\n}\n@keyframes marqueeScroll {\n  from { transform: translateX(0); }\n  to { transform: translateX(-50%); }\n}","htmlSnippet":"<div class=\"marquee\"><div class=\"marquee__track\">\n  <span>Sample</span><span>Sample</span><span>Sample</span><span>Sample</span>\n  <span>Sample</span><span>Sample</span><span>Sample</span><span>Sample</span>\n</div></div>","jsCode":null,"tags":["marquee","logo","導入実績","メディア掲載"],"useCase":"導入企業ロゴ・メディア掲載バッジの帯(spanの中身を実際のロゴ画像に差し替えて使う)","moodTags":["シンプル","見やすい"]},{"slug":"title-glow-illumination","name":"文字が光り輝くイルミネーション","category":"title","description":"文字がぼんやりと光り輝くグロー演出。プロダクト系LPで見かける高級感のある光の表現。","cssCode":".glow-illumination {\n  color: #fff;\n  text-shadow:\n    0 0 8px rgba(255, 255, 255, 0.6),\n    0 0 24px rgba(160, 200, 255, 0.5),\n    0 0 48px rgba(120, 170, 255, 0.4);\n  animation: glowPulse 3s ease-in-out infinite;\n}\n@keyframes glowPulse {\n  0%, 100% {\n    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 24px rgba(160, 200, 255, 0.4), 0 0 48px rgba(120, 170, 255, 0.3);\n  }\n  50% {\n    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 32px rgba(160, 200, 255, 0.6), 0 0 64px rgba(120, 170, 255, 0.5);\n  }\n}","htmlSnippet":"<h1 class=\"glow-illumination\" style=\"background:#0a0a12;padding:16px;\">Sample</h1>","jsCode":null,"tags":["title","glow","光","高級感","テキスト効果"],"useCase":"暗い背景のプロダクト・ハイテク系LPの見出し","moodTags":["派手","オシャレ"]},{"slug":"title-aurora-gradient","name":"オーロラ風グラデーション文字","category":"title","description":"オーロラのように複数色のグラデーションがゆらめきながら流れる、幻想的な文字演出。","cssCode":".aurora-text {\n  background: linear-gradient(120deg, #7f5af0, #2cb67d, #ff8906, #7f5af0);\n  background-size: 300% 300%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  animation: auroraFlow 6s ease infinite;\n}\n@keyframes auroraFlow {\n  0% { background-position: 0% 50%; }\n  50% { background-position: 100% 50%; }\n  100% { background-position: 0% 50%; }\n}","htmlSnippet":"<h2 class=\"aurora-text\">Sample</h2>","jsCode":null,"tags":["title","gradient","aurora","幻想的","テキスト効果"],"useCase":"世界観訴求・ブランディング系LPの見出し","moodTags":["派手","オシャレ"]},{"slug":"title-neon-glow","name":"ネオンサイン風点滅テキスト","category":"title","description":"ネオンサインのようにチカチカと点滅しながら光るテキスト。夜・エンタメ・美容系の演出に。","cssCode":".neon-text {\n  color: #fff;\n  background: #1a1a1a;\n  padding: 8px 16px;\n  text-shadow:\n    0 0 4px #fff,\n    0 0 10px #ff2ee6,\n    0 0 20px #ff2ee6,\n    0 0 40px #ff2ee6;\n  animation: neonFlicker 2.5s infinite alternate;\n}\n@keyframes neonFlicker {\n  0%, 18%, 22%, 25%, 53%, 57%, 100% {\n    text-shadow: 0 0 4px #fff, 0 0 10px #ff2ee6, 0 0 20px #ff2ee6, 0 0 40px #ff2ee6;\n  }\n  20%, 24%, 55% {\n    text-shadow: none;\n  }\n}","htmlSnippet":"<span class=\"neon-text\">Sample</span>","jsCode":null,"tags":["title","neon","点滅","夜","エンタメ","テキスト効果"],"useCase":"夜・エンタメ・ナイトサロン系LPの見出し","moodTags":["派手","ポップ"]},{"slug":"title-wave-shimmer","name":"波打ちながら光る文字","category":"title","description":"文字がゆらゆらと波打つように上下しながら、光沢がきらりと流れる演出。1文字ずつspanで囲んで使う。","cssCode":".wave-shimmer span {\n  display: inline-block;\n  animation: waveMotion 2.4s ease-in-out infinite;\n  background: linear-gradient(90deg, #1a1a1a 40%, #fff 50%, #1a1a1a 60%);\n  background-size: 300% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n}\n@keyframes waveMotion {\n  0%, 100% { transform: translateY(0); background-position: 0% 0; }\n  50% { transform: translateY(-6px); background-position: -200% 0; }\n}","htmlSnippet":"<h2 class=\"wave-shimmer\"><span style=\"animation-delay:0s\">S</span><span style=\"animation-delay:0.1s\">a</span><span style=\"animation-delay:0.2s\">m</span><span style=\"animation-delay:0.3s\">p</span><span style=\"animation-delay:0.4s\">l</span><span style=\"animation-delay:0.5s\">e</span></h2>","jsCode":null,"tags":["title","wave","shimmer","水","美容","テキスト効果"],"useCase":"水・美容系LPのやわらかい見出し演出(title-char-staggerの文字分割JSと併用可)","moodTags":["ポップ","オシャレ"]},{"slug":"text-highlighter-marker","name":"蛍光マーカー風ハイライト","category":"装飾","description":"蛍光マーカーで線を引いたようなハイライトが後から重なって表示される、実用的な強調表現。","cssCode":".highlight-marker {\n  position: relative;\n  display: inline;\n}\n.highlight-marker::before {\n  content: \"\";\n  position: absolute;\n  left: -2px;\n  right: -2px;\n  bottom: 0.05em;\n  height: 0.5em;\n  background: #ffe066;\n  z-index: -1;\n  transform: scaleX(0);\n  transform-origin: left;\n  animation: markerSweep 0.6s ease forwards 0.2s;\n}\n@keyframes markerSweep {\n  to { transform: scaleX(1); }\n}","htmlSnippet":"<p>This is a <span class=\"highlight-marker\">Sample</span> text.</p>","jsCode":null,"tags":["highlight","marker","強調","本文","テキスト効果"],"useCase":"本文中のキーワード強調、料金・実績数値の強調","moodTags":["ポップ","見やすい"]},{"slug":"title-bouncing-letters","name":"文字が跳ねるバウンス演出","category":"title","description":"文字が1文字ずつ順番にポンポンと弾むように跳ねる、親しみやすいポップな演出。","cssCode":".bounce-letters span {\n  display: inline-block;\n  animation: letterBounce 1.2s ease infinite;\n}\n@keyframes letterBounce {\n  0%, 100% { transform: translateY(0); }\n  30% { transform: translateY(-10px); }\n  50% { transform: translateY(0); }\n}","htmlSnippet":"<h2 class=\"bounce-letters\"><span style=\"animation-delay:0s\">S</span><span style=\"animation-delay:0.1s\">a</span><span style=\"animation-delay:0.2s\">m</span><span style=\"animation-delay:0.3s\">p</span><span style=\"animation-delay:0.4s\">l</span><span style=\"animation-delay:0.5s\">e</span></h2>","jsCode":"// title-char-stagger と同じ文字分割関数を使い、span.style.animationDelay を i * 0.1s ずつずらす","tags":["title","bounce","ポップ","カジュアル","テキスト効果"],"useCase":"子供向け・カジュアル・キャンペーン系LPの見出し","moodTags":["ポップ"]},{"slug":"marquee-hover-slow","name":"ホバーで減速するロゴマーキー","category":"装飾","description":"ロゴやバッジが横に無限スクロールし、カーソルを乗せると滑らかに減速してじっくり見せられる。","cssCode":".marquee-hover {\n  overflow: hidden;\n  white-space: nowrap;\n}\n.marquee-hover__track {\n  display: inline-flex;\n  gap: 48px;\n  animation: marqueeScroll 20s linear infinite;\n  transition: animation-duration 0.4s ease;\n}\n.marquee-hover:hover .marquee-hover__track {\n  animation-duration: 60s;\n}\n.marquee-hover__track span {\n  padding: 8px 20px;\n  border: 1px solid #ddd;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #888;\n}\n@keyframes marqueeScroll {\n  from { transform: translateX(0); }\n  to { transform: translateX(-50%); }\n}","htmlSnippet":"<div class=\"marquee-hover\"><div class=\"marquee-hover__track\">\n  <span>Sample</span><span>Sample</span><span>Sample</span><span>Sample</span>\n  <span>Sample</span><span>Sample</span><span>Sample</span><span>Sample</span>\n</div></div>","jsCode":null,"tags":["marquee","logo","hover","導入実績","メディア掲載"],"useCase":"導入企業ロゴ・メディア掲載バッジ(ホバーでじっくり見せたい場合)、marquee-loopの発展形","moodTags":["シンプル","見やすい"]},{"slug":"text-block-reveal","name":"ブロックスイープ文字表示","category":"title","description":"色付きのバーが文字の上を左から右へ通過し、通過した瞬間にテキストが現れる上品な見出し表示。","cssCode":".block-reveal-wrap {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n}\n.block-reveal-text {\n  display: inline-block;\n  opacity: 0;\n  animation: revealTextShow 0.1s linear forwards 0.6s;\n}\n.block-reveal-bar {\n  position: absolute;\n  inset: 0;\n  background: #1a1a1a;\n  animation: revealBarSweep 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;\n}\n@keyframes revealBarSweep {\n  0% { transform: scaleX(0); transform-origin: left; }\n  50% { transform: scaleX(1); transform-origin: left; }\n  51% { transform-origin: right; }\n  100% { transform: scaleX(0); transform-origin: right; }\n}\n@keyframes revealTextShow {\n  to { opacity: 1; }\n}","htmlSnippet":"<span class=\"block-reveal-wrap\"><span class=\"block-reveal-text\">Sample</span><span class=\"block-reveal-bar\"></span></span>","jsCode":null,"tags":["title","reveal","block","上品","テキスト効果"],"useCase":"ブランド系LP・HPの上品な見出し登場演出","moodTags":["オシャレ","見やすい"]},{"slug":"text-reveal-conic-gradient","name":"扇状に浮かび上がる文字表示","category":"title","description":"conic-gradientを使い、文字が扇状にぼんやりと浮かび上がるように表示される。モダンブラウザ向け。","cssCode":"@property --reveal-angle {\n  syntax: '<angle>';\n  inherits: false;\n  initial-value: 0deg;\n}\n.conic-reveal {\n  background: conic-gradient(from 0deg, #1a1a1a var(--reveal-angle), transparent var(--reveal-angle));\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  animation: conicReveal 1.5s ease forwards;\n}\n@keyframes conicReveal {\n  to { --reveal-angle: 360deg; }\n}\n/* Safari/Firefoxの一部バージョンは@propertyに非対応。非対応環境ではグラデーション無しの通常表示にフォールバックする */","htmlSnippet":"<h2 class=\"conic-reveal\">Sample</h2>","jsCode":null,"tags":["title","conic-gradient","reveal","モダンCSS","テキスト効果"],"useCase":"ロゴ・キャッチコピーの登場演出(対応ブラウザ限定)","moodTags":["オシャレ"]},{"slug":"title-twist-hover","name":"ホバーで回転する文字","category":"title","description":"ホバーすると文字がくるりと3D回転して見える演出。ナビゲーションやボタンラベルに。","cssCode":".twist-hover {\n  display: inline-block;\n  transition: transform 0.5s ease;\n  transform-style: preserve-3d;\n}\n.twist-hover:hover {\n  transform: rotateX(360deg);\n}","htmlSnippet":"<a href=\"#\" class=\"twist-hover\">Sample</a>","jsCode":null,"tags":["title","hover","3d","回転","ナビゲーション","テキスト効果"],"useCase":"ナビゲーションリンク、ボタンラベルのホバー演出","moodTags":["ポップ"]},{"slug":"logo-stroke-draw","name":"輪郭線が描かれるロゴ表示","category":"装飾","description":"ロゴやタイトルの輪郭線が、ペンで描くように少しずつ現れるSVGストロークアニメーション。","cssCode":".stroke-draw path {\n  fill: none;\n  stroke: currentColor;\n  stroke-width: 2;\n  stroke-dasharray: 300;\n  stroke-dashoffset: 300;\n  animation: drawStroke 2s ease forwards;\n}\n@keyframes drawStroke {\n  to { stroke-dashoffset: 0; }\n}\n/* stroke-dasharray/dashoffsetの数値は、実際のpathの長さ(element.getTotalLength())に合わせて調整する */","htmlSnippet":"<svg class=\"stroke-draw\" viewBox=\"0 0 200 60\"><path d=\"M10,40 Q100,-10 190,40\" /></svg>","jsCode":null,"tags":["logo","svg","stroke","ブランド","テキスト効果"],"useCase":"ロゴ・ブランド名の登場演出、サービスタイトルの装飾","moodTags":["オシャレ","シンプル"]},{"slug":"text-shadow-emboss","name":"エンボス風の浮き上がり文字","category":"title","description":"文字がふわっと浮き上がって見える、上下2色の影を使ったエンボス風テキストシャドウ。","cssCode":".emboss-text {\n  color: #e8e8ec;\n  background: #d8d8de;\n  padding: 8px 16px;\n  animation: embossBreath 3s ease-in-out infinite;\n}\n@keyframes embossBreath {\n  0%, 100% {\n    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7), -1px -1px 1px rgba(0, 0, 0, 0.25);\n  }\n  50% {\n    text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.9), -2px -2px 2px rgba(0, 0, 0, 0.35);\n  }\n}","htmlSnippet":"<h2 class=\"emboss-text\">Sample</h2>","jsCode":null,"tags":["title","emboss","shadow","高級感","立体感","テキスト効果"],"useCase":"明るい背景での高級感・立体感の演出(見出し・ロゴ)","moodTags":["シンプル","オシャレ"]},{"slug":"text-scroll-driven-reveal","name":"スクロール連動テキスト表示","category":"scroll","description":"スクロール量に連動して文字が左から徐々にはっきり表示される、scroll-timelineを使ったモダンな演出。","cssCode":".scroll-reveal-text {\n  clip-path: inset(0 100% 0 0);\n  animation: scrollRevealClip linear;\n  animation-timeline: view();\n  animation-range: entry 0% cover 40%;\n}\n@keyframes scrollRevealClip {\n  to { clip-path: inset(0 0 0 0); }\n}\n/* animation-timeline: view() は2023年以降のChromium系ブラウザのみ対応。\n   Safari/Firefoxは非対応のため、scroll-fade-upのIntersectionObserver版をフォールバックとして用意する */","htmlSnippet":"<h2 class=\"scroll-reveal-text\">Sample</h2>","jsCode":null,"tags":["scroll","scroll-timeline","reveal","モダンCSS","テキスト効果"],"useCase":"ストーリーテリング型LPの本文セクション見出し(対応ブラウザ限定、他はscroll-fade-upで代替)","moodTags":["オシャレ","見やすい"]},{"slug":"loading-spinner","name":"円形ローディングスピナー","category":"loading","description":"シンプルな円形ローディングスピナー。データ読み込み中の待機表示に。","cssCode":".spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid rgba(0, 0, 0, 0.1);\n  border-top-color: #333;\n  border-radius: 50%;\n  animation: spin 0.8s linear infinite;\n}\n@keyframes spin {\n  to { transform: rotate(360deg); }\n}","htmlSnippet":"<div class=\"spinner\"></div>","jsCode":null,"tags":["loading","spinner","基本"],"useCase":"フォーム送信中、データ読み込み中の待機表示","moodTags":["シンプル","見やすい"]},{"slug":"skeleton-loading-shimmer","name":"スケルトンローディング","category":"loading","description":"コンテンツ読み込み前に表示する、光が流れるスケルトンプレースホルダー。","cssCode":".skeleton {\n  background: linear-gradient(90deg, #d0d0d0 25%, #e8e8e8 50%, #d0d0d0 75%);\n  background-size: 200% 100%;\n  animation: skeletonShimmer 1.4s ease-in-out infinite;\n  border-radius: 4px;\n}\n@keyframes skeletonShimmer {\n  0% { background-position: 200% 0; }\n  100% { background-position: -200% 0; }\n}","htmlSnippet":"<div class=\"skeleton\" style=\"width:100%;height:18px;margin-bottom:10px;\"></div>\n<div class=\"skeleton\" style=\"width:80%;height:18px;margin-bottom:10px;\"></div>\n<div class=\"skeleton\" style=\"width:60%;height:18px;\"></div>","jsCode":null,"tags":["loading","skeleton","基本"],"useCase":"画像・カード・記事一覧のローディングプレースホルダー","moodTags":["シンプル","見やすい"]},{"slug":"scroll-progress-bar","name":"スクロール進行バー","category":"scroll","description":"ページ上部に、スクロール量に応じて伸びるプログレスバーを表示する読了インジケーター。","cssCode":".scroll-progress {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 4px;\n  width: 0%;\n  background: #1a1a1a;\n  z-index: 9999;\n  transition: width 0.1s ease-out;\n}","htmlSnippet":"<div class=\"scroll-progress\"></div>","jsCode":"const bar = document.querySelector(\".scroll-progress\");\nfunction updateProgress() {\n  const scrollTop = document.documentElement.scrollTop;\n  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;\n  bar.style.width = `${(scrollTop / scrollHeight) * 100}%`;\n}\nwindow.addEventListener(\"scroll\", updateProgress);","tags":["scroll","progress-bar","読了","基本"],"useCase":"長文コラム・ブログ記事、長いLPの読了度表示","moodTags":["シンプル","見やすい"]},{"slug":"back-to-top-fade","name":"トップへ戻るボタン","category":"scroll","description":"一定量スクロールすると、画面右下にトップへ戻るボタンがふわっと現れる。","cssCode":".back-to-top {\n  position: fixed;\n  right: 24px;\n  bottom: 24px;\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  opacity: 0;\n  visibility: hidden;\n  transform: translateY(16px);\n  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;\n}\n.back-to-top.is-visible {\n  opacity: 1;\n  visibility: visible;\n  transform: translateY(0);\n}","htmlSnippet":"<button class=\"back-to-top\">↑</button>","jsCode":"const btn = document.querySelector(\".back-to-top\");\nwindow.addEventListener(\"scroll\", () => {\n  btn.classList.toggle(\"is-visible\", window.scrollY > 400);\n});\nbtn.addEventListener(\"click\", () => window.scrollTo({ top: 0, behavior: \"smooth\" }));","tags":["scroll","back-to-top","基本"],"useCase":"長いLP/コラムページのトップへ戻る導線","moodTags":["シンプル","見やすい"]},{"slug":"hamburger-menu-morph","name":"ハンバーガーメニュー変形","category":"navigation","description":"ハンバーガーメニューアイコンがタップでバツ印(×)に変形するアニメーション。","cssCode":".hamburger {\n  width: 28px;\n  height: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.hamburger span {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 2px;\n  background: currentColor;\n  transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;\n}\n.hamburger span:nth-child(1) { top: 0; }\n.hamburger span:nth-child(2) { top: 9px; }\n.hamburger span:nth-child(3) { top: 18px; }\n.hamburger.is-open span:nth-child(1) { top: 9px; transform: rotate(45deg); }\n.hamburger.is-open span:nth-child(2) { opacity: 0; }\n.hamburger.is-open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }","htmlSnippet":"<div class=\"hamburger\"><span></span><span></span><span></span></div>","jsCode":"document.querySelector(\".hamburger\").addEventListener(\"click\", function () {\n  this.classList.toggle(\"is-open\");\n});","tags":["navigation","hamburger","menu","基本"],"useCase":"スマホ用ナビゲーションメニューの開閉ボタン","moodTags":["シンプル","見やすい"]},{"slug":"accordion-toggle","name":"アコーディオン開閉","category":"ui","description":"FAQなどでクリックすると滑らかに開閉するアコーディオン。","cssCode":".accordion-item .accordion-body {\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.35s ease;\n}\n.accordion-item.is-open .accordion-body {\n  max-height: 400px;\n}\n.accordion-item .accordion-head {\n  cursor: pointer;\n}\n.accordion-item .accordion-head::after {\n  content: \"+\";\n  float: right;\n  transition: transform 0.3s ease;\n}\n.accordion-item.is-open .accordion-head::after {\n  transform: rotate(45deg);\n}","htmlSnippet":"<div class=\"accordion-item\">\n  <div class=\"accordion-head\">Sample Question</div>\n  <div class=\"accordion-body\"><p>Sample answer text.</p></div>\n</div>","jsCode":"document.querySelectorAll(\".accordion-head\").forEach((head) => {\n  head.addEventListener(\"click\", () => head.parentElement.classList.toggle(\"is-open\"));\n});","tags":["ui","accordion","faq","基本"],"useCase":"FAQセクション、料金プラン詳細の開閉","moodTags":["シンプル","見やすい"]},{"slug":"card-flip-3d","name":"カード3Dフリップ","category":"ui","description":"カードにホバーすると表から裏へくるりと反転する3Dフリップ演出。","cssCode":".flip-card {\n  perspective: 1000px;\n  width: 200px;\n  height: 120px;\n}\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  transition: transform 0.6s;\n  transform-style: preserve-3d;\n}\n.flip-card:hover .flip-card-inner {\n  transform: rotateY(180deg);\n}\n.flip-card-front,\n.flip-card-back {\n  position: absolute;\n  inset: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  backface-visibility: hidden;\n  background: #f0f0f0;\n  border-radius: 8px;\n}\n.flip-card-back {\n  transform: rotateY(180deg);\n  background: #1a1a1a;\n  color: #fff;\n}","htmlSnippet":"<div class=\"flip-card\"><div class=\"flip-card-inner\">\n  <div class=\"flip-card-front\">Sample Front</div>\n  <div class=\"flip-card-back\">Sample Back</div>\n</div></div>","jsCode":null,"tags":["ui","card","flip","hover","基本"],"useCase":"スタッフ紹介カード、サービス一覧カードのホバー演出","moodTags":["ポップ","派手"]},{"slug":"drawer-slide-menu","name":"ドロワーメニュー","category":"navigation","description":"画面端からスライドして現れるドロワー(サイドメニュー)の開閉。","cssCode":".drawer {\n  position: fixed;\n  top: 0;\n  right: 0;\n  width: 240px;\n  height: 100%;\n  background: #fff;\n  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);\n  padding: 24px;\n  box-sizing: border-box;\n  transform: translateX(100%);\n  transition: transform 0.35s ease;\n  z-index: 1000;\n}\n.drawer.is-open {\n  transform: translateX(0);\n}\n.drawer-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.4);\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.35s ease, visibility 0.35s;\n}\n.drawer-overlay.is-open {\n  opacity: 1;\n  visibility: visible;\n}","htmlSnippet":"<button class=\"drawer-open-btn\">Menu</button>\n<div class=\"drawer-overlay\"></div>\n<div class=\"drawer\">Sample Menu</div>","jsCode":"const menuButton = document.querySelector(\".drawer-open-btn\");\nconst drawer = document.querySelector(\".drawer\");\nconst overlay = document.querySelector(\".drawer-overlay\");\nmenuButton.addEventListener(\"click\", () => {\n  drawer.classList.add(\"is-open\");\n  overlay.classList.add(\"is-open\");\n});\noverlay.addEventListener(\"click\", () => {\n  drawer.classList.remove(\"is-open\");\n  overlay.classList.remove(\"is-open\");\n});","tags":["navigation","drawer","menu","基本"],"useCase":"スマホ用サイドメニュー、フィルターパネル","moodTags":["シンプル","見やすい"]},{"slug":"toast-notification-slide","name":"トースト通知","category":"notification","description":"画面右下からスライドインし、数秒後に自動で消えるトースト通知。","cssCode":".toast {\n  position: fixed;\n  right: 24px;\n  bottom: 24px;\n  padding: 14px 20px;\n  background: #1a1a1a;\n  color: #fff;\n  border-radius: 8px;\n  transform: translateY(20px);\n  opacity: 0;\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n.toast.is-visible {\n  transform: translateY(0);\n  opacity: 1;\n}","htmlSnippet":"<button class=\"toast-trigger-btn\">Show Toast</button>\n<div class=\"toast\"></div>","jsCode":"function showToast(message, duration = 3000) {\n  const toast = document.querySelector(\".toast\");\n  toast.textContent = message;\n  toast.classList.add(\"is-visible\");\n  setTimeout(() => toast.classList.remove(\"is-visible\"), duration);\n}\ndocument.querySelector(\".toast-trigger-btn\").addEventListener(\"click\", () => showToast(\"Sample notification\"));","tags":["notification","toast","基本"],"useCase":"フォーム送信完了・カート追加などの完了通知","moodTags":["シンプル","見やすい"]},{"slug":"ripple-click-effect","name":"クリックリップルエフェクト","category":"button","description":"ボタンをクリックした位置から波紋が広がるマテリアルデザイン風のリップルエフェクト。","cssCode":".ripple {\n  position: relative;\n  overflow: hidden;\n}\n.ripple-circle {\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.6);\n  transform: scale(0);\n  animation: rippleEffect 0.6s ease-out;\n  pointer-events: none;\n}\n@keyframes rippleEffect {\n  to {\n    transform: scale(4);\n    opacity: 0;\n  }\n}","htmlSnippet":"<button class=\"ripple\">Sample</button>","jsCode":"const button = document.querySelector(\".ripple\");\nbutton.addEventListener(\"click\", (e) => {\n  const rect = button.getBoundingClientRect();\n  const circle = document.createElement(\"span\");\n  const size = Math.max(rect.width, rect.height);\n  circle.className = \"ripple-circle\";\n  circle.style.width = circle.style.height = `${size}px`;\n  circle.style.left = `${e.clientX - rect.left - size / 2}px`;\n  circle.style.top = `${e.clientY - rect.top - size / 2}px`;\n  button.appendChild(circle);\n  circle.addEventListener(\"animationend\", () => circle.remove());\n});","tags":["button","ripple","click","基本"],"useCase":"ボタン・カードのクリックフィードバック","moodTags":["ポップ","見やすい"]},{"slug":"svg-checkmark-draw","name":"チェックマーク描画アニメーション","category":"ui","description":"フォーム送信完了時などに使う、チェックマークが円を描きながら現れる成功アニメーション。","cssCode":".check-circle,\n.check-mark {\n  fill: none;\n  stroke: #2cb67d;\n  stroke-width: 3;\n  stroke-linecap: round;\n}\n.check-circle {\n  stroke-dasharray: 166;\n  stroke-dashoffset: 166;\n  animation: drawCircle 0.6s ease forwards;\n}\n.check-mark {\n  stroke-dasharray: 48;\n  stroke-dashoffset: 48;\n  animation: drawCheck 0.4s ease forwards 0.5s;\n}\n@keyframes drawCircle {\n  to { stroke-dashoffset: 0; }\n}\n@keyframes drawCheck {\n  to { stroke-dashoffset: 0; }\n}","htmlSnippet":"<svg viewBox=\"0 0 52 52\" width=\"60\" height=\"60\">\n  <circle class=\"check-circle\" cx=\"26\" cy=\"26\" r=\"24\" />\n  <path class=\"check-mark\" d=\"M14 27l7 7 16-16\" />\n</svg>","jsCode":null,"tags":["ui","svg","success","checkmark","基本"],"useCase":"フォーム送信完了、予約完了ページの成功表示","moodTags":["シンプル","見やすい"]},{"slug":"circular-progress-ring","name":"円形プログレスリング","category":"ui","description":"SVGでリング状に円を描く、パーセンテージ表示用の円形プログレスバー。","cssCode":".progress-ring__circle {\n  fill: none;\n  stroke: #1a1a1a;\n  stroke-width: 8;\n  stroke-linecap: round;\n  transform: rotate(-90deg);\n  transform-origin: center;\n  transition: stroke-dashoffset 0.6s ease;\n}","htmlSnippet":"<svg width=\"120\" height=\"120\"><circle class=\"progress-ring__circle\" cx=\"60\" cy=\"60\" r=\"52\" /></svg>","jsCode":"function setProgress(circle, percent) {\n  const radius = circle.r.baseVal.value;\n  const circumference = 2 * Math.PI * radius;\n  circle.style.strokeDasharray = `${circumference} ${circumference}`;\n  circle.style.strokeDashoffset = circumference - (percent / 100) * circumference;\n}\n// 使用例(実際の数値に置き換えて呼び出す)\nsetProgress(document.querySelector(\".progress-ring__circle\"), 72);","tags":["ui","svg","progress","満足度","基本"],"useCase":"満足度・達成率などの数値をビジュアルで見せる","moodTags":["シンプル","見やすい"]},{"slug":"modal-fade-scale","name":"モーダルフェード表示","category":"ui","description":"モーダルウィンドウがふわっと拡大しながら表示・非表示になる開閉演出。","cssCode":".modal-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity 0.3s ease, visibility 0.3s;\n}\n.modal-overlay.is-open {\n  opacity: 1;\n  visibility: visible;\n}\n.modal-box {\n  background: #fff;\n  padding: 24px 32px;\n  border-radius: 10px;\n  text-align: center;\n  transform: scale(0.9);\n  opacity: 0;\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n.modal-overlay.is-open .modal-box {\n  transform: scale(1);\n  opacity: 1;\n}","htmlSnippet":"<button class=\"modal-open-btn\">Open Modal</button>\n<div class=\"modal-overlay\">\n  <div class=\"modal-box\">Sample Modal<br><button class=\"modal-close-btn\">Close</button></div>\n</div>","jsCode":"const overlay = document.querySelector(\".modal-overlay\");\ndocument.querySelector(\".modal-open-btn\").addEventListener(\"click\", () => overlay.classList.add(\"is-open\"));\ndocument.querySelector(\".modal-close-btn\").addEventListener(\"click\", () => overlay.classList.remove(\"is-open\"));","tags":["ui","modal","基本"],"useCase":"予約フォーム・画像拡大などのモーダル表示","moodTags":["シンプル","オシャレ"]},{"slug":"sticky-cta-bar-slideup","name":"スマホ固定CTAバー","category":"cta","description":"スマホ画面下部に、スクロール後にスライドインして固定表示されるCTAバー。","cssCode":".sticky-cta-bar {\n  position: fixed;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: #1a1a1a;\n  padding: 14px;\n  text-align: center;\n  transform: translateY(100%);\n  transition: transform 0.4s ease;\n  z-index: 900;\n}\n.sticky-cta-bar a {\n  color: #fff;\n  text-decoration: none;\n  font-weight: 600;\n}\n.sticky-cta-bar.is-visible {\n  transform: translateY(0);\n}","htmlSnippet":"<div class=\"sticky-cta-bar\"><a href=\"#reserve\">Sample</a></div>","jsCode":"window.addEventListener(\"scroll\", () => {\n  document.querySelector(\".sticky-cta-bar\").classList.toggle(\"is-visible\", window.scrollY > 300);\n});","tags":["cta","sticky","mobile","予約","基本"],"useCase":"LPのスマホ固定CTAバー(予約・購入導線)","moodTags":["見やすい","派手"]},{"slug":"input-underline-focus","name":"フォーム入力欄フォーカス下線","category":"form","description":"フォーム入力欄にフォーカスすると、下線がアクセントカラーで左から伸びる。","cssCode":".input-underline {\n  border: none;\n  border-bottom: 2px solid #ddd;\n  background: transparent;\n  padding: 8px 0;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.input-wrap {\n  position: relative;\n  width: 220px;\n}\n.input-wrap::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 2px;\n  background: #1a1a1a;\n  transform: scaleX(0);\n  transform-origin: left;\n  transition: transform 0.3s ease;\n}\n.input-wrap:has(.input-underline:focus)::after {\n  transform: scaleX(1);\n}","htmlSnippet":"<div class=\"input-wrap\">\n  <input class=\"input-underline\" type=\"text\" placeholder=\"Sample\">\n</div>","jsCode":null,"tags":["form","input","focus","基本"],"useCase":"予約フォーム・お問い合わせフォームの入力欄","moodTags":["シンプル","見やすい"]},{"slug":"tab-switch-fade","name":"タブ切り替えフェード","category":"ui","description":"タブ切り替え時に、コンテンツがフェードでクロスフェード表示される。","cssCode":".tab-button {\n  border: none;\n  background: #eee;\n  padding: 8px 16px;\n  cursor: pointer;\n  border-radius: 6px 6px 0 0;\n}\n.tab-panel {\n  display: none;\n  opacity: 0;\n  padding: 12px;\n  animation: tabFadeIn 0.3s ease forwards;\n}\n.tab-panel.is-active {\n  display: block;\n}\n@keyframes tabFadeIn {\n  to { opacity: 1; }\n}","htmlSnippet":"<div class=\"tab-buttons\">\n  <button class=\"tab-button\" data-target=\"panel-1\">Tab 1</button>\n  <button class=\"tab-button\" data-target=\"panel-2\">Tab 2</button>\n</div>\n<div class=\"tab-panel is-active\" id=\"panel-1\">Sample content 1</div>\n<div class=\"tab-panel\" id=\"panel-2\">Sample content 2</div>","jsCode":"document.querySelectorAll(\".tab-button\").forEach((btn) => {\n  btn.addEventListener(\"click\", () => {\n    document.querySelectorAll(\".tab-panel\").forEach((p) => p.classList.remove(\"is-active\"));\n    document.getElementById(btn.dataset.target).classList.add(\"is-active\");\n  });\n});","tags":["ui","tab","基本"],"useCase":"料金プラン比較、サービス内容タブ切り替え","moodTags":["シンプル","見やすい"]},{"slug":"custom-checkbox","name":"カスタムチェックボックス","category":"form","description":"チェックボックスをカスタムデザインし、チェック時にチェックマークがふわっと表示される。","cssCode":".custom-checkbox {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  user-select: none;\n}\n.custom-checkbox input {\n  position: absolute;\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n.custom-checkbox .box {\n  width: 22px;\n  height: 22px;\n  border: 2px solid #ccc;\n  border-radius: 6px;\n  position: relative;\n  flex-shrink: 0;\n  transition: background 0.2s ease, border-color 0.2s ease;\n}\n.custom-checkbox .box::after {\n  content: \"\";\n  position: absolute;\n  left: 6px;\n  top: 2px;\n  width: 6px;\n  height: 11px;\n  border: solid #fff;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg) scale(0);\n  transition: transform 0.2s ease;\n}\n.custom-checkbox input:checked ~ .box {\n  background: #1a1a1a;\n  border-color: #1a1a1a;\n}\n.custom-checkbox input:checked ~ .box::after {\n  transform: rotate(45deg) scale(1);\n}","htmlSnippet":"<label class=\"custom-checkbox\">\n  <input type=\"checkbox\" checked>\n  <span class=\"box\"></span>\n  Sample\n</label>","jsCode":null,"tags":["form","checkbox","ui-ux","基本"],"useCase":"予約フォームの同意チェック、複数選択オプション","moodTags":["シンプル","見やすい"]},{"slug":"custom-radio-button","name":"カスタムラジオボタン","category":"form","description":"ラジオボタンをカスタムデザインし、選択時に中央のドットがふわっと拡大表示される。","cssCode":".custom-radio {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin-right: 16px;\n  cursor: pointer;\n  user-select: none;\n}\n.custom-radio input {\n  position: absolute;\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n.custom-radio .dot-ring {\n  width: 22px;\n  height: 22px;\n  border: 2px solid #ccc;\n  border-radius: 50%;\n  position: relative;\n  flex-shrink: 0;\n  transition: border-color 0.2s ease;\n}\n.custom-radio .dot-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 4px;\n  border-radius: 50%;\n  background: #1a1a1a;\n  transform: scale(0);\n  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.custom-radio input:checked ~ .dot-ring {\n  border-color: #1a1a1a;\n}\n.custom-radio input:checked ~ .dot-ring::after {\n  transform: scale(1);\n}","htmlSnippet":"<label class=\"custom-radio\">\n  <input type=\"radio\" name=\"sample-radio\" checked>\n  <span class=\"dot-ring\"></span>\n  Sample A\n</label>\n<label class=\"custom-radio\">\n  <input type=\"radio\" name=\"sample-radio\">\n  <span class=\"dot-ring\"></span>\n  Sample B\n</label>","jsCode":null,"tags":["form","radio","ui-ux","基本"],"useCase":"プラン選択、コース選択などの単一選択項目","moodTags":["シンプル","見やすい"]},{"slug":"toggle-switch","name":"トグルスイッチ","category":"form","description":"iOSのようなスライド式トグルスイッチ。ON/OFF切り替えがなめらかにアニメーションする。","cssCode":".toggle-switch {\n  display: inline-block;\n  width: 48px;\n  height: 26px;\n  position: relative;\n  cursor: pointer;\n}\n.toggle-switch input {\n  position: absolute;\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n.toggle-switch .track {\n  position: absolute;\n  inset: 0;\n  background: #ccc;\n  border-radius: 999px;\n  transition: background 0.25s ease;\n}\n.toggle-switch .track::after {\n  content: \"\";\n  position: absolute;\n  left: 3px;\n  top: 3px;\n  width: 20px;\n  height: 20px;\n  background: #fff;\n  border-radius: 50%;\n  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.toggle-switch input:checked ~ .track {\n  background: #2cb67d;\n}\n.toggle-switch input:checked ~ .track::after {\n  transform: translateX(22px);\n}","htmlSnippet":"<label class=\"toggle-switch\">\n  <input type=\"checkbox\" checked>\n  <span class=\"track\"></span>\n</label>","jsCode":null,"tags":["form","toggle","switch","ui-ux","基本"],"useCase":"通知ON/OFF、オプション有無の切り替えUI","moodTags":["シンプル","見やすい"]},{"slug":"range-slider-custom","name":"カスタムレンジスライダー","category":"form","description":"レンジスライダーのつまみをカスタムデザインし、ホバー・ドラッグ時にふわっと拡大する。","cssCode":".range-slider {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 220px;\n  height: 4px;\n  background: #ddd;\n  border-radius: 999px;\n  outline: none;\n}\n.range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: #1a1a1a;\n  cursor: pointer;\n  transition: transform 0.2s ease;\n}\n.range-slider:hover::-webkit-slider-thumb,\n.range-slider:active::-webkit-slider-thumb {\n  transform: scale(1.3);\n}\n.range-slider::-moz-range-thumb {\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: #1a1a1a;\n  border: none;\n  cursor: pointer;\n  transition: transform 0.2s ease;\n}","htmlSnippet":"<input type=\"range\" class=\"range-slider\" min=\"0\" max=\"100\" value=\"50\">","jsCode":null,"tags":["form","range","slider","ui-ux","基本"],"useCase":"予算・回数・年齢などの数値選択UI","moodTags":["シンプル","見やすい"]},{"slug":"star-rating-input","name":"星評価入力","category":"form","description":"星をホバー・クリックすると、その位置まで金色に塗りつぶされる評価入力UI。","cssCode":".star-rating {\n  display: inline-flex;\n  flex-direction: row-reverse;\n  gap: 4px;\n}\n.star-rating input {\n  display: none;\n}\n.star-rating label {\n  font-size: 28px;\n  color: #ddd;\n  cursor: pointer;\n  transition: color 0.15s ease, transform 0.15s ease;\n}\n.star-rating input:checked ~ label,\n.star-rating label:hover,\n.star-rating label:hover ~ label {\n  color: #f5a623;\n  transform: scale(1.1);\n}","htmlSnippet":"<div class=\"star-rating\">\n  <input type=\"radio\" name=\"sample-rating\" id=\"star5\"><label for=\"star5\">★</label>\n  <input type=\"radio\" name=\"sample-rating\" id=\"star4\" checked><label for=\"star4\">★</label>\n  <input type=\"radio\" name=\"sample-rating\" id=\"star3\"><label for=\"star3\">★</label>\n  <input type=\"radio\" name=\"sample-rating\" id=\"star2\"><label for=\"star2\">★</label>\n  <input type=\"radio\" name=\"sample-rating\" id=\"star1\"><label for=\"star1\">★</label>\n</div>","jsCode":null,"tags":["form","rating","star","ui-ux","基本"],"useCase":"レビュー投稿・満足度アンケートの評価入力","moodTags":["ポップ","見やすい"]},{"slug":"segmented-control","name":"セグメントコントロール","category":"ui","description":"選択中の項目にハイライトがなめらかにスライド移動する、iOS風のセグメントコントロール。","cssCode":".segmented-control {\n  display: inline-flex;\n  position: relative;\n  background: #eee;\n  border-radius: 10px;\n  padding: 4px;\n}\n.segmented-control input {\n  display: none;\n}\n.segmented-control label {\n  position: relative;\n  z-index: 1;\n  padding: 8px 20px;\n  cursor: pointer;\n  font-size: 13px;\n  color: #666;\n  transition: color 0.25s ease;\n}\n.segmented-control input:checked + label {\n  color: #1a1a1a;\n}\n.segmented-control .highlight {\n  position: absolute;\n  top: 4px;\n  bottom: 4px;\n  left: 4px;\n  width: calc(33.333% - 4px);\n  background: #fff;\n  border-radius: 8px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);\n  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\n}","htmlSnippet":"<div class=\"segmented-control\">\n  <span class=\"highlight\"></span>\n  <input type=\"radio\" name=\"segment\" id=\"seg1\" checked><label for=\"seg1\">Sample A</label>\n  <input type=\"radio\" name=\"segment\" id=\"seg2\"><label for=\"seg2\">Sample B</label>\n  <input type=\"radio\" name=\"segment\" id=\"seg3\"><label for=\"seg3\">Sample C</label>\n</div>","jsCode":"const inputs = document.querySelectorAll(\".segmented-control input\");\nconst highlight = document.querySelector(\".segmented-control .highlight\");\ninputs.forEach((input, i) => {\n  input.addEventListener(\"change\", () => {\n    highlight.style.transform = `translateX(${i * 100}%)`;\n  });\n});","tags":["ui","segmented-control","ui-ux","基本"],"useCase":"料金プランの月額/年額切り替え、表示形式の切り替え","moodTags":["オシャレ","見やすい"]},{"slug":"custom-select-dropdown","name":"カスタムセレクトボックス","category":"ui","description":"セレクトボックスのカスタムデザイン。開閉時に矢印が回転し、メニューが滑らかに開く。","cssCode":".custom-select {\n  position: relative;\n  width: 220px;\n  font-size: 14px;\n}\n.custom-select .selected {\n  border: 1px solid #ccc;\n  border-radius: 8px;\n  padding: 10px 14px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  cursor: pointer;\n}\n.custom-select .selected::after {\n  content: \"▾\";\n  transition: transform 0.25s ease;\n}\n.custom-select.is-open .selected::after {\n  transform: rotate(180deg);\n}\n.custom-select .options {\n  position: absolute;\n  top: calc(100% + 6px);\n  left: 0;\n  right: 0;\n  background: #fff;\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  overflow: hidden;\n  max-height: 0;\n  opacity: 0;\n  transition: max-height 0.25s ease, opacity 0.2s ease;\n}\n.custom-select.is-open .options {\n  max-height: 200px;\n  opacity: 1;\n}\n.custom-select .options div {\n  padding: 10px 14px;\n  cursor: pointer;\n}\n.custom-select .options div:hover {\n  background: #f5f5f5;\n}","htmlSnippet":"<div class=\"custom-select\">\n  <div class=\"selected\">Sample を選択</div>\n  <div class=\"options\">\n    <div>Sample A</div>\n    <div>Sample B</div>\n    <div>Sample C</div>\n  </div>\n</div>","jsCode":"const select = document.querySelector(\".custom-select\");\nconst selected = select.querySelector(\".selected\");\nselected.addEventListener(\"click\", () => select.classList.toggle(\"is-open\"));\nselect.querySelectorAll(\".options div\").forEach((option) => {\n  option.addEventListener(\"click\", () => {\n    selected.textContent = option.textContent;\n    select.classList.remove(\"is-open\");\n  });\n});","tags":["ui","select","dropdown","ui-ux","基本"],"useCase":"フォームの選択項目(コース・時間帯など)","moodTags":["シンプル","オシャレ"]},{"slug":"custom-radio-card","name":"カード型ラジオボタン","category":"form","description":"プラン選択などで使う、選択中のカードが縁取りとチェックアイコンで強調されるカード型ラジオボタン。","cssCode":".radio-card-group {\n  display: flex;\n  gap: 12px;\n}\n.radio-card {\n  position: relative;\n  cursor: pointer;\n}\n.radio-card input {\n  position: absolute;\n  opacity: 0;\n}\n.radio-card .card-face {\n  display: block;\n  padding: 20px;\n  border: 2px solid #e0e0e0;\n  border-radius: 10px;\n  min-width: 100px;\n  text-align: center;\n  position: relative;\n  transition: border-color 0.2s ease, transform 0.2s ease;\n}\n.radio-card .card-face::after {\n  content: \"\";\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  border: 2px solid #ccc;\n  transition: background 0.2s ease, border-color 0.2s ease;\n}\n.radio-card input:checked ~ .card-face {\n  border-color: #1a1a1a;\n  transform: translateY(-2px);\n}\n.radio-card input:checked ~ .card-face::after {\n  background: #1a1a1a;\n  border-color: #1a1a1a;\n}","htmlSnippet":"<div class=\"radio-card-group\">\n  <label class=\"radio-card\">\n    <input type=\"radio\" name=\"plan\" checked>\n    <span class=\"card-face\">Sample A</span>\n  </label>\n  <label class=\"radio-card\">\n    <input type=\"radio\" name=\"plan\">\n    <span class=\"card-face\">Sample B</span>\n  </label>\n</div>","jsCode":null,"tags":["form","radio-card","plan","ui-ux","基本"],"useCase":"料金プラン・コース選択のカードUI","moodTags":["オシャレ","見やすい"]}]</script>
+<script id="category-labels" type="application/json">{"title":"タイトル・テキスト","scroll":"スクロール演出","button":"ボタン","cta":"CTA","image":"画像","number":"数字","background":"背景","navigation":"ナビゲーション","notification":"通知","loading":"ローディング","form":"フォーム","ui":"UI部品","装飾":"装飾"}</script>
+<script id="scroll-demo-slugs" type="application/json">["scroll-fade-up","parallax-bg","sticky-cta-bar-slideup"]</script>
+<script id="scroll-demo-config" type="application/json">{"scroll-fade-up":{"top":260,"bottom":60},"parallax-bg":{"top":200,"bottom":100},"sticky-cta-bar-slideup":{"top":200,"bottom":100}}</script>
+<script id="mood-order" type="application/json">["title","scroll","button","cta","image","number","background","navigation","notification","loading","form","ui","装飾"]</script>
+<script id="hover-hint-slugs" type="application/json">["card-flip-3d","title-twist-hover","button-shine-sweep","image-hover-zoom","marquee-hover-slow"]</script>
+<script id="auto-demo-scripts" type="application/json">{"hamburger-menu-morph":"setInterval(function () {\n  document.querySelector(\".hamburger\").classList.toggle(\"is-open\");\n}, 2600);","accordion-toggle":"setInterval(function () {\n  document.querySelector(\".accordion-item\").classList.toggle(\"is-open\");\n}, 3200);","drawer-slide-menu":"setInterval(function () {\n  var d = document.querySelector(\".drawer\");\n  var o = document.querySelector(\".drawer-overlay\");\n  var open = d.classList.contains(\"is-open\");\n  d.classList.toggle(\"is-open\", !open);\n  o.classList.toggle(\"is-open\", !open);\n}, 3200);","toast-notification-slide":"showToast(\"Sample notification\");\nsetInterval(function () { showToast(\"Sample notification\"); }, 5000);","ripple-click-effect":"setInterval(function () {\n  var btn = document.querySelector(\".ripple\");\n  var rect = btn.getBoundingClientRect();\n  btn.dispatchEvent(new MouseEvent(\"click\", {\n    clientX: rect.left + rect.width / 2,\n    clientY: rect.top + rect.height / 2,\n    bubbles: true\n  }));\n}, 2800);","modal-fade-scale":"setInterval(function () {\n  var overlay = document.querySelector(\".modal-overlay\");\n  overlay.classList.toggle(\"is-open\");\n}, 3500);","tab-switch-fade":"var tabButtons = document.querySelectorAll(\".tab-button\");\nvar tabIndex = 0;\nsetInterval(function () {\n  tabIndex = (tabIndex + 1) % tabButtons.length;\n  tabButtons[tabIndex].click();\n}, 3000);","custom-checkbox":"var cb = document.querySelector(\".custom-checkbox input\");\nsetInterval(function () { cb.checked = !cb.checked; }, 2800);","custom-radio-button":"var radios = document.querySelectorAll(\".custom-radio input\");\nvar radioIdx = 0;\nsetInterval(function () {\n  radioIdx = (radioIdx + 1) % radios.length;\n  radios[radioIdx].checked = true;\n}, 2800);","toggle-switch":"var toggle = document.querySelector(\".toggle-switch input\");\nsetInterval(function () { toggle.checked = !toggle.checked; }, 2800);","range-slider-custom":"var slider = document.querySelector(\".range-slider\");\nvar dir = 1;\nsetInterval(function () {\n  var v = Number(slider.value) + dir * 6;\n  if (v >= 100) { v = 100; dir = -1; }\n  if (v <= 0) { v = 0; dir = 1; }\n  slider.value = v;\n}, 400);","star-rating-input":"var stars = document.querySelectorAll(\".star-rating input\");\nvar starIdx = 0;\nsetInterval(function () {\n  starIdx = (starIdx + 1) % stars.length;\n  stars[starIdx].checked = true;\n}, 2200);","segmented-control":"var segs = document.querySelectorAll(\".segmented-control input\");\nvar segIdx = 0;\nsetInterval(function () {\n  segIdx = (segIdx + 1) % segs.length;\n  segs[segIdx].checked = true;\n  segs[segIdx].dispatchEvent(new Event(\"change\", { bubbles: true }));\n}, 2800);","custom-select-dropdown":"var customSelect = document.querySelector(\".custom-select\");\nvar selectOptions = customSelect.querySelectorAll(\".options div\");\nvar selectIdx = 0;\nsetInterval(function () {\n  customSelect.classList.add(\"is-open\");\n  setTimeout(function () {\n    selectIdx = (selectIdx + 1) % selectOptions.length;\n    selectOptions[selectIdx].click();\n  }, 1200);\n}, 3500);","custom-radio-card":"var planCards = document.querySelectorAll(\".radio-card input\");\nvar planIdx = 0;\nsetInterval(function () {\n  planIdx = (planIdx + 1) % planCards.length;\n  planCards[planIdx].checked = true;\n}, 2800);","input-underline-focus":"var focusInput = document.querySelector(\".input-underline\");\nsetInterval(function () {\n  if (document.activeElement === focusInput) { focusInput.blur(); } else { focusInput.focus({ preventScroll: true }); }\n}, 2800);","card-flip-3d":"var hoverEl = document.querySelector(\".flip-card\");var hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2600);document.documentElement.addEventListener(\"mouseenter\", function () { clearInterval(hoverTimer); hoverEl.classList.remove(\"force-hover\"); });document.documentElement.addEventListener(\"mouseleave\", function () { hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2600); });","title-twist-hover":"var hoverEl = document.querySelector(\".twist-hover\");var hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2600);document.documentElement.addEventListener(\"mouseenter\", function () { clearInterval(hoverTimer); hoverEl.classList.remove(\"force-hover\"); });document.documentElement.addEventListener(\"mouseleave\", function () { hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2600); });","button-shine-sweep":"var hoverEl = document.querySelector(\".btn-shine\");var hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2800);document.documentElement.addEventListener(\"mouseenter\", function () { clearInterval(hoverTimer); hoverEl.classList.remove(\"force-hover\"); });document.documentElement.addEventListener(\"mouseleave\", function () { hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 2800); });","image-hover-zoom":"var hoverEl = document.querySelector(\".hover-zoom\");var hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 3000);document.documentElement.addEventListener(\"mouseenter\", function () { clearInterval(hoverTimer); hoverEl.classList.remove(\"force-hover\"); });document.documentElement.addEventListener(\"mouseleave\", function () { hoverTimer = setInterval(function () { hoverEl.classList.toggle(\"force-hover\"); }, 3000); });"}</script>
+<script id="auto-demo-styles" type="application/json">{"card-flip-3d":".flip-card.force-hover .flip-card-inner { transform: rotateY(180deg); }","title-twist-hover":".twist-hover.force-hover { transform: rotateX(360deg); }","button-shine-sweep":".btn-shine.force-hover::before { left: 125%; }","image-hover-zoom":".hover-zoom.force-hover img { transform: scale(1.08); }"}</script>
+<script id="demo-extra-html" type="application/json">{"scroll-progress-bar":"<div style=\"margin-top:24px;color:#666;font-size:16px;\">Sample <span class=\"demo-pct-label\">0%</span></div>","back-to-top-fade":"<div style=\"margin-top:80px;color:#666;font-size:16px;\">Sample</div>"}</script>
+<script id="demo-extra-scripts" type="application/json">{"scroll-progress-bar":"var demoBar = document.querySelector(\".scroll-progress\");\nvar demoPctLabel = document.querySelector(\".demo-pct-label\");\nvar demoPct = 0;\nvar demoPctDir = 1;\nsetInterval(function () {\n  demoPct += demoPctDir * 4;\n  if (demoPct >= 100) { demoPct = 100; demoPctDir = -1; }\n  if (demoPct <= 0) { demoPct = 0; demoPctDir = 1; }\n  demoBar.style.width = demoPct + \"%\";\n  demoPctLabel.textContent = demoPct + \"%\";\n}, 100);","back-to-top-fade":"var backToTopBtn = document.querySelector(\".back-to-top\");\nsetInterval(function () { backToTopBtn.classList.toggle(\"is-visible\"); }, 2200);","text-scroll-driven-reveal":"document.querySelector(\".scroll-reveal-text\").classList.add(\"demo-loop\");","sticky-cta-bar-slideup":"document.querySelector(\".sticky-cta-bar\").classList.add(\"is-visible\");\nwindow.addEventListener(\"scroll\", function () {\n  document.querySelector(\".sticky-cta-bar\").classList.add(\"is-visible\");\n});"}</script>
+<script id="demo-extra-styles" type="application/json">{"scroll-progress-bar":".scroll-progress { height: 10px !important; }","text-scroll-driven-reveal":".scroll-reveal-text.demo-loop {\n  animation: demoScrollReveal 2s ease-in-out infinite;\n}\n@keyframes demoScrollReveal {\n  0% { clip-path: inset(0 100% 0 0); }\n  50% { clip-path: inset(0 0 0 0); }\n  100% { clip-path: inset(0 100% 0 0); }\n}"}</script>
+<script>
+(function () {
+  var animations = JSON.parse(document.getElementById("animations-data").textContent);
+  var categoryLabels = JSON.parse(document.getElementById("category-labels").textContent);
+  var scrollDemoSlugs = JSON.parse(document.getElementById("scroll-demo-slugs").textContent);
+  var scrollDemoConfig = JSON.parse(document.getElementById("scroll-demo-config").textContent);
+  var moodOrder = JSON.parse(document.getElementById("mood-order").textContent);
+  var hoverHintSlugs = JSON.parse(document.getElementById("hover-hint-slugs").textContent);
+  var autoDemoScripts = JSON.parse(document.getElementById("auto-demo-scripts").textContent);
+  var autoDemoStyles = JSON.parse(document.getElementById("auto-demo-styles").textContent);
+  var demoExtraHtml = JSON.parse(document.getElementById("demo-extra-html").textContent);
+  var demoExtraScripts = JSON.parse(document.getElementById("demo-extra-scripts").textContent);
+  var demoExtraStyles = JSON.parse(document.getElementById("demo-extra-styles").textContent);
+  var activeMood = "すべて";
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function buildIframeDoc(entry) {
+    var needsScrollFiller = scrollDemoSlugs.indexOf(entry.slug) !== -1;
+    var config = scrollDemoConfig[entry.slug] || { top: 120, bottom: 80 };
+    var fillerTop = needsScrollFiller
+      ? '<div style="height:' + config.top + 'px;"></div>'
+      : "";
+    var fillerBottom = needsScrollFiller ? '<div style="height:' + config.bottom + 'px;"></div>' : "";
+    var justify = needsScrollFiller ? "flex-start" : "center";
+
+    // 自動スクロールはしない。ユーザーが実際にiframe内をスクロールした時だけ動く。
+    var autoScrollScript = "";
+
+    return "<!doctype html><html><head><meta charset=\"UTF-8\"><style>"
+      + "body{margin:0;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:" + justify + ";font-family:-apple-system,sans-serif;background:#fafafa;padding:16px;box-sizing:border-box;}"
+      + (entry.cssCode || "")
+      + (autoDemoStyles[entry.slug] || "")
+      + (demoExtraStyles[entry.slug] || "")
+      + "</style></head><body>"
+      + fillerTop
+      + (entry.htmlSnippet || "")
+      + (demoExtraHtml[entry.slug] || "")
+      + fillerBottom
+      + "<script>" + (entry.jsCode || "") + ";" + (autoDemoScripts[entry.slug] || "") + (demoExtraScripts[entry.slug] || "") + autoScrollScript + "<\/script>"
+      + "</body></html>";
+  }
+
+  var grouped = {};
+  var order = [];
+  animations.forEach(function (entry) {
+    if (!grouped[entry.category]) {
+      grouped[entry.category] = [];
+      order.push(entry.category);
+    }
+    grouped[entry.category].push(entry);
+  });
+
+  var root = document.getElementById("root");
+
+  order.forEach(function (category) {
+    var items = grouped[category];
+
+    var h2 = document.createElement("h2");
+    h2.className = "category";
+    h2.textContent = (categoryLabels[category] || category) + " (" + items.length + ")";
+    root.appendChild(h2);
+
+    var grid = document.createElement("div");
+    grid.className = "grid";
+
+    items.forEach(function (entry) {
+      var moods = entry.moodTags || [];
+      var card = document.createElement("div");
+      card.className = "card";
+      card.dataset.moods = entry.category;
+
+      var demo = document.createElement("div");
+      demo.className = "demo";
+
+      var iframe = document.createElement("iframe");
+      iframe.srcdoc = buildIframeDoc(entry);
+      demo.appendChild(iframe);
+
+      setInterval(function () {
+        iframe.srcdoc = buildIframeDoc(entry);
+      }, 12000);
+
+      demo.addEventListener("mouseenter", function () {
+        iframe.srcdoc = buildIframeDoc(entry);
+      });
+
+      var replay = document.createElement("button");
+      replay.className = "replay";
+      replay.textContent = "再生";
+      replay.addEventListener("click", function () {
+        iframe.srcdoc = buildIframeDoc(entry);
+      });
+      demo.appendChild(replay);
+
+      if (hoverHintSlugs.indexOf(entry.slug) !== -1) {
+        var hint = document.createElement("div");
+        hint.className = "hover-hint";
+        hint.textContent = "↖ ホバーしてください";
+        demo.appendChild(hint);
+      }
+
+      if (scrollDemoSlugs.indexOf(entry.slug) !== -1) {
+        var scrollHint = document.createElement("div");
+        scrollHint.className = "hover-hint";
+        scrollHint.textContent = "↓ スクロールしてください";
+        demo.appendChild(scrollHint);
+      }
+
+      var tagsHtml = (entry.tags || [])
+        .map(function (t) { return '<span class="tag">' + escapeHtml(t) + "</span>"; })
+        .join("");
+      var moodTagsHtml = moods
+        .map(function (m) { return '<span class="mood-tag">' + escapeHtml(m) + "</span>"; })
+        .join("");
+      var useCaseHtml = entry.useCase
+        ? '<div class="use-case">用途: ' + escapeHtml(entry.useCase) + "</div>"
+        : "";
+
+      var body = document.createElement("div");
+      body.className = "cardbody";
+      body.innerHTML =
+        '<div class="name">' + escapeHtml(entry.name) + "</div>"
+        + '<div class="slug">' + escapeHtml(entry.slug) + "</div>"
+        + '<div class="desc">' + escapeHtml(entry.description) + "</div>"
+        + useCaseHtml
+        + '<div class="tags">' + moodTagsHtml + tagsHtml + "</div>";
+
+      card.appendChild(demo);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+
+    root.appendChild(grid);
+  });
+
+  function applyMoodFilter(mood) {
+    activeMood = mood;
+    document.querySelectorAll(".mood-filter button").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.dataset.mood === mood);
+    });
+    document.querySelectorAll(".card").forEach(function (card) {
+      var moods = (card.dataset.moods || "").split(",").filter(Boolean);
+      var show = mood === "すべて" || moods.indexOf(mood) !== -1;
+      card.classList.toggle("is-hidden", !show);
+    });
+    document.querySelectorAll(".category").forEach(function (h2) {
+      var grid = h2.nextElementSibling;
+      var visibleCount = Array.prototype.filter.call(grid.children, function (card) {
+        return !card.classList.contains("is-hidden");
+      }).length;
+      var showSection = visibleCount > 0;
+      h2.style.display = showSection ? "" : "none";
+      grid.style.display = showSection ? "" : "none";
+    });
+  }
+
+  var filterBar = document.getElementById("mood-filter");
+  ["すべて"].concat(moodOrder).forEach(function (mood) {
+    var btn = document.createElement("button");
+    btn.textContent = mood === "すべて" ? "すべて" : (categoryLabels[mood] || mood);
+    btn.dataset.mood = mood;
+    if (mood === "すべて") btn.classList.add("is-active");
+    btn.addEventListener("click", function () { applyMoodFilter(mood); });
+    filterBar.appendChild(btn);
+  });
+})();
+</script>
+</body>
+</html>
