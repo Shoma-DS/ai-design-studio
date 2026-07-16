@@ -5,6 +5,10 @@ body {
   background: #fdf3e7;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
 }
@@ -63,5 +67,51 @@ body {
     transform: none;
     animation: none;
     transition: none;
+  }
+}
+
+/* ヒーロー左ナビの「お知らせ」→フッターのお知らせ一覧へジャンプするリンク */
+.lp-section-hero {
+  position: relative;
+}
+
+.hero-nav-link {
+  position: absolute;
+  display: block;
+  text-indent: -9999px;
+  outline-offset: 4px;
+}
+
+.hero-nav-link--notice {
+  left: 4%;
+  top: 19%;
+  width: 17%;
+  height: 4%;
+}
+
+.hero-nav-link--notice:hover,
+.hero-nav-link--notice:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+/* ジャンプ先に到着したら、目に留まるよう一瞬光らせる */
+@keyframes notice-arrive-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(168, 103, 124, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(168, 103, 124, 0.25);
+  }
+}
+
+#notice:target {
+  animation: notice-arrive-pulse 0.9s ease-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #notice:target {
+    animation: none;
   }
 }
