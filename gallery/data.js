@@ -340,7 +340,7 @@ window.PORTFOLIO_GALLERY_DATA = [
   },
   {
     "slug": "belle-rouge-lip-cheek-lp",
-    "type": "lp",
+    "type": "moving-lp",
     "title": "BELLE ROUGE 彩香リップ&チーク LP",
     "heading": "唇に、灯れ。女性の色香",
     "category": "美容・コスメ",
