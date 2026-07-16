@@ -30,6 +30,9 @@ html {
 .hero-wrap {
   position: relative;
   width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fdf1f0;
 }
 
 /* ファーストビュー全体(背景・コピー・商品)を含む動画をそのまま表示する。 */
