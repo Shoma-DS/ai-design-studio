@@ -63,13 +63,13 @@ html {
 
 /* 画像読み込み前にレイアウトの高さを確保（実測値） */
 .img-ratio-hero-video { aspect-ratio: 660 / 1392; }
-.img-ratio-hero-closing { aspect-ratio: 1054 / 1493; }
+.img-ratio-hero-closing { aspect-ratio: 1536 / 1024; }
 .img-ratio-social-proof { aspect-ratio: 1536 / 1024; }
 .img-ratio-points-intro { aspect-ratio: 1536 / 1024; }
 .img-ratio-point1-natural { aspect-ratio: 1535 / 1024; }
 .img-ratio-point2-moisture { aspect-ratio: 1535 / 1024; }
-.img-ratio-point3-color-cheek { aspect-ratio: 1536 / 1024; }
-.img-ratio-campaign { aspect-ratio: 1023 / 1537; }
+.img-ratio-point3-color-cheek { aspect-ratio: 1600 / 983; }
+.img-ratio-campaign { aspect-ratio: 1536 / 1024; }
 .img-ratio-color-variation { aspect-ratio: 1536 / 1024; }
 .img-ratio-purchase { aspect-ratio: 1536 / 1024; }
 .img-ratio-policy-footer { aspect-ratio: 1000 / 1573; }

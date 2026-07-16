@@ -32,8 +32,8 @@ body {
 }
 
 /* 画像読み込み前にレイアウトの高さを確保し、ジャンプリンクの着地位置がズレるのを防ぐ（実測値） */
-.img-ratio-hero { aspect-ratio: 1024 / 1536; }
-.img-ratio-story { aspect-ratio: 1024 / 1536; }
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-story { aspect-ratio: 1536 / 1024; }
 .img-ratio-three-miso { aspect-ratio: 1536 / 1024; }
 .img-ratio-craftsman { aspect-ratio: 1536 / 1024; }
 .img-ratio-links { aspect-ratio: 1536 / 1024; }
@@ -103,13 +103,13 @@ body {
   outline-offset: 4px;
 }
 
-/* PC(01-hero.png 1024x1536)基準の座標。画像から実測（canvasでテキスト明度を検出）。 */
-.hero-nav-link--notice { left: 7.6%; top: 19.5%; width: 8.2%; height: 2.8%; }
-.hero-nav-link--guide { left: 8.9%; top: 23.8%; width: 9.4%; height: 2.8%; }
-.hero-nav-link--recipe { left: 6.9%; top: 27.8%; width: 6.5%; height: 2.9%; }
-.hero-nav-link--products { left: 6.6%; top: 31.9%; width: 9.2%; height: 2.8%; }
-.hero-nav-link--craftsmanship { left: 6.6%; top: 36.0%; width: 11.4%; height: 2.8%; }
-.hero-nav-link--about { left: 6.7%; top: 40.0%; width: 15.5%; height: 2.9%; }
+/* PC(01-hero.png 1536x1024、PCレイアウト再構成版)基準の座標。画像から実測（Pillowでテキスト明度を検出）。 */
+.hero-nav-link--notice { left: 4.1%; top: 32.0%; width: 7.3%; height: 2.9%; }
+.hero-nav-link--guide { left: 4.1%; top: 40.7%; width: 8.7%; height: 3.0%; }
+.hero-nav-link--recipe { left: 4.2%; top: 49.4%; width: 5.7%; height: 2.7%; }
+.hero-nav-link--products { left: 4.0%; top: 57.9%; width: 7.4%; height: 2.9%; }
+.hero-nav-link--craftsmanship { left: 4.0%; top: 66.6%; width: 8.7%; height: 3.0%; }
+.hero-nav-link--about { left: 4.0%; top: 75.3%; width: 11.8%; height: 3.0%; }
 
 /* スマホ(mobile/01-hero.png 1080x1968)は縦横比が異なるため個別に実測して上書き */
 @media (max-width: 767px) {
