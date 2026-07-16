@@ -17,8 +17,115 @@ body {
   box-shadow: 0 0 36px rgba(120, 80, 40, 0.15);
 }
 
-.lp-full {
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-drop1-mood { aspect-ratio: 1536 / 1024; }
+.img-ratio-drop1-products { aspect-ratio: 1717 / 916; }
+.img-ratio-drop2-mood { aspect-ratio: 1024 / 1536; }
+.img-ratio-drop2-products { aspect-ratio: 1536 / 1024; }
+.img-ratio-drop2-closing { aspect-ratio: 1536 / 1024; }
+.img-ratio-drop3-mood { aspect-ratio: 1448 / 1086; }
+.img-ratio-drop3-products { aspect-ratio: 1536 / 1024; }
+.img-ratio-footer { aspect-ratio: 1717 / 916; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 877 / 1793; }
+  .img-ratio-drop1-mood { aspect-ratio: 956 / 1645; }
+  .img-ratio-drop1-products { aspect-ratio: 941 / 1672; }
+  .img-ratio-drop2-mood { aspect-ratio: 916 / 1717; }
+  .img-ratio-drop2-products { aspect-ratio: 986 / 1595; }
+  .img-ratio-drop2-closing { aspect-ratio: 930 / 1691; }
+  .img-ratio-drop3-mood { aspect-ratio: 1013 / 1552; }
+  .img-ratio-drop3-products { aspect-ratio: 926 / 1699; }
+  .img-ratio-footer { aspect-ratio: 1048 / 1501; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #c0392b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
 }
