@@ -23,6 +23,10 @@ body {
   height: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hero-wrap {
   position: relative;
   width: 100%;
@@ -33,4 +37,86 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero-video { aspect-ratio: 660 / 1392; }
+.img-ratio-hero-closing { aspect-ratio: 1054 / 1493; }
+.img-ratio-social-proof { aspect-ratio: 1536 / 1024; }
+.img-ratio-points-intro { aspect-ratio: 1536 / 1024; }
+.img-ratio-point1-natural { aspect-ratio: 1535 / 1024; }
+.img-ratio-point2-moisture { aspect-ratio: 1535 / 1024; }
+.img-ratio-point3-color-cheek { aspect-ratio: 1536 / 1024; }
+.img-ratio-campaign { aspect-ratio: 1023 / 1537; }
+.img-ratio-color-variation { aspect-ratio: 1536 / 1024; }
+.img-ratio-purchase { aspect-ratio: 1536 / 1024; }
+.img-ratio-policy-footer { aspect-ratio: 1000 / 1573; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero-closing { aspect-ratio: 880 / 1788; }
+  .img-ratio-social-proof { aspect-ratio: 864 / 1821; }
+  .img-ratio-points-intro { aspect-ratio: 941 / 1672; }
+  .img-ratio-point1-natural { aspect-ratio: 862 / 1824; }
+  .img-ratio-point2-moisture { aspect-ratio: 910 / 1727; }
+  .img-ratio-point3-color-cheek { aspect-ratio: 922 / 1706; }
+  .img-ratio-campaign { aspect-ratio: 864 / 1821; }
+  .img-ratio-color-variation { aspect-ratio: 868 / 1813; }
+  .img-ratio-purchase { aspect-ratio: 887 / 1774; }
+  .img-ratio-policy-footer { aspect-ratio: 884 / 1779; }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #7a2e3a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(122, 46, 58, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #c0455e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
 }

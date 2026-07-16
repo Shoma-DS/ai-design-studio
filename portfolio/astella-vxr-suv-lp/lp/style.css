@@ -17,8 +17,123 @@ body {
   box-shadow: 0 0 36px rgba(120, 80, 40, 0.15);
 }
 
-.lp-full {
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-brand-statement { aspect-ratio: 1536 / 1024; }
+.img-ratio-styling { aspect-ratio: 1536 / 1024; }
+.img-ratio-interior { aspect-ratio: 1024 / 1536; }
+.img-ratio-driving { aspect-ratio: 965 / 1630; }
+.img-ratio-safety { aspect-ratio: 1536 / 1024; }
+.img-ratio-about-price { aspect-ratio: 1536 / 1024; }
+.img-ratio-performance-bodycolor { aspect-ratio: 979 / 1606; }
+.img-ratio-seat-aeroparts { aspect-ratio: 961 / 1636; }
+.img-ratio-plan-intro { aspect-ratio: 929 / 1693; }
+.img-ratio-plan-examples { aspect-ratio: 887 / 1774; }
+.img-ratio-shop-info { aspect-ratio: 992 / 1585; }
+.img-ratio-footer { aspect-ratio: 995 / 1581; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 948 / 1659; }
+  .img-ratio-brand-statement { aspect-ratio: 1086 / 1448; }
+  .img-ratio-styling { aspect-ratio: 975 / 1614; }
+  .img-ratio-interior { aspect-ratio: 941 / 1672; }
+  .img-ratio-driving { aspect-ratio: 954 / 1648; }
+  .img-ratio-safety { aspect-ratio: 1024 / 1536; }
+  .img-ratio-about-price { aspect-ratio: 1024 / 1536; }
+  .img-ratio-performance-bodycolor { aspect-ratio: 955 / 1647; }
+  .img-ratio-seat-aeroparts { aspect-ratio: 916 / 1717; }
+  .img-ratio-plan-intro { aspect-ratio: 1024 / 1536; }
+  .img-ratio-plan-examples { aspect-ratio: 900 / 1747; }
+  .img-ratio-shop-info { aspect-ratio: 864 / 1821; }
+  .img-ratio-footer { aspect-ratio: 930 / 1691; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #c0392b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
 }

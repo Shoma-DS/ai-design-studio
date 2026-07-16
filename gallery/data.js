@@ -45,7 +45,9 @@ window.PORTFOLIO_GALLERY_DATA = [
       "自動車",
       "SUV"
     ],
-    "featureTags": [],
+    "featureTags": [
+      "アニメーション"
+    ],
     "linkType": "external",
     "url": "https://astella-vxr-suv-lp.vercel.app",
     "thumbnail": "assets/thumbnails/astella-vxr-suv-lp.jpg"
@@ -201,7 +203,9 @@ window.PORTFOLIO_GALLERY_DATA = [
       "データサービス",
       "IT"
     ],
-    "featureTags": [],
+    "featureTags": [
+      "アニメーション"
+    ],
     "linkType": "external",
     "url": "https://tomoni-data-service-lp.vercel.app",
     "thumbnail": "assets/thumbnails/tomoni-data-service-lp.jpg"
@@ -349,7 +353,9 @@ window.PORTFOLIO_GALLERY_DATA = [
       "コスメ",
       "リップ"
     ],
-    "featureTags": [],
+    "featureTags": [
+      "アニメーション"
+    ],
     "linkType": "external",
     "url": "https://belle-rouge-lip-cheek-lp.vercel.app",
     "thumbnail": "assets/thumbnails/belle-rouge-lip-cheek-lp.jpg"
