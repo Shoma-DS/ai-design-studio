@@ -10,15 +10,153 @@ body {
 }
 
 .lp-shell {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
   background: #fff;
   box-shadow: 0 0 36px rgba(85, 42, 54, 0.18);
 }
 
-.lp-full {
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値・PC） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-offer { aspect-ratio: 1536 / 1024; }
+.img-ratio-value { aspect-ratio: 1536 / 1024; }
+.img-ratio-ranking { aspect-ratio: 1536 / 1024; }
+.img-ratio-comparison { aspect-ratio: 1536 / 1024; }
+.img-ratio-guarantee-intro { aspect-ratio: 1536 / 1024; }
+.img-ratio-support-cards { aspect-ratio: 1536 / 1024; }
+.img-ratio-course-offer { aspect-ratio: 1536 / 1024; }
+.img-ratio-premium-point { aspect-ratio: 1536 / 1024; }
+.img-ratio-machine-effect { aspect-ratio: 1536 / 1024; }
+.img-ratio-body-coverage { aspect-ratio: 1536 / 1024; }
+.img-ratio-method { aspect-ratio: 1536 / 1024; }
+.img-ratio-skill-speed { aspect-ratio: 1536 / 1024; }
+.img-ratio-beautiful-skin { aspect-ratio: 1536 / 1024; }
+.img-ratio-staff-support { aspect-ratio: 1536 / 1024; }
+.img-ratio-payment { aspect-ratio: 1415 / 1112; }
+.img-ratio-coupon { aspect-ratio: 1024 / 1536; }
+.img-ratio-resale { aspect-ratio: 1536 / 1024; }
+.img-ratio-no-regret { aspect-ratio: 1536 / 1024; }
+.img-ratio-hygiene { aspect-ratio: 1536 / 1024; }
+.img-ratio-infection-control { aspect-ratio: 1536 / 1024; }
+.img-ratio-private-room { aspect-ratio: 1536 / 1024; }
+.img-ratio-faq-area { aspect-ratio: 1536 / 1024; }
+.img-ratio-final-footer { aspect-ratio: 1448 / 1086; }
+
+@media (max-width: 767px) {
+  /* 実測値・スマホ */
+  .img-ratio-hero { aspect-ratio: 793 / 1983; }
+  .img-ratio-offer { aspect-ratio: 862 / 1824; }
+  .img-ratio-value { aspect-ratio: 941 / 1672; }
+  .img-ratio-ranking { aspect-ratio: 864 / 1821; }
+  .img-ratio-comparison { aspect-ratio: 867 / 1815; }
+  .img-ratio-guarantee-intro { aspect-ratio: 864 / 1821; }
+  .img-ratio-support-cards { aspect-ratio: 841 / 1870; }
+  .img-ratio-course-offer { aspect-ratio: 910 / 1729; }
+  .img-ratio-premium-point { aspect-ratio: 864 / 1821; }
+  .img-ratio-machine-effect { aspect-ratio: 948 / 1659; }
+  .img-ratio-body-coverage { aspect-ratio: 922 / 1705; }
+  .img-ratio-method { aspect-ratio: 887 / 1774; }
+  .img-ratio-skill-speed { aspect-ratio: 854 / 1842; }
+  .img-ratio-beautiful-skin { aspect-ratio: 864 / 1821; }
+  .img-ratio-staff-support { aspect-ratio: 946 / 1663; }
+  .img-ratio-payment { aspect-ratio: 928 / 1694; }
+  .img-ratio-coupon { aspect-ratio: 864 / 1821; }
+  .img-ratio-resale { aspect-ratio: 972 / 1619; }
+  .img-ratio-no-regret { aspect-ratio: 859 / 1832; }
+  .img-ratio-hygiene { aspect-ratio: 887 / 1774; }
+  .img-ratio-infection-control { aspect-ratio: 954 / 1648; }
+  .img-ratio-private-room { aspect-ratio: 931 / 1690; }
+  .img-ratio-faq-area { aspect-ratio: 946 / 1663; }
+  .img-ratio-final-footer { aspect-ratio: 845 / 1862; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #c0392b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
 }
