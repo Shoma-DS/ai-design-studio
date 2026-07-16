@@ -1648,5 +1648,1242 @@ select.querySelectorAll(".options div").forEach((option) => {
     tags: ["form", "radio-card", "plan", "ui-ux", "基本"],
     useCase: "料金プラン・コース選択のカードUI",
     moodTags: ["オシャレ", "見やすい"]
+  },
+  {
+    slug: "bottom-sheet-slide-up",
+    name: "ボトムシート（下からせり上がるシート）",
+    category: "ui",
+    description: "画面下からスライドインするアクションシート。背景を暗くしてフォーカスさせる",
+    cssCode: `.bottom-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  transition: background 0.3s ease, visibility 0.3s;
+  z-index: 100;
+}
+.bottom-sheet-backdrop.is-open {
+  background: rgba(0, 0, 0, 0.4);
+  visibility: visible;
+}
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  z-index: 101;
+}
+.bottom-sheet.is-open {
+  transform: translateY(0);
+}
+.bottom-sheet-handle {
+  width: 36px;
+  height: 4px;
+  background: #d0d0d0;
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}`,
+    htmlSnippet: `<div class="bottom-sheet-backdrop" data-sheet-backdrop></div>
+<div class="bottom-sheet" data-sheet>
+  <div class="bottom-sheet-handle"></div>
+  <p>ここにフィルターや詳細メニューを配置</p>
+</div>
+<button data-sheet-open>開く</button>`,
+    jsCode: `const backdrop = document.querySelector("[data-sheet-backdrop]");
+const sheet = document.querySelector("[data-sheet]");
+const openBtn = document.querySelector("[data-sheet-open]");
+
+function openSheet() {
+  backdrop.classList.add("is-open");
+  sheet.classList.add("is-open");
+}
+function closeSheet() {
+  backdrop.classList.remove("is-open");
+  sheet.classList.remove("is-open");
+}
+
+openBtn.addEventListener("click", openSheet);
+backdrop.addEventListener("click", closeSheet);`,
+    tags: ["ボトムシート", "モーダル", "スマホUI"],
+    useCase: "スマホ画面下からのフィルター選択・詳細メニュー・アクションシート（EC/予約サイトの絞り込みUIなど）",
+    moodTags: ["モダン", "スマホライク"]
+  },
+  {
+    slug: "carousel-swipe-snap",
+    name: "スワイプカルーセル（スナップ+ドット）",
+    category: "ui",
+    description: "横スワイプでスナップするカードカルーセル。現在位置をドットで表示",
+    cssCode: `.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 24px;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-slide {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8d8d8;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.carousel-dot.is-active {
+  background: #333;
+  transform: scale(1.4);
+}`,
+    htmlSnippet: `<div class="carousel-track" data-carousel>
+  <div class="carousel-slide"><img src="slide1.jpg" alt=""></div>
+  <div class="carousel-slide"><img src="slide2.jpg" alt=""></div>
+  <div class="carousel-slide"><img src="slide3.jpg" alt=""></div>
+</div>
+<div class="carousel-dots" data-carousel-dots></div>`,
+    jsCode: `const track = document.querySelector("[data-carousel]");
+const dotsWrap = document.querySelector("[data-carousel-dots]");
+const slides = [...track.querySelectorAll(".carousel-slide")];
+
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.className = "carousel-dot" + (i === 0 ? " is-active" : "");
+  dotsWrap.appendChild(dot);
+});
+const dots = [...dotsWrap.children];
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const index = slides.indexOf(entry.target);
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    }
+  });
+}, { root: track, threshold: 0.6 });
+
+slides.forEach((slide) => observer.observe(slide));`,
+    tags: ["カルーセル", "スワイプ", "スマホUI"],
+    useCase: "商品ギャラリー・お客様の声・実績事例など横スワイプで見せたいコンテンツ（スマホ最適、指1本で操作できる）",
+    moodTags: ["モダン", "スマホライク"]
+  },
+  {
+    slug: "icon-like-bounce",
+    name: "いいねアイコンのバウンス演出",
+    category: "icon",
+    description: "ハートアイコンをタップすると弾むように拡大縮小し、色が変わる",
+    cssCode: `.like-icon {
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s ease;
+  transform-origin: center;
+}
+.like-icon.is-liked {
+  color: #e0455f;
+  animation: like-bounce 0.4s ease;
+}
+@keyframes like-bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.35);
+  }
+  55% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .like-icon.is-liked {
+    animation: none;
+  }
+}`,
+    htmlSnippet: `<button class="like-icon" data-like aria-label="いいね" aria-pressed="false">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.4 8 2 4.5 5.6 4c2-.3 3.9.6 5 2.2C11.7 4.6 13.6 3.7 15.6 4c3.6.5 5.2 4 3.6 7.7C16.7 16.4 12 21 12 21z"/></svg>
+</button>`,
+    jsCode: `const btn = document.querySelector("[data-like]");
+btn.addEventListener("click", () => {
+  const liked = btn.classList.toggle("is-liked");
+  btn.setAttribute("aria-pressed", String(liked));
+});`,
+    tags: ["アイコン", "マイクロインタラクション", "いいね"],
+    useCase: "お気に入り登録・レビュー高評価・SNSシェアボタンなど、タップの手応えを演出したい小さなアイコン操作",
+    moodTags: ["ポップ", "スマホライク"]
+  },
+  {
+    slug: "step-progress-indicator",
+    name: "ステップ進行インジケーター",
+    category: "progress",
+    description: "現在の入力ステップを横並びのバーで示す。完了・現在・未着手を色分け",
+    cssCode: `.step-progress {
+  display: flex;
+  gap: 8px;
+}
+.step-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: #e5e5e5;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.step-progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #a8677c;
+  transition: width 0.5s ease;
+}
+.step-progress-bar.is-complete .step-progress-bar-fill {
+  width: 100%;
+}
+.step-progress-bar.is-current .step-progress-bar-fill {
+  width: 50%;
+}
+.step-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #888;
+}`,
+    htmlSnippet: `<div class="step-progress">
+  <div class="step-progress-bar is-complete"><div class="step-progress-bar-fill"></div></div>
+  <div class="step-progress-bar is-current"><div class="step-progress-bar-fill"></div></div>
+  <div class="step-progress-bar"><div class="step-progress-bar-fill"></div></div>
+</div>
+<div class="step-progress-labels">
+  <span>お客様情報</span>
+  <span>お支払い</span>
+  <span>確認</span>
+</div>`,
+    jsCode: null,
+    tags: ["プログレス", "ステップ", "フォーム"],
+    useCase: "予約・購入フォームや会員登録など複数ステップの入力フローで、今どこにいるかを視覚的に示したい場面",
+    moodTags: ["信頼感", "モダン"]
+  },
+  {
+    slug: "tab-underline-slide",
+    name: "タブ下線スライド",
+    category: "navigation",
+    description: "タブ切り替え時に下線がスライドして現在位置を示す",
+    cssCode: `.tabs-underline {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+.tabs-underline button {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.tabs-underline button.is-active {
+  color: #222;
+  font-weight: 700;
+}
+.tabs-underline-bar {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background: #a8677c;
+  transition: left 0.3s cubic-bezier(0.65, 0, 0.35, 1), width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}`,
+    htmlSnippet: `<div class="tabs-underline" data-tabs>
+  <button class="is-active">商品紹介</button>
+  <button>レビュー</button>
+  <button>よくある質問</button>
+  <span class="tabs-underline-bar"></span>
+</div>`,
+    jsCode: `const wrap = document.querySelector("[data-tabs]");
+const buttons = [...wrap.querySelectorAll("button")];
+const bar = wrap.querySelector(".tabs-underline-bar");
+
+function moveBar(btn) {
+  bar.style.left = btn.offsetLeft + "px";
+  bar.style.width = btn.offsetWidth + "px";
+}
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    moveBar(btn);
+  });
+});
+
+moveBar(wrap.querySelector(".is-active"));`,
+    tags: ["タブ", "ナビゲーション", "下線"],
+    useCase: "料金プラン比較・商品詳細/レビュー切り替え・FAQカテゴリなどタブUIの現在位置表示",
+    moodTags: ["モダン", "信頼感"]
+  },
+  {
+    slug: "before-after-slider",
+    name: "ビフォーアフター比較スライダー",
+    category: "image",
+    description: "ドラッグで境界線を動かし、施術前後や効果の比較を見せる",
+    cssCode: `.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  user-select: none;
+}
+.ba-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ba-slider-after {
+  clip-path: inset(0 0 0 50%);
+}
+.ba-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #fff;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.ba-slider-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.ba-slider-label {
+  position: absolute;
+  top: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.ba-slider-label--before { left: 12px; }
+.ba-slider-label--after { right: 12px; }`,
+    htmlSnippet: `<div class="ba-slider" data-ba-slider>
+  <img class="ba-slider-before" src="before.jpg" alt="施術前">
+  <img class="ba-slider-after" data-ba-after src="after.jpg" alt="施術後">
+  <span class="ba-slider-label ba-slider-label--before">Before</span>
+  <span class="ba-slider-label ba-slider-label--after">After</span>
+  <div class="ba-slider-handle" data-ba-handle></div>
+</div>`,
+    jsCode: `const slider = document.querySelector("[data-ba-slider]");
+const after = document.querySelector("[data-ba-after]");
+const handle = document.querySelector("[data-ba-handle]");
+let dragging = false;
+
+function setPosition(clientX) {
+  const rect = slider.getBoundingClientRect();
+  const percent = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+  after.style.clipPath = \`inset(0 0 0 \${percent}%)\`;
+  handle.style.left = percent + "%";
+}
+
+handle.addEventListener("pointerdown", () => { dragging = true; });
+window.addEventListener("pointerup", () => { dragging = false; });
+window.addEventListener("pointermove", (e) => {
+  if (dragging) setPosition(e.clientX);
+});
+slider.addEventListener("click", (e) => setPosition(e.clientX));`,
+    tags: ["ビフォーアフター", "比較", "美容", "ドラッグ"],
+    useCase: "美容・スキンケア・エステ・リフォームなど施術/効果の前後比較を見せたいセクション（美容LPで特に効果的）",
+    moodTags: ["信頼感", "上品"]
+  },
+  {
+    slug: "magnetic-button-hover",
+    name: "マグネティックボタン（カーソル追従CTA）",
+    category: "button",
+    description: "カーソルを近づけるとボタンが吸い寄せられるように少し動く。Awwwards系サイトで定番の演出",
+    cssCode: `.magnetic-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-btn {
+    transition: none;
+  }
+}`,
+    htmlSnippet: `<button class="magnetic-btn" data-magnetic>お問い合わせ</button>`,
+    jsCode: `const btn = document.querySelector("[data-magnetic]");
+const strength = 0.35;
+
+btn.addEventListener("mousemove", (e) => {
+  const rect = btn.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+  btn.style.transform = \`translate(\${x * strength}px, \${y * strength}px)\`;
+});
+
+btn.addEventListener("mouseleave", () => {
+  btn.style.transform = "translate(0, 0)";
+});`,
+    tags: ["ボタン", "マグネティック", "CTA", "ホバー"],
+    useCase: "PCでの主要CTAボタン（お問い合わせ・購入・資料請求）にリッチな操作感を出したい場面。タッチデバイスでは効果なし（PC専用の演出）",
+    moodTags: ["モダン", "カッコイイ"]
+  },
+  {
+    slug: "sticky-header-shrink",
+    name: "スクロールで縮む固定ヘッダー",
+    category: "navigation",
+    description: "ページ上部では大きいヘッダーが、スクロールすると高さ・余白が縮んでコンパクトな固定ヘッダーに変わる",
+    cssCode: `.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  padding: 24px 32px;
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.is-shrunk {
+  padding: 10px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+.site-header-logo {
+  display: block;
+  height: 40px;
+  transition: height 0.3s ease;
+}
+.site-header.is-shrunk .site-header-logo {
+  height: 28px;
+}`,
+    htmlSnippet: `<header class="site-header" data-sticky-header>
+  <img class="site-header-logo" src="logo.svg" alt="ロゴ">
+</header>`,
+    jsCode: `const header = document.querySelector("[data-sticky-header]");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("is-shrunk", window.scrollY > 40);
+}, { passive: true });`,
+    tags: ["ヘッダー", "固定ヘッダー", "スクロール"],
+    useCase: "コーポレートサイト・HPのグローバルヘッダー。スクロール後もロゴ・ナビを見せつつ画面占有を減らしたい場面",
+    moodTags: ["信頼感", "モダン"]
+  },
+  {
+    slug: "image-curtain-reveal",
+    name: "カーテンワイプ画像リビール",
+    category: "scroll",
+    description: "スクロールで画像にかかった幕が横に開き、中の画像が現れる。Awwwards系サイトで見られる印象的な登場演出",
+    cssCode: `.curtain-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.curtain-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.curtain-panel {
+  position: absolute;
+  inset: 0;
+  background: #1a1a1a;
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 1s cubic-bezier(0.83, 0, 0.17, 1);
+}
+.curtain-wrap.is-visible .curtain-panel {
+  transform: scaleX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .curtain-panel {
+    transition: none;
+    transform: scaleX(0);
+  }
+}`,
+    htmlSnippet: `<div class="curtain-wrap reveal-curtain">
+  <img src="photo.jpg" alt="">
+  <div class="curtain-panel"></div>
+</div>`,
+    jsCode: `const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll(".reveal-curtain").forEach((el) => observer.observe(el));`,
+    tags: ["スクロール", "画像", "リビール", "カーテン"],
+    useCase: "ブランディング系LP・HPのキービジュアルや事例写真など、印象的に画像を登場させたいセクション（scroll-fade-upより演出強め）",
+    moodTags: ["カッコイイ", "ラグジュアリー"]
+  },
+  {
+    slug: "testimonial-auto-carousel",
+    name: "お客様の声 自動切り替えカルーセル",
+    category: "ui",
+    description: "レビュー・お客様の声のカードが数秒ごとに自動でフェード切り替わる。手動送りボタンも併用可",
+    cssCode: `.testimonial-carousel {
+  position: relative;
+  min-height: 160px;
+}
+.testimonial-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+.testimonial-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+.testimonial-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.2s ease;
+}
+.testimonial-dot.is-active {
+  background: #a8677c;
+}`,
+    htmlSnippet: `<div class="testimonial-carousel" data-testimonial>
+  <div class="testimonial-slide is-active">「対応が丁寧で安心できました」 - 30代女性</div>
+  <div class="testimonial-slide">「効果を実感できて満足です」 - 40代女性</div>
+  <div class="testimonial-slide">「また利用したいと思います」 - 20代女性</div>
+</div>
+<div class="testimonial-dots" data-testimonial-dots></div>`,
+    jsCode: `const wrap = document.querySelector("[data-testimonial]");
+const dotsWrap = document.querySelector("[data-testimonial-dots]");
+const slides = [...wrap.querySelectorAll(".testimonial-slide")];
+
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.className = "testimonial-dot" + (i === 0 ? " is-active" : "");
+  dotsWrap.appendChild(dot);
+});
+const dots = [...dotsWrap.children];
+
+let current = 0;
+function show(index) {
+  slides[current].classList.remove("is-active");
+  dots[current].classList.remove("is-active");
+  current = index;
+  slides[current].classList.add("is-active");
+  dots[current].classList.add("is-active");
+}
+
+setInterval(() => {
+  show((current + 1) % slides.length);
+}, 4000);
+
+dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));`,
+    tags: ["カルーセル", "お客様の声", "レビュー", "自動再生"],
+    useCase: "お客様の声・導入事例・レビューを省スペースで複数見せたいLP/HPのセクション",
+    moodTags: ["信頼感", "上品"]
+  },
+  {
+    slug: "gradient-blob-background",
+    name: "有機的に動くグラデーションブロブ背景",
+    category: "background",
+    description: "ふわふわと形を変えながら漂うグラデーションの塊。SaaS系のヒーローセクションで定番の背景演出",
+    cssCode: `.blob-wrap {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.blob {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+  filter: blur(60px);
+  opacity: 0.55;
+  z-index: -1;
+  animation: blob-move 14s ease-in-out infinite;
+}
+.blob--a {
+  top: -10%;
+  left: -10%;
+  background: #a8677c;
+  animation-delay: 0s;
+}
+.blob--b {
+  bottom: -15%;
+  right: -10%;
+  background: #6c8ea8;
+  animation-delay: -6s;
+}
+@keyframes blob-move {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+  }
+  33% {
+    transform: translate(6%, 8%) scale(1.08);
+    border-radius: 58% 42% 35% 65% / 55% 65% 35% 45%;
+  }
+  66% {
+    transform: translate(-6%, 4%) scale(0.95);
+    border-radius: 35% 65% 55% 45% / 40% 55% 45% 60%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}`,
+    htmlSnippet: `<div class="blob-wrap">
+  <div class="blob blob--a"></div>
+  <div class="blob blob--b"></div>
+  <h1>次世代のクラウドサービス</h1>
+</div>`,
+    jsCode: null,
+    tags: ["背景", "ブロブ", "グラデーション", "SaaS"],
+    useCase: "SaaS・ITサービス系LP/HPのヒーローセクション背景。ミニマルな文字組みに柔らかい動きを添えたい場面",
+    moodTags: ["モダン", "幻想的"]
+  },
+  {
+    slug: "notification-badge-ping",
+    name: "通知バッジの点滅（ピン留めドット）",
+    category: "notification",
+    description: "アイコンの右上に赤いドットが波紋のように広がりながら点滅し、未読・新着を知らせる",
+    cssCode: `.badge-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.badge-ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+}
+.badge-ping::before,
+.badge-ping::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #e0455f;
+}
+.badge-ping::before {
+  animation: badge-ping-wave 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes badge-ping-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-ping::before {
+    animation: none;
+  }
+}`,
+    htmlSnippet: `<span class="badge-wrap">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.1-1.6-5.6-4.5-6.3V4a1.5 1.5 0 0 0-3 0v.7C7.6 5.4 6 7.9 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+  <span class="badge-ping"></span>
+</span>`,
+    jsCode: null,
+    tags: ["通知", "バッジ", "ピン留め", "マイクロインタラクション"],
+    useCase: "新着メッセージ・お知らせ・カート内商品ありなど、アイコンに小さく注意を引きたい場面",
+    moodTags: ["ポップ", "モダン"]
+  },
+  {
+    slug: "bento-grid-hover",
+    name: "Bentoグリッドレイアウト（ホバーで強調）",
+    category: "ui",
+    description: "大小さまざまなサイズのカードを箱詰めのように敷き詰めるBentoグリッド。ホバーしたカードだけ浮き上がる",
+    cssCode: `.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 140px;
+  gap: 16px;
+}
+.bento-item {
+  background: #f4f2ee;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bento-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+.bento-item--wide { grid-column: span 2; }
+.bento-item--tall { grid-row: span 2; }
+@media (max-width: 767px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-item--wide { grid-column: span 2; }
+}`,
+    htmlSnippet: `<div class="bento-grid">
+  <div class="bento-item bento-item--wide">機能A</div>
+  <div class="bento-item">機能B</div>
+  <div class="bento-item bento-item--tall">機能C</div>
+  <div class="bento-item">機能D</div>
+  <div class="bento-item">機能E</div>
+</div>`,
+    jsCode: null,
+    tags: ["Bento", "グリッド", "レイアウト", "ホバー"],
+    useCase: "SaaS・サービス紹介LP/HPの機能一覧セクション。大小の情報量が混在する内容を1つの盤面にまとめて見せたい場面",
+    moodTags: ["モダン", "見やすい"]
+  },
+  {
+    slug: "countdown-timer",
+    name: "カウントダウンタイマー",
+    category: "ui",
+    description: "残り時間を日・時・分・秒でカウントダウン表示する。数字が切り替わる瞬間に軽くフェードする",
+    cssCode: `.countdown {
+  display: flex;
+  gap: 12px;
+}
+.countdown-block {
+  text-align: center;
+}
+.countdown-num {
+  display: inline-block;
+  min-width: 2ch;
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.15s ease;
+}
+.countdown-num.is-flip {
+  opacity: 0.3;
+}
+.countdown-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #888;
+}`,
+    htmlSnippet: `<div class="countdown" data-countdown="2026-08-01T00:00:00">
+  <div class="countdown-block"><span class="countdown-num" data-days>00</span><span class="countdown-label">日</span></div>
+  <div class="countdown-block"><span class="countdown-num" data-hours>00</span><span class="countdown-label">時間</span></div>
+  <div class="countdown-block"><span class="countdown-num" data-minutes>00</span><span class="countdown-label">分</span></div>
+  <div class="countdown-block"><span class="countdown-num" data-seconds>00</span><span class="countdown-label">秒</span></div>
+</div>`,
+    jsCode: `const el = document.querySelector("[data-countdown]");
+const target = new Date(el.dataset.countdown).getTime();
+const daysEl = el.querySelector("[data-days]");
+const hoursEl = el.querySelector("[data-hours]");
+const minutesEl = el.querySelector("[data-minutes]");
+const secondsEl = el.querySelector("[data-seconds]");
+
+function pad(n) { return String(n).padStart(2, "0"); }
+
+function tick() {
+  const diff = Math.max(0, target - Date.now());
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+  daysEl.textContent = pad(days);
+  hoursEl.textContent = pad(hours);
+  minutesEl.textContent = pad(minutes);
+  secondsEl.textContent = pad(seconds);
+}
+
+tick();
+setInterval(tick, 1000);`,
+    tags: ["カウントダウン", "タイマー", "期間限定"],
+    useCase: "期間限定キャンペーン・セール終了・予約締切など、残り時間を示して行動を促したいCTA周辺（日付は必ず実在の締切に置き換え、根拠のない期間限定表現をしない）",
+    moodTags: ["ポップ", "緊急感"]
+  },
+  {
+    slug: "timeline-scroll-draw",
+    name: "スクロール連動タイムライン（線が伸びる）",
+    category: "scroll",
+    description: "縦のタイムライン上を、スクロールに合わせて線が下へ伸びていき、通過したステップがハイライトされる",
+    cssCode: `.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e5e5;
+}
+.timeline-progress {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  width: 2px;
+  height: 0%;
+  background: #a8677c;
+  transition: height 0.2s ease-out;
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -32px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.timeline-item.is-passed .timeline-dot {
+  border-color: #a8677c;
+  background: #a8677c;
+}`,
+    htmlSnippet: `<div class="timeline" data-timeline>
+  <div class="timeline-progress" data-timeline-progress></div>
+  <div class="timeline-item"><span class="timeline-dot"></span><h3>ヒアリング</h3><p>ご要望・課題をお伺いします</p></div>
+  <div class="timeline-item"><span class="timeline-dot"></span><h3>ご提案</h3><p>最適なプランをご提案します</p></div>
+  <div class="timeline-item"><span class="timeline-dot"></span><h3>制作・実装</h3><p>デザイン〜実装まで進めます</p></div>
+  <div class="timeline-item"><span class="timeline-dot"></span><h3>納品</h3><p>公開・納品して完了です</p></div>
+</div>`,
+    jsCode: `const timeline = document.querySelector("[data-timeline]");
+const progress = document.querySelector("[data-timeline-progress]");
+const items = [...timeline.querySelectorAll(".timeline-item")];
+
+function update() {
+  const rect = timeline.getBoundingClientRect();
+  const viewportCenter = window.innerHeight * 0.6;
+  const percent = Math.min(100, Math.max(0, ((viewportCenter - rect.top) / rect.height) * 100));
+  progress.style.height = percent + "%";
+
+  items.forEach((item) => {
+    const itemRect = item.getBoundingClientRect();
+    item.classList.toggle("is-passed", itemRect.top < viewportCenter);
+  });
+}
+
+window.addEventListener("scroll", update, { passive: true });
+update();`,
+    tags: ["タイムライン", "スクロール", "ステップ", "導入の流れ"],
+    useCase: "サービス導入の流れ・制作フロー・沿革紹介など、複数ステップを順に見せたいセクション",
+    moodTags: ["信頼感", "モダン"]
+  },
+  {
+    slug: "empty-state-illustration",
+    name: "空状態（Empty State）の案内表示",
+    category: "ui",
+    description: "検索結果0件・カートが空など、何も無い状態でユーザーを迷わせないためのイラスト+文言+CTAをふわっと表示する",
+    cssCode: `.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: empty-state-in 0.6s ease forwards;
+}
+@keyframes empty-state-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  opacity: 0.5;
+}
+.empty-state-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.empty-state-text {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .empty-state {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}`,
+    htmlSnippet: `<div class="empty-state">
+  <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+  <p class="empty-state-title">該当する商品が見つかりませんでした</p>
+  <p class="empty-state-text">条件を変えて再度お試しください</p>
+  <button>絞り込みをリセット</button>
+</div>`,
+    jsCode: null,
+    tags: ["空状態", "検索結果0件", "案内"],
+    useCase: "EC・検索機能付きサイトで、検索結果0件・カートが空・お気に入り未登録など「何もない」状態を丁寧に案内したい画面",
+    moodTags: ["やさしい", "見やすい"]
+  },
+  {
+    slug: "file-upload-dropzone",
+    name: "ドラッグ&ドロップ ファイルアップロード",
+    category: "form",
+    description: "ファイルをドラッグすると枠が光り、ドロップでアップロード進捗バーが伸びる",
+    cssCode: `.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #888;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+.dropzone.is-dragover {
+  border-color: #a8677c;
+  background: #faf3f5;
+  color: #a8677c;
+}
+.dropzone-progress {
+  margin-top: 16px;
+  height: 6px;
+  border-radius: 3px;
+  background: #eee;
+  overflow: hidden;
+  display: none;
+}
+.dropzone-progress.is-active {
+  display: block;
+}
+.dropzone-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #a8677c;
+  transition: width 0.3s ease;
+}`,
+    htmlSnippet: `<div class="dropzone" data-dropzone>
+  <p>ここにファイルをドラッグ&ドロップ<br>またはクリックして選択</p>
+  <div class="dropzone-progress" data-progress-wrap>
+    <div class="dropzone-progress-fill" data-progress-fill></div>
+  </div>
+</div>`,
+    jsCode: `const zone = document.querySelector("[data-dropzone]");
+const progressWrap = document.querySelector("[data-progress-wrap]");
+const progressFill = document.querySelector("[data-progress-fill]");
+
+["dragenter", "dragover"].forEach((evt) => {
+  zone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    zone.classList.add("is-dragover");
+  });
+});
+["dragleave", "drop"].forEach((evt) => {
+  zone.addEventListener(evt, (e) => {
+    e.preventDefault();
+    zone.classList.remove("is-dragover");
+  });
+});
+
+zone.addEventListener("drop", () => {
+  progressWrap.classList.add("is-active");
+  let percent = 0;
+  const timer = setInterval(() => {
+    percent = Math.min(100, percent + 10);
+    progressFill.style.width = percent + "%";
+    if (percent >= 100) clearInterval(timer);
+  }, 120);
+});`,
+    tags: ["ファイルアップロード", "ドラッグ&ドロップ", "フォーム"],
+    useCase: "応募フォームの写真添付・資料アップロードなど、ファイル送信を伴うフォームのUI",
+    moodTags: ["モダン", "信頼感"]
+  },
+  {
+    slug: "copy-to-clipboard-feedback",
+    name: "コピーボタンのフィードバック",
+    category: "button",
+    description: "クリックでテキストをコピーし、ボタンの上に「コピーしました」という吹き出しが一瞬表示される",
+    cssCode: `.copy-btn-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.copy-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 4px);
+  margin-bottom: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.copy-tooltip.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}`,
+    htmlSnippet: `<span class="copy-btn-wrap">
+  <button data-copy-btn data-copy-text="https://example.com/invite/abc123">リンクをコピー</button>
+  <span class="copy-tooltip" data-copy-tooltip>コピーしました</span>
+</span>`,
+    jsCode: `const btn = document.querySelector("[data-copy-btn]");
+const tooltip = document.querySelector("[data-copy-tooltip]");
+let hideTimer;
+
+btn.addEventListener("click", async () => {
+  await navigator.clipboard.writeText(btn.dataset.copyText);
+  tooltip.classList.add("is-visible");
+  clearTimeout(hideTimer);
+  hideTimer = setTimeout(() => tooltip.classList.remove("is-visible"), 1500);
+});`,
+    tags: ["コピー", "クリップボード", "フィードバック"],
+    useCase: "紹介リンク・クーポンコード・APIキーなど、コピーして使ってもらいたいテキストのUI",
+    moodTags: ["モダン", "見やすい"]
+  },
+  {
+    slug: "pagination-dots-slide",
+    name: "ページネーション（現在地スライド表示）",
+    category: "navigation",
+    description: "ページ番号の下に、現在のページ位置を示す下線/背景がスライドして移動する",
+    cssCode: `.pagination {
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: #f4f2ee;
+  border-radius: 999px;
+}
+.pagination button {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+.pagination button.is-active {
+  color: #fff;
+}
+.pagination-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}`,
+    htmlSnippet: `<div class="pagination" data-pagination>
+  <span class="pagination-indicator" data-pagination-indicator></span>
+  <button class="is-active">1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+</div>`,
+    jsCode: `const wrap = document.querySelector("[data-pagination]");
+const indicator = document.querySelector("[data-pagination-indicator]");
+const buttons = [...wrap.querySelectorAll("button")];
+
+buttons.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    buttons.forEach((b) => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    indicator.style.transform = \`translateX(\${i * 38}px)\`;
+  });
+});`,
+    tags: ["ページネーション", "スライド", "ナビゲーション"],
+    useCase: "ブログ一覧・商品一覧・お知らせ一覧などのページ送りUI",
+    moodTags: ["モダン", "見やすい"]
+  },
+  {
+    slug: "photo-stack-hover-fan",
+    name: "重なった写真がホバーで扇状に広がる",
+    category: "image",
+    description: "数枚重ねて置かれた写真に、ホバーすると扇形に少しずつ回転しながら広がる。ポートフォリオ系サイトで見られる見せ方",
+    cssCode: `.photo-stack {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+.photo-stack img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: bottom center;
+}
+.photo-stack img:nth-child(1) { transform: rotate(0deg); z-index: 3; }
+.photo-stack img:nth-child(2) { transform: rotate(0deg); z-index: 2; }
+.photo-stack img:nth-child(3) { transform: rotate(0deg); z-index: 1; }
+.photo-stack:hover img:nth-child(1) { transform: rotate(-10deg) translateX(-16px); }
+.photo-stack:hover img:nth-child(2) { transform: rotate(0deg) translateY(-6px); }
+.photo-stack:hover img:nth-child(3) { transform: rotate(10deg) translateX(16px); }
+@media (prefers-reduced-motion: reduce) {
+  .photo-stack img {
+    transition: none;
+  }
+}`,
+    htmlSnippet: `<div class="photo-stack">
+  <img src="photo1.jpg" alt="">
+  <img src="photo2.jpg" alt="">
+  <img src="photo3.jpg" alt="">
+</div>`,
+    jsCode: null,
+    tags: ["写真", "ホバー", "ポートフォリオ", "スタック"],
+    useCase: "制作実績・お客様事例・ギャラリーなど、複数の写真をコンパクトに1箇所へまとめて見せたいカード",
+    moodTags: ["オシャレ", "カッコイイ"]
+  },
+  {
+    slug: "media-filmstrip-strip",
+    name: "横並びフィルムストリップ（自動スクロール帯）",
+    category: "装飾",
+    description: "ヒーロー下部などに、実績写真や商品写真を横一列に並べた帯をゆっくり自動スクロールさせる（marquee-loopの画像版）",
+    cssCode: `.filmstrip {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.filmstrip-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: filmstrip-scroll 30s linear infinite;
+}
+.filmstrip-track img {
+  height: 120px;
+  width: auto;
+  border-radius: 8px;
+  display: block;
+}
+@keyframes filmstrip-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.filmstrip:hover .filmstrip-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip-track {
+    animation: none;
+  }
+}`,
+    htmlSnippet: `<div class="filmstrip">
+  <div class="filmstrip-track">
+    <img src="work1.jpg" alt="">
+    <img src="work2.jpg" alt="">
+    <img src="work3.jpg" alt="">
+    <img src="work1.jpg" alt="">
+    <img src="work2.jpg" alt="">
+    <img src="work3.jpg" alt="">
+  </div>
+</div>`,
+    jsCode: null,
+    tags: ["フィルムストリップ", "自動スクロール", "ギャラリー"],
+    useCase: "ヒーロー直下やフッター付近で、制作実績・商品ラインナップを一覧的に流し見せたいセクション（画像は同じ配列を2連結してループ）",
+    moodTags: ["モダン", "カッコイイ"]
+  },
+  {
+    slug: "light-beam-glow-bg",
+    name: "斜めに差し込む光の筋（背景演出）",
+    category: "background",
+    description: "暗い背景に、斜めのグラデーション光がゆっくり明滅しながら差し込む。SaaS系の重厚なヒーロー背景で定番",
+    cssCode: `.beam-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #0b0e14;
+  isolation: isolate;
+}
+.beam {
+  position: absolute;
+  top: -20%;
+  width: 2px;
+  height: 140%;
+  background: linear-gradient(180deg, transparent, rgba(168, 140, 255, 0.6), transparent);
+  filter: blur(1px);
+  transform: rotate(20deg);
+  animation: beam-glow 4s ease-in-out infinite;
+  z-index: -1;
+}
+.beam--1 { left: 20%; animation-delay: 0s; }
+.beam--2 { left: 50%; animation-delay: 1.3s; }
+.beam--3 { left: 78%; animation-delay: 2.6s; }
+@keyframes beam-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beam {
+    animation: none;
+    opacity: 0.4;
+  }
+}`,
+    htmlSnippet: `<div class="beam-wrap">
+  <span class="beam beam--1"></span>
+  <span class="beam beam--2"></span>
+  <span class="beam beam--3"></span>
+  <h1>次世代のセキュリティ基盤</h1>
+</div>`,
+    jsCode: null,
+    tags: ["背景", "光", "グロー", "SaaS"],
+    useCase: "SaaS・セキュリティ・テクノロジー系LP/HPの暗いヒーローセクションに重厚感・先進感を出したい場面",
+    moodTags: ["カッコイイ", "モダン"]
   }
 ];
