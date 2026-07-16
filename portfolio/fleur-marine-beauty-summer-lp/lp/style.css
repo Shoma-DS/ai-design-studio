@@ -17,8 +17,135 @@ body {
   box-shadow: 0 0 36px rgba(200, 90, 100, 0.15);
 }
 
-.lp-full {
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-welcome-coupon { aspect-ratio: 1693 / 929; }
+.img-ratio-corugi-intro { aspect-ratio: 1536 / 1024; }
+.img-ratio-corugi-what-is { aspect-ratio: 1536 / 1024; }
+.img-ratio-recommend-effect { aspect-ratio: 1501 / 1048; }
+.img-ratio-cta-reserve { aspect-ratio: 1672 / 941; }
+.img-ratio-campaign-badge { aspect-ratio: 1536 / 1024; }
+.img-ratio-price-detail { aspect-ratio: 1536 / 1024; }
+.img-ratio-merit-icons { aspect-ratio: 1536 / 1024; }
+.img-ratio-coupon-cta { aspect-ratio: 1536 / 1024; }
+.img-ratio-skincare-intro { aspect-ratio: 1536 / 1024; }
+.img-ratio-skincare-steps { aspect-ratio: 1536 / 1024; }
+.img-ratio-uv-warning { aspect-ratio: 1536 / 1024; }
+.img-ratio-skincare-message { aspect-ratio: 1536 / 1024; }
+.img-ratio-product-sunscreen { aspect-ratio: 911 / 1727; }
+.img-ratio-product-mask { aspect-ratio: 1536 / 1024; }
+.img-ratio-corugi-effect-list { aspect-ratio: 1536 / 1024; }
+.img-ratio-concern-check { aspect-ratio: 1536 / 1024; }
+.img-ratio-final-cta-footer { aspect-ratio: 1536 / 1024; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 954 / 1649; }
+  .img-ratio-welcome-coupon { aspect-ratio: 864 / 1821; }
+  .img-ratio-corugi-intro { aspect-ratio: 864 / 1821; }
+  .img-ratio-corugi-what-is { aspect-ratio: 876 / 1796; }
+  .img-ratio-recommend-effect { aspect-ratio: 864 / 1821; }
+  .img-ratio-cta-reserve { aspect-ratio: 1672 / 941; }
+  .img-ratio-campaign-badge { aspect-ratio: 928 / 1694; }
+  .img-ratio-price-detail { aspect-ratio: 864 / 1821; }
+  .img-ratio-merit-icons { aspect-ratio: 1015 / 1550; }
+  .img-ratio-coupon-cta { aspect-ratio: 864 / 1821; }
+  .img-ratio-skincare-intro { aspect-ratio: 864 / 1821; }
+  .img-ratio-skincare-steps { aspect-ratio: 864 / 1821; }
+  .img-ratio-uv-warning { aspect-ratio: 864 / 1821; }
+  .img-ratio-skincare-message { aspect-ratio: 864 / 1821; }
+  .img-ratio-product-sunscreen { aspect-ratio: 864 / 1821; }
+  .img-ratio-product-mask { aspect-ratio: 864 / 1821; }
+  .img-ratio-corugi-effect-list { aspect-ratio: 864 / 1821; }
+  .img-ratio-concern-check { aspect-ratio: 864 / 1821; }
+  .img-ratio-final-cta-footer { aspect-ratio: 864 / 1821; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #c0392b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
 }
