@@ -31,6 +31,27 @@ body {
   height: auto;
 }
 
+/* 画像読み込み前にレイアウトの高さを確保し、ジャンプリンクの着地位置がズレるのを防ぐ（実測値） */
+.img-ratio-hero { aspect-ratio: 1024 / 1536; }
+.img-ratio-story { aspect-ratio: 1024 / 1536; }
+.img-ratio-three-miso { aspect-ratio: 1536 / 1024; }
+.img-ratio-craftsman { aspect-ratio: 1536 / 1024; }
+.img-ratio-links { aspect-ratio: 1536 / 1024; }
+.img-ratio-products { aspect-ratio: 1672 / 941; }
+.img-ratio-partners { aspect-ratio: 1536 / 1024; }
+.img-ratio-footer { aspect-ratio: 1536 / 1024; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 1080 / 1968; }
+  .img-ratio-story { aspect-ratio: 1080 / 2276; }
+  .img-ratio-three-miso { aspect-ratio: 1080 / 1919; }
+  .img-ratio-craftsman { aspect-ratio: 1080 / 2096; }
+  .img-ratio-links { aspect-ratio: 1080 / 2436; }
+  .img-ratio-products { aspect-ratio: 1080 / 2276; }
+  .img-ratio-partners { aspect-ratio: 1080 / 2229; }
+  .img-ratio-footer { aspect-ratio: 1080 / 2160; }
+}
+
 /* スクロールで下から表示（gallery/animations-data.mjs の scroll-fade-up と同一実装） */
 .reveal {
   opacity: 0;
@@ -120,7 +141,9 @@ body {
 #notice:target,
 #products:target,
 #craftsmanship:target,
-#about:target {
+#about:target,
+#guide:target,
+#recipe:target {
   animation: notice-arrive-pulse 0.9s ease-out 2;
 }
 
@@ -128,12 +151,14 @@ body {
   #notice:target,
   #products:target,
   #craftsmanship:target,
-  #about:target {
+  #about:target,
+  #guide:target,
+  #recipe:target {
     animation: none;
   }
 }
 
-/* ご利用案内・レシピページ共通 */
+/* ご利用案内・レシピセクション共通 */
 .sub-page {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
   color: #2b2118;
@@ -144,21 +169,6 @@ body {
   color: #f5ede1;
   padding: 64px 32px 48px;
   text-align: center;
-  position: relative;
-}
-
-.sub-hero-back {
-  position: absolute;
-  top: 24px;
-  left: 32px;
-  color: #cbb896;
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-}
-
-.sub-hero-back:hover {
-  color: #f5ede1;
 }
 
 .sub-hero-eyebrow {
@@ -234,17 +244,6 @@ body {
   font-size: 0.9rem;
 }
 
-.sub-footer {
-  padding: 40px 32px 56px;
-  text-align: center;
-}
-
-.sub-footer .sub-hero-back {
-  position: static;
-  display: inline-block;
-  color: #a8677c;
-}
-
 /* レシピカード */
 .recipe-card {
   max-width: 900px;
@@ -274,5 +273,43 @@ body {
   .recipe-card {
     grid-template-columns: 1fr 1fr;
     align-items: center;
+  }
+}
+
+/* トップへ戻るボタン（gallery/animations-data.mjs の back-to-top-fade スニペットを流用） */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #2b2118;
+  color: #f5ede1;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(43, 33, 24, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #a8677c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
   }
 }

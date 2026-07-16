@@ -10,43 +10,148 @@
     <main class="lp-shell" aria-label="蔵日和 特選（KURABIYORI TOKUSEN）味噌オンラインショップLP">
       <picture class="lp-section lp-section-hero">
         <source media="(max-width: 767px)" srcset="./images/mobile/01-hero.png">
-        <img class="lp-section-img" src="./images/01-hero.png" alt="発酵の技を極めし蔵人が生み出す味噌「蔵日和特選」" decoding="async" fetchpriority="high">
+        <img class="lp-section-img img-ratio-hero" src="./images/01-hero.png" alt="発酵の技を極めし蔵人が生み出す味噌「蔵日和特選」" decoding="async" fetchpriority="high">
         <a href="#notice" class="hero-nav-link hero-nav-link--notice" aria-label="お知らせへ移動">お知らせ</a>
-        <a href="./guide.html" class="hero-nav-link hero-nav-link--guide" aria-label="ご利用案内へ移動">ご利用案内</a>
-        <a href="./recipe.html" class="hero-nav-link hero-nav-link--recipe" aria-label="レシピへ移動">レシピ</a>
+        <a href="#guide" class="hero-nav-link hero-nav-link--guide" aria-label="ご利用案内へ移動">ご利用案内</a>
+        <a href="#recipe" class="hero-nav-link hero-nav-link--recipe" aria-label="レシピへ移動">レシピ</a>
         <a href="#products" class="hero-nav-link hero-nav-link--products" aria-label="商品紹介へ移動">商品紹介</a>
         <a href="#craftsmanship" class="hero-nav-link hero-nav-link--craftsmanship" aria-label="味噌づくりへ移動">味噌づくり</a>
         <a href="#about" class="hero-nav-link hero-nav-link--about" aria-label="蔵日和特選とはへ移動">蔵日和特選とは</a>
       </picture>
       <picture id="about" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/02-story.png">
-        <img class="lp-section-img" src="./images/02-story.png" alt="蔵日和特選のストーリー" loading="lazy">
+        <img class="lp-section-img img-ratio-story" src="./images/02-story.png" alt="蔵日和特選のストーリー">
       </picture>
       <picture class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/03-three-miso.png">
-        <img class="lp-section-img" src="./images/03-three-miso.png" alt="3種の味噌" loading="lazy">
+        <img class="lp-section-img img-ratio-three-miso" src="./images/03-three-miso.png" alt="3種の味噌">
       </picture>
       <picture id="craftsmanship" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/04-craftsman.png">
-        <img class="lp-section-img" src="./images/04-craftsman.png" alt="蔵人のこだわり" loading="lazy">
+        <img class="lp-section-img img-ratio-craftsman" src="./images/04-craftsman.png" alt="蔵人のこだわり">
       </picture>
       <picture class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/05-links-series-heading.png">
-        <img class="lp-section-img" src="./images/05-links-series-heading.png" alt="蔵日和特選シリーズ" loading="lazy">
+        <img class="lp-section-img img-ratio-links" src="./images/05-links-series-heading.png" alt="蔵日和特選シリーズ">
       </picture>
       <picture id="products" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/06-series-products.png">
-        <img class="lp-section-img" src="./images/06-series-products.png" alt="蔵日和特選シリーズ商品一覧" loading="lazy">
+        <img class="lp-section-img img-ratio-products" src="./images/06-series-products.png" alt="蔵日和特選シリーズ商品一覧">
       </picture>
       <picture class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/07-partners.png">
-        <img class="lp-section-img" src="./images/07-partners.png" alt="取扱店舗・提携先" loading="lazy">
+        <img class="lp-section-img img-ratio-partners" src="./images/07-partners.png" alt="取扱店舗・提携先">
       </picture>
+
+      <section id="recipe" class="lp-section reveal sub-page">
+        <header class="sub-hero">
+          <p class="sub-hero-eyebrow">KURABIYORI TOKUSEN</p>
+          <h2 class="sub-hero-title">味噌レシピ</h2>
+          <p class="sub-hero-lead">蔵日和特選の味噌を使った、おうちで楽しめるレシピをご紹介します。</p>
+        </header>
+
+        <div class="recipe-card">
+          <img class="recipe-card-img" src="./images/recipe-miso-soup.jpg" alt="基本の味噌汁">
+          <div class="recipe-card-body">
+            <h3 class="sub-section-title">基本の味噌汁</h3>
+            <p class="sub-section-text">豆腐とわかめ、香り立つ長ねぎ。蔵日和特選の味噌本来の風味が引き立つ、毎日飲みたい定番の一杯です。</p>
+            <h4 class="recipe-sub-title">材料（2人分）</h4>
+            <ul class="sub-section-list">
+              <li>だし汁 400ml</li>
+              <li>蔵日和特選 味噌 大さじ2</li>
+              <li>絹豆腐 半丁</li>
+              <li>乾燥わかめ 大さじ1</li>
+              <li>長ねぎ 少々</li>
+            </ul>
+            <h4 class="recipe-sub-title">作り方</h4>
+            <ol class="sub-section-list sub-section-list--ordered">
+              <li>鍋にだし汁を入れて温め、豆腐とわかめを加える。</li>
+              <li>ひと煮立ちしたら火を弱め、味噌を溶き入れる。</li>
+              <li>沸騰させないよう温めたら、器に盛り長ねぎを散らす。</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <img class="recipe-card-img" src="./images/recipe-miso-glaze.jpg" alt="茄子の田楽（味噌だれ焼きなす）">
+          <div class="recipe-card-body">
+            <h3 class="sub-section-title">茄子の田楽（味噌だれ焼きなす）</h3>
+            <p class="sub-section-text">とろける茄子に、甘辛い味噌だれをたっぷりと。蔵日和特選の味噌のコクが引き立つ、お酒にも合う一品です。</p>
+            <h4 class="recipe-sub-title">材料（2人分）</h4>
+            <ul class="sub-section-list">
+              <li>茄子 2本</li>
+              <li>蔵日和特選 味噌 大さじ3</li>
+              <li>みりん 大さじ2</li>
+              <li>砂糖 大さじ1</li>
+              <li>ごま 少々</li>
+            </ul>
+            <h4 class="recipe-sub-title">作り方</h4>
+            <ol class="sub-section-list sub-section-list--ordered">
+              <li>茄子は縦半分に切り、切り込みを入れて素焼きにする。</li>
+              <li>味噌・みりん・砂糖を混ぜ合わせ、田楽味噌を作る。</li>
+              <li>焼いた茄子に田楽味噌を塗り、香ばしく仕上げてごまを散らす。</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="guide" class="lp-section reveal sub-page">
+        <header class="sub-hero">
+          <p class="sub-hero-eyebrow">KURABIYORI TOKUSEN</p>
+          <h2 class="sub-hero-title">ご利用案内</h2>
+        </header>
+
+        <div class="sub-section">
+          <h3 class="sub-section-title">配送について</h3>
+          <p class="sub-section-text">
+            全国どこでも一律600円（税込）でお届けします。5,000円（税込）以上のご購入で送料無料です。
+            ご注文確認後、2〜4営業日以内に発送いたします。天候やお届け先の状況により前後する場合がございます。
+          </p>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="sub-section-title">お支払い方法について</h3>
+          <ul class="sub-section-list">
+            <li>クレジットカード（VISA / Mastercard / JCB / American Express）</li>
+            <li>代金引換（手数料330円）</li>
+            <li>銀行振込（前払い）</li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="sub-section-title">返品・交換について</h3>
+          <p class="sub-section-text">
+            商品到着後7日以内、未開封の商品に限り返品・交換を承ります。恐れ入りますが、食品という商品の性質上、
+            開封後の返品・交換はお受けできません。不良品の場合は送料弊社負担にて良品と交換いたしますので、
+            お問い合わせフォームよりご連絡ください。
+          </p>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="sub-section-title">よくある質問</h3>
+          <div class="sub-faq">
+            <div class="sub-faq-item">
+              <p class="sub-faq-q">Q. 賞味期限はどのくらいですか？</p>
+              <p class="sub-faq-a">A. 製造日より6か月です。商品パッケージに記載の賞味期限をご確認ください。</p>
+            </div>
+            <div class="sub-faq-item">
+              <p class="sub-faq-q">Q. 保存方法を教えてください。</p>
+              <p class="sub-faq-a">A. 直射日光・高温多湿を避けた冷暗所で保存してください。開封後は冷蔵庫で保存し、お早めにお召し上がりください。</p>
+            </div>
+            <div class="sub-faq-item">
+              <p class="sub-faq-q">Q. ギフト包装はできますか？</p>
+              <p class="sub-faq-a">A. 有料（330円）にてギフト包装を承っております。ご注文時の備考欄にご記入ください。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <picture id="notice" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/08-footer.png">
-        <img class="lp-section-img" src="./images/08-footer.png" alt="お知らせ・フッター" loading="lazy">
+        <img class="lp-section-img img-ratio-footer" src="./images/08-footer.png" alt="お知らせ・フッター">
       </picture>
     </main>
+    <button type="button" class="back-to-top" aria-label="トップへ戻る">↑</button>
     <script src="./script.js"></script>
   </body>
 </html>
