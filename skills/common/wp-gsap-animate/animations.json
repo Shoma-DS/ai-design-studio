@@ -1,0 +1,443 @@
+{
+  "version": "1.0.0",
+  "groups": [
+    {
+      "id": "entrance",
+      "label": "登場",
+      "note": "要素が画面に入ったときに現れる。テキストにも画像にも、どんな要素にも付けられる。"
+    },
+    {
+      "id": "text",
+      "label": "テキスト",
+      "note": "文字を分解して動かす。見出しやキャッチコピー向け。"
+    },
+    {
+      "id": "scroll",
+      "label": "スクロール連動",
+      "note": "スクロール量に合わせて動く。"
+    },
+    {
+      "id": "multi",
+      "label": "複数要素",
+      "note": "並んだ要素をまとめて動かす。子要素が複数必要。"
+    },
+    {
+      "id": "number",
+      "label": "数値",
+      "note": "数字を動かす。"
+    },
+    {
+      "id": "loop",
+      "label": "常時",
+      "note": "スクロールもマウス操作も関係なく、ずっと動き続ける。装飾やバッジに。"
+    },
+    {
+      "id": "interaction",
+      "label": "インタラクション",
+      "note": "マウス操作に反応する。"
+    }
+  ],
+  "requirements": {
+    "any": {
+      "label": "どこにでも付く",
+      "note": "要素を1つ指定するだけ。既存サイトにそのまま追加できる。"
+    },
+    "text": {
+      "label": "テキスト要素",
+      "note": "文字が入った要素（見出しなど）に付ける。"
+    },
+    "multi": {
+      "label": "複数要素が必要",
+      "note": "指定した要素の中に、子要素が2つ以上並んでいること。"
+    }
+  },
+  "animations": [
+    {
+      "id": "fade-up",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "ふわっと下から登場",
+      "desc": "少し下からフェードインしながら上がってくる。最も汎用的で、迷ったらこれ。",
+      "options": {
+        "duration": 0.9,
+        "distance": 40
+      },
+      "demo": "<div class='dbox'>ふわっと下から登場</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "fade-in",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "その場でふわっと",
+      "desc": "動かず、透明度だけで現れる。上品で控えめ。本文や画像に。",
+      "options": {
+        "duration": 1.2
+      },
+      "demo": "<div class='dbox'>その場でふわっと</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "slide-in",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "横から滑り込む",
+      "desc": "左右（または上下）から滑り込んでくる。directionで向きを指定。",
+      "options": {
+        "direction": "left",
+        "distance": 40
+      },
+      "demo": "<div class='dbox'>横から滑り込む</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "scale-in",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "小さく→等倍に弾む",
+      "desc": "少し小さい状態から、弾むように等倍まで拡大。カードやボタンに元気が出る。",
+      "options": {
+        "duration": 0.8
+      },
+      "demo": "<div class='dbox'>小さく→等倍に弾む</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "blur-in",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "ぼけ→くっきり",
+      "desc": "ぼやけた状態からピントが合う。写真やヒーロー画像に効果的。",
+      "options": {
+        "duration": 1.1
+      },
+      "demo": "<div class='dbox'>ぼけ→くっきり</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "flip-in",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "3Dで反転しながら登場",
+      "desc": "奥から手前へ倒れ込むように現れる。存在感が強いので使いどころは絞る。",
+      "options": {
+        "duration": 1.0
+      },
+      "demo": "<div class='dbox'>3Dで反転しながら登場</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "image-reveal",
+      "group": "entrance",
+      "requirement": "any",
+      "label": "マスクで開きながら寄る",
+      "desc": "下からマスクが開き、同時にゆっくり等倍まで寄る。制作会社サイトの定番。",
+      "options": {
+        "duration": 0.9
+      },
+      "demo": "<div class='dframe'><div class='dimg'>IMAGE</div></div>",
+      "target": ".dimg"
+    },
+    {
+      "id": "box-reveal",
+      "group": "text",
+      "requirement": "any",
+      "label": "ボックスが横に抜けて現れる",
+      "desc": "ボックスが要素を覆っていて、それが横に抜けて中身が現れる。最初は見えない。制作会社サイトの定番。sweep:true にすると、ボックスが反対側から走り込んでから抜ける。",
+      "options": {
+        "color": "#111111",
+        "direction": "right",
+        "sweep": false
+      },
+      "demo": "<h3 class='dtitle dbr'>ボックスが抜けて現れる</h3>",
+      "target": ".dbr"
+    },
+    {
+      "id": "split-chars",
+      "group": "text",
+      "requirement": "text",
+      "label": "1文字ずつ登場",
+      "desc": "文字が1つずつ順番に現れる。ヒーローの大見出しの定番。",
+      "options": {
+        "stagger": 0.08
+      },
+      "demo": "<h3 class='dtitle'>1文字ずつ登場します</h3>",
+      "target": ".dtitle"
+    },
+    {
+      "id": "typewriter",
+      "group": "text",
+      "requirement": "text",
+      "label": "タイプライター",
+      "desc": "打ち込むように1文字ずつ表示。ターミナル風・レトロな演出に。",
+      "options": {
+        "speed": 0.045
+      },
+      "demo": "<h3 class='dtitle dmono'>打ち込むように1文字ずつ表示されていきます。ターミナル風の演出に_</h3>",
+      "target": ".dtitle"
+    },
+    {
+      "id": "text-mask",
+      "group": "text",
+      "requirement": "text",
+      "label": "まるごと下から迫り上がる",
+      "desc": "中身を1つの塊として、まとめて下から持ち上げる。3行あっても3行が一緒に上がる。中に太字やリンクがあっても壊れない。",
+      "options": {
+        "duration": 1.0
+      },
+      "demo": "<h3 class='dtitle'>この見出しは3行に折り返されます。同じ文章で見比べると違いが分かります。</h3>",
+      "target": ".dtitle"
+    },
+    {
+      "id": "split-lines",
+      "group": "text",
+      "requirement": "text",
+      "label": "行ごとに順番に迫り上がる",
+      "desc": "行ごとにマスクを作り、1行ずつ遅れて迫り上がる。text-maskと同じ文章で見比べると違いが分かる。中のタグは失われるので、太字やリンクがあるならtext-maskを使う。",
+      "options": {
+        "stagger": 0.13
+      },
+      "demo": "<h3 class='dtitle'>この見出しは3行に折り返されます。同じ文章で見比べると違いが分かります。</h3>",
+      "target": ".dtitle"
+    },
+    {
+      "id": "highlight-marker",
+      "group": "text",
+      "requirement": "text",
+      "label": "マーカーが引かれる",
+      "desc": "文字の後ろをマーカーがスッと塗る。強調したい一文に。colorでブランドカラーにも変えられる。",
+      "options": {
+        "color": "rgba(255,214,64,.55)",
+        "thickness": 45
+      },
+      "demo": "<h3 class='dtitle'>ここが<span class='dmark'>大事なところ</span>です</h3>",
+      "target": ".dmark"
+    },
+    {
+      "id": "parallax",
+      "group": "scroll",
+      "requirement": "any",
+      "label": "視差（ゆっくりズレる）",
+      "desc": "背景や画像がスクロールとズレて動き、奥行きが出る。speedで強さ調整。",
+      "options": {
+        "speed": 0.3
+      },
+      "demo": "<div class='dbox'>スクロールでゆっくりズレる</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "scroll-scale",
+      "group": "scroll",
+      "requirement": "any",
+      "label": "スクロールで拡大",
+      "desc": "スクロールに合わせて少しずつ拡大。ヒーロー画像に迫力が出る。",
+      "options": {
+        "speed": 0.25
+      },
+      "demo": "<div class='dbox'>スクロールで拡大</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "scroll-rotate",
+      "group": "scroll",
+      "requirement": "any",
+      "label": "スクロールで回転",
+      "desc": "スクロール量に応じて回転。装飾的な図形やバッジ向け。",
+      "options": {
+        "degrees": 180
+      },
+      "demo": "<div class='dsquare'>ROTATE</div>",
+      "target": ".dsquare"
+    },
+    {
+      "id": "section-color",
+      "group": "scroll",
+      "requirement": "any",
+      "label": "スクロールで背景色が変わる",
+      "desc": "セクションに入ると背景色がじわりと切り替わる。章の切れ目に。",
+      "options": {
+        "color": "#5b8def"
+      },
+      "demo": "<div class='dcolor'>スクロールすると色が変わります</div>",
+      "target": ".dcolor"
+    },
+    {
+      "id": "text-fill",
+      "group": "scroll",
+      "requirement": "text",
+      "label": "スクロールで文字が塗られる",
+      "desc": "スクロールに合わせて文字が薄い色から濃い色へ塗られていく。長いキャッチコピーに最も映える、いま風の演出。",
+      "options": {
+        "from": "rgba(120,120,120,0.28)",
+        "to": "#e8eaed"
+      },
+      "demo": "<h3 class='dtitle'>スクロールに合わせて文字が少しずつ塗られていきます。長いキャッチコピーほど、この動きは効きます。</h3>",
+      "target": ".dtitle"
+    },
+    {
+      "id": "stagger",
+      "group": "multi",
+      "requirement": "multi",
+      "label": "順番に登場",
+      "desc": "並んだ子要素が少しずつ遅れて登場。カード一覧・実績一覧の定番。",
+      "options": {
+        "stagger": 0.12
+      },
+      "demo": "<div class='drow'><div class='dcard'>01</div><div class='dcard'>02</div><div class='dcard'>03</div></div>",
+      "target": ".drow"
+    },
+    {
+      "id": "grid-cascade",
+      "group": "multi",
+      "requirement": "multi",
+      "label": "格子状に波及",
+      "desc": "グリッド配置の要素が波のように順に現れる。ギャラリーや料金表に。",
+      "options": {
+        "stagger": 0.06,
+        "from": "start"
+      },
+      "demo": "<div class='dgrid'><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div><div class='dcell'></div></div>",
+      "target": ".dgrid"
+    },
+    {
+      "id": "count-up",
+      "group": "number",
+      "requirement": "any",
+      "label": "数字がカウントアップ",
+      "desc": "0から目標値まで数字が回る。実績数値・料金・満足度に。",
+      "options": {
+        "suffix": "",
+        "decimals": 0
+      },
+      "demo": "<div class='dnum'>1280</div>",
+      "target": ".dnum"
+    },
+    {
+      "id": "marquee",
+      "group": "loop",
+      "requirement": "multi",
+      "label": "延々と流れ続ける",
+      "desc": "ロゴや実績が途切れなく横に流れ続ける。導入企業ロゴの定番。",
+      "options": {
+        "speed": 20
+      },
+      "demo": "<div class='dmarquee'><div class='dlogo'>LOGO A</div><div class='dlogo'>LOGO B</div><div class='dlogo'>LOGO C</div><div class='dlogo'>LOGO D</div><div class='dlogo'>LOGO E</div></div>",
+      "target": ".dmarquee"
+    },
+    {
+      "id": "ken-burns",
+      "group": "loop",
+      "requirement": "any",
+      "label": "ゆっくり寄る・引く",
+      "desc": "画像が中心から静かにズームイン・アウトを繰り返す。ヒーロー画像が生きて見える。",
+      "options": {
+        "scale": 1.28,
+        "speed": 8
+      },
+      "demo": "<div class='dframe'><div class='dimg'>IMAGE</div></div>",
+      "target": ".dimg"
+    },
+    {
+      "id": "float",
+      "group": "loop",
+      "requirement": "any",
+      "label": "ふわふわ浮遊し続ける",
+      "desc": "上下にゆっくり漂う。装飾のバッジやイラストに生命感が出る。",
+      "options": {
+        "distance": 10,
+        "speed": 3
+      },
+      "demo": "<div class='dbadge'>NEW</div>",
+      "target": ".dbadge"
+    },
+    {
+      "id": "spin",
+      "group": "loop",
+      "requirement": "any",
+      "label": "ずっとゆっくり回り続ける",
+      "desc": "スクロールと関係なく、等速で回り続ける。バッジや装飾の図形、ロゴマークに。speedで1周の秒数、directionで回る向きを指定。",
+      "options": {
+        "speed": 20,
+        "direction": "right"
+      },
+      "demo": "<div class='dspin'>SINCE 2026</div>",
+      "target": ".dspin"
+    },
+    {
+      "id": "pulse",
+      "group": "loop",
+      "requirement": "any",
+      "label": "呼吸するように脈打つ",
+      "desc": "ゆっくり拡大縮小を繰り返す。CTAボタンに注意を引きたいときに。使いすぎると鬱陶しいので1箇所まで。",
+      "options": {
+        "scale": 1.05,
+        "speed": 1.2
+      },
+      "demo": "<div class='dbtn'>お問い合わせ</div>",
+      "target": ".dbtn"
+    },
+    {
+      "id": "hover-lift",
+      "group": "interaction",
+      "requirement": "any",
+      "label": "ホバーで浮き上がる",
+      "desc": "マウスを乗せると少し浮いて拡大。カードやボタンに。",
+      "options": {
+        "scale": 1.05,
+        "lift": -8
+      },
+      "demo": "<div class='dbox dhover'>マウスを乗せてみて</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "hover-tilt",
+      "group": "interaction",
+      "requirement": "any",
+      "label": "ホバーで3Dに傾く",
+      "desc": "カーソルの位置に応じてカードが立体的に傾く。高級感が出る。",
+      "options": {
+        "max": 12
+      },
+      "demo": "<div class='dbox dhover'>カーソルを動かしてみて</div>",
+      "target": ".dbox"
+    },
+    {
+      "id": "magnetic",
+      "group": "interaction",
+      "requirement": "any",
+      "label": "カーソルに吸い付く",
+      "desc": "近づくと要素がカーソルに引き寄せられる。CTAボタンに使うと押したくなる。",
+      "options": {
+        "strength": 0.4
+      },
+      "demo": "<div class='dbtn dhover'>お問い合わせ</div>",
+      "target": ".dbtn"
+    },
+    {
+      "id": "hover-zoom",
+      "group": "interaction",
+      "requirement": "any",
+      "label": "ホバーで画像が枠内ズーム",
+      "desc": "枠は動かず、中の画像だけがゆっくり拡大する。カード・サムネイルで最も使われる効果。",
+      "options": {
+        "scale": 1.08,
+        "duration": 0.6
+      },
+      "demo": "<div class='dframe dhover'><div class='dimg'>IMAGE</div></div>",
+      "target": ".dimg"
+    },
+    {
+      "id": "link-underline",
+      "group": "interaction",
+      "requirement": "text",
+      "label": "下線が左から伸びる",
+      "desc": "ホバーで下線が左から伸び、外すと右へ抜ける。ナビゲーションとリンクの定番。",
+      "options": {
+        "color": "currentColor",
+        "thickness": 2
+      },
+      "demo": "<a class='dlink dhover'>リンクにマウスを乗せる</a>",
+      "target": ".dlink"
+    }
+  ]
+}
