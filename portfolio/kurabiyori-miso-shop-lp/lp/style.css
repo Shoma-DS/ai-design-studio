@@ -84,6 +84,8 @@ body {
 
 /* PC(01-hero.png 1024x1536)基準の座標。画像から実測（canvasでテキスト明度を検出）。 */
 .hero-nav-link--notice { left: 7.6%; top: 19.5%; width: 8.2%; height: 2.8%; }
+.hero-nav-link--guide { left: 8.9%; top: 23.8%; width: 9.4%; height: 2.8%; }
+.hero-nav-link--recipe { left: 6.9%; top: 27.8%; width: 6.5%; height: 2.9%; }
 .hero-nav-link--products { left: 6.6%; top: 31.9%; width: 9.2%; height: 2.8%; }
 .hero-nav-link--craftsmanship { left: 6.6%; top: 36.0%; width: 11.4%; height: 2.8%; }
 .hero-nav-link--about { left: 6.7%; top: 40.0%; width: 15.5%; height: 2.9%; }
@@ -91,6 +93,8 @@ body {
 /* スマホ(mobile/01-hero.png 1080x1968)は縦横比が異なるため個別に実測して上書き */
 @media (max-width: 767px) {
   .hero-nav-link--notice { left: 5.7%; top: 19.1%; width: 12.3%; height: 2.5%; }
+  .hero-nav-link--guide { left: 8.6%; top: 24.9%; width: 13.1%; height: 2.6%; }
+  .hero-nav-link--recipe { left: 5.5%; top: 30.5%; width: 8.9%; height: 3.1%; }
   .hero-nav-link--products { left: 5.1%; top: 35.9%; width: 12.9%; height: 2.6%; }
   .hero-nav-link--craftsmanship { left: 5.1%; top: 41.3%; width: 16.3%; height: 2.5%; }
   .hero-nav-link--about { left: 5.2%; top: 46.7%; width: 22.8%; height: 2.6%; }
@@ -126,5 +130,149 @@ body {
   #craftsmanship:target,
   #about:target {
     animation: none;
+  }
+}
+
+/* ご利用案内・レシピページ共通 */
+.sub-page {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  color: #2b2118;
+}
+
+.sub-hero {
+  background: #14110e;
+  color: #f5ede1;
+  padding: 64px 32px 48px;
+  text-align: center;
+  position: relative;
+}
+
+.sub-hero-back {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  color: #cbb896;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.sub-hero-back:hover {
+  color: #f5ede1;
+}
+
+.sub-hero-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #cbb896;
+}
+
+.sub-hero-title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.12em;
+}
+
+.sub-hero-lead {
+  margin: 16px auto 0;
+  max-width: 32em;
+  color: #cbb896;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.sub-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  border-bottom: 1px solid #ece0cf;
+}
+
+.sub-section-title {
+  margin: 0 0 18px;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  border-left: 3px solid #a8677c;
+  padding-left: 12px;
+}
+
+.sub-section-text {
+  margin: 0;
+  line-height: 2;
+  font-size: 0.95rem;
+}
+
+.sub-section-list {
+  margin: 0;
+  padding-left: 1.4em;
+  line-height: 2;
+  font-size: 0.95rem;
+}
+
+.sub-section-list--ordered li {
+  margin-bottom: 4px;
+}
+
+.sub-faq-item {
+  margin-bottom: 20px;
+}
+
+.sub-faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.sub-faq-q {
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.sub-faq-a {
+  margin: 0;
+  color: #5a4d3d;
+  line-height: 1.9;
+  font-size: 0.9rem;
+}
+
+.sub-footer {
+  padding: 40px 32px 56px;
+  text-align: center;
+}
+
+.sub-footer .sub-hero-back {
+  position: static;
+  display: inline-block;
+  color: #a8677c;
+}
+
+/* レシピカード */
+.recipe-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  border-bottom: 1px solid #ece0cf;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.recipe-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.recipe-sub-title {
+  margin: 20px 0 10px;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: #6b5a44;
+}
+
+@media (min-width: 768px) {
+  .recipe-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 }
