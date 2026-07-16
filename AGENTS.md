@@ -55,7 +55,7 @@
 - 原稿、セクション別画像プロンプト、生成画像、結合LPを分けて保存する。
 - セクションが1枚に収まらない場合は、情報の流れが自然につながるよう複数セクションに分割する。
 - 新規LPは必ず `skills/design/lp-responsive/SKILL.md` に従いPC/スマホ両対応にする（スワイプ型LPを除く）。明示的に頼まれていなくても標準工程として行う。
-- LPをVercelに本番公開したら、`skills/lp-design/lp-gallery-sync/SKILL.md` に従いポートフォリオギャラリー（Neon DB `landing_pages`）へ登録し、ギャラリーサイトを再公開する。2026-07-10からユーザー承認済みの標準工程なので、都度確認は不要。
+- LPをVercelに本番公開したら、`skills/lp-design/lp-gallery-sync/SKILL.md` に従い統合ポートフォリオギャラリー（`gallery/`, Neon DB `portfolio_items`テーブル, `type='lp'`）へ登録し、ギャラリーサイトを再公開する。2026-07-10からユーザー承認済みの標準工程なので、都度確認は不要。
 - クライアントのWordPress／Wix／STUDIO／ペライチへ納品する場合は `skills/lp-design/platform-embed/SKILL.md` を使い、静的LP出力を各プラットフォームのカスタムHTML・埋め込み機能に貼れる形式へ変換する。実際の管理画面への貼り付け・画像アップロード・公開作業はこのリポジトリから自動化できないため、人が行う作業として案内する。
 
 ## HP制作（実コードのコーポレートサイト）
@@ -63,7 +63,7 @@
 - 1枚絵のLPではなく、Next.js（App Router）で実際に動くコーポレートサイトを作る場合は `skills/design/hp-creator/SKILL.md` を使う。参考サイトの分析（配色・余白・フォント・構成・導線・アニメーション・世界観の抽出）→オリジナル企画→独立Next.jsプロジェクトとしての実装（`projects/<slug>/`）→画像生成→ドキュメント化（`docs/research/`）→QA→ローカル確認、までを一気通貫で行う。
 - 画像生成はLPと同様、Codex app-server / `gpt-image-2` のみを使う。PC/SP別コンポジションで生成し、1枚を引き伸ばして両対応させない。
 - Vercelへの公開、Vercel環境変数への秘密情報書き込みは、LPと異なり2026-07-12時点でまだ標準運用として承認されていない。**都度チャットで明示的な許可を得てから実行する。**
-- 公開後にポートフォリオギャラリー（`gallery-hp/`、Neon DB `websites`テーブル）へ登録する場合は `skills/design/hp-gallery-sync/SKILL.md` を使う。
+- 公開後にポートフォリオギャラリー（`gallery/`、Neon DB `portfolio_items`テーブル、`type='hp'`）へ登録する場合は `skills/lp-design/lp-gallery-sync/SKILL.md` を使う（旧`gallery-hp/`は2026-07-16に統合済み。詳細は `skills/design/hp-gallery-sync/SKILL.md` 参照）。
 
 ## Git
 

@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LP Portfolio Gallery</title>
+    <title>Portfolio Gallery</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="page-header">
-      <h1>LP Portfolio Gallery</h1>
-      <p class="page-subtitle">制作したLPを検索・カテゴリ・タグで一覧できるポートフォリオです。</p>
+      <h1>Portfolio Gallery</h1>
+      <p class="page-subtitle">制作した作品を種類・カテゴリ・タグで一覧できるポートフォリオです。</p>
     </header>
 
     <main>
+      <nav id="type-tabs" class="type-tabs" aria-label="制作タイプ">
+        <button type="button" class="type-tab" data-type="hp">HP</button>
+        <button type="button" class="type-tab active" data-type="lp">LP</button>
+        <button type="button" class="type-tab" data-type="moving-lp">動くLP</button>
+        <button type="button" class="type-tab" data-type="swipe-lp">スワイプLP</button>
+        <button type="button" class="type-tab" data-type="banner">バナー</button>
+        <button type="button" class="type-tab" data-type="thumbnail">サムネ</button>
+        <button type="button" class="type-tab" data-type="sns-post">SNS投稿</button>
+        <button type="button" class="type-tab" data-type="flyer">チラシ</button>
+      </nav>
+
       <div class="controls">
         <input
           id="search-input"
           type="search"
           placeholder="タイトル・見出し・タグで検索"
-          aria-label="LPを検索"
+          aria-label="作品を検索"
         />
         <div class="filter-dropdown">
           <div class="filter-trigger-row">
@@ -56,7 +67,7 @@
       <p id="result-count" class="result-count"></p>
 
       <div id="card-grid" class="card-grid"></div>
-      <p id="empty-state" class="empty-state" hidden>該当するLPが見つかりませんでした。</p>
+      <p id="empty-state" class="empty-state" hidden>該当する作品が見つかりませんでした。</p>
     </main>
 
     <div id="preview-modal" class="preview-modal" hidden>
@@ -79,14 +90,28 @@
       </div>
     </div>
 
+    <div id="image-modal" class="preview-modal" hidden>
+      <div class="preview-modal-backdrop" data-close></div>
+      <div class="preview-modal-panel image-modal-panel" role="dialog" aria-modal="true" aria-labelledby="image-modal-title">
+        <div class="preview-modal-header">
+          <p id="image-modal-title" class="preview-modal-title"></p>
+          <a id="image-modal-open" class="preview-modal-open" target="_blank" rel="noopener noreferrer">元画像を開く ↗</a>
+          <button type="button" class="preview-modal-close" data-close aria-label="閉じる">×</button>
+        </div>
+        <div class="preview-modal-body image-modal-body">
+          <img id="image-modal-img" class="image-modal-img" alt="" />
+        </div>
+      </div>
+    </div>
+
     <script src="data.js"></script>
     <script>
       (async () => {
         try {
-          const res = await fetch("/api/landing-pages");
+          const res = await fetch("/api/portfolio-items");
           if (res.ok) {
             const rows = await res.json();
-            if (Array.isArray(rows) && rows.length) window.LP_GALLERY_DATA = rows;
+            if (Array.isArray(rows) && rows.length) window.PORTFOLIO_GALLERY_DATA = rows;
           }
         } catch (error) {
           console.warn("DBからの取得に失敗したため、data.jsのフォールバックを使用します。", error);

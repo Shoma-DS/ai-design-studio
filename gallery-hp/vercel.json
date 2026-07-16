@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://lp-portfolio-gallery.vercel.app/",
+      "permanent": true
+    }
+  ]
+}

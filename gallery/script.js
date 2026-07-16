@@ -1,9 +1,18 @@
 (() => {
-  const data = window.LP_GALLERY_DATA || [];
+  const data = window.PORTFOLIO_GALLERY_DATA || [];
   const searchInput = document.getElementById("search-input");
   const cardGrid = document.getElementById("card-grid");
   const resultCount = document.getElementById("result-count");
   const emptyState = document.getElementById("empty-state");
+  const typeTabs = document.getElementById("type-tabs");
+  const typeTabButtons = typeTabs ? typeTabs.querySelectorAll(".type-tab") : [];
+
+  const initialTabEl = typeTabs ? typeTabs.querySelector(".type-tab.active") : null;
+  let activeType = initialTabEl ? initialTabEl.dataset.type : "lp";
+
+  function typeData() {
+    return data.filter((item) => item.type === activeType);
+  }
 
   // overflow:hiddenだけだとホイール操作で背景がスクロールしてしまうため、
   // bodyをfixedにして現在位置を固定し、解除時に元のスクロール位置へ戻す。
@@ -41,6 +50,11 @@
   const deviceFrame = document.getElementById("device-frame");
   const deviceButtons = previewModal.querySelectorAll(".device-btn");
 
+  const imageModal = document.getElementById("image-modal");
+  const imageModalTitle = document.getElementById("image-modal-title");
+  const imageModalOpenLink = document.getElementById("image-modal-open");
+  const imageModalImg = document.getElementById("image-modal-img");
+
   function setDevice(device) {
     deviceFrame.dataset.device = device;
     deviceButtons.forEach((btn) => {
@@ -72,8 +86,35 @@
     unlockBodyScroll();
   }
 
+  function openImagePreview(item) {
+    imageModalTitle.textContent = item.title;
+    imageModalOpenLink.href = item.url;
+    imageModalImg.src = item.url;
+    imageModalImg.alt = item.title;
+    imageModal.hidden = false;
+    lockBodyScroll();
+  }
+
+  function closeImagePreview() {
+    imageModal.hidden = true;
+    imageModalImg.src = "";
+    unlockBodyScroll();
+  }
+
+  function openCard(item) {
+    if (item.linkType === "image") {
+      openImagePreview(item);
+    } else {
+      openPreview(item);
+    }
+  }
+
   previewModal.addEventListener("click", (event) => {
     if (event.target.hasAttribute("data-close")) closePreview();
+  });
+
+  imageModal.addEventListener("click", (event) => {
+    if (event.target.hasAttribute("data-close")) closeImagePreview();
   });
 
   deviceButtons.forEach((btn) => {
@@ -119,26 +160,24 @@
   }
 
   // facetKey → { itemField: item上のタグ配列プロパティ名, taxonomy: 中カテゴリ定義, active/draft: 選択状態 }
+  // タブ（制作タイプ）を切り替えるたびに、そのタイプのデータだけを対象にtaxonomy/選択状態を作り直す。
   const facets = {
-    mood: {
-      itemField: "moodTags",
-      taxonomy: buildTaxonomy(moodMidCategories, [...new Set(data.flatMap((item) => item.moodTags || []))]),
-      active: new Set(),
-      draft: new Set()
-    },
-    product: {
-      itemField: "productTags",
-      taxonomy: buildTaxonomy(productMidCategories, [...new Set(data.flatMap((item) => item.productTags || []))]),
-      active: new Set(),
-      draft: new Set()
-    },
-    feature: {
-      itemField: "featureTags",
-      taxonomy: buildTaxonomy(featureMidCategories, [...new Set(data.flatMap((item) => item.featureTags || []))]),
-      active: new Set(),
-      draft: new Set()
-    }
+    mood: { itemField: "moodTags", taxonomy: [], active: new Set(), draft: new Set() },
+    product: { itemField: "productTags", taxonomy: [], active: new Set(), draft: new Set() },
+    feature: { itemField: "featureTags", taxonomy: [], active: new Set(), draft: new Set() }
   };
+
+  function rebuildFacets() {
+    const scoped = typeData();
+    facets.mood.taxonomy = buildTaxonomy(moodMidCategories, [...new Set(scoped.flatMap((item) => item.moodTags || []))]);
+    facets.product.taxonomy = buildTaxonomy(productMidCategories, [...new Set(scoped.flatMap((item) => item.productTags || []))]);
+    facets.feature.taxonomy = buildTaxonomy(featureMidCategories, [...new Set(scoped.flatMap((item) => item.featureTags || []))]);
+    Object.keys(facets).forEach((key) => {
+      facets[key].active = new Set();
+      facets[key].draft = new Set();
+      updateActiveFilterBadge(key);
+    });
+  }
 
   function matchesTagSet(itemTags, activeSet) {
     if (activeSet.size === 0) return true;
@@ -163,7 +202,7 @@
   // key で指定した面だけ draftSet を使い、他の面は確定済み(active)の値で判定する。
   // モーダルごとに絞り込み対象を分けたので、編集中でないタグ面は active を使う。
   function countMatches(editingKey, draftSet) {
-    return data.filter((item) => {
+    return typeData().filter((item) => {
       return (
         Object.keys(facets).every((key) => {
           const set = key === editingKey ? draftSet : facets[key].active;
@@ -329,6 +368,7 @@
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !filterPanel.hidden) closePanel();
+    if (event.key === "Escape" && !imageModal.hidden) closeImagePreview();
   });
 
   filterApplyBtn.addEventListener("click", () => {
@@ -347,7 +387,8 @@
   });
 
   function renderCards() {
-    const filtered = data.filter((item) => {
+    const scoped = typeData();
+    const filtered = scoped.filter((item) => {
       return (
         Object.keys(facets).every((key) => matchesTagSet(item[facets[key].itemField], facets[key].active)) &&
         matchesQuery(item, query)
@@ -371,17 +412,17 @@
         <div class="card-body">
           <span class="card-category">${item.category}</span>
           <p class="card-title">${item.title}</p>
-          <p class="card-heading">${item.heading}</p>
+          <p class="card-heading">${item.heading || ""}</p>
           <div class="card-tags">
             ${tagsHtml}
           </div>
         </div>
       `;
-      card.addEventListener("click", () => openPreview(item));
+      card.addEventListener("click", () => openCard(item));
       cardGrid.appendChild(card);
     });
 
-    resultCount.textContent = `${filtered.length}件 / 全${data.length}件`;
+    resultCount.textContent = `${filtered.length}件 / 全${scoped.length}件`;
     emptyState.hidden = filtered.length !== 0;
   }
 
@@ -390,6 +431,19 @@
     renderCards();
   });
 
-  Object.keys(facets).forEach(updateActiveFilterBadge);
+  typeTabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.type === activeType) return;
+      activeType = btn.dataset.type;
+      typeTabButtons.forEach((b) => b.classList.toggle("active", b === btn));
+      query = "";
+      searchInput.value = "";
+      closePanel();
+      rebuildFacets();
+      renderCards();
+    });
+  });
+
+  rebuildFacets();
   renderCards();
 })();

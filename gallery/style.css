@@ -72,6 +72,56 @@ main {
   padding: 0 1.5rem 4rem;
 }
 
+.type-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 0 1rem;
+  justify-content: center;
+}
+
+.type-tab {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.type-tab:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.type-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+
+.image-modal-panel {
+  max-width: min(90vw, 900px);
+}
+
+.image-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--accent-soft);
+}
+
+.image-modal-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 .controls {
   position: sticky;
   top: 0;
@@ -141,6 +191,10 @@ main {
 .filter-trigger.active .filter-trigger-chevron {
   color: var(--accent);
   transform: rotate(180deg);
+}
+
+.filter-count-badge[hidden] {
+  display: none;
 }
 
 .filter-count-badge {

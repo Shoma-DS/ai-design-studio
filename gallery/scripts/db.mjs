@@ -52,6 +52,39 @@ export async function upsertLandingPage(entry) {
   `;
 }
 
+export async function upsertPortfolioItem(entry) {
+  const {
+    slug,
+    type,
+    title,
+    heading = null,
+    category,
+    moodTags = [],
+    productTags = [],
+    featureTags = [],
+    linkType = "external",
+    url,
+    thumbnail
+  } = entry;
+
+  await sql`
+    insert into portfolio_items (slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail, updated_at)
+    values (${slug}, ${type}, ${title}, ${heading}, ${category}, ${moodTags}, ${productTags}, ${featureTags}, ${linkType}, ${url}, ${thumbnail}, now())
+    on conflict (slug) do update set
+      type = excluded.type,
+      title = excluded.title,
+      heading = excluded.heading,
+      category = excluded.category,
+      mood_tags = excluded.mood_tags,
+      product_tags = excluded.product_tags,
+      feature_tags = excluded.feature_tags,
+      link_type = excluded.link_type,
+      url = excluded.url,
+      thumbnail = excluded.thumbnail,
+      updated_at = now()
+  `;
+}
+
 export async function upsertAnimation(entry) {
   const {
     slug,
