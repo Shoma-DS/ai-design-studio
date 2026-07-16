@@ -1,0 +1,24 @@
+{
+  "pc": {
+    "data": {
+      "id": "y64jewOf0VAW",
+      "name": "compass-lp-full-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/y64jewOf0VAW.jpg",
+      "size": 1641881,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-16 23:07:17"
+    }
+  },
+  "mobile": {
+    "data": {
+      "id": "piNU23cp5sEa",
+      "name": "compass-lp-full-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/piNU23cp5sEa.jpg",
+      "size": 1603808,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-16 23:07:18"
+    }
+  }
+}

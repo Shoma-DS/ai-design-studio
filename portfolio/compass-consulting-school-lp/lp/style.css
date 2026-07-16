@@ -1,0 +1,141 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #eef4fb;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(20, 60, 120, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1717 / 916; }
+.img-ratio-campaign { aspect-ratio: 1717 / 916; }
+.img-ratio-problem { aspect-ratio: 1536 / 1024; }
+.img-ratio-target { aspect-ratio: 1697 / 927; }
+.img-ratio-about { aspect-ratio: 1717 / 916; }
+.img-ratio-reasons { aspect-ratio: 1717 / 916; }
+.img-ratio-why { aspect-ratio: 1717 / 916; }
+.img-ratio-features1 { aspect-ratio: 1717 / 916; }
+.img-ratio-features2 { aspect-ratio: 1536 / 1024; }
+.img-ratio-compare { aspect-ratio: 1717 / 916; }
+.img-ratio-curriculum { aspect-ratio: 1717 / 916; }
+.img-ratio-instructors { aspect-ratio: 1717 / 916; }
+.img-ratio-flow { aspect-ratio: 1536 / 1024; }
+.img-ratio-faq-footer { aspect-ratio: 1536 / 1024; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 1536 / 1024; }
+  .img-ratio-campaign { aspect-ratio: 1672 / 941; }
+  .img-ratio-problem { aspect-ratio: 1536 / 1024; }
+  .img-ratio-target { aspect-ratio: 1536 / 1024; }
+  .img-ratio-about { aspect-ratio: 1536 / 1024; }
+  .img-ratio-reasons { aspect-ratio: 1536 / 1024; }
+  .img-ratio-why { aspect-ratio: 1536 / 1024; }
+  .img-ratio-features1 { aspect-ratio: 1536 / 1024; }
+  .img-ratio-features2 { aspect-ratio: 1536 / 1024; }
+  .img-ratio-compare { aspect-ratio: 1536 / 1024; }
+  .img-ratio-curriculum { aspect-ratio: 1536 / 1024; }
+  .img-ratio-instructors { aspect-ratio: 1536 / 1024; }
+  .img-ratio-flow { aspect-ratio: 864 / 1821; }
+  .img-ratio-faq-footer { aspect-ratio: 1536 / 1024; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #1e5fd6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
+}

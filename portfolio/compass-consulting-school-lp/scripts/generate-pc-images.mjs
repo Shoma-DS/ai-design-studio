@@ -1,0 +1,159 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { generateImageWithCodexAppServer } from "../../../server/codexImageClient.mjs";
+import { sections, buildPrompt } from "../sections.mjs";
+
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const repoRoot = path.resolve(projectRoot, "../..");
+const imageDir = path.join(projectRoot, "lp/images");
+const mobileDir = path.join(imageDir, "mobile");
+const codexHome = process.env.CODEX_HOME || process.env.LP_CODEX_HOME;
+if (codexHome) process.env.CODEX_HOME = codexHome;
+
+const PC_MOBILE_FIRST_INSTRUCTION = `
+────────────────
+【PC版レイアウト再構成の指示（最優先・厳守）】
+このセクションは【PC/デスクトップ表示専用のセクション画像、max-width 1200pxのコンテナに中央配置される】として出力する。
+・添付する参照画像（同一セクションのスマホ版）のコピー・ブランド要素・配色・情報量・視線導線の「世界観」は踏襲するが、**要素の配置（レイアウト構造）はスマホ版のまま流用しない。PCの横幅を使って組み替えること。**
+・具体的には次のいずれかに該当する要素があれば、必ず配置を変える:
+  - 見出し・テキストブロックが写真の上または下にある → PCでは写真の横（左右どちらか）に並べる
+  - カード・アイコン・特徴ブロックが3つ以上、縦1列または2列グリッドで並んでいる → PCでは横一列、または3列以上のグリッドに並べる
+  - 「テキスト→写真→テキスト」のように縦に交互配置されている → PCでは左右2カラムに分割する
+・単に用紙のサイズ・余白比率だけを変えて「スマホ版と同じ配置のまま少し横に広い版」を作ることは禁止。それは「作り直し」ではなく「サイズ変更」であり、この指示の目的に反する。
+・縦横比は16:9などに固定せず、組み替えた結果として内容量に合った自然な高さにする（テキストが少なく要素も少ないセクションは、組み替えてもなおポートレートに近いままで構わないが、その場合も「なぜ横に組み替えようがないのか」を自問すること＝ほとんどのセクションは組み替え可能）。
+・コピー・ブランド要素・配色・情報量はスマホ版と完全に同じに保つ（情報を削らない・足さない）
+・1200px幅で表示したときに間延びせず、スマホ版と一貫した世界観に見える構図にする
+・上下端は前後セクションへ自然につながる余白で終える
+`;
+
+// セクションごとの具体的な組み替え指示。汎用指示だけでは「スマホ版と同じ配置のまま拡大」に
+// なりやすいため、各セクションの実際のモバイル版構図を踏まえた明確な再配置先を指定する。
+const SECTION_LAYOUT_OVERRIDES = {
+  "01-hero": `
+【このセクション固有の組み替え指示】
+・上部ナビゲーションは全幅のまま、写真の上に半透明で重ねてもよい（写真をフルブリードで右45%に配置）。
+・上部: 左55%＝大見出し2行＋サブコピーのみ。右45%＝人物写真をコンテナ端まで届くフルブリードで縦いっぱいに配置（角丸を付けない、または片側のみ）。
+・3つの丸バッジ（現役コンサルタントが直接指導／実際の相談ケースで演習／独立後の案件紹介サポートあり）は見出し直下の左カラム内に置かず、見出し＋写真の帯の下に、コンテナ全幅にまたがる横一列の帯（ピル型アイコン+テキストを3つ横並び）として独立させる。
+・限定枠バッジとCTAボタンも、写真の下に重ねず、最下部に全幅の横長バーとして独立させる（バッジ左、CTAボタン右寄せ）。
+・結果として「見出し+写真の2カラム帯」「3バッジの全幅帯」「バッジ+CTAの全幅帯」という3段構成にし、スマホ版の「左カラム内に全部詰め込む」構成と明確に区別する。`,
+  "02-campaign": `
+【このセクション固有の組み替え指示】
+・スマホ版は「白カード内に見出し+本文（左）／締切バッジ+CTA（右）」の2分割。PCでは4分割の横一列バーに組み替える：①左端に書類・グラフのフラットイラストを独立した列として配置 ②見出し列 ③本文列 ④締切バッジ+CTAボタン列。各列の間に薄い縦区切り線を入れる。
+・カードの余白を大きく取った2分割のままにせず、必ず4列の帯にする。`,
+  "03-problem": `
+【このセクション固有の組み替え指示】
+・スマホ版は「上段（あこがれ2吹き出し+考える人物イラスト）→ 中央のつなぎテキスト → 下段（不安3吹き出し+悩む人物写真）」の上下2段構成。PCではこれを左右3カラムに組み替える：左カラム＝あこがれ2吹き出し+考える人物イラストを縦に配置、中央カラム＝つなぎテキストと見出しを縦центерに配置（区切り列として機能）、右カラム＝不安3吹き出し+悩む人物写真を縦に配置。
+・上下2段のまま横に広げることは禁止。左右の対比（あこがれ側／不安側）が一目でわかる3カラム構成にする。`,
+  "04-target": `
+【このセクション固有の組み替え指示】
+・スマホ版は「バッジ+見出しが中央上部に単独で乗り、その下に3枚カードが横並び」の構成。PCでは見出しブロックを独立した左サイドカラム（全体の閉じ幅、縦方向の帯）として3枚カードの横に並べ、見出しがカードの「上」ではなく「横」に来るようにする。
+・3枚カードは見出し列の右側に、より横幅を活かした横一列で配置する。`,
+  "05-about": `
+【このセクション固有の組み替え指示】
+・スマホ版は「1枚のカード内で左にCOMPASSとは説明文+下に対話イラスト、右にベン図」の2カラム構成、その下に別枠で見出しバッジ。PCでは3カラムに組み替える：①COMPASSとは見出し+本文のみの列 ②対話イラストを独立した列として本文から切り離す ③ベン図+強調テキストの列。
+・下部の「COMPASSが選ばれる3つの理由」の見出し+バッジは、中央下に配置せず、カードの右サイドに縦方向の帯として組み込むか、カード全体の右端に独立カラムとして配置する。`,
+  "06-reasons": `
+【このセクション固有の組み替え指示】
+・スマホ版はReason01/02/03を縦に3段（写真とテキストが左右交互）に積む構成。PCでは必ず横一列の3カラムグリッドに変える（Reason01・02・03を横に並べる）。各カラムは上にラベル+アイコン、中央に写真、下に見出し+本文という縦の並びを列内で統一する。
+・交互配置の縦積みのまま横幅を伸ばすことは禁止。3列グリッドにすること。`,
+  "07-why": `
+【このセクション固有の組み替え指示】
+・スマホ版は「左に見出し+本文がひとまとまり、右にイラスト」の2カラム。PCでは見出しと本文を分離し3カラムにする：①見出しのみの列 ②本文のみの列 ③イラストの列。
+・見出しと本文が同じ列に同居したままにしないこと。`,
+  "08-features1": `
+【このセクション固有の組み替え指示（重要・最優先）】
+・スマホ版は「01が単独の横長ブロック（左テキスト+右9分割サムネイル）」「02・03が下段で2カラムカード」という、上段1つ+下段2カラムの混在構成。これはPCでは禁止。
+・PCでは01・02・03を**同一の横一列に並ぶ3カラムグリッド**に統一する（縦2段構成をやめる）。各カラムは上に写真/ビジュアル（01はモザイク会議サムネ、02はPC作業写真、03はワイヤーフレーム風イラスト）、下に見出し+本文という同じ構造の3枚カードにする。
+・「01だけ特別に横長」という差をなくし、3列とも同じ幅・同じ高さのカードにすること。`,
+  "09-features2": `
+【このセクション固有の組み替え指示】
+・スマホ版は「04・05の2カード横並び」の下に「差別化ポイント」バッジが中央キャプションとして乗る構成。PCでは3カラムに変える：左に「差別化ポイント」バッジ+この一連の紹介文を独立したサイドカラムとして縦に配置し、その右に04・05のカードを2列で並べる（バッジをキャプションから独立した列に格上げする）。
+・バッジをカードの下に小さく置いたままにしないこと。`,
+  "10-compare": `
+【このセクション固有の組み替え指示（重要・最優先）】
+・スマホ版は「比較2カード横並び」→（改行して）「中央揃えの見出し+サブコピー+CTAボタン」という縦2段構成。PCでは縦2段をやめ、**1つの横一列3カラム**にまとめる：左＝比較カード1、中央＝比較カード2、右＝見出し+サブコピー+CTAボタンを縦に積んだサイドバー型のCTAパネル（背景色を変えて区切ってもよい）。
+・CTAブロックを比較カードの下に別途配置することは禁止。カードと同じ横並びの列にすること。`,
+  "11-curriculum": `
+【このセクション固有の組み替え指示（重要・最優先）】
+・スマホ版は「経営知識／コンサルティングスキル」の2カラムで、各カラムの中に基礎ブロックと実践ブロックが縦に2段重なっている。これはPCでは禁止（2カラムのままスマホ幅を維持しているだけと判定される）。
+・PCでは**4カラム**に組み替える：①経営知識-基礎 ②経営知識-実践応用 ③コンサルティングスキル-基礎 ④コンサルティングスキル-実践、を横一列に並べる（現在縦に重なっている基礎/実践ブロックをそれぞれ独立した列に分離する）。
+・見出し（経営知識／コンサルティングスキル）は各2列のペアの上にまたがる小見出しとして残してよいが、コンテンツ自体は4列均等グリッドにする。`,
+  "12-instructors": `
+【このセクション固有の組み替え指示】
+・スマホ版は講師4名を2×2グリッドで配置。PCでは**4名を横一列**に並べる（2行×2列のグリッドをやめ、1行×4列にする）。
+・各列は写真を上、役職+氏名+経歴文を下に統一する。`,
+  "13-flow": `
+【このセクション固有の組み替え指示（重要・最優先）】
+・スマホ版は6ステップを縦に1列で積み、カード間に下向き矢印を配置した縦型タイムライン。PCでは**横型タイムライン**に組み替える：6ステップを横一列（または3列×2行のグリッド）に並べ、ステップ間の矢印も下向きではなく右向きにする。
+・縦1列のまま高さだけ変えることは禁止。必ず横方向の流れが視覚的にわかるレイアウトにする。`,
+  "14-faq-footer": `
+【このセクション固有の組み替え指示】
+・スマホ版のFAQ（Q1〜Q6）は縦1列のアコーディオンリスト。PCでは**2カラム×3行のグリッド**に組み替える（縦1列のまま幅だけ広げることは禁止）。
+・CTA帯とフッターは全幅の横長バーのままでよいが、フッター内のリンク一覧は横一列でより広く展開してよい。`,
+};
+
+const wantedIds = new Set(process.argv.slice(2));
+const selected = wantedIds.size ? sections.filter((s) => wantedIds.has(s.id)) : sections;
+const concurrency = Math.max(1, Math.min(Number(process.env.LP_IMAGE_CONCURRENCY || 3), 8));
+
+await fs.mkdir(imageDir, { recursive: true });
+
+async function exists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function generateOne(section) {
+  const outputPath = path.join(imageDir, section.imageName);
+  if (await exists(outputPath)) {
+    console.log(`skip ${section.id}: ${path.relative(repoRoot, outputPath)}`);
+    return;
+  }
+  const mobilePath = path.join(mobileDir, section.imageName);
+  const mobileBuffer = await fs.readFile(mobilePath);
+  console.log(`generate ${section.id}: ${section.title}`);
+  const override = SECTION_LAYOUT_OVERRIDES[section.id] || "";
+  const prompt = buildPrompt(section) + PC_MOBILE_FIRST_INSTRUCTION + override;
+  const generated = await generateImageWithCodexAppServer({
+    prompt,
+    sectionId: section.id,
+    imageName: section.imageName,
+    refImages: [{ name: `${section.id}-mobile-reference.png`, buffer: mobileBuffer }],
+    cwd: repoRoot,
+    taskType: "section",
+  });
+  if (!generated.configured) {
+    throw new Error(generated.message || "Codex app-server image generation is not configured.");
+  }
+  await fs.writeFile(outputPath, generated.buffer);
+  console.log(`done ${section.id}: ${path.relative(repoRoot, outputPath)}`);
+}
+
+let index = 0;
+const failures = [];
+
+async function worker() {
+  while (index < selected.length) {
+    const section = selected[index++];
+    try {
+      await generateOne(section);
+    } catch (error) {
+      failures.push({ id: section.id, error });
+      console.error(`fail ${section.id}:`, error?.message || error);
+    }
+  }
+}
+
+await Promise.all(Array.from({ length: Math.min(concurrency, selected.length) }, () => worker()));
+
+if (failures.length) {
+  console.error(`${failures.length} image generation tasks failed.`);
+  process.exitCode = 1;
+} else {
+  console.log(`Generated ${selected.length} PC sections.`);
+}

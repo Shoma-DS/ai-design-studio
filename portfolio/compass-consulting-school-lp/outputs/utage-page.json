@@ -1,0 +1,26 @@
+{
+  "funnel": {
+    "id": "pMENtpJ1Kd8H",
+    "name": "COMPASS コンサルタント養成スクール LP",
+    "created_at": "2026-07-16 23:08:06",
+    "updated_at": "2026-07-16 23:08:06"
+  },
+  "step": {
+    "id": "714WtLeEZYXJ",
+    "name": "LPページ",
+    "order": 1
+  },
+  "page": {
+    "id": "tbkqvutibNop",
+    "content_type": "raw_html",
+    "title": "COMPASS 超実践型コンサルタント養成スクール LP",
+    "page_title": "COMPASS 超実践型コンサルタント養成スクール LP",
+    "step_url": "https://utage-system.com/p/714WtLeEZYXJ",
+    "page_url": "https://utage-system.com/page/tbkqvutibNop",
+    "html_source": "<!doctype html>\n<html lang=\"ja\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>COMPASS 超実践型コンサルタント養成スクール LP</title>\n    <style>\n      html, body { margin: 0; min-height: 100%; background: #eef4fb; font-family: -apple-system, BlinkMacSystemFont, \"Hiragino Sans\", \"Yu Gothic\", sans-serif; }\n      .lp-shell { max-width: 1200px; margin: 0 auto; width: 100%; background: #fff; }\n      .lp-full { display: block; width: 100%; max-width: 1200px; height: auto; }\n    </style>\n  </head>\n  <body>\n    <main class=\"lp-shell\" aria-label=\"COMPASS 超実践型コンサルタント養成スクール LP\">\n      <picture>\n        <source media=\"(max-width: 767px)\" srcset=\"https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/piNU23cp5sEa.jpg\">\n        <img class=\"lp-full\" src=\"https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/y64jewOf0VAW.jpg\" alt=\"COMPASS 超実践型コンサルタント養成スクール LP\">\n      </picture>\n    </main>\n  </body>\n</html>",
+    "order": 1,
+    "is_archived": false,
+    "created_at": "2026-07-16 23:08:06",
+    "updated_at": "2026-07-16 23:08:06"
+  }
+}
