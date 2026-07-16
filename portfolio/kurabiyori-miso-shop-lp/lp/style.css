@@ -82,15 +82,24 @@ body {
   outline-offset: 4px;
 }
 
-.hero-nav-link--notice {
-  left: 4%;
-  top: 19%;
-  width: 17%;
-  height: 4%;
+/* PC(01-hero.png 1024x1536)基準の座標。画像から実測（canvasでテキスト明度を検出）。 */
+.hero-nav-link--notice { left: 7.6%; top: 19.5%; width: 8.2%; height: 2.8%; }
+.hero-nav-link--guide { left: 8.9%; top: 23.8%; width: 9.4%; height: 2.8%; }
+.hero-nav-link--products { left: 6.6%; top: 31.9%; width: 9.2%; height: 2.8%; }
+.hero-nav-link--craftsmanship { left: 6.6%; top: 36.0%; width: 11.4%; height: 2.8%; }
+.hero-nav-link--about { left: 6.7%; top: 40.0%; width: 15.5%; height: 2.9%; }
+
+/* スマホ(mobile/01-hero.png 1080x1968)は縦横比が異なるため個別に実測して上書き */
+@media (max-width: 767px) {
+  .hero-nav-link--notice { left: 5.7%; top: 19.1%; width: 12.3%; height: 2.5%; }
+  .hero-nav-link--guide { left: 8.6%; top: 24.9%; width: 13.1%; height: 2.6%; }
+  .hero-nav-link--products { left: 5.1%; top: 35.9%; width: 12.9%; height: 2.6%; }
+  .hero-nav-link--craftsmanship { left: 5.1%; top: 41.3%; width: 16.3%; height: 2.5%; }
+  .hero-nav-link--about { left: 5.2%; top: 46.7%; width: 22.8%; height: 2.6%; }
 }
 
-.hero-nav-link--notice:hover,
-.hero-nav-link--notice:focus-visible {
+.hero-nav-link:hover,
+.hero-nav-link:focus-visible {
   background: rgba(255, 255, 255, 0.12);
   border-radius: 4px;
 }
@@ -106,12 +115,18 @@ body {
   }
 }
 
-#notice:target {
+#notice:target,
+#products:target,
+#craftsmanship:target,
+#about:target {
   animation: notice-arrive-pulse 0.9s ease-out 2;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #notice:target {
+  #notice:target,
+  #products:target,
+  #craftsmanship:target,
+  #about:target {
     animation: none;
   }
 }
