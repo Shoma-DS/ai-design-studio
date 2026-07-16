@@ -8,11 +8,20 @@
   </head>
   <body>
     <main class="lp-shell" aria-label="BEAUTE Rêve Cerisier 2026 summer 特別号">
-      <img class="lp-full" src="./images/01-cover.jpg" alt="BEAUTE Rêve Cerisier 2026 summer 特別号 間に合う脱毛で夏をもっと快適＆美しく" decoding="async" fetchpriority="high">
-      <img class="lp-full" src="./images/02-uvcare.jpg" alt="紫外線に負けない 暑い熱もさわやか笑顔で元気に過ごすために">
+      <picture class="lp-section lp-section-hero">
+        <source media="(max-width: 767px)" srcset="./images/mobile/01-cover.jpg">
+        <img class="lp-section-img img-ratio-cover" src="./images/01-cover.jpg" alt="BEAUTE Rêve Cerisier 2026 summer 特別号 間に合う脱毛で夏をもっと快適＆美しく" decoding="async" fetchpriority="high">
+      </picture>
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/02-uvcare.jpg">
+        <img class="lp-section-img img-ratio-uvcare" src="./images/02-uvcare.jpg" alt="紫外線に負けない 暑い熱もさわやか笑顔で元気に過ごすために" loading="lazy">
+      </picture>
 
       <div class="campaign-wrap">
-        <img class="lp-full" src="./images/03-campaign.jpg" alt="間に合う脱毛キャンペーン 8月末まで有効 両脇5回＋VIO1回 7,700円（税込）">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="./images/mobile/03-campaign.jpg">
+          <img class="lp-section-img img-ratio-campaign" src="./images/03-campaign.jpg" alt="間に合う脱毛キャンペーン 8月末まで有効 両脇5回＋VIO1回 7,700円（税込）" loading="lazy">
+        </picture>
         <a class="coupon-pop" href="https://line.me/R/oaMessage/@022mxwky/?2026.7脱毛キャンペーン" target="_blank" rel="noopener" aria-label="クーポンを受け取る">
           <img class="coupon-pop-img" src="./images/coupon-banner.jpg" alt="">
         </a>
@@ -27,8 +36,14 @@
           <img class="korugi-cta-img" src="./images/korugi-cta-handdrawn.png" alt="脱毛と一緒に選ばれています！ 夏は背中で魅せる！！">
         </a>
       </div>
-      <img class="lp-full" src="./images/04-korugi-intro.jpg" alt="夏こそ、コルギ。むくみ・たるみをケアするアプローチで、すっきり小顔＆美背中に">
-      <img class="lp-full" src="./images/05-korugi-effect.jpg" alt="コルギの効果 小顔への効果・美背中への効果">
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/04-korugi-intro.jpg">
+        <img class="lp-section-img img-ratio-korugi-intro" src="./images/04-korugi-intro.jpg" alt="夏こそ、コルギ。むくみ・たるみをケアするアプローチで、すっきり小顔＆美背中に" loading="lazy">
+      </picture>
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/05-korugi-effect.jpg">
+        <img class="lp-section-img img-ratio-korugi-effect" src="./images/05-korugi-effect.jpg" alt="コルギの効果 小顔への効果・美背中への効果" loading="lazy">
+      </picture>
 
       <div class="reserve-wrap reserve-korugi">
         <a class="reserve-button" href="https://line.me/R/oaMessage/@022mxwky/?夏コルギ予約" target="_blank" rel="noopener" aria-label="コルギを予約する">
@@ -37,8 +52,16 @@
         <img class="reserve-caption-img" src="./images/korugi-reserve-caption.png" alt="夏コルギを予約するをそのまま送信">
       </div>
 
-      <img class="lp-full" src="./images/06-skincare-damage.jpg" alt="夏のダメージを受けた肌を、いたわり・満たす・守る 本気のスキンケアを">
-      <img class="lp-full" src="./images/07-products.jpg" alt="夏におすすめする商品のご紹介">
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/06-skincare-damage.jpg">
+        <img class="lp-section-img img-ratio-skincare-damage" src="./images/06-skincare-damage.jpg" alt="夏のダメージを受けた肌を、いたわり・満たす・守る 本気のスキンケアを" loading="lazy">
+      </picture>
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/07-products.jpg">
+        <img class="lp-section-img img-ratio-products" src="./images/07-products.jpg" alt="夏におすすめする商品のご紹介" loading="lazy">
+      </picture>
     </main>
+    <button type="button" class="back-to-top" aria-label="トップへ戻る">↑</button>
+    <script src="./script.js"></script>
   </body>
 </html>
