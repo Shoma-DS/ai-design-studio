@@ -17,8 +17,51 @@ body {
   box-shadow: 0 0 36px rgba(120, 80, 40, 0.15);
 }
 
-.lp-full {
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* スクロールで下から表示（gallery/animations-data.mjs の scroll-fade-up と同一実装） */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ヒーローはスクロールを待たず、読み込み時にふわっと表示する */
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
 }

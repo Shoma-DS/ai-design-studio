@@ -102,7 +102,9 @@ window.PORTFOLIO_GALLERY_DATA = [
       "食品",
       "味噌"
     ],
-    "featureTags": [],
+    "featureTags": [
+      "アニメーション"
+    ],
     "linkType": "external",
     "url": "https://kurabiyori-miso-shop-lp.vercel.app",
     "thumbnail": "assets/thumbnails/kurabiyori-miso-shop-lp.jpg"
