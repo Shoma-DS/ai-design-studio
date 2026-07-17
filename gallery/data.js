@@ -473,10 +473,10 @@ window.PORTFOLIO_GALLERY_DATA = [
     "thumbnail": "assets/thumbnails/lumiere-nail-atelier-swipe-lp.jpg"
   },
   {
-    "slug": "fruitein-banner-taste",
+    "slug": "fruitein-banner-trust",
     "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（味訴求）",
-    "heading": "甘すぎました。",
+    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（信頼・実績訴求）",
+    "heading": "売れすぎました。",
     "category": "健康食品・サプリ",
     "moodTags": [
       "ポップ",
@@ -488,8 +488,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "featureTags": [],
     "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-taste.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-taste.jpg"
+    "url": "assets/portfolio/banner/fruitein-banner-trust.png",
+    "thumbnail": "assets/thumbnails/fruitein-banner-trust.jpg"
   },
   {
     "slug": "fruitein-banner-price",
@@ -511,10 +511,10 @@ window.PORTFOLIO_GALLERY_DATA = [
     "thumbnail": "assets/thumbnails/fruitein-banner-price.jpg"
   },
   {
-    "slug": "fruitein-banner-trust",
+    "slug": "fruitein-banner-taste",
     "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（信頼・実績訴求）",
-    "heading": "売れすぎました。",
+    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（味訴求）",
+    "heading": "甘すぎました。",
     "category": "健康食品・サプリ",
     "moodTags": [
       "ポップ",
@@ -526,7 +526,27 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "featureTags": [],
     "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-trust.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-trust.jpg"
+    "url": "assets/portfolio/banner/fruitein-banner-taste.png",
+    "thumbnail": "assets/thumbnails/fruitein-banner-taste.jpg"
+  },
+  {
+    "slug": "compass-consulting-school-lp",
+    "type": "lp",
+    "title": "COMPASS 超実践型コンサルタント養成スクール LP",
+    "heading": "その経験を、価値に変える。その一歩、COMPASSで。",
+    "category": "教育・スクール",
+    "moodTags": [
+      "信頼感",
+      "ポップ"
+    ],
+    "productTags": [
+      "教育",
+      "スクール",
+      "コンサルティング"
+    ],
+    "featureTags": [],
+    "linkType": "external",
+    "url": "https://utage-system.com/p/714WtLeEZYXJ",
+    "thumbnail": "assets/thumbnails/compass-consulting-school-lp.jpg"
   }
 ];
