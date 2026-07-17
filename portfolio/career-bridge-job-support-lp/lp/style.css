@@ -81,7 +81,7 @@ html {
 .img-ratio-flow-step1 { aspect-ratio: 1717 / 916; }
 .img-ratio-flow-step2-3 { aspect-ratio: 1672 / 941; }
 .img-ratio-flow-step4-5-closing { aspect-ratio: 1536 / 1024; }
-.img-ratio-footer { aspect-ratio: 1358 / 1159; }
+.img-ratio-footer { aspect-ratio: 1672 / 941; }
 
 @media (max-width: 767px) {
   .img-ratio-hero-header { aspect-ratio: 1024 / 1536; }
