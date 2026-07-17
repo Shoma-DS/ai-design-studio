@@ -70,7 +70,7 @@ html {
 }
 
 /* 画像読み込み前にレイアウトの高さを確保（実測値） */
-.img-ratio-hero { aspect-ratio: 1717 / 916; }
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
 .img-ratio-campaign { aspect-ratio: 1717 / 916; }
 .img-ratio-problem { aspect-ratio: 1536 / 1024; }
 .img-ratio-target { aspect-ratio: 1697 / 927; }
