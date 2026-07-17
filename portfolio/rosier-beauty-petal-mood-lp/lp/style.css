@@ -73,10 +73,10 @@ html {
 .img-ratio-hero { aspect-ratio: 1536 / 1024; }
 .img-ratio-drop1-mood { aspect-ratio: 1536 / 1024; }
 .img-ratio-drop1-products { aspect-ratio: 1717 / 916; }
-.img-ratio-drop2-mood { aspect-ratio: 1024 / 1536; }
+.img-ratio-drop2-mood { aspect-ratio: 1536 / 1024; }
 .img-ratio-drop2-products { aspect-ratio: 1536 / 1024; }
 .img-ratio-drop2-closing { aspect-ratio: 1536 / 1024; }
-.img-ratio-drop3-mood { aspect-ratio: 1448 / 1086; }
+.img-ratio-drop3-mood { aspect-ratio: 1536 / 1024; }
 .img-ratio-drop3-products { aspect-ratio: 1536 / 1024; }
 .img-ratio-footer { aspect-ratio: 1717 / 916; }
 
