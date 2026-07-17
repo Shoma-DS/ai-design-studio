@@ -199,12 +199,35 @@ a {
 .img-frame {
   position: relative;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   line-height: 0;
 }
 
 .img-frame img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値、PC/スマホ共通デフォルトはPC値） */
+.hero .img-frame img {
+  aspect-ratio: 1600 / 983;
+}
+.concept .img-frame img {
+  aspect-ratio: 1717 / 916;
+}
+.news .img-frame img {
+  aspect-ratio: 1758 / 895;
+}
+.case-study .img-frame img {
+  aspect-ratio: 1690 / 931;
+}
+.photo-grid .img-frame img {
+  aspect-ratio: 1717 / 916;
+}
+.footer-section .img-frame img {
+  aspect-ratio: 1536 / 1024;
 }
 
 .hero {
@@ -325,10 +348,10 @@ a {
   transform: translateX(5px);
 }
 
-/* Hero overlay positions (image 1536x1024, PC版新方針で作り直し) */
+/* Hero overlay positions (image 1600x983, 左45%グレーパネル+右55%建物イラストの2カラム構成に作り直し) */
 .hero-ctas {
-  top: 63%;
-  left: 6.5%;
+  top: 74%;
+  left: 5%;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -554,6 +577,24 @@ a {
   .hero {
     padding-top: 60px;
   }
+  .hero .img-frame img {
+    aspect-ratio: 1024 / 1536;
+  }
+  .concept .img-frame img {
+    aspect-ratio: 851 / 1847;
+  }
+  .news .img-frame img {
+    aspect-ratio: 946 / 1663;
+  }
+  .case-study .img-frame img {
+    aspect-ratio: 864 / 1821;
+  }
+  .photo-grid .img-frame img {
+    aspect-ratio: 997 / 1577;
+  }
+  .footer-section .img-frame img {
+    aspect-ratio: 897 / 1752;
+  }
   .hero-ctas {
     top: 84%;
     left: 6%;
@@ -566,8 +607,9 @@ a {
     font-size: 0.78rem;
   }
   .concept .overlay.text-link {
-    left: 6%;
-    top: 87%;
+    left: auto;
+    right: 6%;
+    top: 96.5%;
     font-size: 0.8rem;
   }
   .case-link {
