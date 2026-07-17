@@ -76,11 +76,11 @@ html {
 .img-ratio-story-intro-card { aspect-ratio: 1024 / 1536; }
 .img-ratio-story-grid { aspect-ratio: 1536 / 1024; }
 .img-ratio-characters-heading { aspect-ratio: 1024 / 1536; }
-.img-ratio-characters-airship { aspect-ratio: 1050 / 1498; }
+.img-ratio-characters-airship { aspect-ratio: 1536 / 1024; }
 .img-ratio-sdgs-board { aspect-ratio: 1536 / 1024; }
 .img-ratio-sdgs-gallery-audience { aspect-ratio: 1536 / 1024; }
 .img-ratio-logo-recap-nav { aspect-ratio: 997 / 1578; }
-.img-ratio-footer { aspect-ratio: 1536 / 1024; }
+.img-ratio-footer { aspect-ratio: 1717 / 916; }
 
 @media (max-width: 767px) {
   .img-ratio-header-title { aspect-ratio: 864 / 1821; }
