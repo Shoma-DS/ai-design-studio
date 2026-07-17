@@ -74,10 +74,10 @@ html {
 .img-ratio-intro-price { aspect-ratio: 1717 / 916; }
 .img-ratio-mood-photo { aspect-ratio: 1536 / 1024; }
 .img-ratio-gallery-grid { aspect-ratio: 1536 / 1024; }
-.img-ratio-story { aspect-ratio: 935 / 1683; }
+.img-ratio-story { aspect-ratio: 1536 / 1024; }
 .img-ratio-purchase-method { aspect-ratio: 1718 / 916; }
 .img-ratio-maker { aspect-ratio: 1536 / 1024; }
-.img-ratio-product-detail { aspect-ratio: 1024 / 1536; }
+.img-ratio-product-detail { aspect-ratio: 1536 / 1024; }
 .img-ratio-footer { aspect-ratio: 1717 / 916; }
 
 @media (max-width: 767px) {
