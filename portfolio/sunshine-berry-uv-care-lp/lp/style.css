@@ -72,7 +72,7 @@ html {
 /* 画像読み込み前にレイアウトの高さを確保（実測値） */
 .img-ratio-hero { aspect-ratio: 1536 / 1024; }
 .img-ratio-product-info { aspect-ratio: 1717 / 916; }
-.img-ratio-ribbon { aspect-ratio: 1568 / 1003; }
+.img-ratio-ribbon { aspect-ratio: 1536 / 1024; }
 .img-ratio-pain-points { aspect-ratio: 1711 / 919; }
 .img-ratio-grape { aspect-ratio: 1536 / 1024; }
 .img-ratio-phytochemical { aspect-ratio: 1536 / 1024; }
