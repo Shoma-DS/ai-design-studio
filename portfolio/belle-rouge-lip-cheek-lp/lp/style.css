@@ -72,7 +72,7 @@ html {
 .img-ratio-campaign { aspect-ratio: 1536 / 1024; }
 .img-ratio-color-variation { aspect-ratio: 1536 / 1024; }
 .img-ratio-purchase { aspect-ratio: 1536 / 1024; }
-.img-ratio-policy-footer { aspect-ratio: 1000 / 1573; }
+.img-ratio-policy-footer { aspect-ratio: 1536 / 1024; }
 
 @media (max-width: 767px) {
   .img-ratio-hero-closing { aspect-ratio: 880 / 1788; }
