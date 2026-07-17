@@ -5,7 +5,7 @@
 3. セクション構成を作る。
 4. セクション別LP原稿を作る（案件フォルダの `copy/` へ）。
 5. セクション別画像プロンプトを nanobanana pro 形式で作る。
-6. Codex app-server / gpt-image-2 でラスター画像を生成する（案件フォルダの `lp/images/` へ）。
-7. セクション画像を縦結合し、`<案件フォルダ>/lp/images/lp-full.png` を作る。
-8. `<案件フォルダ>/lp/index.html` でローカルプレビューする。
+6. セクションごとに、①スマホ版画像 → ②PC版画像の順でCodex app-server / gpt-image-2 により生成し、両方を成果物として保存する（スマホ版: `lp/images/mobile/`、PC版: `lp/images/`）。PC版はスマホ版の単純な拡大・縮小にせず、横幅を活かして構図を再設計する。詳細は `skills/design/lp-responsive/SKILL.md` を参照。
+7. `<案件フォルダ>/lp/index.html` を、レスポンシブ時の画像切り替え（1セクション1`<picture>`、スマホ版/PC版の`srcset`切り替え）を前提に組み立てる。全セクションを縦結合した `lp-full.png` は作らない（廃止済み）。
+8. `<案件フォルダ>/lp/index.html` でローカルプレビューし、PC幅・スマホ幅の両方で構図が切り替わることを確認する。
 9. Vercelに公開する場合は、`skills/lp-design/vercel-free-deploy/SKILL.md` の手順で公開し、同スキルの「ギャラリーサイトへの追加」に従って `gallery/`（ポートフォリオギャラリーサイト）にも追加する。
