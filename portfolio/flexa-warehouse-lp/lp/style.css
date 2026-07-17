@@ -227,7 +227,7 @@ a {
   aspect-ratio: 1717 / 916;
 }
 .footer-section .img-frame img {
-  aspect-ratio: 1536 / 1024;
+  aspect-ratio: 1672 / 941;
 }
 
 .hero {
@@ -386,7 +386,7 @@ a {
   right: auto;
 }
 
-/* Footer overlay position (image 1536x1024) */
+/* Footer overlay position (image 1672x941) */
 .footer-ctas {
   top: 80%;
   left: 50%;
