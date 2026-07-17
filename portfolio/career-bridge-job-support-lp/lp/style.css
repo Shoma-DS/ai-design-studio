@@ -77,8 +77,8 @@ html {
 .img-ratio-case-study-1 { aspect-ratio: 1536 / 1024; }
 .img-ratio-case-study-2 { aspect-ratio: 1536 / 1024; }
 .img-ratio-quality-companies { aspect-ratio: 1536 / 1024; }
-.img-ratio-value-props { aspect-ratio: 1024 / 1536; }
-.img-ratio-flow-step1 { aspect-ratio: 1568 / 1003; }
+.img-ratio-value-props { aspect-ratio: 1536 / 1024; }
+.img-ratio-flow-step1 { aspect-ratio: 1717 / 916; }
 .img-ratio-flow-step2-3 { aspect-ratio: 1672 / 941; }
 .img-ratio-flow-step4-5-closing { aspect-ratio: 1536 / 1024; }
 .img-ratio-footer { aspect-ratio: 1358 / 1159; }
@@ -86,7 +86,7 @@ html {
 @media (max-width: 767px) {
   .img-ratio-hero-header { aspect-ratio: 1024 / 1536; }
   .img-ratio-pain-points-3steps { aspect-ratio: 864 / 1821; }
-  .img-ratio-cta-subheading { aspect-ratio: 1024 / 1536; }
+  .img-ratio-cta-subheading { aspect-ratio: 864 / 1821; }
   .img-ratio-consultation-support { aspect-ratio: 1049 / 1500; }
   .img-ratio-case-study-1 { aspect-ratio: 1082 / 1454; }
   .img-ratio-case-study-2 { aspect-ratio: 1024 / 1536; }
