@@ -1,0 +1,294 @@
+{
+  "pc": {
+    "01-hero": {
+      "id": "NqtlHKUS075H",
+      "name": "compass-01-hero-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/NqtlHKUS075H.jpg",
+      "size": 236243,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:09"
+    },
+    "02-campaign": {
+      "id": "4umg54CpO8nN",
+      "name": "compass-02-campaign-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/4umg54CpO8nN.jpg",
+      "size": 156762,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:10"
+    },
+    "03-problem": {
+      "id": "j1P3ynEG5sW7",
+      "name": "compass-03-problem-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/j1P3ynEG5sW7.jpg",
+      "size": 186095,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:11"
+    },
+    "04-target": {
+      "id": "kmmy6BoYlc9u",
+      "name": "compass-04-target-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/kmmy6BoYlc9u.jpg",
+      "size": 182460,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:12"
+    },
+    "05-about": {
+      "id": "LJhYBREdECed",
+      "name": "compass-05-about-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/LJhYBREdECed.jpg",
+      "size": 171349,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:13"
+    },
+    "06-reasons": {
+      "id": "3r1kGny3YC70",
+      "name": "compass-06-reasons-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/3r1kGny3YC70.jpg",
+      "size": 245972,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:14"
+    },
+    "07-why": {
+      "id": "h0q93sgwqddO",
+      "name": "compass-07-why-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/h0q93sgwqddO.jpg",
+      "size": 194545,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:15"
+    },
+    "08-features1": {
+      "id": "PoeimdOpp6iL",
+      "name": "compass-08-features1-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/PoeimdOpp6iL.jpg",
+      "size": 210021,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:16"
+    },
+    "09-features2": {
+      "id": "PfUZFzbinBrC",
+      "name": "compass-09-features2-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/PfUZFzbinBrC.jpg",
+      "size": 218901,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:17"
+    },
+    "10-compare": {
+      "id": "ZTRJL3K4otKd",
+      "name": "compass-10-compare-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/ZTRJL3K4otKd.jpg",
+      "size": 186891,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:18"
+    },
+    "11-curriculum": {
+      "id": "Z7LTdIeuNBnU",
+      "name": "compass-11-curriculum-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/Z7LTdIeuNBnU.jpg",
+      "size": 185150,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:19"
+    },
+    "12-instructors": {
+      "id": "v1ZRI6MxwwPE",
+      "name": "compass-12-instructors-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/v1ZRI6MxwwPE.jpg",
+      "size": 213046,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:20"
+    },
+    "13-flow": {
+      "id": "v6iAT5Haa04u",
+      "name": "compass-13-flow-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/v6iAT5Haa04u.jpg",
+      "size": 151748,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:21"
+    },
+    "14-faq-footer": {
+      "id": "muUzYXfprPzG",
+      "name": "compass-14-faq-footer-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/muUzYXfprPzG.jpg",
+      "size": 217217,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:22"
+    },
+    "14a-faq-header": {
+      "id": "LZP29tHFhcRc",
+      "name": "compass-14a-faq-header-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/LZP29tHFhcRc.jpg",
+      "size": 29630,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-18 02:04:07"
+    },
+    "14b-cta-footer": {
+      "id": "gtj1e6rve8qf",
+      "name": "compass-14b-cta-footer-pc.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/gtj1e6rve8qf.jpg",
+      "size": 110928,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-18 02:04:08"
+    }
+  },
+  "mobile": {
+    "01-hero": {
+      "id": "m6fpKJjm5BcB",
+      "name": "compass-01-hero-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/m6fpKJjm5BcB.jpg",
+      "size": 206502,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:09"
+    },
+    "02-campaign": {
+      "id": "OA5I3CzAHCVW",
+      "name": "compass-02-campaign-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/OA5I3CzAHCVW.jpg",
+      "size": 178002,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:10"
+    },
+    "03-problem": {
+      "id": "yu6kemWXCDvN",
+      "name": "compass-03-problem-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/yu6kemWXCDvN.jpg",
+      "size": 218698,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:11"
+    },
+    "04-target": {
+      "id": "kgqNlS5hIDVe",
+      "name": "compass-04-target-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/kgqNlS5hIDVe.jpg",
+      "size": 187734,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:12"
+    },
+    "05-about": {
+      "id": "UnCwmWyC7UY5",
+      "name": "compass-05-about-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/UnCwmWyC7UY5.jpg",
+      "size": 188680,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:13"
+    },
+    "06-reasons": {
+      "id": "eNnUh289qxOA",
+      "name": "compass-06-reasons-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/eNnUh289qxOA.jpg",
+      "size": 250081,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:14"
+    },
+    "07-why": {
+      "id": "d0SQ4bxf7pfy",
+      "name": "compass-07-why-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/d0SQ4bxf7pfy.jpg",
+      "size": 200377,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:15"
+    },
+    "08-features1": {
+      "id": "TTzWioaKTnpA",
+      "name": "compass-08-features1-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/TTzWioaKTnpA.jpg",
+      "size": 212544,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:16"
+    },
+    "09-features2": {
+      "id": "mfAdEVahaVzZ",
+      "name": "compass-09-features2-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/mfAdEVahaVzZ.jpg",
+      "size": 221132,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:17"
+    },
+    "10-compare": {
+      "id": "d2ijUau9n0YX",
+      "name": "compass-10-compare-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/d2ijUau9n0YX.jpg",
+      "size": 171812,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:19"
+    },
+    "11-curriculum": {
+      "id": "dbbc4OVTwDnI",
+      "name": "compass-11-curriculum-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/dbbc4OVTwDnI.jpg",
+      "size": 205125,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:20"
+    },
+    "12-instructors": {
+      "id": "jA4b5cHG4oPZ",
+      "name": "compass-12-instructors-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/jA4b5cHG4oPZ.jpg",
+      "size": 209032,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:21"
+    },
+    "13-flow": {
+      "id": "ajRBBovCG5Pj",
+      "name": "compass-13-flow-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/ajRBBovCG5Pj.jpg",
+      "size": 171258,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:22"
+    },
+    "14-faq-footer": {
+      "id": "nbxw5x3lYxNY",
+      "name": "compass-14-faq-footer-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/nbxw5x3lYxNY.jpg",
+      "size": 203734,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-17 22:03:23"
+    },
+    "14a-faq-header": {
+      "id": "o4tLCLamcjqt",
+      "name": "compass-14a-faq-header-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/o4tLCLamcjqt.jpg",
+      "size": 27443,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-18 02:04:07"
+    },
+    "14b-cta-footer": {
+      "id": "MgmPmjWXE8cp",
+      "name": "compass-14b-cta-footer-mobile.jpg",
+      "url": "https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/MgmPmjWXE8cp.jpg",
+      "size": 103258,
+      "mime_type": "image/jpeg",
+      "folder_id": null,
+      "created_at": "2026-07-18 02:04:08"
+    }
+  }
+}

@@ -7,15 +7,29 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <div class="scroll-progress"></div>
     <main class="lp-shell" aria-label="COMPASS 超実践型コンサルタント養成スクール LP">
-      <picture class="lp-section lp-section-hero">
-        <source media="(max-width: 767px)" srcset="./images/mobile/01-hero.png">
-        <img class="lp-section-img img-ratio-hero" src="./images/01-hero.png" alt="COMPASS 超実践型コンサルタント養成スクール LP" decoding="async" fetchpriority="high">
-      </picture>
-      <picture class="lp-section reveal">
-        <source media="(max-width: 767px)" srcset="./images/mobile/02-campaign.png">
-        <img class="lp-section-img img-ratio-campaign" src="./images/02-campaign.png" alt="" loading="lazy">
-      </picture>
+      <div class="lp-section-wrap">
+        <picture class="lp-section lp-section-hero">
+          <source media="(max-width: 767px)" srcset="./images/mobile/01-hero.png">
+          <img class="lp-section-img img-ratio-hero" src="./images/01-hero.png" alt="COMPASS 超実践型コンサルタント養成スクール LP" decoding="async" fetchpriority="high">
+        </picture>
+        <a class="lp-cta lp-cta-hero-nav" data-cta="line" href="#" aria-label="無料相談はこちら"></a>
+        <a class="lp-cta lp-cta-hero-main lp-cta-pulse" data-cta="line" href="#" aria-label="無料相談はこちら"></a>
+        <a class="lp-nav-link lp-nav-link-about" href="#about" aria-label="COMPASSについて"></a>
+        <a class="lp-nav-link lp-nav-link-features" href="#features" aria-label="特徴"></a>
+        <a class="lp-nav-link lp-nav-link-curriculum" href="#curriculum" aria-label="カリキュラム"></a>
+        <a class="lp-nav-link lp-nav-link-instructors" href="#instructors" aria-label="講師紹介"></a>
+        <a class="lp-nav-link lp-nav-link-flow" href="#flow" aria-label="受講の流れ"></a>
+        <a class="lp-nav-link lp-nav-link-faq" href="#faq" aria-label="よくある質問"></a>
+      </div>
+      <div class="lp-section-wrap reveal">
+        <picture class="lp-section">
+          <source media="(max-width: 767px)" srcset="./images/mobile/02-campaign.png">
+          <img class="lp-section-img img-ratio-campaign" src="./images/02-campaign.png" alt="" loading="lazy">
+        </picture>
+        <a class="lp-cta lp-cta-campaign" data-cta="line" href="#" aria-label="公式LINEで無料相談"></a>
+      </div>
       <picture class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/03-problem.png">
         <img class="lp-section-img img-ratio-problem" src="./images/03-problem.png" alt="" loading="lazy">
@@ -24,7 +38,7 @@
         <source media="(max-width: 767px)" srcset="./images/mobile/04-target.png">
         <img class="lp-section-img img-ratio-target" src="./images/04-target.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
+      <picture id="about" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/05-about.png">
         <img class="lp-section-img img-ratio-about" src="./images/05-about.png" alt="" loading="lazy">
       </picture>
@@ -36,7 +50,7 @@
         <source media="(max-width: 767px)" srcset="./images/mobile/07-why.png">
         <img class="lp-section-img img-ratio-why" src="./images/07-why.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
+      <picture id="features" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/08-features1.png">
         <img class="lp-section-img img-ratio-features1" src="./images/08-features1.png" alt="" loading="lazy">
       </picture>
@@ -44,26 +58,128 @@
         <source media="(max-width: 767px)" srcset="./images/mobile/09-features2.png">
         <img class="lp-section-img img-ratio-features2" src="./images/09-features2.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
-        <source media="(max-width: 767px)" srcset="./images/mobile/10-compare.png">
-        <img class="lp-section-img img-ratio-compare" src="./images/10-compare.png" alt="" loading="lazy">
-      </picture>
-      <picture class="lp-section reveal">
+      <div class="lp-section-wrap reveal">
+        <picture class="lp-section">
+          <source media="(max-width: 767px)" srcset="./images/mobile/10-compare.png">
+          <img class="lp-section-img img-ratio-compare" src="./images/10-compare.png" alt="" loading="lazy">
+        </picture>
+        <a class="lp-cta lp-cta-compare" data-cta="document" href="#" aria-label="資料をダウンロードする"></a>
+      </div>
+      <picture id="curriculum" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/11-curriculum.png">
         <img class="lp-section-img img-ratio-curriculum" src="./images/11-curriculum.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
+      <picture id="instructors" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/12-instructors.png">
         <img class="lp-section-img img-ratio-instructors" src="./images/12-instructors.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
+      <picture id="flow" class="lp-section reveal">
         <source media="(max-width: 767px)" srcset="./images/mobile/13-flow.png">
         <img class="lp-section-img img-ratio-flow" src="./images/13-flow.png" alt="" loading="lazy">
       </picture>
-      <picture class="lp-section reveal">
-        <source media="(max-width: 767px)" srcset="./images/mobile/14-faq-footer.png">
-        <img class="lp-section-img img-ratio-faq-footer" src="./images/14-faq-footer.png" alt="" loading="lazy">
+      <picture id="faq" class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="./images/mobile/14a-faq-header.jpg">
+        <img class="lp-section-img img-ratio-faq-header" src="./images/14a-faq-header.jpg" alt="" loading="lazy">
       </picture>
+      <div class="faq-accordion reveal">
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">学習開始までに準備しなければいけないことを教えてください。</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>特別な事前学習は不要です。パソコンとインターネット環境があれば、開講日からすぐに受講を始めていただけます。オンライン面談時に学習の進め方も個別にご案内します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">本業が忙しいのですが、大丈夫ですか？どのくらいの稼働確保が必要ですか？</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>平均的な学習時間は週3〜5時間を目安にしています。講義はオンデマンド動画中心で、ご自身のペースで視聴・演習を進められるため、本業と両立しながら受講されている方がほとんどです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">未経験ですがカリキュラムについていけますか？コンサルは完全未経験で、自信がないのですが大丈夫でしょうか？</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>カリキュラムは経営知識の基礎から順を追って学べる構成になっており、コンサル未経験の方を主な対象としています。担当メンターが学習の進捗に合わせて個別にサポートしますので、安心して取り組んでいただけます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">支払い方法と支払いタイミングはいつでしょうか？</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>お支払いはクレジットカードまたは銀行振込に対応しています。タイミングは合格発表後、受講開始前のお手続きとなります。詳しい金額・分割払いの可否は無料相談時にご案内します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">途中で解約の場合、返金はされますか？</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>受講開始前の解約は所定の期日までにご連絡いただければ返金対応いたします。受講開始後の返金可否については利用規約に定める条件をご確認ください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            <span class="faq-q-badge">Q</span>
+            <span class="faq-q-text">子育てや家事をしながら学習は可能ですか？</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <div class="faq-answer-content">
+              <span class="faq-a-badge">A</span>
+              <p>はい、オンデマンド形式の講義が中心のため、すきま時間を使って学習を進めていただけます。実際に子育てや家事と両立しながら受講されている方も多くいらっしゃいます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lp-section-wrap reveal">
+        <picture class="lp-section">
+          <source media="(max-width: 767px)" srcset="./images/mobile/14b-cta-footer.jpg">
+          <img class="lp-section-img img-ratio-faq-footer" src="./images/14b-cta-footer.jpg" alt="" loading="lazy">
+        </picture>
+        <a class="lp-cta lp-cta-faq" data-cta="line" href="#" aria-label="公式LINEで無料相談"></a>
+      </div>
     </main>
     <button type="button" class="back-to-top" aria-label="トップへ戻る">↑</button>
     <script src="./script.js"></script>
