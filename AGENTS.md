@@ -65,6 +65,11 @@
 - Vercelへの公開、Vercel環境変数への秘密情報書き込みは、LPと異なり2026-07-12時点でまだ標準運用として承認されていない。**都度チャットで明示的な許可を得てから実行する。**
 - 公開後にポートフォリオギャラリー（`gallery/`、Neon DB `portfolio_items`テーブル、`type='hp'`）へ登録する場合は `skills/lp-design/lp-gallery-sync/SKILL.md` を使う（旧`gallery-hp/`は2026-07-16に統合済み。詳細は `skills/design/hp-gallery-sync/SKILL.md` 参照）。
 
+## UTAGE
+
+- UTAGEで実際に何か（ファネル、メール・LINE配信シナリオ、会員サイト、イベント・予約、パートナー機能などの構築・設定）を作るときだけ、NotebookLMの「UTAGE公式マニュアル」ノートブック（notebook_id: `942db75e-5025-41b2-8c7e-aac3ebc86c7a`、https://notebooklm.google.com/notebook/942db75e-5025-41b2-8c7e-aac3ebc86c7a）を参照する。UTAGEに軽く言及されただけの場面では参照不要。
+- このノートブックは `help.utage-system.com/knowledge-allpages` の全記事（331件、2026-07-19時点）をURLソースとして登録した公式マニュアルのデータベース。`mcp__notebooklm-mcp__notebook_query` 等で該当機能の正しい仕様・手順を確認してから実装・設定作業を行う。
+
 ## Git
 
 - コミットメッセージは日本語で書く。
