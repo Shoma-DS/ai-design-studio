@@ -1,0 +1,13 @@
+{
+  "slug": "emberwood-glamping-swipe-lp",
+  "type": "swipe-lp",
+  "title": "EMBERWOOD GLAMPING 森のグランピングリゾート スワイプ型LP",
+  "heading": "灯りに、還る場所。",
+  "category": "旅行・宿泊",
+  "moodTags": ["温かみ", "癒し"],
+  "productTags": ["グランピング", "宿泊予約"],
+  "featureTags": ["カルーセル", "スワイプ"],
+  "linkType": "external",
+  "url": "https://emberwood-glamping-swipe-lp.vercel.app",
+  "thumbnail": "assets/thumbnails/emberwood-glamping-swipe-lp.jpg"
+}

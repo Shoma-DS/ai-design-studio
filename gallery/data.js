@@ -473,10 +473,10 @@ window.PORTFOLIO_GALLERY_DATA = [
     "thumbnail": "assets/thumbnails/lumiere-nail-atelier-swipe-lp.jpg"
   },
   {
-    "slug": "fruitein-banner-trust",
+    "slug": "fruitein-banner-taste",
     "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（信頼・実績訴求）",
-    "heading": "売れすぎました。",
+    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（味訴求）",
+    "heading": "甘すぎました。",
     "category": "健康食品・サプリ",
     "moodTags": [
       "ポップ",
@@ -488,8 +488,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "featureTags": [],
     "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-trust.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-trust.jpg"
+    "url": "assets/portfolio/banner/fruitein-banner-taste.png",
+    "thumbnail": "assets/thumbnails/fruitein-banner-taste.jpg"
   },
   {
     "slug": "fruitein-banner-price",
@@ -511,10 +511,10 @@ window.PORTFOLIO_GALLERY_DATA = [
     "thumbnail": "assets/thumbnails/fruitein-banner-price.jpg"
   },
   {
-    "slug": "fruitein-banner-taste",
+    "slug": "fruitein-banner-trust",
     "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（味訴求）",
-    "heading": "甘すぎました。",
+    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（信頼・実績訴求）",
+    "heading": "売れすぎました。",
     "category": "健康食品・サプリ",
     "moodTags": [
       "ポップ",
@@ -526,8 +526,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "featureTags": [],
     "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-taste.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-taste.jpg"
+    "url": "assets/portfolio/banner/fruitein-banner-trust.png",
+    "thumbnail": "assets/thumbnails/fruitein-banner-trust.jpg"
   },
   {
     "slug": "compass-consulting-school-lp",
@@ -572,5 +572,27 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://keishou-tax-swipe-lp.vercel.app",
     "thumbnail": "assets/thumbnails/keishou-tax-swipe-lp.jpg"
+  },
+  {
+    "slug": "emberwood-glamping-swipe-lp",
+    "type": "swipe-lp",
+    "title": "EMBERWOOD GLAMPING 森のグランピングリゾート スワイプ型LP",
+    "heading": "灯りに、還る場所。",
+    "category": "旅行・宿泊",
+    "moodTags": [
+      "温かみ",
+      "癒し"
+    ],
+    "productTags": [
+      "グランピング",
+      "宿泊予約"
+    ],
+    "featureTags": [
+      "カルーセル",
+      "スワイプ"
+    ],
+    "linkType": "external",
+    "url": "https://emberwood-glamping-swipe-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/emberwood-glamping-swipe-lp.jpg"
   }
 ];
