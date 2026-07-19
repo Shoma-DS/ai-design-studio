@@ -548,5 +548,29 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://utage-system.com/p/714WtLeEZYXJ",
     "thumbnail": "assets/thumbnails/compass-consulting-school-lp.jpg"
+  },
+  {
+    "slug": "keishou-tax-swipe-lp",
+    "type": "swipe-lp",
+    "title": "継承パートナーズ会計事務所",
+    "heading": "その相続・事業承継、後回しにしていませんか？",
+    "category": "BtoB・コーポレート",
+    "moodTags": [
+      "信頼感",
+      "誠実"
+    ],
+    "productTags": [
+      "税理士",
+      "相続",
+      "事業承継",
+      "士業"
+    ],
+    "featureTags": [
+      "カルーセル",
+      "スワイプ"
+    ],
+    "linkType": "external",
+    "url": "https://keishou-tax-swipe-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/keishou-tax-swipe-lp.jpg"
   }
 ];
