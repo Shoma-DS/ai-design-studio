@@ -58,9 +58,6 @@ export default function Home() {
           <Reveal delay={0.12}>
             <span className="eyebrow">Problem</span>
             <h2 className="sectionTitle">交換か、長期停止か。現場の悩みを施工前に整理する。</h2>
-            <p className="lead">
-              参考サイトの強みである「悩みの提示」を、BtoB向けに読みやすく再構成。最初に課題を絞り、すぐに相談へ進める導線へ変えています。
-            </p>
             <ul className={styles.problemList}>
               {problems.map((item) => (
                 <li key={item}>
