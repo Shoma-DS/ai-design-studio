@@ -1,0 +1,4 @@
+interface:
+  display_name: "Airth Mate 画風画像"
+  short_description: "白背景と青い成長矢印で線画ビジネス画像を制作するスキル"
+  default_prompt: "Use $airth-mate-image-style to create a blog heading image and thumbnail in a clean blue business illustration style."
