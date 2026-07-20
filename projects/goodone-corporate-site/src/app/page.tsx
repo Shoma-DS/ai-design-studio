@@ -19,11 +19,14 @@ export default function Home() {
           <Reveal>
             <span className={styles.heroLabel}>ERC日本輸入総代理店 / 特許技術 / 全国ネットワーク</span>
             <h1 className={styles.heroTitle}>
-              <span>業務車両の稼働を</span>
-              <span>止めない。</span>
-              <span className={styles.heroTitleSubGroup}>
-                <span>次世代エンジン</span>
-                <span>クリーニング。</span>
+              <span className={styles.heroTitleSupport}>
+                <span>業務車両の稼働を</span>
+                <span>止めない。</span>
+              </span>
+              <span className={styles.heroTitleMain}>
+                <span>次世代</span>
+                <span className={styles.heroTitleOutline}>クリーニング</span>
+                <span>エンジン。</span>
               </span>
             </h1>
             <p className={styles.heroLead}>

@@ -32,7 +32,7 @@
 .heroTitle {
   max-width: 860px;
   margin-top: 22px;
-  font-size: clamp(42px, 6.2vw, 76px);
+  font-size: clamp(42px, 6.5vw, 80px);
   line-height: 1.07;
   letter-spacing: 0;
 }
@@ -41,10 +41,22 @@
   display: block;
 }
 
-.heroTitleSubGroup {
-  margin-top: 8px;
-  font-size: 0.72em;
+.heroTitleSupport {
+  max-width: 700px;
+  font-size: clamp(30px, 3.9vw, 48px);
+  line-height: 1.18;
   letter-spacing: 0.02em;
+}
+
+.heroTitleMain {
+  margin-top: 18px;
+}
+
+.heroTitleOutline {
+  color: rgba(255, 255, 255, 0.08);
+  -webkit-text-stroke: 2.6px var(--white);
+  text-stroke: 2.6px var(--white);
+  text-shadow: none;
 }
 
 .heroLead {
@@ -372,11 +384,20 @@
   }
 
   .heroTitle {
-    font-size: clamp(40px, 11.4vw, 48px);
+    font-size: clamp(42px, 12.4vw, 54px);
   }
 
-  .heroTitleSubGroup {
-    font-size: 0.68em;
+  .heroTitleSupport {
+    font-size: clamp(25px, 7.2vw, 32px);
+  }
+
+  .heroTitleMain {
+    margin-top: 14px;
+  }
+
+  .heroTitleOutline {
+    -webkit-text-stroke-width: 1.8px;
+    text-stroke-width: 1.8px;
   }
 
   .heroActions,
