@@ -18,7 +18,14 @@ export default function Home() {
         <div className={styles.heroInner}>
           <Reveal>
             <span className={styles.heroLabel}>ERC日本輸入総代理店 / 特許技術 / 全国ネットワーク</span>
-            <h1>業務車両の稼働を止めない、次世代エンジンクリーニング。</h1>
+            <h1 className={styles.heroTitle}>
+              <span>業務車両の稼働を</span>
+              <span>止めない。</span>
+              <span className={styles.heroTitleSubGroup}>
+                <span>次世代エンジン</span>
+                <span>クリーニング。</span>
+              </span>
+            </h1>
             <p className={styles.heroLead}>
               DPFアッシュクリーニングと水素カーボンクリーニングを軸に、運送・建設・整備の現場が抱える
               コスト、時間、黒煙対策を一体で支援します。

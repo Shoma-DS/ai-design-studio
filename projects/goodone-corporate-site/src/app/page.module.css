@@ -29,12 +29,22 @@
   font-weight: 800;
 }
 
-.hero h1 {
+.heroTitle {
   max-width: 860px;
   margin-top: 22px;
-  font-size: clamp(42px, 7vw, 82px);
+  font-size: clamp(42px, 6.2vw, 76px);
   line-height: 1.07;
   letter-spacing: 0;
+}
+
+.heroTitle span {
+  display: block;
+}
+
+.heroTitleSubGroup {
+  margin-top: 8px;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
 }
 
 .heroLead {
@@ -359,6 +369,14 @@
   .heroInner {
     width: min(calc(100% - 28px), var(--max));
     min-height: 620px;
+  }
+
+  .heroTitle {
+    font-size: clamp(40px, 11.4vw, 48px);
+  }
+
+  .heroTitleSubGroup {
+    font-size: 0.68em;
   }
 
   .heroActions,
