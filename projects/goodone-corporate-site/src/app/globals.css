@@ -1,0 +1,140 @@
+:root {
+  --ink: #121820;
+  --muted: #5c6572;
+  --navy: #18375f;
+  --navy-dark: #0e223c;
+  --red: #c9342d;
+  --red-soft: #f5d8d5;
+  --line: #dce3eb;
+  --paper: #f7f8fa;
+  --white: #ffffff;
+  --green: #0f9b6b;
+  --max: 1180px;
+  --ease: cubic-bezier(0.16, 0.7, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--white);
+  font-family: var(--font-noto), "Hiragino Sans", "Yu Gothic", sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+main {
+  overflow: clip;
+}
+
+.container {
+  width: min(calc(100% - 40px), var(--max));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.sectionAlt {
+  background: var(--paper);
+}
+
+.eyebrow {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin-top: 12px;
+  color: var(--navy-dark);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.lead {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.9;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 800;
+  transition: transform 0.25s var(--ease), opacity 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.buttonPrimary {
+  color: var(--white);
+  background: var(--red);
+}
+
+.buttonSecondary {
+  color: var(--navy-dark);
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(calc(100% - 28px), var(--max));
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

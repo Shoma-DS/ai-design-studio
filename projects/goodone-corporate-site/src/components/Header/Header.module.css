@@ -1,0 +1,151 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(220, 227, 235, 0.7);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  transition: box-shadow 0.25s ease;
+}
+
+.scrolled {
+  box-shadow: 0 14px 35px rgba(14, 34, 60, 0.08);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  width: min(calc(100% - 40px), var(--max));
+  height: 76px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 210px;
+}
+
+.logoMark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--red), var(--navy));
+  font-weight: 900;
+}
+
+.logo strong,
+.logo small {
+  display: block;
+  line-height: 1.15;
+}
+
+.logo strong {
+  color: var(--navy-dark);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.logo small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  flex: 1;
+  color: var(--navy-dark);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: var(--white);
+  background: var(--navy-dark);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.menuButton {
+  display: none;
+  margin-left: auto;
+  border: 0;
+  color: var(--navy-dark);
+  background: transparent;
+}
+
+.drawer {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    width: min(calc(100% - 28px), var(--max));
+  }
+
+  .nav,
+  .phone {
+    display: none;
+  }
+
+  .menuButton {
+    display: grid;
+    place-items: center;
+  }
+
+  .drawer {
+    display: grid;
+    gap: 4px;
+    padding: 12px 20px 24px;
+    border-top: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  .drawer a {
+    padding: 15px 4px;
+    color: var(--navy-dark);
+    font-weight: 800;
+  }
+
+  .drawerCta {
+    margin-top: 8px;
+    border-radius: 6px;
+    color: var(--white) !important;
+    background: var(--red);
+    text-align: center;
+  }
+}

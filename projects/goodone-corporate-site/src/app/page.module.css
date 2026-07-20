@@ -1,0 +1,387 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 76px);
+  padding: 76px 0 58px;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(14, 34, 60, 0.96) 0%, rgba(14, 34, 60, 0.78) 46%, rgba(14, 34, 60, 0.32) 100%),
+    url("/images/hero-pc.png") center / cover;
+}
+
+.heroInner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.7fr);
+  gap: 48px;
+  width: min(calc(100% - 40px), var(--max));
+  min-height: calc(100vh - 210px);
+  margin: 0 auto;
+}
+
+.heroLabel {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  max-width: 860px;
+  margin-top: 22px;
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1.07;
+  letter-spacing: 0;
+}
+
+.heroLead {
+  max-width: 680px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(17px, 2vw, 22px);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.heroCard {
+  align-self: end;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.heroCard b {
+  display: block;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.heroCard span {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+}
+
+.stat {
+  padding: 28px;
+  background: var(--white);
+}
+
+.stat b {
+  display: block;
+  color: var(--red);
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.1;
+}
+
+.stat strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--navy-dark);
+}
+
+.stat span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.grid2 {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+}
+
+.imagePanel {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(14, 34, 60, 0.16);
+}
+
+.imagePanel img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.problemList {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.problemList li {
+  list-style: none;
+  padding: 16px 18px;
+  border-left: 4px solid var(--red);
+  background: var(--paper);
+  font-weight: 700;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.card {
+  min-height: 260px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  color: var(--red);
+  background: var(--red-soft);
+}
+
+.card h3 {
+  margin-top: 20px;
+  color: var(--navy-dark);
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.card p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.flowStep {
+  min-height: 160px;
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--white);
+  background: var(--navy);
+}
+
+.flowStep span {
+  display: block;
+  color: #ffcbc7;
+  font-weight: 900;
+}
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.caseCard {
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 18px 48px rgba(14, 34, 60, 0.1);
+  overflow: hidden;
+}
+
+.caseCard img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.caseBody {
+  padding: 24px;
+}
+
+.caseBody small {
+  color: var(--red);
+  font-weight: 900;
+}
+
+.caseBody h3 {
+  margin-top: 8px;
+  color: var(--navy-dark);
+  line-height: 1.45;
+}
+
+.caseBody p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.cta {
+  padding: 72px 0;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+}
+
+.ctaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: min(calc(100% - 40px), var(--max));
+  margin: 0 auto;
+}
+
+.cta h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.22;
+}
+
+.pageHero {
+  padding: 92px 0 70px;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(14, 34, 60, 0.94), rgba(14, 34, 60, 0.62)),
+    url("/images/sub-pc.png") center / cover;
+}
+
+.pageHero h1 {
+  margin-top: 10px;
+  font-size: clamp(36px, 6vw, 66px);
+  line-height: 1.1;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 38px;
+  background: var(--white);
+}
+
+.table th,
+.table td {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  width: 210px;
+  color: var(--navy-dark);
+  background: var(--paper);
+}
+
+.contactBox {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 40px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.form label {
+  display: grid;
+  gap: 8px;
+  color: var(--navy-dark);
+  font-weight: 800;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+@media (max-width: 1020px) {
+  .heroInner,
+  .grid2,
+  .contactBox {
+    grid-template-columns: 1fr;
+  }
+
+  .cards,
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flow,
+  .caseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    min-height: auto;
+    background:
+      linear-gradient(180deg, rgba(14, 34, 60, 0.9), rgba(14, 34, 60, 0.64)),
+      url("/images/hero-sp.png") center / cover;
+  }
+
+  .heroInner {
+    width: min(calc(100% - 28px), var(--max));
+    min-height: 620px;
+  }
+
+  .heroActions,
+  .ctaInner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .heroActions .button,
+  .ctaInner .button {
+    width: 100%;
+  }
+
+  .stats,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stat {
+    padding: 22px;
+  }
+
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+}
