@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Webサイト（HP）リニューアルご提案書（テンプレート）</title>
+<style>
+/* 見積書テンプレート 共通スタイル
+   参考: 黄色シンプルWebサイト提案書デザイン（README.md 参照） */
+
+:root {
+  --accent: #F6D74C;       /* ヘッダー帯・表紙の色。コーポレートカラーに差し替え可 */
+  --accent-dark: #4A3B22;  /* アイコン円・見出し帯などの濃色アクセント */
+  --ink: #1A1A1A;
+  --paper: #FFFFFF;
+  --muted-bg: #F2F2F2;
+  --line: #D9D9D9;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #E8E8E8;
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+  color: var(--ink);
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  margin: 24px auto;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.slide-header {
+  background: var(--accent);
+  padding: 40px 60px;
+}
+
+.slide-header h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slide-header .sub {
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 12px;
+  color: #333;
+}
+
+.slide-body {
+  padding: 40px 60px;
+}
+
+/* 表紙 */
+.cover {
+  background: var(--accent);
+}
+.cover .tag {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 60px 0 0 60px;
+}
+.cover .title {
+  text-align: center;
+  margin-top: 60px;
+}
+.cover .title h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+.cover .title .lead {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.cover .title .lead::before,
+.cover .title .lead::after {
+  content: "―――";
+  margin: 0 16px;
+  color: #333;
+}
+.cover .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  padding: 24px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* 課題アイコン列 */
+.icon-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+.icon-item {
+  text-align: center;
+  width: 160px;
+}
+.icon-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--ink);
+}
+.icon-circle svg { width: 46px; height: 46px; }
+.icon-item p {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.callout-bar {
+  background: var(--muted-bg);
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 18px;
+  display: inline-block;
+  margin: 32px 0 16px;
+}
+
+/* サイトマップ・ツリー */
+.sitemap {
+  margin-top: 60px;
+}
+.sitemap .top-box {
+  width: 200px;
+  background: var(--accent-dark);
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  padding: 18px 0;
+  margin: 0 auto 30px;
+}
+.sitemap .row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.sitemap .box {
+  border: 2px solid var(--ink);
+  text-align: center;
+  font-weight: 700;
+  padding: 16px 20px;
+  min-width: 150px;
+}
+.sitemap .row-2 {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* デザインイメージ */
+.design-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 24px;
+}
+.design-grid .photos {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.design-grid .photos .ph {
+  width: 100%;
+  height: 190px;
+  background: var(--muted-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+.design-grid .specs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.design-grid .spec-item {
+  background: var(--muted-bg);
+  padding: 16px 24px;
+}
+.design-grid .spec-item .label {
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.color-dots {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.color-dots .dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+}
+
+/* 機能・仕様グリッド */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+.feature-item {
+  background: var(--muted-bg);
+  padding: 32px 12px;
+  text-align: center;
+}
+.feature-item .fi-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: var(--accent-dark);
+}
+.feature-item .fi-icon svg { width: 34px; height: 34px; }
+.feature-item p {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* スケジュール表・お見積り表 */
+table.quote-table, table.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+table.quote-table th, table.quote-table td,
+table.schedule-table th, table.schedule-table td {
+  border: 1px solid var(--ink);
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 700;
+}
+table.quote-table thead th {
+  background: var(--muted-bg);
+}
+table.quote-table tfoot td {
+  background: var(--accent-dark);
+  color: #fff;
+}
+table.schedule-table th {
+  background: var(--muted-bg);
+}
+table.schedule-table td {
+  position: relative;
+  height: 60px;
+}
+.bar {
+  background: var(--accent-dark);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 4px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.estimate-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.estimate-layout .table-col { flex: 1.4; }
+.estimate-layout .total-col {
+  flex: 1;
+  background: var(--muted-bg);
+  padding: 32px;
+  text-align: center;
+}
+.estimate-layout .total-col .amount {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+.estimate-layout .total-col small {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* クロージング */
+.closing {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.closing .panel {
+  background: var(--accent);
+  margin: 0 auto;
+  padding: 60px 100px;
+  text-align: center;
+}
+.closing h2 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+.closing p {
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 4px 0;
+}
+.closing .brand {
+  margin-top: 24px;
+  font-weight: 800;
+}
+
+/* ---- ここから編集UI ---- */
+[contenteditable="true"] {
+  cursor: text;
+  border-radius: 3px;
+  outline: 1px dashed transparent;
+}
+[contenteditable="true"]:hover {
+  background: rgba(246, 215, 76, 0.35);
+  outline-color: #B8860B;
+}
+[contenteditable="true"]:focus {
+  background: rgba(246, 215, 76, 0.45);
+  outline: 1px dashed #B8860B;
+}
+
+.toolbar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.toolbar .hint {
+  font-size: 11px;
+  font-weight: 700;
+  color: #777;
+  margin-right: 4px;
+}
+.toolbar button {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+.toolbar button:hover { background: #eee; }
+
+/* 印刷（PDF化）設定 */
+@media print {
+  html, body { background: #fff; }
+  .toolbar { display: none !important; }
+  [contenteditable="true"] { outline: none !important; background: transparent !important; }
+  .slide {
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+    width: 100%;
+    height: 100vh;
+  }
+  @page { size: 1280px 720px; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="hint">文字はクリックして直接編集できます</span>
+  <button type="button" id="btnPrint">🖨 印刷 / PDF化</button>
+  <button type="button" id="btnSave">💾 編集内容を保存</button>
+</div>
+
+<!-- 1. 表紙 -->
+<section class="slide cover">
+  <div class="tag" contenteditable="true">【クライアント名】様</div>
+  <div class="title">
+    <h1 contenteditable="true">Webサイト<br>リニューアルご提案書</h1>
+    <p class="lead" contenteditable="true">企業の魅力を伝え、成果につながるWebサイトへ</p>
+  </div>
+  <div class="footer" contenteditable="true">【提案日 例: 2026年8月1日】　【屋号・会社名】　【担当者名】</div>
+</section>
+
+<!-- 2. ご提案の背景 -->
+<section class="slide">
+  <div class="slide-header"><h2>ご提案の背景</h2></div>
+  <div class="slide-body">
+    <p style="font-weight:700; font-size:18px;">現状の課題</p>
+    <div class="icon-row">
+      <div class="icon-item"><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="18" r="0.9" fill="currentColor" stroke="none"/></svg></div><p contenteditable="true">スマホで<br>見づらい</p></div>
+      <div class="icon-item"><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.472c.667.61 1 1.528 1 2.528h6c0-1 .333-1.917 1-2.528A6 6 0 0 0 12 3Z"/></svg></div><p contenteditable="true">デザインに<br>統一感がない</p></div>
+      <div class="icon-item"><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><p contenteditable="true">SEO対策が<br>不十分</p></div>
+      <div class="icon-item"><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="2" x2="14" y2="2"/><line x1="12" y1="14" x2="12" y2="10"/><circle cx="12" cy="14" r="8"/></svg></div><p contenteditable="true">表示速度が<br>遅い</p></div>
+      <div class="icon-item"><div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></div><p contenteditable="true">お問い合わせに<br>繋がりにくい</p></div>
+    </div>
+    <div class="callout-bar">リニューアルの目的</div>
+    <p contenteditable="true" style="font-weight:700; font-size:16px;">①企業イメージの向上　②お問い合わせ件数の増加　③社内で更新しやすい運用体制の構築</p>
+  </div>
+</section>
+
+<!-- 3. 現状分析（既存サイトがある場合のみ使用。新規制作の場合はスライドごと削除） -->
+<section class="slide">
+  <div class="slide-header"><h2>現状分析</h2></div>
+  <div class="slide-body">
+    <p style="font-weight:700; font-size:18px;">現状サイトの課題</p>
+    <p contenteditable="true" style="font-weight:700; margin-top:16px;">・【例: 文字が小さく読みづらい】</p>
+    <p contenteditable="true" style="font-weight:700;">・【例: 情報量が多く整理されていない】</p>
+    <p contenteditable="true" style="font-weight:700;">・【例: お問い合わせページが見つけにくい】</p>
+    <div class="callout-bar" style="margin-top:32px;">✓ 改善ポイント</div>
+    <p contenteditable="true" style="font-weight:700;">・デザイン：最新トレンドを取り入れたデザインへ刷新</p>
+    <p contenteditable="true" style="font-weight:700;">・スマホ対応：閲覧性・操作性を向上</p>
+    <p contenteditable="true" style="font-weight:700;">・SEO対策：検索流入を増やす内部対策を実施</p>
+    <p contenteditable="true" style="font-weight:700;">・導線：お問い合わせまで迷わない構成へ改善</p>
+  </div>
+</section>
+
+<!-- 4. リニューアルコンセプト -->
+<section class="slide">
+  <div class="slide-header"><h2>リニューアルコンセプト</h2></div>
+  <div class="slide-body">
+    <div class="callout-bar" contenteditable="true" style="display:block; text-align:center; font-size:22px;">伝わる・選ばれる・更新しやすいWebサイトへ</div>
+    <p contenteditable="true" style="text-align:center; font-weight:700; margin-top:16px;">ユーザーが必要な情報へ迷わず到達でき、企業の魅力が自然に伝わるサイトを目指します。</p>
+    <div class="icon-row" style="margin-top:48px; justify-content:center;">
+      <div class="icon-item"><div class="icon-circle" style="background:var(--accent-dark); color:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="7" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><p contenteditable="true">信頼感</p></div>
+      <div class="icon-item"><div class="icon-circle" style="background:var(--accent-dark); color:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p contenteditable="true">見やすさ</p></div>
+      <div class="icon-item"><div class="icon-circle" style="background:var(--accent-dark); color:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><p contenteditable="true">更新しやすさ</p></div>
+      <div class="icon-item"><div class="icon-circle" style="background:var(--accent-dark); color:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 5"/><polyline points="14 5 21 5 21 12"/></svg></div><p contenteditable="true">集客力</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. サイト構成案（サイトマップ） -->
+<section class="slide">
+  <div class="slide-header"><h2>サイト構成案 <span class="sub">（サイトマップ）</span></h2></div>
+  <div class="slide-body">
+    <div class="sitemap">
+      <div class="top-box" contenteditable="true">TOP</div>
+      <div class="row">
+        <div class="box" contenteditable="true">会社案内</div>
+        <div class="box" contenteditable="true">サービス</div>
+        <div class="box" contenteditable="true">実績・事例</div>
+        <div class="box" contenteditable="true">お知らせ</div>
+        <div class="box" contenteditable="true">お問い合わせ</div>
+      </div>
+      <div class="row-2">
+        <div class="box" contenteditable="true">実績一覧</div>
+        <div class="box" contenteditable="true">過去のアーカイブ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. デザインイメージ -->
+<section class="slide">
+  <div class="slide-header"><h2>デザインイメージ</h2></div>
+  <div class="slide-body">
+    <div class="design-grid">
+      <div class="photos">
+        <div class="ph" contenteditable="true">【参考ビジュアル1】</div>
+        <div class="ph" contenteditable="true">【参考ビジュアル2】</div>
+      </div>
+      <div class="specs">
+        <div class="spec-item" contenteditable="true"><div class="label">コンセプト</div>シンプル・清潔感・信頼感</div>
+        <div class="spec-item">
+          <div class="label" contenteditable="true">カラー</div>
+          <div class="color-dots">
+            <div class="dot" style="background:#fff;"></div>
+            <div class="dot" style="background:#BFE0E3;"></div>
+            <div class="dot" style="background:var(--accent-dark);"></div>
+            <div class="dot" style="background:#000;"></div>
+          </div>
+          <div contenteditable="true" style="margin-top:8px;">白を基調に、コーポレートカラーをアクセントとして使用</div>
+        </div>
+        <div class="spec-item" contenteditable="true"><div class="label">フォント</div>読みやすさを重視したWebフォントを採用</div>
+        <div class="spec-item" contenteditable="true"><div class="label">レイアウト</div>余白を活かした見やすい構成</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 機能・仕様 -->
+<section class="slide">
+  <div class="slide-header"><h2>機能・仕様</h2></div>
+  <div class="slide-body">
+    <div class="feature-grid">
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><p contenteditable="true">お知らせ</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="18" r="0.9" fill="currentColor" stroke="none"/></svg></div><p contenteditable="true">スマホ対応</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></div><p contenteditable="true">お問い合わせ</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><p contenteditable="true">SEO対策</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div><p contenteditable="true">アクセス解析</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><p contenteditable="true">SSL対応</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l1.93-1.93a5 5 0 0 0-7.07-7.07L10.5 5.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.99 12.93a5 5 0 0 0 7.07 7.07L13.5 18.5"/></svg></div><p contenteditable="true">SNS連携</p></div>
+      <div class="feature-item"><div class="fi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><p contenteditable="true">Map埋め込み</p></div>
+    </div>
+    <div class="callout-bar" contenteditable="true" style="margin-top:24px;">追加対応可能：予約機能 / 会員機能 / EC機能 など</div>
+  </div>
+</section>
+
+<!-- 8. 制作スケジュール -->
+<section class="slide">
+  <div class="slide-header"><h2>制作スケジュール</h2></div>
+  <div class="slide-body">
+    <table class="schedule-table">
+      <thead>
+        <tr><th></th><th contenteditable="true">1ヶ月目</th><th contenteditable="true">2ヶ月目</th><th contenteditable="true">3ヶ月目</th><th contenteditable="true">4ヶ月目</th><th contenteditable="true">5ヶ月目</th></tr>
+      </thead>
+      <tbody>
+        <tr><th contenteditable="true">ヒアリング・要件定義</th><td><span class="bar" contenteditable="true">お打合せ</span></td><td></td><td></td><td></td><td></td></tr>
+        <tr><th contenteditable="true">サイト設計・構成作成</th><td></td><td><span class="bar" contenteditable="true">ワイヤーフレーム作成</span></td><td></td><td></td><td></td></tr>
+        <tr><th contenteditable="true">デザイン制作</th><td></td><td></td><td><span class="bar" contenteditable="true">TOP・下層ページ作成</span></td><td></td><td></td></tr>
+        <tr><th contenteditable="true">コーディング・システム構築</th><td></td><td></td><td></td><td><span class="bar" contenteditable="true">コーディング</span></td><td></td></tr>
+        <tr><th contenteditable="true">テスト確認・公開</th><td></td><td></td><td></td><td></td><td><span class="bar" contenteditable="true">動作確認・公開</span></td></tr>
+      </tbody>
+    </table>
+    <p contenteditable="true" style="font-weight:700; font-size:13px; margin-top:16px;">※スケジュールや内容はご要望により変動する場合がございます。</p>
+  </div>
+</section>
+
+<!-- 9. お見積り -->
+<section class="slide">
+  <div class="slide-header"><h2>お見積り</h2></div>
+  <div class="slide-body">
+    <div class="estimate-layout">
+      <div class="table-col">
+        <table class="quote-table">
+          <thead><tr><th>項目</th><th>金額（税抜・概算）</th></tr></thead>
+          <tbody>
+            <tr><td contenteditable="true">企画・設計（参考サイト分析含む）</td><td contenteditable="true">150,000円</td></tr>
+            <tr><td contenteditable="true">デザイン制作</td><td contenteditable="true">250,000円</td></tr>
+            <tr><td contenteditable="true">Next.js実装（コーディング）</td><td contenteditable="true">300,000円</td></tr>
+            <tr><td contenteditable="true">CMS構築（お知らせ更新機能など・任意）</td><td contenteditable="true">100,000円</td></tr>
+            <tr><td contenteditable="true">公開作業</td><td contenteditable="true">20,000円</td></tr>
+          </tbody>
+          <tfoot><tr><td contenteditable="true">合計（税抜）</td><td contenteditable="true">820,000円</td></tr></tfoot>
+        </table>
+      </div>
+      <div class="total-col">
+        <p style="font-weight:700;">お見積り金額</p>
+        <div class="amount" contenteditable="true">820,000円</div>
+        <small contenteditable="true">ページ数・機能要件に応じて<br>柔軟にお見積りいたします。</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. クロージング -->
+<section class="slide">
+  <div class="closing">
+    <div class="panel">
+      <h2 contenteditable="true">貴社のビジネスの成長を<br>Webサイトからサポートいたします。</h2>
+      <p contenteditable="true">公開後も運用・改善をサポートし、長くご活用いただける</p>
+      <p contenteditable="true">Webサイトづくりを目指します。</p>
+      <p contenteditable="true">ご不明な点がございましたらお気軽にご相談ください。</p>
+      <p class="brand" contenteditable="true">【屋号・会社名】</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('btnPrint').addEventListener('click', function () {
+    window.print();
+  });
+
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var clone = document.documentElement.cloneNode(true);
+    var html = '<!doctype html>\n' + clone.outerHTML;
+    var blob = new Blob([html], { type: 'text/html' });
+    var url = URL.createObjectURL(blob);
+
+    var tagEl = document.querySelector('.tag');
+    var clientName = tagEl ? tagEl.textContent.trim().replace(/[\/\\:*?"<>|\s]/g, '') : '見積書';
+    var today = new Date().toISOString().slice(0, 10);
+
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = clientName + '_HP見積書_' + today + '.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+</script>
+
+</body>
+</html>
