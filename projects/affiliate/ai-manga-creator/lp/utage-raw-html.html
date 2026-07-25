@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI漫画クリエイター レビュー｜絵心ゼロでも30秒で漫画が作れるAIツール</title>
+    <style>
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #ece7dd;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(20, 15, 10, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-bridge { aspect-ratio: 1536 / 1024; }
+.img-ratio-what { aspect-ratio: 1536 / 1024; }
+.img-ratio-who { aspect-ratio: 1536 / 1024; }
+.img-ratio-proof { aspect-ratio: 1536 / 1024; }
+.img-ratio-offer { aspect-ratio: 1536 / 1024; }
+.img-ratio-faq { aspect-ratio: 1536 / 1024; }
+.img-ratio-final { aspect-ratio: 1536 / 1024; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 864 / 1821; }
+  .img-ratio-bridge { aspect-ratio: 864 / 1820; }
+  .img-ratio-what { aspect-ratio: 864 / 1821; }
+  .img-ratio-who { aspect-ratio: 864 / 1820; }
+  .img-ratio-proof { aspect-ratio: 864 / 1820; }
+  .img-ratio-offer { aspect-ratio: 864 / 1820; }
+  .img-ratio-faq { aspect-ratio: 864 / 1820; }
+  .img-ratio-final { aspect-ratio: 864 / 1820; }
+}
+
+/* セクション画像内に焼き込まれたボタン風グラフィックの上に重ねる実クリック領域 */
+.lp-section-wrap {
+  position: relative;
+  display: block;
+}
+
+.img-hotspot {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+
+.img-hotspot:hover,
+.img-hotspot:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.img-hotspot:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: -3px;
+}
+
+.img-hotspot.clicked {
+  animation: hotspot-flash 0.4s ease;
+}
+
+@keyframes hotspot-flash {
+  0% { background: rgba(255, 255, 255, 0.4); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img-hotspot.clicked {
+    animation: none;
+  }
+}
+
+.img-hotspot-who {
+  left: 12.4%;
+  top: 85.4%;
+  width: 76.5%;
+  height: 10.1%;
+}
+
+.img-hotspot-proof {
+  left: 7.2%;
+  top: 85.3%;
+  width: 87.8%;
+  height: 10.8%;
+}
+
+.img-hotspot-offer {
+  left: 4%;
+  top: 83.4%;
+  width: 88.4%;
+  height: 10.9%;
+}
+
+.img-hotspot-faq {
+  left: 8.3%;
+  top: 78.4%;
+  width: 83%;
+  height: 14.9%;
+}
+
+.img-hotspot-final {
+  left: 6.3%;
+  top: 68.2%;
+  width: 87.1%;
+  height: 19.1%;
+}
+
+@media (max-width: 767px) {
+  .img-hotspot-who {
+    left: 11.6%;
+    top: 88.2%;
+    width: 75.2%;
+    height: 9.8%;
+  }
+
+  .img-hotspot-proof {
+    left: 7.5%;
+    top: 88.7%;
+    width: 85.6%;
+    height: 8.6%;
+  }
+
+  .img-hotspot-offer {
+    left: 3.2%;
+    top: 87.3%;
+    width: 87.4%;
+    height: 10%;
+  }
+
+  .img-hotspot-faq {
+    left: 12.7%;
+    top: 87.3%;
+    width: 76%;
+    height: 9%;
+  }
+
+  .img-hotspot-final {
+    left: 5.7%;
+    top: 68.2%;
+    width: 88.7%;
+    height: 21.5%;
+  }
+}
+
+/* クロージング下の実クリックCTAブロック */
+.cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 36px 20px 44px;
+  background: #17140f;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 2.6vw, 20px);
+  letter-spacing: 0.02em;
+  color: #fff8f4;
+  background: #d9391f;
+  padding: 18px 40px;
+  text-decoration: none;
+  border: 3px solid #17140f;
+  clip-path: polygon(
+    14px 0, calc(100% - 14px) 0, 100% 14px,
+    100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%,
+    0 calc(100% - 14px), 0 14px
+  );
+  box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.15), 0 0 0 2px rgba(217, 57, 31, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.cta-button:hover {
+  background: #f04327;
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 rgba(255, 255, 255, 0.18), 0 0 0 2px rgba(217, 57, 31, 0.45);
+}
+
+.cta-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.12), 0 0 0 2px rgba(217, 57, 31, 0.35);
+}
+
+.cta-button:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 3px;
+}
+
+.cta-button.clicked {
+  animation: cta-pulse 0.5s ease;
+}
+
+@keyframes cta-pulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.94); box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.12), 0 0 0 2px rgba(217, 57, 31, 0.35); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button.clicked {
+    animation: none;
+  }
+}
+
+.cta-reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #8fd99a;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  min-height: 1.4em;
+}
+
+.cta-reaction.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.affiliate-disclosure {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #a9a196;
+  max-width: 60ch;
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #17140f;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #d9391f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <main class="lp-shell" aria-label="AI漫画クリエイター アフィリエイトLP">
+      <picture class="lp-section lp-section-hero">
+        <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/IQ18Pe09nwkg.png">
+        <img class="lp-section-img img-ratio-hero" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/k1teF7gA8bYc.png" alt="AI漫画クリエイター レビュー：絵心ゼロでOK、スマホだけでOK！30秒で売れるAI漫画が作れる" decoding="async" fetchpriority="high">
+      </picture>
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/bI1GYiy906LM.png">
+        <img class="lp-section-img img-ratio-bridge" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/GOsZkrCjoi4f.png" alt="" loading="lazy">
+      </picture>
+      <picture class="lp-section reveal">
+        <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/G1nN8k86vzsp.png">
+        <img class="lp-section-img img-ratio-what" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/qm1mhFwWA61f.png" alt="" loading="lazy">
+      </picture>
+      <div class="lp-section-wrap">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/4I6JU4WQAXoD.png">
+          <img class="lp-section-img img-ratio-who" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/MOsCZ9nCgzvO.png" alt="" loading="lazy">
+        </picture>
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="img-hotspot img-hotspot-who" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer" data-label="自分の案件に使えそうか、公式ページで確かめる" aria-label="自分の案件に使えそうか、公式ページで確かめる"></a>
+      </div>
+      <div class="lp-section-wrap">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/XcQS2AFYTSNV.png">
+          <img class="lp-section-img img-ratio-proof" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/C4e9U1xQYtdn.png" alt="" loading="lazy">
+        </picture>
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="img-hotspot img-hotspot-proof" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer" data-label="239件のレビューを公式ページで見る" aria-label="239件のレビューを公式ページで見る"></a>
+      </div>
+      <div class="lp-section-wrap">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/A4UF6Pjj1cPQ.png">
+          <img class="lp-section-img img-ratio-offer" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/YuzZn2VDnEFJ.png" alt="" loading="lazy">
+        </picture>
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="img-hotspot img-hotspot-offer" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer" data-label="この特典セットを公式ページで確認する" aria-label="この特典セットを公式ページで確認する"></a>
+      </div>
+      <div class="lp-section-wrap">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/ADou1oxYrfPG.png">
+          <img class="lp-section-img img-ratio-faq" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/B0hAcO6feBVT.png" alt="" loading="lazy">
+        </picture>
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="img-hotspot img-hotspot-faq" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer" data-label="残りの疑問も公式ページのFAQでチェックする" aria-label="残りの疑問も公式ページのFAQでチェックする"></a>
+      </div>
+      <div class="lp-section-wrap">
+        <picture class="lp-section reveal">
+          <source media="(max-width: 767px)" srcset="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/oZ7yXdZ9ZTSr.png">
+          <img class="lp-section-img img-ratio-final" src="https://utagesystem.s3.ap-northeast-1.wasabisys.com/WfuPRx4FsHxu/LA5x6ot5cydi.png" alt="" loading="lazy">
+        </picture>
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="img-hotspot img-hotspot-final" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer" data-label="公式ページで価格と特典を確認する" aria-label="公式ページで価格と特典を確認する"></a>
+      </div>
+
+      <div class="cta-block">
+        <!-- TODO: 自分のBrainアフィリエイトリンクに差し替える -->
+        <a class="cta-button" href="https://brain-market.com/u/masahiro1220/a/b5QTM1QjMgoTZsNWa0JXY" target="_blank" rel="noopener noreferrer">
+          今すぐ公式ページで詳細を見る →
+        </a>
+        <span class="cta-reaction" aria-live="polite">公式ページを開いています…</span>
+        <p class="affiliate-disclosure">本ページはアフィリエイト（成果報酬型）リンクを含みます。</p>
+      </div>
+    </main>
+    <button type="button" class="back-to-top" aria-label="トップへ戻る">↑</button>
+    <script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+const backToTopBtn = document.querySelector(".back-to-top");
+window.addEventListener("scroll", () => {
+  backToTopBtn.classList.toggle("is-visible", window.scrollY > 400);
+});
+backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+function trackClick(buttonLabel, targetUrl) {
+  fetch("https://lp-portfolio-gallery.vercel.app/api/track-click", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      pageSlug: "ai-manga-creator-affiliate-lp",
+      buttonLabel,
+      targetUrl
+    }),
+    keepalive: true
+  }).catch(() => {});
+}
+
+const ctaButton = document.querySelector(".cta-button");
+const ctaReaction = document.querySelector(".cta-reaction");
+if (ctaButton) {
+  ctaButton.addEventListener("click", () => {
+    ctaButton.classList.remove("clicked");
+    void ctaButton.offsetWidth;
+    ctaButton.classList.add("clicked");
+
+    if (ctaReaction) {
+      ctaReaction.classList.add("show");
+      window.clearTimeout(ctaReaction._hideTimer);
+      ctaReaction._hideTimer = window.setTimeout(() => {
+        ctaReaction.classList.remove("show");
+      }, 1800);
+    }
+
+    trackClick(ctaButton.textContent.trim(), ctaButton.href);
+  });
+}
+
+document.querySelectorAll(".img-hotspot").forEach((hotspot) => {
+  hotspot.addEventListener("click", () => {
+    hotspot.classList.remove("clicked");
+    void hotspot.offsetWidth;
+    hotspot.classList.add("clicked");
+    trackClick(hotspot.dataset.label || hotspot.getAttribute("aria-label") || "image-hotspot", hotspot.href);
+  });
+});
+
+    </script>
+  </body>
+</html>

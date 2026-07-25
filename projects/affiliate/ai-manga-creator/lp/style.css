@@ -1,0 +1,331 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #ece7dd;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(20, 15, 10, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値） */
+.img-ratio-hero { aspect-ratio: 1536 / 1024; }
+.img-ratio-bridge { aspect-ratio: 1536 / 1024; }
+.img-ratio-what { aspect-ratio: 1536 / 1024; }
+.img-ratio-who { aspect-ratio: 1536 / 1024; }
+.img-ratio-proof { aspect-ratio: 1536 / 1024; }
+.img-ratio-offer { aspect-ratio: 1536 / 1024; }
+.img-ratio-faq { aspect-ratio: 1536 / 1024; }
+.img-ratio-final { aspect-ratio: 1536 / 1024; }
+
+@media (max-width: 767px) {
+  .img-ratio-hero { aspect-ratio: 864 / 1821; }
+  .img-ratio-bridge { aspect-ratio: 864 / 1820; }
+  .img-ratio-what { aspect-ratio: 864 / 1821; }
+  .img-ratio-who { aspect-ratio: 864 / 1820; }
+  .img-ratio-proof { aspect-ratio: 864 / 1820; }
+  .img-ratio-offer { aspect-ratio: 864 / 1820; }
+  .img-ratio-faq { aspect-ratio: 864 / 1820; }
+  .img-ratio-final { aspect-ratio: 864 / 1820; }
+}
+
+/* セクション画像内に焼き込まれたボタン風グラフィックの上に重ねる実クリック領域 */
+.lp-section-wrap {
+  position: relative;
+  display: block;
+}
+
+.img-hotspot {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+
+.img-hotspot:hover,
+.img-hotspot:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.img-hotspot:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: -3px;
+}
+
+.img-hotspot.clicked {
+  animation: hotspot-flash 0.4s ease;
+}
+
+@keyframes hotspot-flash {
+  0% { background: rgba(255, 255, 255, 0.4); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .img-hotspot.clicked {
+    animation: none;
+  }
+}
+
+.img-hotspot-who {
+  left: 12.4%;
+  top: 85.4%;
+  width: 76.5%;
+  height: 10.1%;
+}
+
+.img-hotspot-proof {
+  left: 7.2%;
+  top: 85.3%;
+  width: 87.8%;
+  height: 10.8%;
+}
+
+.img-hotspot-offer {
+  left: 4%;
+  top: 83.4%;
+  width: 88.4%;
+  height: 10.9%;
+}
+
+.img-hotspot-faq {
+  left: 8.3%;
+  top: 78.4%;
+  width: 83%;
+  height: 14.9%;
+}
+
+.img-hotspot-final {
+  left: 6.3%;
+  top: 68.2%;
+  width: 87.1%;
+  height: 19.1%;
+}
+
+@media (max-width: 767px) {
+  .img-hotspot-who {
+    left: 11.6%;
+    top: 88.2%;
+    width: 75.2%;
+    height: 9.8%;
+  }
+
+  .img-hotspot-proof {
+    left: 7.5%;
+    top: 88.7%;
+    width: 85.6%;
+    height: 8.6%;
+  }
+
+  .img-hotspot-offer {
+    left: 3.2%;
+    top: 87.3%;
+    width: 87.4%;
+    height: 10%;
+  }
+
+  .img-hotspot-faq {
+    left: 12.7%;
+    top: 87.3%;
+    width: 76%;
+    height: 9%;
+  }
+
+  .img-hotspot-final {
+    left: 5.7%;
+    top: 68.2%;
+    width: 88.7%;
+    height: 21.5%;
+  }
+}
+
+/* クロージング下の実クリックCTAブロック */
+.cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 36px 20px 44px;
+  background: #17140f;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 800;
+  font-size: clamp(16px, 2.6vw, 20px);
+  letter-spacing: 0.02em;
+  color: #fff8f4;
+  background: #d9391f;
+  padding: 18px 40px;
+  text-decoration: none;
+  border: 3px solid #17140f;
+  clip-path: polygon(
+    14px 0, calc(100% - 14px) 0, 100% 14px,
+    100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%,
+    0 calc(100% - 14px), 0 14px
+  );
+  box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.15), 0 0 0 2px rgba(217, 57, 31, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.cta-button:hover {
+  background: #f04327;
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 rgba(255, 255, 255, 0.18), 0 0 0 2px rgba(217, 57, 31, 0.45);
+}
+
+.cta-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.12), 0 0 0 2px rgba(217, 57, 31, 0.35);
+}
+
+.cta-button:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 3px;
+}
+
+.cta-button.clicked {
+  animation: cta-pulse 0.5s ease;
+}
+
+@keyframes cta-pulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.94); box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.12), 0 0 0 2px rgba(217, 57, 31, 0.35); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button.clicked {
+    animation: none;
+  }
+}
+
+.cta-reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #8fd99a;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  min-height: 1.4em;
+}
+
+.cta-reaction.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.affiliate-disclosure {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #a9a196;
+  max-width: 60ch;
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #17140f;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #d9391f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
+}
