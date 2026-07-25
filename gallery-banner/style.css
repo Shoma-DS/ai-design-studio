@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light;
+  --ink: #17231b;
+  --muted: #657269;
+  --line: #dfe8e1;
+  --paper: #f7faf7;
+  --green: #167d45;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+}
+.hero {
+  padding: 72px max(24px, calc((100vw - 1180px) / 2));
+  color: #fff;
+  background: radial-gradient(circle at 80% 20%, #6bc48c 0, transparent 32%), #123c29;
+}
+.eyebrow { margin: 0 0 12px; color: #b9f0cb; font: 700 12px/1.2 system-ui; letter-spacing: .18em; }
+.hero h1 { margin: 0; font: 800 clamp(34px, 5vw, 64px)/1.05 system-ui; letter-spacing: -.04em; }
+.hero p:last-child { margin: 18px 0 0; color: #dce9df; }
+main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 38px 0 72px; }
+.controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+input {
+  flex: 1 1 300px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+}
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: #fff;
+  cursor: pointer;
+}
+.filter.active { color: #fff; border-color: var(--green); background: var(--green); }
+.count { margin: 24px 0 14px; color: var(--muted); font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+.card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(23, 35, 27, .07);
+}
+.thumb {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1.45;
+  padding: 18px;
+  border: 0;
+  background: #edf3ee;
+  cursor: zoom-in;
+}
+.thumb img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 14px rgba(0,0,0,.12)); }
+.copy { padding: 18px; }
+.category { margin: 0 0 7px; color: var(--green); font-size: 12px; font-weight: 700; }
+.copy h2 { margin: 0; font-size: 19px; }
+.copy p { margin: 7px 0 14px; color: var(--muted); font-size: 14px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { padding: 5px 8px; border-radius: 6px; color: #526157; background: #f0f5f1; font-size: 11px; }
+.empty { padding: 64px 0; color: var(--muted); text-align: center; }
+dialog {
+  width: min(1000px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0,0,0,.3);
+}
+dialog::backdrop { background: rgba(10, 20, 14, .78); backdrop-filter: blur(6px); }
+dialog img { display: block; width: 100%; max-height: 76vh; object-fit: contain; background: #eef4ef; }
+.close { position: absolute; top: 10px; right: 12px; width: 42px; height: 42px; border: 0; border-radius: 50%; color: #fff; background: rgba(0,0,0,.7); font-size: 28px; cursor: pointer; }
+.modal-copy { display: flex; gap: 18px; justify-content: space-between; align-items: center; padding: 18px 22px; }
+.modal-copy h2 { margin: 0; font-size: 18px; }
+.modal-copy a { color: var(--green); font-weight: 700; text-decoration: none; white-space: nowrap; }
+@media (max-width: 640px) {
+  .hero { padding-top: 48px; padding-bottom: 48px; }
+  .modal-copy { align-items: flex-start; flex-direction: column; }
+}
