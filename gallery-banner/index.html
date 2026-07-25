@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI Design Studioで制作したバナーのポートフォリオギャラリー">
+  <title>Banner Portfolio Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">AI DESIGN STUDIO</p>
+    <h1>Banner Portfolio Gallery</h1>
+    <p>目的・世界観・訴求設計から制作したバナーを一覧できます。</p>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="バナー検索">
+      <input id="search" type="search" placeholder="タイトル・カテゴリ・タグで検索">
+      <div id="filters" class="filters"></div>
+    </section>
+    <p id="count" class="count"></p>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <p id="empty" class="empty" hidden>該当するバナーがありません。</p>
+  </main>
+
+  <dialog id="modal">
+    <button id="close" class="close" aria-label="閉じる">×</button>
+    <img id="modal-image" alt="">
+    <div class="modal-copy">
+      <h2 id="modal-title"></h2>
+      <a id="modal-link" target="_blank" rel="noopener noreferrer">公開ページを開く ↗</a>
+    </div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

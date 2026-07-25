@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIZUHA LAB 濃密保湿ジェル バナー</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      background: #dfe5df;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    }
+    .banner {
+      position: relative;
+      width: 888px;
+      height: 746px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 18px 55px rgba(24, 71, 45, .18);
+      isolation: isolate;
+    }
+    .product-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .air {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.06) 0 42%, rgba(234,255,233,.12));
+      z-index: -1;
+    }
+    .corner {
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      border-color: #39bf3e;
+      opacity: .9;
+    }
+    .corner.tl { left: 28px; top: 205px; border-left: 3px solid; border-top: 3px solid; }
+    .corner.br { right: 24px; bottom: 7px; border-right: 3px solid; border-bottom: 3px solid; transform: skewY(-39deg); }
+    .topline {
+      position: absolute;
+      left: 26px;
+      top: 23px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #ef1e26;
+      white-space: nowrap;
+    }
+    .brand {
+      display: grid;
+      place-items: center;
+      width: 145px;
+      height: 52px;
+      border: 4px solid #ef1e26;
+      border-radius: 4px;
+      background: #fff;
+      font: 900 19px/1 Arial, sans-serif;
+      letter-spacing: -.6px;
+    }
+    .alert {
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-weight: 900;
+      font-size: 56px;
+      letter-spacing: -4px;
+      text-shadow: 0 2px 0 #fff;
+    }
+    .texture-copy {
+      position: absolute;
+      left: 33px;
+      top: 112px;
+      color: #f58217;
+      font-weight: 900;
+      font-size: 41px;
+      line-height: .88;
+      letter-spacing: -4px;
+      transform: rotate(-7deg);
+      text-shadow: 2px 2px 0 #fff;
+    }
+    .badge {
+      position: absolute;
+      left: 300px;
+      top: 112px;
+      width: 228px;
+      height: 212px;
+      display: grid;
+      place-content: center;
+      padding-top: 2px;
+      border-radius: 50%;
+      color: #fff;
+      background: #ff7a00;
+      font-weight: 900;
+      font-size: 47px;
+      line-height: 1.07;
+      letter-spacing: -3px;
+      text-align: center;
+      filter: drop-shadow(0 3px 0 rgba(255,255,255,.92));
+    }
+    .badge::after {
+      content: "";
+      position: absolute;
+      left: 23px;
+      bottom: -20px;
+      border-style: solid;
+      border-width: 29px 39px 0 0;
+      border-color: #ff7a00 transparent transparent transparent;
+      transform: rotate(12deg);
+    }
+    .ribbon-wrap {
+      position: absolute;
+      right: 17px;
+      top: 116px;
+      transform: rotate(-10deg);
+      filter: drop-shadow(0 5px 2px rgba(16, 94, 22, .22));
+    }
+    .ribbon {
+      position: relative;
+      min-width: 285px;
+      padding: 14px 29px 11px;
+      color: #fff900;
+      background: #0db828;
+      font-weight: 900;
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: -2px;
+      text-align: center;
+    }
+    .ribbon::before, .ribbon::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      z-index: -1;
+      border-style: solid;
+    }
+    .ribbon::before { left: -40px; border-width: 25px 40px 25px 0; border-color: #119424 #119424 #119424 transparent; }
+    .ribbon::after { right: -40px; border-width: 25px 0 25px 40px; border-color: #119424 transparent #119424 #119424; }
+    .season {
+      position: absolute;
+      right: 42px;
+      top: 235px;
+      color: #ff2285;
+      font-weight: 900;
+      font-size: 49px;
+      line-height: 1.08;
+      letter-spacing: -3px;
+      text-align: right;
+      transform: rotate(10deg);
+      -webkit-text-stroke: 2px #fff;
+      paint-order: stroke fill;
+      filter: drop-shadow(2px 3px 1px rgba(255, 34, 133, .28));
+    }
+    .headline {
+      position: absolute;
+      right: 34px;
+      top: 374px;
+      color: #16b42a;
+      font-weight: 900;
+      font-size: 91px;
+      line-height: 1;
+      letter-spacing: -7px;
+      text-align: right;
+      -webkit-text-stroke: 6px #fff;
+      paint-order: stroke fill;
+      filter: drop-shadow(3px 4px 0 rgba(10, 116, 28, .13));
+    }
+    .benefit {
+      position: absolute;
+      right: 48px;
+      bottom: 52px;
+      color: #099b29;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: -2.5px;
+      white-space: nowrap;
+      -webkit-text-stroke: 3px #fff;
+      paint-order: stroke fill;
+    }
+    .arrow {
+      position: absolute;
+      right: 12px;
+      bottom: 13px;
+      width: 0;
+      height: 0;
+      border-top: 13px solid transparent;
+      border-bottom: 13px solid transparent;
+      border-left: 21px solid #ef1e26;
+      filter: drop-shadow(0 0 1px #fff);
+    }
+  </style>
+</head>
+<body>
+  <main class="banner" aria-label="MIZUHA LAB 濃密保湿ジェルの広告バナー">
+    <img class="product-bg" src="./background-product.png" alt="">
+    <div class="air"></div>
+    <div class="corner tl"></div>
+    <div class="corner br"></div>
+    <header class="topline">
+      <span class="brand">MIZUHA LAB</span>
+      <span class="alert">緊急保湿！</span>
+    </header>
+    <div class="texture-copy">ぷるん<br>うるおう</div>
+    <div class="badge">リピート<br>続出!!</div>
+    <div class="ribbon-wrap"><div class="ribbon">数量限定!</div></div>
+    <div class="season">夏も<br>登場!!</div>
+    <div class="headline">濃密<br>保湿ジェル</div>
+    <div class="benefit">キュッと引き締め、うるおい肌へ</div>
+    <div class="arrow"></div>
+  </main>
+</body>
+</html>
