@@ -475,22 +475,22 @@ window.PORTFOLIO_GALLERY_DATA = [
   {
     "slug": "compass-consulting-school-lp",
     "type": "lp",
-    "title": "COMPASS 超実践型コンサルタント養成スクール LP",
-    "heading": "その経験を、価値に変える。その一歩、COMPASSで。",
-    "category": "教育・スクール",
+    "title": "AI漫画クリエイター アフィリエイトLP",
+    "heading": "絵心ゼロでOK、スマホだけでOK！AIで「漫画が作れる人」になる",
+    "category": "IT・ツール",
     "moodTags": [
-      "信頼感",
-      "ポップ"
+      "ポップ",
+      "カッコイイ"
     ],
     "productTags": [
-      "教育",
-      "スクール",
-      "コンサルティング"
+      "IT",
+      "AI",
+      "アフィリエイト"
     ],
     "featureTags": [],
     "linkType": "external",
     "url": "https://utage-system.com/p/714WtLeEZYXJ",
-    "thumbnail": "assets/thumbnails/compass-consulting-school-lp.jpg"
+    "thumbnail": "assets/thumbnails/ai-manga-creator-lp.jpg"
   },
   {
     "slug": "keishou-tax-swipe-lp",
