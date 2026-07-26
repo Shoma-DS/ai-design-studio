@@ -473,63 +473,6 @@ window.PORTFOLIO_GALLERY_DATA = [
     "thumbnail": "assets/thumbnails/lumiere-nail-atelier-swipe-lp.jpg"
   },
   {
-    "slug": "fruitein-banner-taste",
-    "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（味訴求）",
-    "heading": "甘すぎました。",
-    "category": "健康食品・サプリ",
-    "moodTags": [
-      "ポップ",
-      "ナチュラル"
-    ],
-    "productTags": [
-      "健康食品",
-      "プロテイン"
-    ],
-    "featureTags": [],
-    "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-taste.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-taste.jpg"
-  },
-  {
-    "slug": "fruitein-banner-price",
-    "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（価格訴求）",
-    "heading": "安すぎました。",
-    "category": "健康食品・サプリ",
-    "moodTags": [
-      "ポップ",
-      "ナチュラル"
-    ],
-    "productTags": [
-      "健康食品",
-      "プロテイン"
-    ],
-    "featureTags": [],
-    "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-price.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-price.jpg"
-  },
-  {
-    "slug": "fruitein-banner-trust",
-    "type": "banner",
-    "title": "FRUITEIN ホエイプロテイン 白桃風味 広告バナー（信頼・実績訴求）",
-    "heading": "売れすぎました。",
-    "category": "健康食品・サプリ",
-    "moodTags": [
-      "ポップ",
-      "ナチュラル"
-    ],
-    "productTags": [
-      "健康食品",
-      "プロテイン"
-    ],
-    "featureTags": [],
-    "linkType": "image",
-    "url": "assets/portfolio/banner/fruitein-banner-trust.png",
-    "thumbnail": "assets/thumbnails/fruitein-banner-trust.jpg"
-  },
-  {
     "slug": "compass-consulting-school-lp",
     "type": "lp",
     "title": "COMPASS 超実践型コンサルタント養成スクール LP",
@@ -594,5 +537,49 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://emberwood-glamping-swipe-lp.vercel.app",
     "thumbnail": "assets/thumbnails/emberwood-glamping-swipe-lp.jpg"
+  },
+  {
+    "slug": "goodone-corporate-site",
+    "type": "hp",
+    "title": "GOOD ONE（株式会社グッドワン）コーポレートサイト",
+    "heading": "エンジンの奥まで、確かなクリーンを。",
+    "category": "自動車メンテナンス・輸入代理店",
+    "moodTags": [
+      "信頼感",
+      "クリーン"
+    ],
+    "productTags": [
+      "自動車",
+      "メンテナンス",
+      "コーポレートサイト"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "ハンバーガーメニュー",
+      "固定ヘッダー",
+      "レスポンシブ",
+      "下層ページ"
+    ],
+    "linkType": "external",
+    "url": "https://goodone-corporate-site.vercel.app",
+    "thumbnail": "assets/thumbnails/goodone-corporate-site.jpg"
+  },
+  {
+    "slug": "mizuha-lab-moisture-gel-banner",
+    "type": "banner",
+    "title": "MIZUHA LAB 濃密保湿ジェル 広告バナー（保湿訴求）",
+    "heading": "緊急保湿！ 濃密保湿ジェル",
+    "category": "美容・コスメ",
+    "moodTags": [
+      "ナチュラル"
+    ],
+    "productTags": [
+      "美容",
+      "スキンケア"
+    ],
+    "featureTags": [],
+    "linkType": "image",
+    "url": "assets/portfolio/banner/mizuha-lab-moisture-gel-banner.png",
+    "thumbnail": "assets/thumbnails/mizuha-lab-moisture-gel-banner.jpg"
   }
 ];
