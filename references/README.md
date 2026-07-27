@@ -7,3 +7,4 @@
 ## サブフォルダ
 
 - `quote-templates/` — クライアント向けLP/HP見積書のHTMLテンプレート
+- `banner-design/` — バナーデザインの作り方・チェックリスト参考記事まとめ
