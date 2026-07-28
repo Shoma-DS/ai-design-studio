@@ -39,6 +39,10 @@
 - 参考資料: `references/`
 - 納品物: `exports/`
 
+## 配色パレット
+
+- LP/HP/バナー/サムネ/SNS投稿の配色（メイン・アクセント・背景・文字色）を決めるとき、HP制作でCSS変数・Tailwindカラートークンを作るときは `skills/design/color-palette-generator/SKILL.md` を使う。ベースカラー1色から明度スケール付きパレットとWCAGコントラスト確認をリポジトリ内で生成する。kigen.design等の外部配色ツールはAPI非公開のため自動連携しない。
+
 ## 画像生成
 
 - 画像生成は Codex app-server 経由の `gpt-image-2` を使う。
