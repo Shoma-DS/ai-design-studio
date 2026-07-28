@@ -1,0 +1,160 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #f2f2f2;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.lp-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-section {
+  display: block;
+}
+
+.lp-section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lp-section-wrap {
+  position: relative;
+  display: block;
+}
+
+.hotspot {
+  position: absolute;
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* スクロールで下から表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lp-section-hero {
+  opacity: 0;
+  animation: hero-fade-in 1s ease forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .lp-section-hero {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 画像読み込み前にレイアウトの高さを確保（実測値・PC版） */
+.img-ratio-01 { aspect-ratio: 1536 / 1024; }
+.img-ratio-02 { aspect-ratio: 1536 / 1024; }
+.img-ratio-03 { aspect-ratio: 1536 / 1024; }
+.img-ratio-04 { aspect-ratio: 1536 / 1024; }
+.img-ratio-05 { aspect-ratio: 1536 / 1024; }
+.img-ratio-06 { aspect-ratio: 1536 / 1024; }
+.img-ratio-07 { aspect-ratio: 1536 / 1024; }
+.img-ratio-08 { aspect-ratio: 1536 / 1024; }
+.img-ratio-09 { aspect-ratio: 1536 / 1024; }
+.img-ratio-10 { aspect-ratio: 1536 / 1024; }
+
+/* CTAホットスポット位置（PC版、実測パーセンテージ） */
+.hotspot-01 { left: 24%; top: 79%; width: 52%; height: 12%; }
+.hotspot-04 { left: 15%; top: 75%; width: 70%; height: 17%; }
+.hotspot-05 { left: 20%; top: 83%; width: 60%; height: 13%; }
+.hotspot-07 { left: 25%; top: 88%; width: 51%; height: 10%; }
+.hotspot-10 { left: 38%; top: 70%; width: 50%; height: 12%; }
+
+@media (max-width: 767px) {
+  .img-ratio-01 { aspect-ratio: 864 / 1821; }
+  .img-ratio-02 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-03 { aspect-ratio: 864 / 1821; }
+  .img-ratio-04 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-05 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-06 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-07 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-08 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-09 { aspect-ratio: 1024 / 1536; }
+  .img-ratio-10 { aspect-ratio: 864 / 1821; }
+
+  /* CTAホットスポット位置（スマホ版、実測パーセンテージ） */
+  .hotspot-01 { left: 8%; top: 82%; width: 85%; height: 10%; }
+  .hotspot-04 { left: 8%; top: 83%; width: 85%; height: 13%; }
+  .hotspot-05 { left: 7%; top: 85.5%; width: 87%; height: 10%; }
+  .hotspot-07 { left: 15%; top: 90%; width: 70%; height: 9%; }
+  .hotspot-10 { left: 6%; top: 81%; width: 88%; height: 8%; }
+}
+
+/* トップへ戻るボタン */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #203a3c;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #25a78d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.15s linear, visibility 0.15s linear;
+    transform: none;
+  }
+}
