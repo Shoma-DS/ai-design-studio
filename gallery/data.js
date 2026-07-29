@@ -475,8 +475,8 @@ window.PORTFOLIO_GALLERY_DATA = [
   {
     "slug": "compass-consulting-school-lp",
     "type": "lp",
-    "title": "AI漫画クリエイター アフィリエイトLP",
-    "heading": "絵心ゼロでOK、スマホだけでOK！AIで「漫画が作れる人」になる",
+    "title": "AI漫画クリエイター アフィリエイトLP（A案）",
+    "heading": "絵心ゼロでOK、スマホだけでOK！30秒で売れるAI漫画が作れる",
     "category": "IT・ツール",
     "moodTags": [
       "ポップ",
@@ -489,7 +489,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "featureTags": [],
     "linkType": "external",
-    "url": "https://utage-system.com/p/714WtLeEZYXJ",
+    "url": "https://best.kigyouka-best-members.com/page/GOzx4btSZzap?v=a",
     "thumbnail": "assets/thumbnails/ai-manga-creator-lp.jpg"
   },
   {
@@ -581,5 +581,25 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "image",
     "url": "assets/portfolio/banner/mizuha-lab-moisture-gel-banner.png",
     "thumbnail": "assets/thumbnails/mizuha-lab-moisture-gel-banner.jpg"
+  },
+  {
+    "slug": "ai-manga-creator-lp-b",
+    "type": "lp",
+    "title": "AI漫画クリエイター アフィリエイトLP（B案）",
+    "heading": "絵心ゼロ・スマホだけで30秒、漫画づくりならAI漫画クリエイターにお任せください！",
+    "category": "IT・ツール",
+    "moodTags": [
+      "ポップ",
+      "カッコイイ"
+    ],
+    "productTags": [
+      "IT",
+      "AI",
+      "アフィリエイト"
+    ],
+    "featureTags": [],
+    "linkType": "external",
+    "url": "https://best.kigyouka-best-members.com/page/qXOTp9mifwDG?v=b",
+    "thumbnail": "assets/thumbnails/ai-manga-creator-lp-b.jpg"
   }
 ];
