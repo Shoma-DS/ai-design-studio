@@ -601,5 +601,30 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://best.kigyouka-best-members.com/page/qXOTp9mifwDG?v=b",
     "thumbnail": "assets/thumbnails/ai-manga-creator-lp-b.jpg"
+  },
+  {
+    "slug": "todomatsu-recruit",
+    "type": "hp",
+    "title": "株式会社トドマツ 新卒採用サイト",
+    "heading": "根を張り、育っていく。",
+    "category": "小売・スーパーマーケット",
+    "moodTags": [
+      "信頼感",
+      "温かみ",
+      "誠実"
+    ],
+    "productTags": [
+      "新卒採用",
+      "スーパーマーケット",
+      "小売"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "ハンバーガーメニュー",
+      "複数ページ"
+    ],
+    "linkType": "external",
+    "url": "https://todomatsu-recruit.vercel.app",
+    "thumbnail": "assets/thumbnails/todomatsu-recruit.jpg"
   }
 ];

@@ -1,0 +1,52 @@
+.footer {
+  background: var(--color-primary-dark);
+  color: #d9cdbc;
+  padding: 56px 24px 28px;
+}
+
+.inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(207, 216, 208, 0.15);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-bg);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.address,
+.tel {
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  font-size: 13px;
+}
+
+.copyright {
+  max-width: var(--container-width);
+  margin: 24px auto 0;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 769px) {
+  .inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}

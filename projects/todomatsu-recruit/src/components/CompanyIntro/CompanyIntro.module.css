@@ -1,0 +1,135 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.decoTop {
+  top: 18%;
+  left: -4%;
+}
+
+.top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.copy {
+  padding: 0 24px;
+}
+
+.detail {
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-size: clamp(28px, 6vw, 40px);
+  line-height: 1.35;
+  color: var(--color-primary-dark);
+}
+
+.subLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+}
+
+.lead {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--color-text-soft);
+  max-width: 62ch;
+}
+
+.statGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.statCard {
+  background: var(--color-bg-alt);
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.statSuffix {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.statLabel {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--color-text-soft);
+}
+
+@media (min-width: 769px) {
+  .top {
+    display: grid;
+    grid-template-columns: minmax(200px, 280px) minmax(0, 1fr) minmax(240px, 340px);
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 72px;
+  }
+
+  .copy {
+    padding: 0 0 0 40px;
+  }
+
+  .heading {
+    font-size: clamp(24px, 2.6vw, 32px);
+  }
+
+  .detail {
+    padding: 0 40px 0 0;
+  }
+
+  .statGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .copy {
+    padding-left: max(40px, calc((100vw - var(--container-width)) / 2 + 40px));
+  }
+
+  .detail {
+    padding-right: max(40px, calc((100vw - var(--container-width)) / 2));
+  }
+
+  .statGrid {
+    padding: 0 max(40px, calc((100vw - var(--container-width)) / 2));
+  }
+}

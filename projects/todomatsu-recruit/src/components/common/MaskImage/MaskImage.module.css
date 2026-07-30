@@ -1,0 +1,44 @@
+.mask {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 4 / 3.4;
+  width: 100%;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: -6%;
+  width: 112%;
+  max-width: 112%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.curtainLeft,
+.curtainRight {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--color-bg);
+  z-index: 2;
+  will-change: transform;
+}
+
+.curtainLeft {
+  left: 0;
+}
+
+.curtainRight {
+  left: 50%;
+}
+
+@media (min-width: 1024px) {
+  .mask {
+    aspect-ratio: 4 / 3.15;
+    border-radius: 28px;
+  }
+}

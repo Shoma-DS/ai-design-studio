@@ -1,0 +1,14 @@
+.decorationText {
+  position: absolute;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(60px, 16vw, 220px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--color-primary-dark);
+  opacity: 0.1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}

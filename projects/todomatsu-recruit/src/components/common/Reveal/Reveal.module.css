@@ -1,0 +1,5 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 24px));
+  will-change: transform, opacity;
+}

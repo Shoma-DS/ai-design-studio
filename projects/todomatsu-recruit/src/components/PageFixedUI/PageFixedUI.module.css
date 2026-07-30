@@ -1,0 +1,95 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.root.visible {
+  opacity: 1;
+}
+
+.root.nearFooter {
+  opacity: 0;
+}
+
+.entryPill {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.entryPill:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.scrollBadge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.scrollBadgeRing {
+  width: 100%;
+  height: 100%;
+  animation: pageFixedSpin 14s linear infinite;
+}
+
+.scrollBadgeRing text {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  fill: var(--color-primary);
+}
+
+.scrollBadgeDot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+@keyframes pageFixedSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 769px) {
+  .entryPill {
+    left: 32px;
+    bottom: 28px;
+    font-size: 14px;
+    padding: 16px 24px;
+  }
+
+  .scrollBadge {
+    right: 32px;
+    bottom: 28px;
+    width: 84px;
+    height: 84px;
+  }
+}
