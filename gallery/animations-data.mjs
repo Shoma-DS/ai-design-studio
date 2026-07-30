@@ -2885,5 +2885,60 @@ buttons.forEach((btn, i) => {
     tags: ["背景", "光", "グロー", "SaaS"],
     useCase: "SaaS・セキュリティ・テクノロジー系LP/HPの暗いヒーローセクションに重厚感・先進感を出したい場面",
     moodTags: ["カッコイイ", "モダン"]
+  },
+  {
+    slug: "blob-icon-float",
+    name: "ブロブ型アイコンの浮遊アニメーション",
+    category: "icon",
+    description: "不定形(ブロブ)の枠と中のアイコン/画像が、それぞれ違う周期で横揺れ・縦揺れを繰り返し、常に軽く浮遊しているような有機的な質感を出す。スクロールとは無関係に常時ループする。",
+    cssCode: `.blob-icon {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 63% 37% 54% 46% / 43% 37% 63% 57%;
+  background: #efe9dc;
+  animation: blob-float-x 2s ease-in-out infinite alternate;
+}
+.blob-icon img,
+.blob-icon svg {
+  width: 40px;
+  height: 40px;
+  animation: blob-float-y 1.8s ease-in-out infinite alternate;
+}
+@keyframes blob-float-x {
+  from {
+    transform: translateX(-14px);
+  }
+  to {
+    transform: translateX(14px);
+  }
+}
+@keyframes blob-float-y {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blob-icon,
+  .blob-icon img,
+  .blob-icon svg {
+    animation: none;
+  }
+}`,
+    htmlSnippet: `<span class="blob-icon">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#2c4a3b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 8h16l-1.5 10a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8L4 8Z" />
+    <path d="M8 8V6a4 4 0 0 1 8 0v2" />
+  </svg>
+</span>`,
+    jsCode: null,
+    tags: ["icon", "blob", "organic", "float", "職種紹介", "スタッフ紹介", "常時ループ"],
+    useCase: "職種紹介・スタッフ紹介・サービス一覧などのアイコンやミニイラストを常にゆっくり揺らして生き生きとした印象にしたい場面。枠を大きくすれば単独の背景装飾シェイプとしても流用できる。",
+    moodTags: ["オシャレ", "ポップ", "やさしい"]
   }
 ];

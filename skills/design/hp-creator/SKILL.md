@@ -85,6 +85,7 @@ projects/<slug>/
 - **PC用とSP用は別コンポジションで生成する**（1枚をCSSで引き伸ばさない）。実装条件「スマホ用の縦長画像をPCで横に引き伸ばさない」を満たすため。
 - 撮影シーン（モーメント）ごとにPC（横長〜自然比率）・SP（縦長）の2枚を用意し、`<picture><source media="(min-width: 1024px)" srcSet="...">`で出し分ける。
 - スクリプトは既存の `portfolio/agrume-citrus-cleansing-lp/scripts/generate-section-images.mjs` パターンを踏襲し、`projects/<slug>/scripts/generate-section-images.mjs` として新規作成する（並列実行、既存ファイルはスキップ）。
+- **2件以上を同時生成する場合はタイムアウトしやすい**（3件並列実行で全件`Codex app-server の画像生成がタイムアウトしました`となった実績あり）。追加生成などで複数件をまとめて依頼するときは `LP_IMAGE_CONCURRENCY=1` を付けて逐次実行する。
 - ログイン切れは `skills/common/codex-image-auth/SKILL.md` に従う。
 
 ### 5. 実装
@@ -94,6 +95,7 @@ projects/<slug>/
 - 背景固定＋テキスト順送りのような「ピン留め」演出が必要な箇所だけ**GSAP + ScrollTrigger**を使う。Reactでは`useLayoutEffect` + `gsap.context(...).revert()`で確実にクリーンアップする（未クリーンアップだとページ遷移時にScrollTriggerが残留する）。
 - 動きは全体的に控えめに：duration 0.6〜0.8秒、ease-out系、回転・大きなズーム・バウンスは使わない。
 - ハンバーガーメニューは`AnimatePresence`でスライドイン/フェード、Escキー・背景クリックで閉じる、開いている間は`body`のスクロールをロックする。
+- **既知の落とし穴（`backdrop-filter`とfixed配置）**：スクロール時にヘッダー背景へ`backdrop-filter`や`filter`を使う実装（このスキルで標準採用）は、CSS仕様上`position: fixed`の子要素に対して新しいcontaining blockを生成する。ヘッダー内にハンバーガーメニューなどの全画面`fixed`オーバーレイを実装している場合、スクロール後にメニューを開くとヘッダー自身の高さ（数十px）で表示が途切れる不具合が起きる。**対策として、メニューのオーバーレイは`react-dom`の`createPortal`で`document.body`直下に描画し、ヘッダーの`backdrop-filter`から独立させる**（`z-index`はヘッダー自身より高い値にする）。
 
 ### 6. ドキュメント化
 
@@ -120,6 +122,10 @@ projects/<slug>/
 
 - `resize_window`実行後も`window.innerWidth`が変わらないことがある。真のモバイル幅を作れない場合は、コード側の`@media`定義を直接レビューする代替手段を取る。
 - 合成クリック（`computer left_click`）によるアンカーのフラグメントナビゲーションで、`window.scrollY`/`scrollTo()`が反映されないことがある。一方、**実際のホイール入力（`computer scroll`アクション）は正常に動作する**ことが多い。この場合、アプリ側のバグではなく自動化ツール環境固有の制約である可能性が高いので、コードレビュー（`preventDefault`や独自スクロール処理の有無、`overflow`設定）で異常がなければ、この既知の制約として`docs/qa-notes.md`に記録し、ユーザーに実ブラウザでの手動確認を推奨する。過度にコードを推測で変更しない。
+- この環境では`document.hidden`が`true`になり、GSAP/Framer Motionのスクロール連動アニメーション（`Reveal`/`RevealGroup`等）が途中でフリーズして見えることがある（コード側のバグではない）。見た目を最終確認する前に、対象要素の`opacity`/`transform`をJSで強制上書きしてから確認する。
+  ```js
+  document.querySelectorAll('.reveal, [class*=reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  ```
 
 ### 8. ローカルプレビュー
 
