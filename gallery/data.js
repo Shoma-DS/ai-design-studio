@@ -626,5 +626,27 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://todomatsu-recruit.vercel.app",
     "thumbnail": "assets/thumbnails/todomatsu-recruit.jpg"
+  },
+  {
+    "slug": "ai-movie-campus-inspired-lp",
+    "type": "lp",
+    "title": "AIムービーキャンパス｜未経験から90日でAI動画クリエイターを目指すオンライン講座 LP",
+    "heading": "たった90日で、「AI動画」を仕事にする。",
+    "category": "教育・スクール",
+    "moodTags": [
+      "信頼感",
+      "ポップ"
+    ],
+    "productTags": [
+      "教育",
+      "スクール",
+      "AI動画"
+    ],
+    "featureTags": [
+      "アニメーション"
+    ],
+    "linkType": "external",
+    "url": "https://ai-movie-campus-inspired-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/ai-movie-campus-inspired-lp.jpg"
   }
 ];

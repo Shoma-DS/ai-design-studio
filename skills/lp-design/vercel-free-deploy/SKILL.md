@@ -44,6 +44,20 @@ Vercel公開は外部サービス操作なので、ユーザーが公開・デ�
 
 ユーザーが「Vercelに公開して」と明示した場合だけ実行する。
 
+**新規LP/HPは必ず専用の新規Vercelプロジェクトとして作成する（重要・2026-07-30確定）。** 公開元フォルダ名が`lp`など汎用的な名前だと、`.vercel/project.json`が無い状態で`vercel --prod --yes`を実行した際、Vercel CLIが同名の既存プロジェクト（他の案件が使い回している汎用プロジェクトの可能性がある）に自動リンクしてしまい、他人の本番デプロイを上書きする事故につながる（実際に月野さんの「Rêve Cerisier」LPを誤って上書きした事例あり、`vercel rollback`で復旧）。
+
+- 初回公開の前に、必ず案件固有のプロジェクト名で明示的にリンクする。
+  ```bash
+  cd <公開元フォルダ>
+  npx vercel link --project <案件slug> --yes
+  ```
+- その後に本番公開する。
+  ```bash
+  npx vercel --prod --yes
+  ```
+- 公開後、`cat .vercel/project.json`で`projectName`が案件slugになっていることを確認してから、ユーザーへURLを報告する。
+- 万一、既存の汎用プロジェクトに誤ってリンクしてしまった場合は、`npx vercel ls <project>`でデプロイ履歴を確認し、事故発生前の直近デプロイへ`npx vercel rollback <url> --yes`で速やかに復元する。
+
 ```bash
 cd <公開元フォルダ>
 npx vercel --yes

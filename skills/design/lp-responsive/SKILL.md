@@ -116,6 +116,8 @@ PC版とスマホ版を並べて、**ナビ・見出し・本文・写真・カ�
 
 再生成が必要なセクションについて、`server/codexImageClient.mjs` の `generateImageWithCodexAppServer` を使う（`skills/common/codex-image-auth/SKILL.md` の認証確認手順に従う）。
 
+**既知の落とし穴（`taskType`の指定ミス）**：`generateImageWithCodexAppServer` に `taskType: "section"` を渡すと、`buildImageGenerationPrompt`（`server/codexImageClient.mjs`）が「PC/デスクトップ向け16:9」を強制するラッパー文言を自動付加してしまい、プロンプト側でどれだけスマホ向け指示を書いても無視されて横長画像が生成される（実際に9セクション全てが1536×1024の横長でPC版と同一構図になった事例あり）。**スマホ版生成では`taskType: "showcase"`を指定する**（このタスクタイプはラッパー文言でアスペクト比を強制せず、プロンプト内の指示をそのまま尊重する）。`taskType: "section"`はPC版生成（Step「PC版をスマホ版基準で作り直す」）専用に使う。生成後は必ず`sips -g pixelWidth -g pixelHeight`で縦長（9:16前後）になっているか実測確認すること。
+
 `buildPrompt(section)` の結果に、以下のスマホ向け指示を追記してプロンプトを作る。既存のPC版画像がある場合は参照画像として渡してよい（配色・ブランド・コピーの一貫性を保つため）が、なければ無しで構わない。
 
 ```
