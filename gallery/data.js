@@ -648,5 +648,83 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://ai-movie-campus-inspired-lp.vercel.app",
     "thumbnail": "assets/thumbnails/ai-movie-campus-inspired-lp.jpg"
+  },
+  {
+    "slug": "hikari-fit-gym-banner-practice",
+    "type": "banner",
+    "title": "ヒカリフィット 女性専用スポーツジム 広告バナー（練習作）",
+    "heading": "わたし史上、いちばん通いやすいジム",
+    "category": "スポーツ・フィットネス",
+    "moodTags": [
+      "やさしい",
+      "見やすい"
+    ],
+    "productTags": [
+      "フィットネス",
+      "女性専用ジム"
+    ],
+    "featureTags": [],
+    "linkType": "image",
+    "url": "assets/portfolio/banner/hikari-fit-gym-banner-practice.png",
+    "thumbnail": "assets/thumbnails/hikari-fit-gym-banner-practice.jpg"
+  },
+  {
+    "slug": "hakosumu-rental-banner-practice",
+    "type": "banner",
+    "title": "HAKOSUMU 賃貸不動産 広告バナー（練習作）",
+    "heading": "初期費用0円で、はじめての一人暮らし",
+    "category": "不動産・賃貸",
+    "moodTags": [
+      "見やすい",
+      "信頼感"
+    ],
+    "productTags": [
+      "不動産",
+      "賃貸",
+      "一人暮らし"
+    ],
+    "featureTags": [],
+    "linkType": "image",
+    "url": "assets/portfolio/banner/hakosumu-rental-banner-practice.png",
+    "thumbnail": "assets/thumbnails/hakosumu-rental-banner-practice.jpg"
+  },
+  {
+    "slug": "anniversa-bridal-banner-practice",
+    "type": "banner",
+    "title": "アニバーサ迎賓館 ブライダル 広告バナー（練習作）",
+    "heading": "わたしたちらしい、一生の思い出を",
+    "category": "ブライダル・結婚式場",
+    "moodTags": [
+      "上品",
+      "ロマンティック"
+    ],
+    "productTags": [
+      "ブライダル",
+      "結婚式場"
+    ],
+    "featureTags": [],
+    "linkType": "image",
+    "url": "assets/portfolio/banner/anniversa-bridal-banner-practice.png",
+    "thumbnail": "assets/thumbnails/anniversa-bridal-banner-practice.jpg"
+  },
+  {
+    "slug": "mori-hitoyasumi-cafe-banner-practice",
+    "type": "banner",
+    "title": "森のひとやすみ珈琲 カフェ 広告バナー（練習作）",
+    "heading": "とろけるほうじ茶ティラミス、今だけ。",
+    "category": "飲食店・カフェ",
+    "moodTags": [
+      "やさしい",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "カフェ",
+      "スイーツ",
+      "期間限定"
+    ],
+    "featureTags": [],
+    "linkType": "image",
+    "url": "assets/portfolio/banner/mori-hitoyasumi-cafe-banner-practice.png",
+    "thumbnail": "assets/thumbnails/mori-hitoyasumi-cafe-banner-practice.jpg"
   }
 ];
