@@ -1,0 +1,111 @@
+export const project = {
+  title: "寺子屋クラウド コーポレートサイト",
+};
+
+const baseStyle = [
+  "あなたはトップクラスのBtoB SaaSブランドフォトグラファー兼イラストレーターです。",
+  "日本の個人講師・コーチ・士業向けオンライン講座プラットフォーム「寺子屋クラウド」のコーポレートサイトで使う、温かく信頼感のあるラスター画像を生成してください。",
+  "実在企業のロゴ、商標、画面内の読めるテキスト、透かし、UIモックアップ、スマホ/PC画面のスクリーンショット風表現は一切入れない。",
+  "参考サイトの構図模写やコピー、既存写真のトレースは禁止。雰囲気と被写体だけを言語化した独自シーンとして生成する。",
+  "配色は深いインクネイビー、テラコッタ・アンバーの暖色、セージグリーンのアクセント、生成りの背景。派手なネオン、深緑を基調にしたいかにも『AI感』のある配色、原色だらけの安っぽい配色は避ける。",
+  "光は自然光または暖色の間接照明。木目・和紙・生成りのテキスタイルなど、寺子屋のような温かみのある素材感を感じさせる。過度なHDR・SF的な演出・安っぽい3Dレンダー風は避ける。",
+  "写実的な写真、または落ち着いたフラットイラストのどちらか一貫したスタイルで、企業サイトにそのまま使える高解像度の1枚として仕上げる。",
+].join(" ");
+
+function prompt({ purpose, composition, orientation, style = "写真" }) {
+  const aspect =
+    orientation === "sp"
+      ? "アスペクト比 4:5 の縦長構図。スマホ画面で被写体が自然に収まり、上下に見出しを重ねられる余白を残す。"
+      : "アスペクト比 3:2 の横長構図。PC画面でテキストを重ねられる余白を確保し、被写体は右側または中央に寄せる。";
+
+  return [
+    baseStyle,
+    `目的: ${purpose}`,
+    `構図: ${composition}`,
+    aspect,
+    `スタイル: ${style}`,
+  ].join("\n");
+}
+
+export const sections = [
+  {
+    id: "hero-pc",
+    title: "PCヒーロー",
+    imageName: "hero-pc.jpg",
+    prompt: prompt({
+      purpose: "個人講師・コーチが自宅で温かい雰囲気の中オンライン講座を収録しているファーストビュー背景。",
+      composition:
+        "木目のデスク、ノートPC、間接照明、観葉植物、湯呑みを配した落ち着いたホームオフィス。右側または中央に講師らしき人物がノートPCに向かい、笑顔で話している様子。左側にコピーを重ねられる余白を残す。",
+      orientation: "pc",
+    }),
+  },
+  {
+    id: "hero-sp",
+    title: "SPヒーロー",
+    imageName: "hero-sp.jpg",
+    prompt: prompt({
+      purpose: "スマホ版ファーストビュー背景。個人で教える仕事の温かさと本格感を伝える。",
+      composition:
+        "中央上部に講師がノートPCに向かって話す様子、下部にコピーが載る余白。狭い画面でも被写体が切れない構図。",
+      orientation: "sp",
+    }),
+  },
+  {
+    id: "about-illustration",
+    title: "Aboutページ・課題整理イラスト",
+    imageName: "about-illustration.jpg",
+    style: "フラットイラスト",
+    prompt: prompt({
+      purpose:
+        "「動画を渡すだけの講座になっている」「進捗管理ができていない」といった個人講師の悩みを整理し、寺子屋クラウドで解決に向かうイメージを伝えるAboutページの中核イラスト。",
+      composition:
+        "一人の講師が机に向かい、頭上にノート・チャット・カレンダーなど学びを象徴する小さなモチーフが浮かぶフラットイラスト。暖色パレット、シンプルな線画とベタ塗り。文字は一切入れない。",
+      orientation: "pc",
+      style: "フラットイラスト、アイソメトリックに近い柔らかい線画",
+    }),
+  },
+  {
+    id: "usecase-online-school",
+    title: "導入事例：オンラインスクール",
+    imageName: "usecase-online-school.jpg",
+    prompt: prompt({
+      purpose: "オンラインヨガ・フィットネス講座を運営する個人インストラクターの導入事例カード用画像。",
+      composition:
+        "自宅の一角でヨガマットの上に座り、ノートPC越しにレッスンを届けるインストラクター。柔らかい自然光、観葉植物。",
+      orientation: "pc",
+    }),
+  },
+  {
+    id: "usecase-coaching",
+    title: "導入事例：コーチング・伴走コミュニティ",
+    imageName: "usecase-coaching.jpg",
+    prompt: prompt({
+      purpose: "キャリアコーチがオンラインで複数の受講生とグループコーチングを行う導入事例カード用画像。",
+      composition:
+        "ノートPCの画面越しに複数人とやり取りしている様子が伝わる、コーチ本人のミディアムショット。落ち着いたオフィスの一角。",
+      orientation: "pc",
+    }),
+  },
+  {
+    id: "usecase-advisory",
+    title: "導入事例：士業・専門家の顧問サービス",
+    imageName: "usecase-advisory.jpg",
+    prompt: prompt({
+      purpose: "行政書士など専門家が顧問先向けにオンラインで相談・マニュアル提供を行う導入事例カード用画像。",
+      composition:
+        "デスクで書類とノートPCを前に、落ち着いた表情でオンライン相談に応じる専門職の人物。誠実で信頼感のある雰囲気。",
+      orientation: "pc",
+    }),
+  },
+  {
+    id: "usecase-corporate",
+    title: "導入事例：企業研修・社内教育",
+    imageName: "usecase-corporate.jpg",
+    prompt: prompt({
+      purpose: "企業の研修担当者がオンライン研修を活用して新入社員教育を行う導入事例カード用画像。",
+      composition:
+        "会議室でノートPCの画面を指し示しながら、隣に座る新入社員らしき人物に説明する研修担当者。清潔感のあるオフィス背景。",
+      orientation: "pc",
+    }),
+  },
+];
