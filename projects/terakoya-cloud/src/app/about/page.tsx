@@ -53,22 +53,45 @@ export default function AboutPage() {
         <div className={styles.painShape}>
           <div className="container">
             <Reveal>
-              <div className={styles.painGrid}>
-                <div className={styles.painCol}>
-                  <div className={styles.painCard}>{aboutPainPoints[0].title}</div>
-                  <div className={styles.painCard}>{aboutPainPoints[1].title}</div>
-                </div>
-                <div className={styles.painCenter}>
+              <div className={styles.painHead}>
+                <h2 className={styles.painHeadTitle}>
+                  {"オンライン講座の提供でよくあるお悩み\n寺子屋クラウドで解決しませんか？"}
+                </h2>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className={styles.painStage}>
+                {aboutPainPoints.map((point) => (
+                  <div key={point.title}>
+                    <div
+                      className={styles.painCard}
+                      style={{ top: `${point.pos.top}%`, left: `${point.pos.left}%` }}
+                    >
+                      {point.title}
+                    </div>
+                    {point.dots.map((dot, dotIndex) => (
+                      <span
+                        key={dotIndex}
+                        className={styles.painDot}
+                        style={{
+                          top: `${dot.top}%`,
+                          left: `${dot.left}%`,
+                          width: dot.size,
+                          height: dot.size,
+                        }}
+                      />
+                    ))}
+                  </div>
+                ))}
+
+                <div className={styles.painCharacter}>
                   <Image
-                    src="/images/about-illustration.jpg"
-                    alt="個人講師が講座運営の悩みを整理するイラスト"
+                    src="/images/about-character.png"
+                    alt="講座運営に悩む個人講師のイラスト"
                     fill
-                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 900px) 200px, 320px"
                   />
-                </div>
-                <div className={styles.painCol}>
-                  <div className={styles.painCard}>{aboutPainPoints[2].title}</div>
-                  <div className={styles.painCard}>{aboutPainPoints[3].title}</div>
                 </div>
               </div>
             </Reveal>

@@ -52,43 +52,61 @@
 
 .painShape {
   position: relative;
-  padding: 48px 0 120px;
+  padding: 48px 0 56px;
   clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
   background: var(--primary-100);
 }
 
-.painGrid {
+.painHead {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.painHeadTitle {
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* PC: 人物を中心に吹き出しを非対称へ散らす絶対配置レイアウト */
+.painStage {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  align-items: center;
-  gap: 20px;
-  max-width: 920px;
+  max-width: 1060px;
   margin: 0 auto;
-}
-
-.painCol {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.painCenter {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  border-radius: 16px;
-  overflow: hidden;
+  aspect-ratio: 10 / 6.2;
 }
 
 .painCard {
-  background: var(--primary-700);
+  position: absolute;
+  width: 29%;
+  background: var(--primary-600);
   color: #fff;
-  border-radius: 12px;
-  padding: 18px 20px;
+  border-radius: 10px;
+  padding: 16px 20px;
   font-size: 14px;
   font-weight: 600;
   white-space: pre-line;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.painDot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--primary-600);
+}
+
+.painCharacter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  aspect-ratio: 3 / 4;
+}
+
+.painCharacter img {
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .solution {
@@ -176,15 +194,36 @@
   }
 }
 
-@media (max-width: 768px) {
-  .painGrid {
-    grid-template-columns: 1fr;
+/* タブレット幅では吹き出しが重なるため、絶対配置をやめて通常フローへ積み替える */
+@media (max-width: 900px) {
+  .painStage {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 560px;
   }
 
-  .painCenter {
+  .painCard {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+
+  .painDot {
+    display: none;
+  }
+
+  /* next/image の fill は絶対配置なので、position は relative のまま保つ
+     （static にすると基準を失って画面いっぱいに広がる） */
+  .painCharacter {
+    position: relative;
+    inset: auto;
+    transform: none;
     order: -1;
-    max-width: 220px;
-    margin: 0 auto 8px;
+    width: 200px;
+    margin-bottom: 4px;
   }
 }
 

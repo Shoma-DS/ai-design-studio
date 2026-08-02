@@ -236,11 +236,61 @@ export const pricingMatrix = [
   { feature: "AIアシスト要約機能", free: false, standard: false, pro: false, proPlus: true, enterprise: true },
 ] as const;
 
+/**
+ * Aboutページの課題整理セクション。
+ * pos / dots はPC幅で吹き出しを人物の周囲へ非対称に散らすための座標（コンテナに対する%）。
+ * dots は吹き出しから人物へ向かって伸びる、思考の吹き出し風の小さな丸。
+ * 768px以下ではこれらの座標は使わず、通常のグリッドに積み替える。
+ */
 export const aboutPainPoints = [
-  { title: "動画を渡すだけの\nオンライン講座になっている" },
-  { title: "受講生の進捗管理が\nできていない" },
-  { title: "LPやサイトの構築が\n難しそう" },
-  { title: "コミュニティがなく\n受講生満足度が伸び悩む" },
+  {
+    title: "受講生のフォローやリマインドを\n手動でやっていて限界…",
+    pos: { top: 4, left: 10 },
+    dots: [
+      { top: 25, left: 32, size: 13 },
+      { top: 31, left: 37, size: 9 },
+    ],
+  },
+  {
+    title: "集客・講座づくり・受講生管理まで\nまとめて任せたい",
+    pos: { top: 0, left: 52 },
+    dots: [
+      { top: 22, left: 58, size: 12 },
+      { top: 28, left: 54, size: 8 },
+    ],
+  },
+  {
+    title: "動画を渡すだけの\nオンライン講座になっている",
+    pos: { top: 40, left: 1 },
+    dots: [
+      { top: 58, left: 25, size: 14 },
+      { top: 64, left: 30, size: 9 },
+    ],
+  },
+  {
+    title: "LPやサイトの構築は\n難しそう",
+    pos: { top: 38, left: 69 },
+    dots: [
+      { top: 57, left: 68, size: 13 },
+      { top: 63, left: 64, size: 9 },
+    ],
+  },
+  {
+    title: "受講生の進捗管理が\nできていない",
+    pos: { top: 76, left: 4 },
+    dots: [
+      { top: 80, left: 27, size: 12 },
+      { top: 73, left: 31, size: 8 },
+    ],
+  },
+  {
+    title: "コミュニティがなく\n受講生満足度が伸び悩む",
+    pos: { top: 78, left: 67 },
+    dots: [
+      { top: 82, left: 66, size: 12 },
+      { top: 75, left: 62, size: 8 },
+    ],
+  },
 ] as const;
 
 export const useCases = [
