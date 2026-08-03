@@ -54,13 +54,21 @@ description: 公開済みLP・HP・動くLP・スワイプLP・バナー・サ�
      "featureTags": ["機能タグ1"],
      "linkType": "external または image（省略時external）",
      "url": "<external: Vercel本番URL / image: gallery/からの相対パス>",
-     "thumbnail": "assets/thumbnails/<slug>.jpg"
+     "thumbnail": "assets/thumbnails/<slug>.jpg",
+     "author": "<制作者名（必須）。省略時は git config user.name が自動で入る>"
    }
    ```
 4. DBへ登録・更新する（slugが既存なら上書き更新、新規ならINSERTされる）。
    ```bash
    node gallery/scripts/add-portfolio-item.mjs <entry.json>
+   # 別の人の作品として記録するとき
+   node gallery/scripts/add-portfolio-item.mjs <entry.json> --author "tsukino ayaka"
    ```
+   **新規登録では制作者名を必ず残す**（2026-08-04からのルール）。指定が無ければ `git config user.name` が入り、
+   それも取れない場合はスクリプトが登録を中止する。`author`（制作者）はカード下部に「制作: ◯◯」として表示され、
+   検索ボックスでも絞り込める。
+   既存slugを更新するときは、`author`を明示しない限り最初に記録した制作者を保持する（他の人の作品を
+   更新しても制作者が自分に書き換わらないようにするため）。
 5. `gallery/data.js` のフォールバックを最新化する（DBが正本、フォールバックは手動同期が必要）。
    ```bash
    cd gallery && node scripts/sync-data-js.mjs
@@ -81,7 +89,7 @@ description: 公開済みLP・HP・動くLP・スワイプLP・バナー・サ�
 - スキーマ: `gallery/db/portfolio-schema.sql`（`portfolio_items`テーブル）。旧スキーマ`gallery/db/schema.sql`（`landing_pages`）は参照用に残置。
 - API: `gallery/api/portfolio-items.js`（DBから取得しJSON返却）。旧`gallery/api/landing-pages.js`も残置（互換用、新規登録には使わない）。
 - フロント: `gallery/index.html`（タイプタブ+画像ライトボックス追加済み） / `gallery/script.js` / `gallery/data.js`（フォールバック）
-- 登録スクリプト: `gallery/scripts/add-portfolio-item.mjs`（1件upsert）, `gallery/scripts/sync-data-js.mjs`（DB→data.js再生成）, `gallery/scripts/db.mjs`（DB接続共通処理・`upsertPortfolioItem`）
+- 登録スクリプト: `gallery/scripts/add-portfolio-item.mjs`（1件upsert）, `gallery/scripts/sync-data-js.mjs`（DB→data.js再生成）, `gallery/scripts/db.mjs`（DB接続共通処理・`upsertPortfolioItem`・`gitAuthorName`）, `gallery/scripts/backfill-authors.mjs`（author未記録の作品をGit履歴から埋め戻す。`--apply`で書き込み）
 
 ## 既存エントリの削除・一括更新
 

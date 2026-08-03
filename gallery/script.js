@@ -190,6 +190,7 @@
       item.title,
       item.heading,
       item.category,
+      item.author,
       ...(item.moodTags || []),
       ...(item.productTags || []),
       ...(item.featureTags || [])
@@ -416,6 +417,7 @@
           <div class="card-tags">
             ${tagsHtml}
           </div>
+          <p class="card-author">制作: ${item.author || "未記入"}</p>
         </div>
       `;
       card.addEventListener("click", () => openCard(item));

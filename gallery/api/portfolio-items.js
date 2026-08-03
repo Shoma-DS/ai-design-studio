@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   try {
     const sql = neon(process.env.DATABASE_URL);
     const rows = await sql`
-      select slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail
+      select slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail, author
       from portfolio_items
       order by created_at asc
     `;
@@ -19,7 +19,8 @@ export default async function handler(req, res) {
       featureTags: row.feature_tags ?? [],
       linkType: row.link_type,
       url: row.url,
-      thumbnail: row.thumbnail
+      thumbnail: row.thumbnail,
+      author: row.author ?? null
     }));
     res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
     res.status(200).json(data);

@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = path.join(__dirname, "..", "data.js");
 
 const rows = await sql`
-  select slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail
+  select slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail, author
   from portfolio_items
   order by created_at asc
 `;
@@ -23,7 +23,8 @@ const items = rows.map((row) => ({
   featureTags: row.feature_tags ?? [],
   linkType: row.link_type,
   url: row.url,
-  thumbnail: row.thumbnail
+  thumbnail: row.thumbnail,
+  author: row.author ?? null
 }));
 
 const header = `// ポートフォリオギャラリーのデータ（オフラインフォールバック用）。
@@ -38,6 +39,7 @@ const header = `// ポートフォリオギャラリーのデータ（オフラ�
 // - productTags: 商品で探す（業種・商材のジャンル）
 // - featureTags: 機能で探す（実装されている技術的なUI機能。アニメーション/レスポンシブ/カルーセル/
 //   アコーディオン/ハンバーガーメニュー/固定ヘッダーなど。ビジネス上の訴求はここに含めない）
+// author: 制作者（登録時のgit user.name。誰が作った作品かを表す。未記録はnull）
 window.PORTFOLIO_GALLERY_DATA = `;
 
 const body = JSON.stringify(items, null, 2);

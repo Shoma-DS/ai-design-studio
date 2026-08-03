@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,6 +23,19 @@ if (!process.env.DATABASE_URL) {
 }
 
 export const sql = neon(process.env.DATABASE_URL);
+
+// 作品の制作者名。指定が無ければ git の user.name（コミット時の名前）を使う。
+export function gitAuthorName() {
+  try {
+    return execFileSync("git", ["config", "user.name"], {
+      cwd: __dirname,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"]
+    }).trim() || null;
+  } catch {
+    return null;
+  }
+}
 
 export async function upsertLandingPage(entry) {
   const {
@@ -64,12 +78,17 @@ export async function upsertPortfolioItem(entry) {
     featureTags = [],
     linkType = "external",
     url,
-    thumbnail
+    thumbnail,
+    author
   } = entry;
 
-  await sql`
-    insert into portfolio_items (slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail, updated_at)
-    values (${slug}, ${type}, ${title}, ${heading}, ${category}, ${moodTags}, ${productTags}, ${featureTags}, ${linkType}, ${url}, ${thumbnail}, now())
+  // author を明示した場合だけ上書きし、未指定の更新では最初の制作者を残す。
+  const authorGiven = typeof author === "string" && author.trim() !== "";
+  const authorValue = authorGiven ? author.trim() : gitAuthorName();
+
+  const rows = await sql`
+    insert into portfolio_items (slug, type, title, heading, category, mood_tags, product_tags, feature_tags, link_type, url, thumbnail, author, updated_at)
+    values (${slug}, ${type}, ${title}, ${heading}, ${category}, ${moodTags}, ${productTags}, ${featureTags}, ${linkType}, ${url}, ${thumbnail}, ${authorValue}, now())
     on conflict (slug) do update set
       type = excluded.type,
       title = excluded.title,
@@ -81,8 +100,12 @@ export async function upsertPortfolioItem(entry) {
       link_type = excluded.link_type,
       url = excluded.url,
       thumbnail = excluded.thumbnail,
+      author = case when ${authorGiven} then excluded.author else coalesce(portfolio_items.author, excluded.author) end,
       updated_at = now()
+    returning author
   `;
+
+  return rows[0]?.author ?? null;
 }
 
 export async function upsertAnimation(entry) {

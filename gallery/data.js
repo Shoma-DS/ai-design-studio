@@ -10,6 +10,7 @@
 // - productTags: 商品で探す（業種・商材のジャンル）
 // - featureTags: 機能で探す（実装されている技術的なUI機能。アニメーション/レスポンシブ/カルーセル/
 //   アコーディオン/ハンバーガーメニュー/固定ヘッダーなど。ビジネス上の訴求はここに含めない）
+// author: 制作者（登録時のgit user.name。誰が作った作品かを表す。未記録はnull）
 window.PORTFOLIO_GALLERY_DATA = [
   {
     "slug": "ashita-town-sdgs-lp",
@@ -29,7 +30,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://ashita-town-sdgs-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/ashita-town-sdgs-lp.jpg"
+    "thumbnail": "assets/thumbnails/ashita-town-sdgs-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "astella-vxr-suv-lp",
@@ -50,7 +52,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://astella-vxr-suv-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/astella-vxr-suv-lp.jpg"
+    "thumbnail": "assets/thumbnails/astella-vxr-suv-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "beauty-salon-c3-inspired-lp",
@@ -69,7 +72,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://beauty-salon-c3-inspired-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/beauty-salon-c3-inspired-lp.jpg"
+    "thumbnail": "assets/thumbnails/beauty-salon-c3-inspired-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "career-bridge-job-support-lp",
@@ -88,7 +92,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://career-bridge-job-support-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/career-bridge-job-support-lp.jpg"
+    "thumbnail": "assets/thumbnails/career-bridge-job-support-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "kurabiyori-miso-shop-lp",
@@ -109,7 +114,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://kurabiyori-miso-shop-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/kurabiyori-miso-shop-lp.jpg"
+    "thumbnail": "assets/thumbnails/kurabiyori-miso-shop-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "protoskill-webdesign-school-lp",
@@ -129,7 +135,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://protoskill-webdesign-school-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/protoskill-webdesign-school-lp.jpg"
+    "thumbnail": "assets/thumbnails/protoskill-webdesign-school-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "rosier-beauty-petal-mood-lp",
@@ -148,7 +155,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://rosier-beauty-petal-mood-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/rosier-beauty-petal-mood-lp.jpg"
+    "thumbnail": "assets/thumbnails/rosier-beauty-petal-mood-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "stellant-fortune-rental-lp",
@@ -167,7 +175,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://stellant-fortune-rental-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/stellant-fortune-rental-lp.jpg"
+    "thumbnail": "assets/thumbnails/stellant-fortune-rental-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "sunshine-berry-uv-care-lp",
@@ -186,7 +195,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://sunshine-berry-uv-care-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/sunshine-berry-uv-care-lp.jpg"
+    "thumbnail": "assets/thumbnails/sunshine-berry-uv-care-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "tomoni-data-service-lp",
@@ -208,7 +218,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://tomoni-data-service-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/tomoni-data-service-lp.jpg"
+    "thumbnail": "assets/thumbnails/tomoni-data-service-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "verdia-aging-care-hair-lp",
@@ -227,7 +238,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://verdia-aging-care-hair-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/verdia-aging-care-hair-lp.jpg"
+    "thumbnail": "assets/thumbnails/verdia-aging-care-hair-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "ai-income-course",
@@ -246,7 +258,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://ai-income-course.vercel.app",
-    "thumbnail": "assets/thumbnails/ai-income-course.jpg"
+    "thumbnail": "assets/thumbnails/ai-income-course.jpg",
+    "author": "rina"
   },
   {
     "slug": "wheelbase-cycle-app-lp",
@@ -265,7 +278,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://wheelbase-cycle-app-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/wheelbase-cycle-app-lp.jpg"
+    "thumbnail": "assets/thumbnails/wheelbase-cycle-app-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "awavie-carbonated-skincare-lp",
@@ -290,7 +304,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://awavie-carbonated-skincare-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/awavie-carbonated-skincare-lp.jpg"
+    "thumbnail": "assets/thumbnails/awavie-carbonated-skincare-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "flexa-warehouse-lp",
@@ -317,7 +332,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://flexa-warehouse-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/flexa-warehouse-lp.jpg"
+    "thumbnail": "assets/thumbnails/flexa-warehouse-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "usubeni-pink-plum-liqueur-lp",
@@ -336,7 +352,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://usubeni-pink-plum-liqueur-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/usubeni-pink-plum-liqueur-lp.jpg"
+    "thumbnail": "assets/thumbnails/usubeni-pink-plum-liqueur-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "belle-rouge-lip-cheek-lp",
@@ -358,7 +375,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://belle-rouge-lip-cheek-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/belle-rouge-lip-cheek-lp.jpg"
+    "thumbnail": "assets/thumbnails/belle-rouge-lip-cheek-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "agrume-citrus-cleansing-lp",
@@ -378,7 +396,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://agrume-citrus-cleansing-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/agrume-citrus-cleansing-lp.jpg"
+    "thumbnail": "assets/thumbnails/agrume-citrus-cleansing-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "tsunagu-logistics-site",
@@ -403,7 +422,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://tsunagu-logistics-site.vercel.app",
-    "thumbnail": "assets/thumbnails/tsunagu-logistics-site.jpg"
+    "thumbnail": "assets/thumbnails/tsunagu-logistics-site.jpg",
+    "author": "rina"
   },
   {
     "slug": "reve-cerisier-beaute-summer-lp",
@@ -425,7 +445,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://reve-cerisier-beaute-summer-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/reve-cerisier-beaute-summer-lp.jpg"
+    "thumbnail": "assets/thumbnails/reve-cerisier-beaute-summer-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "nobiru-consulting-swipe-lp",
@@ -448,7 +469,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://nobiru-consulting-swipe-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/nobiru-consulting-swipe-lp.jpg"
+    "thumbnail": "assets/thumbnails/nobiru-consulting-swipe-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "lumiere-nail-atelier-swipe-lp",
@@ -470,7 +492,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://lumiere-nail-atelier-swipe-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/lumiere-nail-atelier-swipe-lp.jpg"
+    "thumbnail": "assets/thumbnails/lumiere-nail-atelier-swipe-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "compass-consulting-school-lp",
@@ -490,7 +513,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://best.kigyouka-best-members.com/page/GOzx4btSZzap?v=a",
-    "thumbnail": "assets/thumbnails/ai-manga-creator-lp.jpg"
+    "thumbnail": "assets/thumbnails/ai-manga-creator-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "keishou-tax-swipe-lp",
@@ -514,7 +538,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://keishou-tax-swipe-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/keishou-tax-swipe-lp.jpg"
+    "thumbnail": "assets/thumbnails/keishou-tax-swipe-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "emberwood-glamping-swipe-lp",
@@ -536,7 +561,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://emberwood-glamping-swipe-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/emberwood-glamping-swipe-lp.jpg"
+    "thumbnail": "assets/thumbnails/emberwood-glamping-swipe-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "goodone-corporate-site",
@@ -562,7 +588,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://goodone-corporate-site.vercel.app",
-    "thumbnail": "assets/thumbnails/goodone-corporate-site.jpg"
+    "thumbnail": "assets/thumbnails/goodone-corporate-site.jpg",
+    "author": "tsukino ayaka"
   },
   {
     "slug": "mizuha-lab-moisture-gel-banner",
@@ -580,7 +607,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "image",
     "url": "assets/portfolio/banner/mizuha-lab-moisture-gel-banner.png",
-    "thumbnail": "assets/thumbnails/mizuha-lab-moisture-gel-banner.jpg"
+    "thumbnail": "assets/thumbnails/mizuha-lab-moisture-gel-banner.jpg",
+    "author": "rina"
   },
   {
     "slug": "ai-manga-creator-lp-b",
@@ -600,7 +628,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "external",
     "url": "https://best.kigyouka-best-members.com/page/qXOTp9mifwDG?v=b",
-    "thumbnail": "assets/thumbnails/ai-manga-creator-lp-b.jpg"
+    "thumbnail": "assets/thumbnails/ai-manga-creator-lp-b.jpg",
+    "author": "rina"
   },
   {
     "slug": "todomatsu-recruit",
@@ -625,7 +654,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://todomatsu-recruit.vercel.app",
-    "thumbnail": "assets/thumbnails/todomatsu-recruit.jpg"
+    "thumbnail": "assets/thumbnails/todomatsu-recruit.jpg",
+    "author": "rina"
   },
   {
     "slug": "ai-movie-campus-inspired-lp",
@@ -647,7 +677,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://ai-movie-campus-inspired-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/ai-movie-campus-inspired-lp.jpg"
+    "thumbnail": "assets/thumbnails/ai-movie-campus-inspired-lp.jpg",
+    "author": "rina"
   },
   {
     "slug": "hikari-fit-gym-banner-practice",
@@ -666,7 +697,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "image",
     "url": "assets/portfolio/banner/hikari-fit-gym-banner-practice.png",
-    "thumbnail": "assets/thumbnails/hikari-fit-gym-banner-practice.jpg"
+    "thumbnail": "assets/thumbnails/hikari-fit-gym-banner-practice.jpg",
+    "author": "rina"
   },
   {
     "slug": "hakosumu-rental-banner-practice",
@@ -686,7 +718,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "image",
     "url": "assets/portfolio/banner/hakosumu-rental-banner-practice.png",
-    "thumbnail": "assets/thumbnails/hakosumu-rental-banner-practice.jpg"
+    "thumbnail": "assets/thumbnails/hakosumu-rental-banner-practice.jpg",
+    "author": "rina"
   },
   {
     "slug": "anniversa-bridal-banner-practice",
@@ -705,7 +738,8 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "image",
     "url": "assets/portfolio/banner/anniversa-bridal-banner-practice.png",
-    "thumbnail": "assets/thumbnails/anniversa-bridal-banner-practice.jpg"
+    "thumbnail": "assets/thumbnails/anniversa-bridal-banner-practice.jpg",
+    "author": "rina"
   },
   {
     "slug": "mori-hitoyasumi-cafe-banner-practice",
@@ -725,6 +759,82 @@ window.PORTFOLIO_GALLERY_DATA = [
     "featureTags": [],
     "linkType": "image",
     "url": "assets/portfolio/banner/mori-hitoyasumi-cafe-banner-practice.png",
-    "thumbnail": "assets/thumbnails/mori-hitoyasumi-cafe-banner-practice.jpg"
+    "thumbnail": "assets/thumbnails/mori-hitoyasumi-cafe-banner-practice.jpg",
+    "author": "rina"
+  },
+  {
+    "slug": "reve-cerisire-9-1",
+    "type": "lp",
+    "title": "Reve cerisire9/1配信",
+    "heading": "秋肌リセット",
+    "category": "美容・サロン",
+    "moodTags": [
+      "上品",
+      "可愛い",
+      "ロマンティック"
+    ],
+    "productTags": [
+      "美容",
+      "サロン",
+      "フェイシャル"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "カルーセル",
+      "固定CTA"
+    ],
+    "linkType": "external",
+    "url": "https://reve-cerisire-9-1.vercel.app",
+    "thumbnail": "https://reve-cerisire-9-1.vercel.app/assets/autumn-lead-poster.png",
+    "author": null
+  },
+  {
+    "slug": "zaku-potato-lp",
+    "type": "lp",
+    "title": "ZAKU POTATO 厚切りポテトチップス LP",
+    "heading": "ザクッと厚い。余韻まで、うまい。",
+    "category": "食品・EC",
+    "moodTags": [
+      "ポップ",
+      "カッコイイ"
+    ],
+    "productTags": [
+      "食品",
+      "スナック",
+      "ポテトチップス"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "レスポンシブ"
+    ],
+    "linkType": "external",
+    "url": "https://zaku-potato-lp.vercel.app",
+    "thumbnail": "https://zaku-potato-lp.vercel.app/images/hero.png",
+    "author": null
+  },
+  {
+    "slug": "workshift-lp",
+    "type": "lp",
+    "title": "WorkShift スキマバイト・仕事探しアプリ LP",
+    "heading": "今日の時間を、いい仕事に。",
+    "category": "人材・求人",
+    "moodTags": [
+      "ポップ",
+      "信頼感"
+    ],
+    "productTags": [
+      "人材",
+      "求人",
+      "仕事探しアプリ"
+    ],
+    "featureTags": [
+      "アコーディオン",
+      "固定ヘッダー",
+      "レスポンシブ"
+    ],
+    "linkType": "external",
+    "url": "https://workshift-lp.vercel.app",
+    "thumbnail": "https://workshift-lp.vercel.app/images/work-scenes.png",
+    "author": null
   }
 ];

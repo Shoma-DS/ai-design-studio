@@ -481,6 +481,16 @@ main {
   background: var(--accent-soft);
 }
 
+/* 誰が作った作品かの記載欄（Gitのuser.name） */
+.card-author {
+  margin: 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
 .empty-state {
   text-align: center;
   color: var(--text-muted);
