@@ -1,0 +1,16 @@
+# QA用スクリーンショット（検証の途中経過。スクリプトで撮り直せる）
+outputs/
+
+# Premiereの自動保存
+ad/Adobe Premiere Pro Auto-Save/
+
+# 書き出しマスター（19MB）。ad/clarive-hero-cut.prproj から再書き出しできる
+ad/hero-cut-master.mp4
+
+# Premiere取り込み用にlanczos拡大した中間素材。
+# ad/hero-shots/*.png から scripts の手順で再生成できる
+ad/hero-shots/upscaled/
+
+# 廃止した「コマ撮り＋補間」方式の素材16枚（27MB）。
+# 経緯はREADMEに記録済みで、現行の制作物には使っていない
+references/motion-frames/

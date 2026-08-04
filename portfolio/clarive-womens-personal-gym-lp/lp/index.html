@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLARIVE（クラリーヴ）｜渋谷の女性専用パーソナルジム｜会食を断らずに2ヶ月−7kg</title>
+<meta name="description" content="渋谷駅徒歩5分の女性専用パーソナルジムCLARIVE。トレーナーは全員女性、全室完全個室、管理栄養士監修の食事指導つき。2ヶ月で平均−7.2kg、30日間全額返金保証。無料カウンセリング受付中。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CLARIVE｜渋谷の女性専用パーソナルジム">
+<meta property="og:description" content="会食を断らずに、2ヶ月−7kg。トレーナーは全員女性。完全個室で、誰にも見られずに。">
+<meta property="og:image" content="./images/01-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css?v=1785849411">
+</head>
+<body>
+
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner container">
+    <a class="brand" href="#hero">
+      <span class="brand__mark">CLARIVE</span>
+      <span class="brand__sub">渋谷｜女性専用パーソナルジム</span>
+    </a>
+    <nav class="gnav" aria-label="メインナビゲーション">
+      <ul class="gnav__list">
+        <li><a href="#reasons">選ばれる理由</a></li>
+        <li><a href="#results">実績</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--sm site-header__cta" href="#cta">無料カウンセリング予約</a>
+    <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="spNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sp-nav" id="spNav" aria-label="モバイルナビゲーション" hidden>
+  <ul class="sp-nav__list">
+    <li><a href="#reasons">選ばれる理由</a></li>
+    <li><a href="#movie">動画で見る</a></li>
+    <li><a href="#results">実績</a></li>
+    <li><a href="#meal">食事サポート</a></li>
+    <li><a href="#trainer">トレーナー</a></li>
+    <li><a href="#price">料金</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="#access">アクセス</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="#cta">無料カウンセリングを予約する</a>
+</nav>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <!-- ポスター画像を先に表示してLCPを確保し、背景ループ動画は読み込み完了後にJSでフェードインさせる -->
+      <!-- ポスターは背景動画の先頭フレームを使う。静止画と動画で構図がずれず、
+           フェードインしても画が跳ねない。動画を読み込まない環境ではこの画像のままになる。 -->
+      <picture>
+        <source media="(max-width: 767px)" srcset="./video/hero-sp-poster.jpg">
+        <img src="./video/hero-pc-poster.jpg" alt="完全個室でダンベルを持ってトレーニングする女性" fetchpriority="high" decoding="async">
+      </picture>
+      <video
+        class="hero__video"
+        muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"
+        data-pc-webm="./video/hero-pc.webm" data-pc-mp4="./video/hero-pc.mp4"
+        data-sp-webm="./video/hero-sp.webm" data-sp-mp4="./video/hero-sp.mp4"></video>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__inner container">
+      <div class="hero__body">
+        <p class="hero__eyebrow">渋谷｜女性専用パーソナルジム</p>
+        <h1 class="hero__title">会食を断らずに、<br><span class="hero__title-em">2ヶ月 <span class="num">−7kg</span>。</span></h1>
+        <p class="hero__lead">
+          我慢の量ではなく、順番の問題でした。<br>
+          トレーナーは全員女性。完全個室で、誰にも見られずに。
+        </p>
+        <p class="hero__badge"><span>結果が出なければ全額返金</span></p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#cta">
+            無料カウンセリングを予約する
+            <small>60分・無料・オンライン可</small>
+          </a>
+          <a class="btn btn--ghost" href="#price">料金を見る</a>
+        </div>
+        <p class="note hero__note">※2025年に2ヶ月コースを完了された方の平均値です。効果には個人差があります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats" aria-label="実績数値">
+    <div class="container">
+      <ul class="stats__list" id="stats">
+        <li class="stat">
+          <p class="stat__num"><span class="stat__sign">−</span><span class="num" data-count="7.2" data-decimals="1">0.0</span><span class="stat__unit">kg</span></p>
+          <p class="stat__label">2ヶ月コース修了者の平均減量</p>
+        </li>
+        <li class="stat">
+          <p class="stat__num"><span class="num" data-count="96" data-decimals="0">0</span><span class="stat__unit">%</span></p>
+          <p class="stat__label">最終セッションまでの継続率</p>
+        </li>
+        <li class="stat">
+          <p class="stat__num"><span class="num" data-count="100" data-decimals="0">0</span><span class="stat__unit">%</span></p>
+          <p class="stat__label">在籍トレーナーの女性比率</p>
+        </li>
+      </ul>
+      <p class="note stats__note">※2025年1月〜12月に2ヶ月コースを完了された方の実績です。効果には個人差があります。</p>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section section--soft problem" id="problem">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">YOUR STRUGGLE</p>
+        <h2 class="sec-head__title">そのダイエット、たぶん<br class="br-sp">「頑張りすぎ」です。</h2>
+        <p class="sec-head__sub">心当たりがあれば、原因はあなたの意志ではありません。</p>
+      </div>
+      <div class="problem__grid">
+        <ul class="problem__cards">
+          <li class="problem-card reveal" style="--delay:0ms">
+            <p class="problem-card__check" aria-hidden="true">✓</p>
+            <h3 class="problem-card__title">糖質を抜けば落ちる。<br>やめた途端、戻る。</h3>
+            <p class="problem-card__text">短期間で減った体重の多くは水分です。戻るのは当然で、あなたの努力不足ではありません。</p>
+          </li>
+          <li class="problem-card reveal" style="--delay:100ms">
+            <p class="problem-card__check" aria-hidden="true">✓</p>
+            <h3 class="problem-card__title">会食も飲み会も、<br>立場的に断れない。</h3>
+            <p class="problem-card__text">外食を禁止するプランは、そもそも続きません。必要なのは「選び方」を知ることです。</p>
+          </li>
+          <li class="problem-card reveal" style="--delay:200ms">
+            <p class="problem-card__check" aria-hidden="true">✓</p>
+            <h3 class="problem-card__title">男性トレーナーに<br>体を見られたくない。</h3>
+            <p class="problem-card__text">恥ずかしさを我慢しながら通うのは苦痛です。環境そのものを変えれば解決します。</p>
+          </li>
+          <li class="problem-card reveal" style="--delay:300ms">
+            <p class="problem-card__check" aria-hidden="true">✓</p>
+            <h3 class="problem-card__title">高い金額を払って、<br>結果が出なかったら怖い。</h3>
+            <p class="problem-card__text">その不安は当然です。だからCLARIVEは、結果が出なかった場合の返金を先にお約束します。</p>
+          </li>
+        </ul>
+        <figure class="problem__figure reveal">
+          <img src="./images/02-problem.jpg" alt="鏡に映る自分の姿を静かに見つめる女性" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REASONS ============ -->
+  <section class="section reasons" id="reasons">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">5 REASONS</p>
+        <h2 class="sec-head__title">CLARIVEが選ばれる、5つの理由</h2>
+        <p class="sec-head__sub">女性が続けられる条件を、すべて揃えました。</p>
+      </div>
+      <ul class="reasons__grid">
+        <li class="reason reveal" style="--delay:0ms">
+          <p class="reason__no">01</p>
+          <h3 class="reason__title">トレーナーは、全員女性です。</h3>
+          <p class="reason__text">在籍トレーナーの女性比率は100%。体型の変化も、生理周期による体重の増減も、同じ体で経験してきた人が担当します。男性スタッフが施設内にいることはありません。</p>
+        </li>
+        <li class="reason reveal" style="--delay:100ms">
+          <p class="reason__no">02</p>
+          <h3 class="reason__title">全室、完全個室。</h3>
+          <p class="reason__text">他の会員と顔を合わせない完全個室制。鏡の前に立つのはあなたひとりです。着替えもシャワーも個室内で完結するため、人目を気にせず集中できます。</p>
+        </li>
+        <li class="reason reveal" style="--delay:200ms">
+          <p class="reason__no">03</p>
+          <h3 class="reason__title">食べながら続ける、食事指導。</h3>
+          <p class="reason__text">管理栄養士監修。糖質ゼロは強制しません。コンビニ・外食・会食での選び方をお伝えし、3食食べたまま体脂肪を落とす設計にします。LINEで24時間相談できます。</p>
+        </li>
+        <li class="reason reveal" style="--delay:300ms">
+          <p class="reason__no">04</p>
+          <h3 class="reason__title">2ヶ月で、平均<span class="num">−7.2kg</span>。</h3>
+          <p class="reason__text">週2回・全16回のプログラムを完走された方の平均値です。無理な絶食ではなく、筋量を保ったまま体脂肪を減らすため、卒業後に戻りにくい体をつくります。</p>
+        </li>
+        <li class="reason reveal" style="--delay:400ms">
+          <p class="reason__no">05</p>
+          <h3 class="reason__title">30日間、全額返金保証。</h3>
+          <p class="reason__text">「効果がなかったら」という不安を、あなたひとりに背負わせません。初回トレーニングから30日以内であれば、理由を問わず全額をご返金します。</p>
+        </li>
+      </ul>
+      <div class="cta-inline reveal">
+        <a class="btn btn--primary btn--lg" href="#cta">話を聞いてみる（無料）</a>
+        <p class="note">無理な勧誘は一切ありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOVIE ============ -->
+  <section class="section section--rose movie" id="movie">
+    <div class="container movie__grid">
+      <div class="movie__body reveal">
+        <p class="sec-head__en">MOVIE</p>
+        <h2 class="sec-head__title">CLARIVEの、<br>ある日の2時間。</h2>
+        <p class="sec-head__sub">完全個室でのトレーニングから、食事のサポートまで。</p>
+        <p class="movie__text">はじめての方がいちばん不安なのは「どんな場所で、誰に、何をされるのか分からない」ことです。実際の空気感を、そのまま撮りました。音は出ません。</p>
+      </div>
+      <figure class="movie__figure reveal">
+        <video
+          class="movie-player"
+          poster="./video/clarive-loop-poster.jpg"
+          autoplay muted loop playsinline
+          preload="metadata"
+          aria-label="完全個室でのトレーニング風景（無音のループ映像）">
+          <source src="./video/clarive-loop-8s.webm" type="video/webm">
+          <source src="./video/clarive-loop-8s.mp4" type="video/mp4">
+        </video>
+        <figcaption class="note">※イメージ映像です。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="section results" id="results">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">RESULTS</p>
+        <h2 class="sec-head__title">2ヶ月、こう変わりました。</h2>
+        <p class="sec-head__sub">中央のつまみをドラッグすると、before / after が入れ替わります。2枚を並べて見ることもできます。</p>
+      </div>
+      <ul class="results__grid">
+        <li class="result reveal">
+          <div class="result__compare" data-compare hidden>
+            <figure class="shot">
+              <img src="./images/ba-a-before.jpg" alt="プログラム開始前の体型" loading="lazy" decoding="async" draggable="false">
+              <figcaption class="shot__cap">
+                <span class="shot__tag">BEFORE</span>
+                <span class="shot__kg"><span class="num">58.4</span>kg</span>
+              </figcaption>
+            </figure>
+            <figure class="shot shot--after">
+              <img src="./images/ba-a-after.jpg" alt="2ヶ月のプログラム終了後の体型" loading="lazy" decoding="async" draggable="false">
+              <figcaption class="shot__cap">
+                <span class="shot__tag">AFTER</span>
+                <span class="shot__kg"><span class="num">50.9</span>kg</span>
+              </figcaption>
+            </figure>
+            <p class="result__delta" aria-hidden="true"><span class="num">−7.5</span>kg</p>
+          </div>
+          <div class="ba" data-ba style="--pos:50%">
+            <img class="ba__img" src="./images/ba-a-after.jpg" alt="" loading="lazy" decoding="async" draggable="false">
+            <div class="ba__before">
+              <img class="ba__img" src="./images/ba-a-before.jpg" alt="" loading="lazy" decoding="async" draggable="false">
+            </div>
+            <span class="ba__tag ba__tag--before" aria-hidden="true">BEFORE<b class="ba__kg"><span class="num">58.4</span>kg</b></span>
+            <span class="ba__tag ba__tag--after" aria-hidden="true">AFTER<b class="ba__kg"><span class="num">50.9</span>kg</b></span>
+            <p class="ba__delta" aria-hidden="true"><span class="num">−7.5</span>kg</p>
+            <div class="ba__handle" data-ba-handle role="slider" tabindex="0"
+                 aria-label="ビフォーアフターの比較位置" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50パーセント">
+              <span aria-hidden="true"></span>
+            </div>
+          </div>
+          <button class="result__toggle" type="button" data-compare-toggle aria-pressed="true">
+            <span class="result__toggle-icon" aria-hidden="true">▥</span>2枚を並べて見る
+          </button>
+          <div class="result__meta">
+            <p class="result__profile">32歳・広告代理店勤務</p>
+            <p class="result__figure"><span class="num">58.4</span>kg <span class="result__arrow" aria-hidden="true">→</span> <span class="num result__after">50.9</span>kg</p>
+            <p class="result__diff"><span class="num">−7.5</span>kg／2ヶ月</p>
+            <p class="result__comment">会食は月5回のまま。食べる順番と選び方を変えただけでした。</p>
+          </div>
+        </li>
+        <li class="result reveal" style="--delay:120ms">
+          <div class="result__compare" data-compare hidden>
+            <figure class="shot">
+              <img src="./images/ba-b-before.jpg" alt="プログラム開始前の体型" loading="lazy" decoding="async" draggable="false">
+              <figcaption class="shot__cap">
+                <span class="shot__tag">BEFORE</span>
+                <span class="shot__kg"><span class="num">59.8</span>kg</span>
+              </figcaption>
+            </figure>
+            <figure class="shot shot--after">
+              <img src="./images/ba-b-after.jpg" alt="2ヶ月のプログラム終了後の体型" loading="lazy" decoding="async" draggable="false">
+              <figcaption class="shot__cap">
+                <span class="shot__tag">AFTER</span>
+                <span class="shot__kg"><span class="num">53.1</span>kg</span>
+              </figcaption>
+            </figure>
+            <p class="result__delta" aria-hidden="true"><span class="num">−6.7</span>kg</p>
+          </div>
+          <div class="ba" data-ba style="--pos:50%">
+            <img class="ba__img" src="./images/ba-b-after.jpg" alt="" loading="lazy" decoding="async" draggable="false">
+            <div class="ba__before">
+              <img class="ba__img" src="./images/ba-b-before.jpg" alt="" loading="lazy" decoding="async" draggable="false">
+            </div>
+            <span class="ba__tag ba__tag--before" aria-hidden="true">BEFORE<b class="ba__kg"><span class="num">59.8</span>kg</b></span>
+            <span class="ba__tag ba__tag--after" aria-hidden="true">AFTER<b class="ba__kg"><span class="num">53.1</span>kg</b></span>
+            <p class="ba__delta" aria-hidden="true"><span class="num">−6.7</span>kg</p>
+            <div class="ba__handle" data-ba-handle role="slider" tabindex="0"
+                 aria-label="ビフォーアフターの比較位置" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50パーセント">
+              <span aria-hidden="true"></span>
+            </div>
+          </div>
+          <button class="result__toggle" type="button" data-compare-toggle aria-pressed="true">
+            <span class="result__toggle-icon" aria-hidden="true">▥</span>2枚を並べて見る
+          </button>
+          <div class="result__meta">
+            <p class="result__profile">43歳・事務職／産後3年</p>
+            <p class="result__figure"><span class="num">59.8</span>kg <span class="result__arrow" aria-hidden="true">→</span> <span class="num result__after">53.1</span>kg</p>
+            <p class="result__diff"><span class="num">−6.7</span>kg／2ヶ月</p>
+            <p class="result__comment">若い頃と同じやり方では落ちない理由から説明してもらえました。</p>
+          </div>
+        </li>
+      </ul>
+      <p class="note results__note">※効果には個人差があります。写真はプログラム参加者のイメージです。</p>
+    </div>
+  </section>
+
+  <!-- ============ MEAL ============ -->
+  <section class="section section--soft meal" id="meal">
+    <div class="container meal__grid">
+      <figure class="meal__figure reveal">
+        <img src="./images/08-meal.jpg" alt="鶏肉のメインと副菜、少量の白米が並んだ現実的な食事" loading="lazy" decoding="async">
+      </figure>
+      <div class="meal__body reveal">
+        <p class="sec-head__en">MEAL SUPPORT</p>
+        <h2 class="sec-head__title">コンビニも外食も、<br>やめなくていい。</h2>
+        <p class="sec-head__sub">管理栄養士監修。食べる順番と組み合わせを整えるだけです。</p>
+        <ul class="meal__list">
+          <li>
+            <h3>1日3食、食べたまま進めます</h3>
+            <p>糖質ゼロや置き換えは行いません。主食を抜くほど筋量が落ち、戻りやすい体になるためです。</p>
+          </li>
+          <li>
+            <h3>外食・コンビニの「選び方リスト」</h3>
+            <p>渋谷周辺の実店舗を想定したメニュー選択の指針をお渡しします。会食の前日・当日の調整方法まで具体的にお伝えします。</p>
+          </li>
+          <li>
+            <h3>LINEで24時間、写真を送るだけ</h3>
+            <p>食事の記録は写真1枚でOK。担当トレーナーと管理栄養士が内容を確認し、翌日の調整までお返しします。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAINER ============ -->
+  <section class="section trainer" id="trainer">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">TRAINERS</p>
+        <h2 class="sec-head__title">あなたの担当は、女性トレーナーです。</h2>
+        <p class="sec-head__sub">体の変化も、気分の波も、同じ体で理解できる人が担当します。</p>
+      </div>
+      <ul class="trainer__grid">
+        <li class="trainer-card reveal" style="--delay:0ms">
+          <figure class="trainer-card__figure">
+            <img src="./images/03-trainer-a.jpg" alt="トレーナー 森あすか" loading="lazy" decoding="async">
+          </figure>
+          <div class="trainer-card__body">
+            <p class="trainer-card__role">パーソナルトレーナー</p>
+            <h3 class="trainer-card__name">森 あすか<span>MORI ASUKA</span></h3>
+            <p class="trainer-card__cert">NSCA-CPT／機能解剖学</p>
+            <p class="trainer-card__text">運動経験ゼロの方の担当が全体の7割。最初の2週間は「正しく立つ・座る」から始めます。</p>
+          </div>
+        </li>
+        <li class="trainer-card reveal" style="--delay:120ms">
+          <figure class="trainer-card__figure">
+            <img src="./images/04-trainer-b.jpg" alt="トレーナー 藤野まりえ" loading="lazy" decoding="async">
+          </figure>
+          <div class="trainer-card__body">
+            <p class="trainer-card__role">管理栄養士／トレーナー</p>
+            <h3 class="trainer-card__name">藤野 まりえ<span>FUJINO MARIE</span></h3>
+            <p class="trainer-card__cert">管理栄養士／NESTA-PFT</p>
+            <p class="trainer-card__text">食事プログラムの設計責任者。「外食が多い人ほど、選び方を覚えると強い」が持論です。</p>
+          </div>
+        </li>
+        <li class="trainer-card reveal" style="--delay:240ms">
+          <figure class="trainer-card__figure">
+            <img src="./images/05-trainer-c.jpg" alt="トレーナー 大西ゆかり" loading="lazy" decoding="async">
+          </figure>
+          <div class="trainer-card__body">
+            <p class="trainer-card__role">シニアトレーナー</p>
+            <h3 class="trainer-card__name">大西 ゆかり<span>ONISHI YUKARI</span></h3>
+            <p class="trainer-card__cert">産後指導／ウィメンズヘルス</p>
+            <p class="trainer-card__text">40代・産後の方を中心に担当。代謝が落ちる仕組みから説明し、納得してから進めます。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ STUDIO ============ -->
+  <section class="section section--rose studio" id="studio">
+    <div class="container studio__grid">
+      <div class="studio__body reveal">
+        <p class="sec-head__en">STUDIO</p>
+        <h2 class="sec-head__title">鏡の前に、あなたひとり。</h2>
+        <p class="sec-head__sub">渋谷駅から徒歩5分。全室完全個室・シャワー完備。</p>
+        <dl class="studio__spec">
+          <div>
+            <dt>完全個室</dt>
+            <dd>トレーニングルームは1組ごとに独立。他の会員とすれ違うことがない導線設計です。</dd>
+          </div>
+          <div>
+            <dt>手ぶらでOK</dt>
+            <dd>ウェア・タオル・シューズ・アメニティをすべてご用意。仕事帰りにそのままお越しいただけます。</dd>
+          </div>
+          <div>
+            <dt>7:00 - 23:00</dt>
+            <dd>出社前でも、残業後でも。最終受付は22:00です。</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="studio__media">
+        <figure class="studio__figure studio__figure--main reveal">
+          <img src="./images/06-studio-room.jpg" alt="ライトオークの床と大きな鏡がある完全個室のトレーニングルーム" loading="lazy" decoding="async">
+        </figure>
+        <figure class="studio__figure reveal" style="--delay:120ms">
+          <img src="./images/07-studio-amenity.jpg" alt="タオルとアメニティが並ぶ清潔なシャワールーム" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLOW ============ -->
+  <section class="section flow" id="flow">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">FLOW</p>
+        <h2 class="sec-head__title">予約から卒業までの、5ステップ</h2>
+        <p class="sec-head__sub">初回は測るだけ。いきなり追い込みません。</p>
+      </div>
+      <figure class="flow__figure reveal">
+        <img src="./images/09-counseling.jpg" alt="女性トレーナーと来店した女性が、木製のテーブルを挟んで向かい合ってカウンセリングをしている様子" loading="lazy" width="1672" height="941">
+        <figcaption>初回の60分は、測ることと聞くことだけに使います。</figcaption>
+      </figure>
+      <ol class="flow__list">
+        <li class="flow-step reveal" style="--delay:0ms">
+          <p class="flow-step__no">01</p>
+          <h3 class="flow-step__title">無料カウンセリング予約</h3>
+          <p class="flow-step__text">フォームから24時間受付。翌営業日までにご連絡します。</p>
+        </li>
+        <li class="flow-step reveal" style="--delay:100ms">
+          <p class="flow-step__no">02</p>
+          <h3 class="flow-step__title">カウンセリング・体組成測定</h3>
+          <p class="flow-step__text">60分。体脂肪率や筋量を測り、現状と目標のズレを可視化します。</p>
+        </li>
+        <li class="flow-step reveal" style="--delay:200ms">
+          <p class="flow-step__no">03</p>
+          <h3 class="flow-step__title">プラン設計・初回トレーニング</h3>
+          <p class="flow-step__text">生活リズムと会食の頻度に合わせて、2ヶ月分の設計図をつくります。</p>
+        </li>
+        <li class="flow-step reveal" style="--delay:300ms">
+          <p class="flow-step__no">04</p>
+          <h3 class="flow-step__title">週2回のトレーニング＋食事サポート</h3>
+          <p class="flow-step__text">1回50分。食事はLINEで写真を送るだけ。2週ごとに設計を見直します。</p>
+        </li>
+        <li class="flow-step reveal" style="--delay:400ms">
+          <p class="flow-step__no">05</p>
+          <h3 class="flow-step__title">卒業・リバウンド防止プラン</h3>
+          <p class="flow-step__text">自分で維持できる状態にしてお渡しします。月額での継続も選べます。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PRICE ============ -->
+  <section class="section section--soft price" id="price">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">PRICE</p>
+        <h2 class="sec-head__title">料金は、最初にすべてお伝えします。</h2>
+        <p class="sec-head__sub">入会金・食事指導料・ウェアレンタル込み。追加費用は一切ありません。</p>
+      </div>
+      <ul class="price__grid">
+        <li class="plan reveal" style="--delay:0ms">
+          <h3 class="plan__name">2ヶ月コース</h3>
+          <p class="plan__spec">週2回・全16回／1回50分</p>
+          <p class="plan__total"><span class="num">268,000</span><span class="plan__yen">円</span><small>税込</small></p>
+          <ul class="plan__detail">
+            <li>1回あたり <span class="num">16,750</span>円</li>
+            <li>分割 月々 <span class="num">12,300</span>円〜（24回払い）</li>
+          </ul>
+          <p class="plan__note">まずは結果を出したい方の標準プラン。</p>
+        </li>
+        <li class="plan plan--rec reveal" style="--delay:120ms">
+          <p class="plan__ribbon">いちばん選ばれています</p>
+          <h3 class="plan__name">3ヶ月コース</h3>
+          <p class="plan__spec">週2回・全24回／1回50分</p>
+          <p class="plan__total"><span class="num">378,000</span><span class="plan__yen">円</span><small>税込</small></p>
+          <ul class="plan__detail">
+            <li>1回あたり <span class="num">15,750</span>円</li>
+            <li>分割 月々 <span class="num">17,400</span>円〜（24回払い）</li>
+          </ul>
+          <p class="plan__note">戻らない体まで作りたい方へ。卒業後の維持設計まで含みます。</p>
+        </li>
+        <li class="plan reveal" style="--delay:240ms">
+          <h3 class="plan__name">月額メンテナンス</h3>
+          <p class="plan__spec">月4回／1回50分</p>
+          <p class="plan__total"><span class="num">19,800</span><span class="plan__yen">円</span><small>税込／月</small></p>
+          <ul class="plan__detail">
+            <li>1回あたり <span class="num">4,950</span>円</li>
+            <li>いつでも解約可（違約金なし）</li>
+          </ul>
+          <p class="plan__note">コース卒業後の維持、または長く通いたい方へ。</p>
+        </li>
+      </ul>
+      <p class="note price__note">※表示はすべて税込価格です。分割払いは信販会社の審査があります。月額メンテナンスプランは全額返金保証の対象外です。</p>
+      <div class="cta-inline reveal">
+        <a class="btn btn--primary btn--lg" href="#cta">無料で相談する</a>
+        <p class="note">料金の相談だけでも構いません。無理な勧誘は一切ありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUARANTEE ============ -->
+  <section class="section guarantee" id="guarantee">
+    <div class="container guarantee__grid">
+      <figure class="guarantee__figure reveal">
+        <img src="./images/11-guarantee.jpg" alt="テーブル越しに握手を交わす2人の手元" loading="lazy" decoding="async">
+      </figure>
+      <div class="guarantee__body reveal">
+        <p class="sec-head__en">GUARANTEE</p>
+        <h2 class="sec-head__title">続かなかった責任を、<br>あなたに背負わせません。</h2>
+        <p class="guarantee__label">30日間 全額返金保証</p>
+        <ol class="guarantee__terms">
+          <li><span>条件1</span>初回トレーニング日から30日以内にお申し出いただくこと。</li>
+          <li><span>条件2</span>2ヶ月コース・3ヶ月コースにご入会の方が対象です（月額メンテナンスプランは対象外）。</li>
+          <li><span>条件3</span>店頭またはメールでお申し出ください。理由は問いません。10営業日以内にご指定の口座へ全額をご返金します。</li>
+        </ol>
+        <p class="note">※ご返金は受講料の全額が対象です。返金後の再入会は1回までとさせていただきます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOICE ============ -->
+  <section class="section section--rose voice" id="voice">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="sec-head__en">VOICE</p>
+        <h2 class="sec-head__title">変わった人の、変わる前の話。</h2>
+        <p class="sec-head__sub">20代・30代・40代、それぞれの2ヶ月。</p>
+      </div>
+      <div class="carousel reveal" data-carousel>
+        <div class="carousel__viewport">
+          <ul class="carousel__track" data-carousel-track>
+            <li class="voice-card">
+              <div class="voice-card__head">
+                <p class="voice-card__initial" aria-hidden="true">K</p>
+                <div>
+                  <p class="voice-card__name">K.M さん</p>
+                  <p class="voice-card__profile">28歳・美容部員／2ヶ月コース</p>
+                </div>
+              </div>
+              <p class="voice-card__title">「制服のサイズを戻せたのが、いちばん嬉しい」</p>
+              <p class="voice-card__text">立ち仕事で疲れきって、家に着いたら動けませんでした。週2回だけ予約が入っている状態が、逆にちょうどよかったです。食事は写真を送るだけなので、続けるハードルが低かった。シフトが不規則でも前日に変更できたのは助かりました。</p>
+              <p class="voice-card__result"><span class="num">62.1</span>kg → <span class="num">55.4</span>kg（<span class="num">−6.7</span>kg／2ヶ月）</p>
+            </li>
+            <li class="voice-card">
+              <div class="voice-card__head">
+                <p class="voice-card__initial" aria-hidden="true">A</p>
+                <div>
+                  <p class="voice-card__name">A.S さん</p>
+                  <p class="voice-card__profile">32歳・広告代理店／2ヶ月コース</p>
+                </div>
+              </div>
+              <p class="voice-card__title">「会食を断らずに済んだので、続けられました」</p>
+              <p class="voice-card__text">仕事柄、月に5回は会食があります。断れないと伝えたら、当日の頼み方と前後の調整を教えてもらえました。以前の糖質制限では反動で増えたのですが、今回は3食食べていたので、終わってからも戻っていません。個室なので、ノーメイクで駆け込めるのも本音では大きかったです。</p>
+              <p class="voice-card__result"><span class="num">58.4</span>kg → <span class="num">50.9</span>kg（<span class="num">−7.5</span>kg／2ヶ月）</p>
+            </li>
+            <li class="voice-card">
+              <div class="voice-card__head">
+                <p class="voice-card__initial" aria-hidden="true">Y</p>
+                <div>
+                  <p class="voice-card__name">Y.W さん</p>
+                  <p class="voice-card__profile">43歳・事務職／産後3年・2ヶ月コース</p>
+                </div>
+              </div>
+              <p class="voice-card__title">「若い人向けだと思っていました」</p>
+              <p class="voice-card__text">産後3年、体重が戻らないまま諦めていました。同年代の担当の方が、代謝が落ちる仕組みから説明してくれたので納得して取り組めました。子どもの体調で急に休むこともありましたが、振替に対応してもらえたので最後まで通えました。腰の痛みが軽くなったのが予想外の収穫です。</p>
+              <p class="voice-card__result"><span class="num">59.8</span>kg → <span class="num">53.1</span>kg（<span class="num">−6.7</span>kg／2ヶ月）</p>
+            </li>
+          </ul>
+        </div>
+        <div class="carousel__ctrl" data-carousel-ctrl>
+          <button class="carousel__arrow" type="button" data-carousel-prev aria-label="前のお客様の声へ">‹</button>
+          <div class="carousel__dots" data-carousel-dots role="tablist" aria-label="お客様の声の切り替え"></div>
+          <button class="carousel__arrow" type="button" data-carousel-next aria-label="次のお客様の声へ">›</button>
+        </div>
+      </div>
+      <p class="note voice__note">※効果には個人差があります。お客様個人の感想であり、効果を保証するものではありません。</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq">
+    <div class="container faq__grid">
+      <div class="faq__head reveal">
+        <p class="sec-head__en">FAQ</p>
+        <h2 class="sec-head__title">よくあるご質問</h2>
+        <p class="sec-head__sub">不安なことは、予約前に全部つぶしてください。</p>
+      </div>
+      <div class="faq__list reveal">
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">運動がまったく苦手でも大丈夫ですか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>問題ありません。ご入会される方の約7割が運動経験ゼロからのスタートです。初回は体組成の測定と、正しい姿勢の確認だけで終わります。息が上がるようなメニューは、体が動くようになってから段階的に入れていきます。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">カウンセリングで、しつこい勧誘はありませんか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>ありません。その場での契約をお願いすることも、後日こちらから営業のお電話をすることもありません。他社と比較したい、家族に相談したいという理由でお帰りいただいて構いません。料金の相談だけのご来店も歓迎しています。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">生理中や体調が優れない日はどうなりますか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>前日までのご連絡で無料で振替できます。当日のご連絡でも、体調不良の場合は回数を消化しません。生理周期による体重の増減はプログラムに織り込んで設計しますので、増えた週があっても問題ありません。担当は全員女性ですので、遠慮なくお伝えください。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">食事制限はどのくらい厳しいですか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>糖質ゼロや置き換えは行いません。1日3食、主食も食べていただきます。お渡しするのは「禁止リスト」ではなく「選び方」です。コンビニ・外食・会食それぞれの場面での組み立て方をお伝えし、LINEで日々調整していきます。お酒も、種類と量を調整すれば継続可能です。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">シフト制で曜日が固定できません。通えますか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>通えます。曜日・時間の固定は必須ではなく、都度ご予約いただく形にも対応しています。営業時間は7:00〜23:00（最終受付22:00）ですので、出社前や残業後にもご利用いただけます。予約はLINEから24時間可能です。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">シャワーはありますか？持ち物は何が必要ですか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>全室にシャワーとアメニティをご用意しています。ウェア・タオル・シューズ・靴下もレンタル無料ですので、手ぶらでお越しいただけます。お化粧直しのためのパウダースペースもございます。追加料金は一切かかりません。</p></div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-item__q" type="button" aria-expanded="false">途中で続けられなくなったら、どうなりますか？<span class="faq-item__icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-item__a"><div><p>初回トレーニングから30日以内であれば、理由を問わず全額をご返金します（2ヶ月・3ヶ月コースが対象）。30日以降にやむを得ない事情が生じた場合も、残回数分の休会・有効期限の延長で対応しています。まずはご相談ください。</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACCESS ============ -->
+  <section class="section section--soft access" id="access">
+    <div class="container access__grid">
+      <figure class="access__figure reveal">
+        <img src="./images/10-exterior.jpg" alt="落ち着いた裏通りに面したCLARIVE渋谷店のエントランス" loading="lazy" decoding="async">
+      </figure>
+      <div class="access__body reveal">
+        <p class="sec-head__en">ACCESS</p>
+        <h2 class="sec-head__title">渋谷駅 徒歩5分</h2>
+        <p class="sec-head__sub">手ぶらでお越しいただけます。</p>
+        <dl class="access__info">
+          <div><dt>店舗名</dt><dd>CLARIVE 渋谷店</dd></div>
+          <div><dt>住所</dt><dd>東京都渋谷区桜丘町00-0 クラリーヴビル 1F</dd></div>
+          <div><dt>アクセス</dt><dd>JR渋谷駅 西口より徒歩5分／京王井の頭線 渋谷駅より徒歩4分</dd></div>
+          <div><dt>営業時間</dt><dd>7:00 - 23:00（最終受付 22:00）</dd></div>
+          <div><dt>定休日</dt><dd>年中無休（年末年始を除く）</dd></div>
+          <div><dt>設備</dt><dd>完全個室／シャワー／パウダールーム／ウェア・タオル無料レンタル</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="cta">
+    <img class="cta__bg" src="./images/12-cta-bg.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <div class="cta__scrim" aria-hidden="true"></div>
+    <div class="container cta__inner">
+      <div class="cta__head reveal">
+        <p class="sec-head__en cta__en">FREE COUNSELING</p>
+        <h2 class="cta__title">まずは、測るところから。</h2>
+        <p class="cta__lead">無料カウンセリングは60分。体組成の測定と、今の状態のご説明までを行います。<br>当日入会の強制は一切ありません。</p>
+        <ul class="cta__points">
+          <li>相談料・体組成測定 <strong>無料</strong></li>
+          <li>所要 <strong>60分</strong>／オンライン可</li>
+          <li>無理な勧誘は <strong>一切なし</strong></li>
+        </ul>
+      </div>
+
+      <div class="form-wrap reveal">
+        <form class="form" id="reserveForm" novalidate>
+          <div class="form__row">
+            <label class="form__label" for="f-name">お名前<span class="req">必須</span></label>
+            <input class="form__input" id="f-name" name="name" type="text" autocomplete="name" required placeholder="山田 花子">
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="f-tel">電話番号<span class="req">必須</span></label>
+            <input class="form__input" id="f-tel" name="tel" type="tel" autocomplete="tel" required placeholder="09012345678" inputmode="tel">
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="f-email">メールアドレス<span class="req">必須</span></label>
+            <input class="form__input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="hanako@example.com">
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="f-date">ご希望日時<span class="req">必須</span></label>
+            <input class="form__input" id="f-date" name="datetime" type="datetime-local" required>
+            <p class="form__help">第1希望をお選びください。ご調整のうえ折り返しご連絡します。</p>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="f-message">ご相談内容<span class="opt">任意</span></label>
+            <textarea class="form__input form__input--area" id="f-message" name="message" rows="4" placeholder="例）会食が多く、外食しながら痩せられるか相談したいです。"></textarea>
+          </div>
+          <button class="btn btn--primary btn--lg btn--block" type="submit">
+            無料カウンセリングを予約する
+            <small>24時間受付・翌営業日までにご連絡します</small>
+          </button>
+          <p class="note form__note">送信をもって<a href="#footer">プライバシーポリシー</a>に同意したものとみなします。</p>
+        </form>
+        <div class="form-thanks" id="formThanks" role="status" aria-live="polite" hidden>
+          <p class="form-thanks__title">ご予約ありがとうございます。</p>
+          <p class="form-thanks__text">担当より翌営業日までにご連絡いたします。<br>ご記入いただいたご希望日時で調整いたします。</p>
+          <p class="note">※これはポートフォリオ用のデモ表示です。実際の送信は行われていません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" id="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <p class="brand__mark brand__mark--footer">CLARIVE</p>
+      <p class="footer__tagline">渋谷｜女性専用パーソナルジム</p>
+      <p class="footer__addr">東京都渋谷区桜丘町00-0 クラリーヴビル 1F<br>7:00 - 23:00（最終受付 22:00）／年中無休</p>
+    </div>
+    <nav class="footer__nav" aria-label="フッターナビゲーション">
+      <ul>
+        <li><a href="#reasons">選ばれる理由</a></li>
+        <li><a href="#results">実績</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#guarantee">返金保証</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer__bottom">
+    <p class="footer__disclaimer">※本サイトは架空ブランド「CLARIVE」を題材に制作したポートフォリオ作品です。掲載の店舗・人物・実績・料金はすべて架空のものです。</p>
+    <p class="footer__copy">&copy; CLARIVE</p>
+  </div>
+</footer>
+
+<div class="sp-bar" id="spBar" aria-hidden="true">
+  <div class="sp-bar__text">
+    <p class="sp-bar__title">2ヶ月で平均 <span class="num">−7.2kg</span></p>
+    <p class="sp-bar__sub">相談だけでもOK・勧誘なし</p>
+  </div>
+  <a class="btn btn--primary sp-bar__btn" href="#cta">無料予約</a>
+</div>
+
+<button class="to-top" id="toTop" type="button" aria-label="ページ上部へ戻る">↑</button>
+
+<script src="./script.js?v=1785849411"></script>
+</body>
+</html>
