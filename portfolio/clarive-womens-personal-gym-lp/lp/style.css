@@ -134,6 +134,18 @@ input, textarea { font: inherit; color: inherit; }
 }
 .brand__sub { font-size: 10px; letter-spacing: .1em; color: var(--neutral-700); }
 
+/* 見出し・本文に出てくる「CLARIVE」を、ヘッダーのロゴと同じ組版で表示する。
+   ロゴは Jost 600・字間 .18em・スモーキーローズ。見出しの太さ(700)や
+   文字色(neutral-900)をそのまま継がせると、同じブランド名なのに別物に見える。
+   字間は最後の1文字の後ろにも入るため、続く和文との間が空きすぎないよう詰め戻す。 */
+.brandword {
+  font-family: var(--font-num);
+  font-weight: 600;
+  letter-spacing: .18em;
+  margin-right: -.1em;
+  color: var(--primary-700);
+}
+
 .gnav__list { display: flex; gap: 26px; }
 .gnav__list a {
   position: relative; font-size: 13px; font-weight: 500; letter-spacing: .06em; color: var(--neutral-800);
