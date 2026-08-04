@@ -43,6 +43,12 @@
 
 - LP/HP/バナー/サムネ/SNS投稿の配色（メイン・アクセント・背景・文字色）を決めるとき、HP制作でCSS変数・Tailwindカラートークンを作るときは `skills/design/color-palette-generator/SKILL.md` を使う。ベースカラー1色から明度スケール付きパレットとWCAGコントラスト確認をリポジトリ内で生成する。kigen.design等の外部配色ツールはAPI非公開のため自動連携しない。
 
+## UI/UX
+
+- LP/HP/スワイプLPの構成を決めるとき、実装後の品質チェック、既存サイトのUI/UX診断は `skills/design/uiux-design/SKILL.md` を使う。デザインの4原則（近接・整列・反復・コントラスト）、タイポグラフィ・余白・タップ領域・モーションの数値基準、状態設計、フォームUXの基準をまとめてある。
+- HTML実装があるもの（HP、ハイブリッドLP、スワイプLP、ギャラリー）は、納品・公開の前に `node skills/design/uiux-design/scripts/uiux-audit.mjs <path-or-url>` で実測監査を通し、🔴重大の指摘を解消する。
+- どのUIパターンを使うかの判断は `skills/design/ui-pattern-dictionary/SKILL.md`（108パターンの辞典）を参照する。
+
 ## 画像生成
 
 - 画像生成は Codex app-server 経由の `gpt-image-2` を使う。
