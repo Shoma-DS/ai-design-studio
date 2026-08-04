@@ -786,7 +786,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://reve-cerisire-9-1.vercel.app",
     "thumbnail": "https://reve-cerisire-9-1.vercel.app/assets/autumn-lead-poster.png",
-    "author": null
+    "author": "tsukino ayaka"
   },
   {
     "slug": "zaku-potato-lp",
@@ -810,7 +810,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://zaku-potato-lp.vercel.app",
     "thumbnail": "https://zaku-potato-lp.vercel.app/images/hero.png",
-    "author": null
+    "author": "syuu0104"
   },
   {
     "slug": "workshift-lp",
@@ -835,6 +835,6 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://workshift-lp.vercel.app",
     "thumbnail": "https://workshift-lp.vercel.app/images/work-scenes.png",
-    "author": null
+    "author": "syuu0104"
   }
 ];
