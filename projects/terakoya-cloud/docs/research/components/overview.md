@@ -24,6 +24,22 @@
 - 参考サイトの「ダッシュボード画面のノートPC/スマホフレーム」演出を、実際の他社製品スクリーンショットではなく、独自CSSで組んだ`LearningDashboardMock`・`CommunityChatMock`・`AbstractFeatureCard`で再現
 - `LaptopFrame`・`PhoneFrame`（`DeviceFrame`）で機体フレームを表現し、控えめなシャドウで浮遊感を出す
 
+## Intro Lockup（Aboutページ・イントロ左カラム）
+
+参考サイトの同ブロックを`getComputedStyle`で実測し、数値ベースで揃えている。
+
+| 要素 | 指定 | 参考サイト実測 |
+|---|---|---|
+| 実績エイブロウ | 本文フォント / clamp(20,2.1vw,26)px / 700 / `--text-heading` | 26px / 700 / rgb(26,26,26) |
+| ブランド名 | 見出しフォント / clamp(34,3.6vw,46)px / 700 + アクセント色のドット | ロゴ画像 350×64 |
+| 訴求文 | 本文フォント / clamp(17,1.7vw,21)px / 700 / `--primary-500` / 3行 | 21px / 700 / rgb(0,57,115) / 3行 |
+| CTA | 16px / padding 20px 60px / `line-height: 1` / 右にシェブロン | 16px / padding 20px 60px / 高さ57px |
+
+- 訴求文は参考サイト同様に3行へ分割（`white-space: pre-line`）。高さも実測95pxで一致
+- CTAは`.btn`の`line-height: 1.75`を継ぐと高さが余るため`1`に上書きしている
+- **意図的な差異**：参考サイトのCTAは`border-radius: 50px`のピル型だが、当リポジトリの「ピル型ボタンを使わない」方針に従い角丸10pxを維持している
+- 640px以下ではCTAの左右パディングを32pxへ詰め、画面幅からの溢れを防ぐ
+
 ## Pain Points（Aboutページ・課題整理）
 
 参考サイトの同セクションを、レイアウトの型としてかなり忠実に再現している。

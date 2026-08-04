@@ -31,11 +31,14 @@ export default function AboutPage() {
           <div className={styles.introGrid}>
             <Reveal>
               <p className={styles.introEyebrow}>導入実績3,200件突破！</p>
-              <p className={styles.introLogo}>寺子屋クラウド</p>
-              <p className={styles.introDesc}>
-                {"「集客」「学び」「コミュニティ運営」の\nすべてができるオールインワンプラットフォーム"}
+              <p className={styles.introLogo}>
+                <span className={styles.introLogoMark} />
+                寺子屋クラウド
               </p>
-              <Link href="#signup" className="btn btnPrimary">
+              <p className={styles.introDesc}>
+                {"「集客」「学び」「コミュニティ運営」の\nすべてができる\nオールインワンプラットフォーム"}
+              </p>
+              <Link href="#signup" className={`btn btnPrimary ${styles.introCta}`}>
                 まずは無料ではじめる
               </Link>
             </Reveal>
