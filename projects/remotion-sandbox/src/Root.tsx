@@ -7,6 +7,12 @@ import { BeforeAfterWipe } from "./BeforeAfterWipe";
 import { TsunaguIntro } from "./TsunaguIntro";
 import { TsunaguHeroBg } from "./TsunaguHeroBg";
 import { NailPortfolioLoop, nailPortfolioLoopSchema } from "./NailPortfolioLoop";
+import {
+  ClariveHeroBg,
+  clariveHeroSchema,
+  CLARIVE_HERO_DURATION,
+} from "./ClariveHeroBg";
+import { TerakoyaIntro, TERAKOYA_INTRO_DURATION } from "./TerakoyaIntro";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -64,6 +70,39 @@ export const RemotionRoot: React.FC = () => {
         id="TsunaguIntro"
         component={TsunaguIntro}
         durationInFrames={900}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      {/* CLARIVE 渋谷店 LP ファーストビューの背景ループ（PC / スマホ） */}
+      <Composition
+        id="ClariveHeroPc"
+        component={ClariveHeroBg}
+        durationInFrames={CLARIVE_HERO_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+        schema={clariveHeroSchema}
+        defaultProps={{ variant: "pc" as const }}
+      />
+
+      <Composition
+        id="ClariveHeroSp"
+        component={ClariveHeroBg}
+        durationInFrames={CLARIVE_HERO_DURATION}
+        fps={30}
+        width={1080}
+        height={1040}
+        schema={clariveHeroSchema}
+        defaultProps={{ variant: "sp" as const }}
+      />
+
+      {/* 寺子屋クラウド Aboutページのサービス紹介動画 */}
+      <Composition
+        id="TerakoyaIntro"
+        component={TerakoyaIntro}
+        durationInFrames={TERAKOYA_INTRO_DURATION}
         fps={30}
         width={1920}
         height={1080}
