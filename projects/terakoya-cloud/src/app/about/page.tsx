@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal/Reveal";
-import { LaptopFrame } from "@/components/DeviceFrame/DeviceFrame";
-import { LearningDashboardMock } from "@/components/ProductMock/ProductMock";
 import { aboutPainPoints, useCases, siteMeta } from "@/data/site";
 import styles from "./page.module.css";
 
@@ -44,9 +42,16 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <LaptopFrame>
-                <LearningDashboardMock />
-              </LaptopFrame>
+              <div className={styles.introVisual}>
+                <video
+                  className={styles.introVideo}
+                  src="/videos/terakoya-intro.mp4"
+                  poster="/videos/terakoya-intro-poster.jpg"
+                  controls
+                  preload="metadata"
+                  playsInline
+                />
+              </div>
             </Reveal>
           </div>
         </div>

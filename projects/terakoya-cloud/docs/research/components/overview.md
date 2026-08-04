@@ -24,6 +24,22 @@
 - 参考サイトの「ダッシュボード画面のノートPC/スマホフレーム」演出を、実際の他社製品スクリーンショットではなく、独自CSSで組んだ`LearningDashboardMock`・`CommunityChatMock`・`AbstractFeatureCard`で再現
 - `LaptopFrame`・`PhoneFrame`（`DeviceFrame`）で機体フレームを表現し、控えめなシャドウで浮遊感を出す
 
+## Intro Video（Aboutページ・イントロ右カラム）
+
+参考サイトは同位置にサービス紹介動画のプレーヤーを置いているため、こちらも動画に揃えている。
+**参考サイトの動画は先方の著作物なので流用せず、構成（タイトル→機能紹介→クロージング）の型だけを踏襲した完全オリジナル動画を制作している。**
+
+- 制作: Remotion（`projects/remotion-sandbox/src/TerakoyaIntro/`、コンポジションID `TerakoyaIntro`）
+- 構成: タイトルカード(3秒) → 01 集客(4.5秒) → 02 学び(4.5秒) → 03 コミュニティ(4.5秒) → クロージング(5秒)、計19.9秒
+- 各シーンのUIモックはサイト本体の`ProductMock`と同じ配色・同じ文言体系で新規に組んでおり、
+  ステップ配信の構築・進捗バーの伸長・チャットの着信が実際にアニメーションする
+- 配色とフォントは `src/TerakoyaIntro/theme.ts` にサイトのトークンを複製して同期
+- 書き出し: 1920×1080 → ffmpegで1280×720 / CRF26 / `+faststart` / 音声なしへ圧縮（2.8MB → 約460KB）
+  - `pix_fmt`は`yuv420p`＋`color_range tv`を明示する。指定しないとフルレンジの`yuvj420p`になり、
+    プレーヤーによって色が転ぶ
+- 埋め込みは素の`<video controls preload="metadata" playsInline>`。自動再生も音声も無し
+- ポスター画像はタイトルカードのフレームから生成（`terakoya-intro-poster.jpg`）
+
 ## Intro Lockup（Aboutページ・イントロ左カラム）
 
 参考サイトの同ブロックを`getComputedStyle`で実測し、数値ベースで揃えている。
