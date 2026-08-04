@@ -4,6 +4,8 @@
 }
 
 .title {
+  font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(24px, 3vw, 32px);
 }
 

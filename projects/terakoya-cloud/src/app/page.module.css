@@ -27,7 +27,10 @@
 }
 
 .heroTitle {
+  font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.45;
   white-space: pre-line;
   margin-bottom: 20px;
 }

@@ -1,5 +1,19 @@
 # コンポーネント仕様（実装ベース）
 
+## 書体（Typography）
+
+参考サイトの構成を実測し、同じゴシック中心の設計に揃えている（当初は見出しに明朝の Shippori Mincho を使っていたが、2026-08-04に差し替えた）。
+
+| 役割 | トークン | 書体 / ウェイト | 参考サイト実測 |
+|---|---|---|---|
+| 本文 | `--font-body` | Noto Sans JP 400 | Noto Sans JP 400 |
+| 見出し（h1〜h4） | `--font-heading` | Noto Sans JP 700 | Noto Sans JP 700 |
+| 大見出し・ブランド名 | `--font-display` | Zen Kaku Gothic New 900 | Zen Kaku Gothic New 900 |
+
+- `--font-display` を当てるのは、ヒーロー見出し・各ページのページタイトル・ヘッダー/フッター/Aboutイントロのブランド名のみ。参考サイトが Zen Kaku を大見出しだけに絞っているのに合わせている
+- 書体は Google Fonts（どちらも SIL OFL）。`next/font/google` で読み込むため外部リクエストは発生しない
+- 紹介動画（Remotion）も `@remotion/google-fonts` で同じ2書体を読み込み、サイトと一致させている
+
 ## Header (`src/components/Header/`)
 
 - 役割：全ページ共通のグローバルヘッダー。sticky配置
@@ -47,7 +61,7 @@
 | 要素 | 指定 | 参考サイト実測 |
 |---|---|---|
 | 実績エイブロウ | 本文フォント / clamp(20,2.1vw,26)px / 700 / `--text-heading` | 26px / 700 / rgb(26,26,26) |
-| ブランド名 | 見出しフォント / clamp(34,3.6vw,46)px / 700 + アクセント色のドット | ロゴ画像 350×64 |
+| ブランド名 | ディスプレイ書体 / clamp(34,3.6vw,46)px / 900 + アクセント色のドット | ロゴ画像 350×64 |
 | 訴求文 | 本文フォント / clamp(17,1.7vw,21)px / 700 / `--primary-500` / 3行 | 21px / 700 / rgb(0,57,115) / 3行 |
 | CTA | 16px / padding 20px 60px / `line-height: 1` / 右にシェブロン | 16px / padding 20px 60px / 高さ57px |
 

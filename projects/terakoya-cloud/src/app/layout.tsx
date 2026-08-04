@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Shippori_Mincho, Noto_Sans_JP } from "next/font/google";
+import { Zen_Kaku_Gothic_New, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { siteMeta } from "@/data/site";
 
-const shipporiMincho = Shippori_Mincho({
-  variable: "--font-shippori-mincho",
-  weight: ["500", "700", "800"],
+// 大見出し・ブランド名まわりのディスプレイ書体
+const zenKakuGothicNew = Zen_Kaku_Gothic_New({
+  variable: "--font-zen-kaku-gothic-new",
+  weight: ["500", "700", "900"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -30,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${shipporiMincho.variable} ${notoSansJp.variable}`}>
+    <html lang="ja" className={`${zenKakuGothicNew.variable} ${notoSansJp.variable}`}>
       <body>
         <Header />
         {children}

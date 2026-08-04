@@ -26,9 +26,9 @@ export const BrandMark: React.FC<{ size?: number; color?: string }> = ({
       display: "flex",
       alignItems: "center",
       gap: size * 0.3,
-      fontFamily: fonts.serif,
+      fontFamily: fonts.display,
       fontSize: size,
-      fontWeight: 700,
+      fontWeight: 900,
       color,
     }}
   >
@@ -90,9 +90,9 @@ export const Headline: React.FC<{ text: string; delay?: number; color?: string }
     <div
       style={{
         ...rise,
-        fontFamily: fonts.serif,
+        fontFamily: fonts.display,
         fontSize: 62,
-        fontWeight: 700,
+        fontWeight: 900,
         lineHeight: 1.35,
         letterSpacing: 1,
         whiteSpace: "pre-line",

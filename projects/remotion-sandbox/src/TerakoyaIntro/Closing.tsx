@@ -25,9 +25,9 @@ export const Closing: React.FC = () => {
         <div
           style={{
             ...headlineRise,
-            fontFamily: fonts.serif,
+            fontFamily: fonts.display,
             fontSize: 84,
-            fontWeight: 700,
+            fontWeight: 900,
             lineHeight: 1.4,
             textAlign: "center",
             color: colors.white,

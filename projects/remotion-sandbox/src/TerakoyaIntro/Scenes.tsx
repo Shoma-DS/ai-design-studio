@@ -365,9 +365,9 @@ export const TitleCard: React.FC = () => {
           style={{
             ...titleRise,
             marginTop: 34,
-            fontFamily: fonts.serif,
+            fontFamily: fonts.display,
             fontSize: 92,
-            fontWeight: 700,
+            fontWeight: 900,
             color: colors.white,
             letterSpacing: 2,
           }}

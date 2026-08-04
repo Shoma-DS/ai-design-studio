@@ -22,8 +22,16 @@ export const colors = {
   white: "#ffffff",
 };
 
-// レンダリングはmacOSローカルで行うため、ヒラギノを第一候補にする
+// サイト本体と同じ書体構成に揃える。
+// 本文・見出し＝Noto Sans JP、ブランド名と大見出し＝Zen Kaku Gothic New 900。
+// システムフォント任せだとレンダリング環境で崩れるため、Googleフォントを読み込む。
+import { loadFont as loadNotoSansJp } from "@remotion/google-fonts/NotoSansJP";
+import { loadFont as loadZenKakuGothicNew } from "@remotion/google-fonts/ZenKakuGothicNew";
+
+const notoSansJp = loadNotoSansJp("normal", { weights: ["400", "500", "700"], subsets: ["latin"] });
+const zenKakuGothicNew = loadZenKakuGothicNew("normal", { weights: ["700", "900"], subsets: ["latin"] });
+
 export const fonts = {
-  sans: '"Hiragino Sans", "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif',
-  serif: '"Hiragino Mincho ProN", "Shippori Mincho", serif',
+  sans: notoSansJp.fontFamily,
+  display: zenKakuGothicNew.fontFamily,
 };

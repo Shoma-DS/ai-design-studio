@@ -39,7 +39,11 @@
   --text-muted: #6b7280;
   --border-soft: #e6e2da;
 
-  --font-heading: var(--font-shippori-mincho), serif;
+  /* 参考サイトの構成に合わせたゴシック中心の書体設計。
+     見出しも本文と同じ Noto Sans JP（太さで差をつける）とし、
+     ブランド名と大見出しだけ Zen Kaku Gothic New 900 を使う。 */
+  --font-heading: var(--font-noto-sans-jp), sans-serif;
+  --font-display: var(--font-zen-kaku-gothic-new), var(--font-noto-sans-jp), sans-serif;
   --font-body: var(--font-noto-sans-jp), sans-serif;
 
   --max-width: 1200px;
@@ -98,8 +102,9 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
+  font-weight: 700;
   color: var(--text-heading);
-  line-height: 1.4;
+  line-height: 1.5;
   letter-spacing: 0.02em;
 }
 
