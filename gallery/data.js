@@ -836,5 +836,37 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://workshift-lp.vercel.app",
     "thumbnail": "https://workshift-lp.vercel.app/images/work-scenes.png",
     "author": "syuu0104"
+  },
+  {
+    "slug": "clarive-womens-personal-gym-lp",
+    "type": "lp",
+    "title": "CLARIVE｜渋谷の女性専用パーソナルジム",
+    "heading": "会食を断らずに、2ヶ月 −7kg。",
+    "category": "美容・サロン",
+    "moodTags": [
+      "上品",
+      "信頼感",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "ジム",
+      "ダイエット",
+      "美容"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "レスポンシブ",
+      "固定ヘッダー",
+      "ハンバーガーメニュー",
+      "カルーセル",
+      "アコーディオン",
+      "固定CTA",
+      "ビフォーアフター比較",
+      "背景動画"
+    ],
+    "linkType": "external",
+    "url": "https://clarive-womens-personal-gym-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/clarive-womens-personal-gym-lp.jpg",
+    "author": "rina"
   }
 ];
