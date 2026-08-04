@@ -85,6 +85,13 @@
 - UTAGEで実際に何か（ファネル、メール・LINE配信シナリオ、会員サイト、イベント・予約、パートナー機能などの構築・設定）を作るときだけ、NotebookLMの「UTAGE公式マニュアル」ノートブック（notebook_id: `942db75e-5025-41b2-8c7e-aac3ebc86c7a`、https://notebooklm.google.com/notebook/942db75e-5025-41b2-8c7e-aac3ebc86c7a）を参照する。UTAGEに軽く言及されただけの場面では参照不要。
 - このノートブックは `help.utage-system.com/knowledge-allpages` の全記事（331件、2026-07-19時点）をURLソースとして登録した公式マニュアルのデータベース。`mcp__notebooklm-mcp__notebook_query` 等で該当機能の正しい仕様・手順を確認してから実装・設定作業を行う。
 
+## Headroom（トークン圧縮）
+
+- Claude Code のトークン消費を抑える Headroom プロキシを共通運用として用意してある。導入・状態確認・解除は `.claude/skills/headroom/SKILL.md`（`/headroom`）を使う。
+- セッション開始時に `.claude/settings.json` の SessionStart フックが状態を自動チェックし、未導入なら有効化コマンドを、経由していなければ起動方法を1行だけ案内する。プロキシが落ちていれば自動で立ち上げる。案内が不要なら `touch ~/.claude/.headroom-optout`。
+- 導入は各自の任意。`bash .claude/skills/headroom/scripts/setup-headroom.sh` を実行すると、個人環境（`~/.local/bin`、`~/.zshrc`）だけを変更して `claude` が自動で `headroom wrap claude` 経由になる。リポジトリ側には何も書き込まない。
+- 共有 `.claude/settings.json` に `ANTHROPIC_BASE_URL` を書かない。Headroom未導入のメンバーの Claude Code が起動しないプロキシへ接続しにいって壊れる。
+
 ## Git
 
 - コミットメッセージは日本語で書く。
