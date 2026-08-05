@@ -1,0 +1,1 @@
+document.querySelectorAll('.accordion details').forEach((item)=>{item.addEventListener('toggle',()=>{if(item.open){document.querySelectorAll('.accordion details').forEach((other)=>{if(other!==item)other.open=false})}})});
