@@ -280,6 +280,8 @@ node skills/design/uiux-design/scripts/uiux-audit.mjs <target> --out report.md -
 
 | 目的 | 参照先 |
 |---|---|
+| 価格文字・CTAボタンのアイデア出し | `references/price-cta-idea-list.md` |
+| 診断レポートの書式 | `references/review-template.md` |
 | どのUIパターンを使うか | `skills/design/ui-pattern-dictionary/SKILL.md` |
 | LPのセクション構成テンプレ | `skills/design/lp-layout-templates/SKILL.md` |
 | 配色とコントラスト計算 | `skills/design/color-palette-generator/SKILL.md` |
