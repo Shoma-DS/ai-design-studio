@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>メニュー＆料金表 / 2パターン比較</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#26221E;color:#EDE4D6;
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+    padding:40px 32px 64px;
+  }
+  h1{font-size:19px;font-weight:600;letter-spacing:.08em;}
+  .note{margin-top:8px;font-size:13px;line-height:1.8;color:#A29684;}
+  .grid{
+    margin-top:32px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:36px;align-items:start;max-width:1180px;
+  }
+  figure{background:#302B25;border-radius:4px;padding:20px;}
+  figcaption{margin-bottom:14px;}
+  figcaption .t{font-size:15px;font-weight:600;letter-spacing:.06em;}
+  figcaption .d{margin-top:5px;font-size:12.5px;line-height:1.7;color:#A29684;}
+  img{width:100%;display:block;border:1px solid #4A4239;}
+  .path{margin-top:12px;font-family:ui-monospace,monospace;font-size:11.5px;color:#8B7F6E;word-break:break-all;}
+</style>
+</head>
+<body>
+  <h1>ヘアサロン メニュー＆料金表 — Instagram投稿 1080×1350</h1>
+  <p class="note">ベースカラー #F3EBDD ／ 🟥必須メニュー6件は SIGNATURE として強調</p>
+
+  <div class="grid">
+    <figure>
+      <figcaption>
+        <div class="t">パターンA｜全19メニュー掲載</div>
+        <div class="d">🟥6件を大きく、残り13件をカテゴリ別2カラムで整理</div>
+      </figcaption>
+      <img src="output/menu-a-all.png" alt="パターンA 全19メニュー">
+      <p class="path">output/menu-a-all.png</p>
+    </figure>
+
+    <figure>
+      <figcaption>
+        <div class="t">パターンB｜🟥6メニューのみ</div>
+        <div class="d">参考画像の構成。メニュー名／説明文／価格の3段組み</div>
+      </figcaption>
+      <img src="output/menu-b-signature.png" alt="パターンB 6メニュー">
+      <p class="path">output/menu-b-signature.png</p>
+    </figure>
+  </div>
+</body>
+</html>

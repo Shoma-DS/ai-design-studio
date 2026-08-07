@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>MENU / パターンA 全19メニュー</title>
+<style>
+  :root{
+    --bg:#F3EBDD;
+    --ink:#2E2823;
+    --ink-mid:#5C5147;
+    --ink-soft:#8A7C6D;
+    --rule:#CFC0A9;
+    --rule-fine:#E0D4C0;
+    --serif-ja:"Toppan Bunkyu Mincho Pr6N","Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --serif-en:"Didot","Bodoni 72","Hiragino Mincho ProN",serif;
+    --sans-ja:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#888;}
+
+  .sheet{
+    position:relative;
+    width:1080px;height:1350px;
+    background:var(--bg);
+    overflow:hidden;
+    color:var(--ink);
+  }
+
+  /* ---- 写真は右上のマストヘッド部だけに置く ---- */
+  .photo,.veil{
+    position:absolute;top:0;right:0;
+    width:640px;height:580px;
+  }
+  .photo{
+    background:url("assets/portrait.png") no-repeat right -90px top -40px / auto 840px;
+    filter:grayscale(.62) sepia(.22) brightness(1.32) contrast(.84);
+    mix-blend-mode:multiply;
+  }
+  .veil{
+    background:
+      linear-gradient(to bottom, rgba(243,235,221,0) 38%, rgba(243,235,221,.72) 74%, var(--bg) 99%),
+      linear-gradient(to right, var(--bg) 0%, rgba(243,235,221,.92) 26%, rgba(243,235,221,.50) 60%, rgba(243,235,221,.30) 100%);
+  }
+
+  .content{
+    position:relative;
+    height:100%;
+    padding:70px 68px 58px;
+    display:flex;flex-direction:column;
+  }
+
+  /* ---- マストヘッド ---- */
+  .eyebrow{
+    font-family:var(--serif-en);
+    font-size:14px;letter-spacing:.44em;
+    color:var(--ink-soft);
+  }
+  h1{
+    margin-top:16px;
+    font-family:var(--serif-en);
+    font-size:88px;font-weight:400;line-height:1;
+    letter-spacing:.22em;
+  }
+  .lede{
+    margin-top:20px;
+    font-family:var(--serif-ja);
+    font-size:15px;line-height:1.95;letter-spacing:.13em;
+    color:var(--ink-mid);
+  }
+
+  /* ---- セクション見出し ---- */
+  .sec-head{
+    display:flex;align-items:baseline;gap:16px;
+    margin-bottom:16px;
+  }
+  .sec-head .en{
+    font-family:var(--serif-en);
+    font-size:17px;letter-spacing:.30em;
+  }
+  .sec-head .ja{
+    font-family:var(--serif-ja);
+    font-size:12px;letter-spacing:.18em;
+    color:var(--ink-soft);
+  }
+  .sec-head .line{
+    flex:1;height:1px;background:var(--rule);
+    transform:translateY(-4px);
+  }
+
+  /* ---- SIGNATURE 6件 ---- */
+  .signature{margin-top:52px;}
+  .sig-list{list-style:none;}
+  .sig-list li{
+    display:flex;align-items:baseline;
+    padding:19px 0 18px;
+    border-bottom:1px solid var(--rule-fine);
+  }
+  .sig-list li:first-child{border-top:1px solid var(--rule-fine);}
+  .sig-list .name{
+    font-family:var(--serif-ja);
+    font-size:23px;line-height:1.4;letter-spacing:.04em;
+    font-weight:600;
+  }
+  .sig-list .gap{flex:1;min-width:24px;}
+  .sig-list .price{
+    font-family:var(--serif-en);
+    font-size:26px;line-height:1;letter-spacing:.05em;
+    white-space:nowrap;
+  }
+  .price .yen{font-size:.72em;margin-right:.05em;}
+
+  /* ---- ALL MENU 13件 ---- */
+  .all{margin-top:50px;}
+  .cols{
+    display:grid;grid-template-columns:1fr 1fr;
+    column-gap:44px;row-gap:24px;
+  }
+  .group + .group{margin-top:28px;}
+  .group-label{
+    font-family:var(--serif-en);
+    font-size:12px;letter-spacing:.28em;
+    color:var(--ink-soft);
+    padding-bottom:7px;
+    border-bottom:1px solid var(--rule-fine);
+    margin-bottom:8px;
+  }
+  .group ul{list-style:none;}
+  .group li{
+    display:flex;align-items:baseline;
+    padding:8px 0;
+  }
+  .group .name{
+    font-family:var(--serif-ja);
+    font-size:14px;line-height:1.55;letter-spacing:.01em;white-space:nowrap;
+  }
+  .group .gap{flex:1;min-width:12px;}
+  .group .price{
+    font-family:var(--serif-en);
+    font-size:16px;line-height:1;letter-spacing:.04em;
+    white-space:nowrap;
+  }
+
+  /* ---- フッター ---- */
+  footer{
+    margin-top:auto;
+    display:flex;align-items:center;gap:20px;
+    padding-top:26px;
+    border-top:1px solid var(--rule-fine);
+    font-family:var(--serif-ja);
+    font-size:13px;letter-spacing:.16em;
+    color:var(--ink-mid);
+  }
+  footer .mark{
+    font-family:var(--serif-en);
+    font-size:13px;letter-spacing:.30em;
+    color:var(--ink-soft);
+  }
+  footer .sep{width:1px;height:14px;background:var(--rule);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="photo"></div>
+  <div class="veil"></div>
+
+  <div class="content">
+    <header>
+      <p class="eyebrow">HAIR &amp; SCALP</p>
+      <h1>MENU</h1>
+      <p class="lede">髪質改善とヘッドスパで、<br>扱いやすい髪を育てる</p>
+    </header>
+
+    <section class="signature">
+      <div class="sec-head">
+        <span class="en">SIGNATURE</span>
+        <span class="ja">人気の6メニュー</span>
+        <span class="line"></span>
+      </div>
+      <ul class="sig-list">
+        <li><span class="name">カット髪質改善カラーTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>16,000</span></li>
+        <li><span class="name">カット＋弱酸性髪質改善トリートメント</span><span class="gap"></span><span class="price"><span class="yen">¥</span>14,000</span></li>
+        <li><span class="name">カット＋白髪を楽しむデザインブリーチケアカラーTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>17,000</span></li>
+        <li><span class="name">カット＋頭皮がほぐれる天然アロマヘッドスパ＋TR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>9,000</span></li>
+        <li><span class="name">頭皮がほぐれる天然アロマスパ＋カスタムTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>5,500</span></li>
+        <li><span class="name">【追加ヘッドスパ】</span><span class="gap"></span><span class="price"><span class="yen">¥</span>3,000</span></li>
+      </ul>
+    </section>
+
+    <section class="all">
+      <div class="sec-head">
+        <span class="en">ALL MENU</span>
+        <span class="ja">その他のメニュー</span>
+        <span class="line"></span>
+      </div>
+      <div class="cols">
+        <div>
+          <div class="group">
+            <p class="group-label">CUT</p>
+            <ul>
+              <li><span class="name">似合わせ完全お任せコース（カット込み）</span><span class="gap"></span><span class="price"><span class="yen">¥</span>17,000</span></li>
+              <li><span class="name">手ぐしで整うカット</span><span class="gap"></span><span class="price"><span class="yen">¥</span>6,000</span></li>
+              <li><span class="name">【再来限定】メンズ＆刈上女子専用カット</span><span class="gap"></span><span class="price"><span class="yen">¥</span>5,500</span></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="group-label">CUT &amp; COLOR</p>
+            <ul>
+              <li><span class="name">カット＋艶ケアリタッチカラー＋高保湿TR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>11,500</span></li>
+              <li><span class="name">カット＋艶ケアフルカラー＋カスタムTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>13,500</span></li>
+              <li><span class="name">カット＋艶ケアリタッチカラー＋ほぐすヘッドスパTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>13,500</span></li>
+              <li><span class="name">カット＋艶ケアフルカラー＋ほぐすヘッドスパ＋TR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>15,000</span></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="group">
+            <p class="group-label">STRAIGHT &amp; PERM</p>
+            <ul>
+              <li><span class="name">カット＋艶ケアカラー＋縮毛矯正＋高保湿TR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>20,000</span></li>
+              <li><span class="name">カット＋自然になじむ縮毛矯正＋TR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>17,000</span></li>
+              <li><span class="name">カット＋デザインパーマ＋カスタムTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>13,500</span></li>
+            </ul>
+          </div>
+          <div class="group">
+            <p class="group-label">COLOR &amp; ARRANGE</p>
+            <ul>
+              <li><span class="name">リタッチ艶ケアカラー＋カスタムTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>7,500</span></li>
+              <li><span class="name">フル艶ケアカラー＋カスタムTR</span><span class="gap"></span><span class="price"><span class="yen">¥</span>9,000</span></li>
+              <li><span class="name">ヘアセット／ヘアアレンジ</span><span class="gap"></span><span class="price"><span class="yen">¥</span>5,000</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="mark">PRICE LIST</span>
+      <span class="sep"></span>
+      <span>ご予約・メニューのご相談はDMよりお気軽にどうぞ</span>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

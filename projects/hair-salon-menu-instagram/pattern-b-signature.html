@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>MENU / パターンB 6メニュー</title>
+<style>
+  :root{
+    --bg:#F3EBDD;
+    --ink:#2E2823;
+    --ink-mid:#5C5147;
+    --ink-soft:#8A7C6D;
+    --rule:#CFC0A9;
+    --serif-ja:"Toppan Bunkyu Mincho Pr6N","Hiragino Mincho ProN","YuMincho","Yu Mincho",serif;
+    --serif-en:"Didot","Bodoni 72","Hiragino Mincho ProN",serif;
+    --sans-ja:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#888;}
+
+  .sheet{
+    position:relative;
+    width:1080px;height:1350px;
+    background:var(--bg);
+    overflow:hidden;
+    color:var(--ink);
+  }
+
+  /* 写真：全身が入る倍率で右寄せ。乗算でベース色になじませる */
+  .photo{
+    position:absolute;inset:0;
+    background:url("assets/portrait.png") no-repeat right -130px center / auto 104%;
+    filter:grayscale(.62) sepia(.22) brightness(1.32) contrast(.84);
+    mix-blend-mode:multiply;
+  }
+  .veil{
+    position:absolute;inset:0;
+    background:linear-gradient(
+      to right,
+      var(--bg) 0%,
+      var(--bg) 32%,
+      rgba(243,235,221,.93) 48%,
+      rgba(243,235,221,.74) 64%,
+      rgba(243,235,221,.46) 80%,
+      rgba(243,235,221,.30) 100%
+    );
+  }
+
+  .content{
+    position:absolute;
+    top:0;left:68px;
+    width:648px;height:100%;
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+    text-align:center;
+    padding:76px 0 62px;
+  }
+
+  /* ---- ヘッダー ---- */
+  .eyebrow{
+    font-family:var(--serif-en);
+    font-size:15px;letter-spacing:.44em;text-indent:.44em;
+    color:var(--ink-soft);
+  }
+  h1{
+    margin-top:20px;
+    font-family:var(--serif-en);
+    font-size:94px;font-weight:400;line-height:1;
+    letter-spacing:.24em;text-indent:.24em;
+  }
+  .lede{
+    margin-top:22px;
+    font-family:var(--serif-ja);
+    font-size:15px;line-height:2;letter-spacing:.14em;
+    color:var(--ink-mid);
+  }
+  .header-rule{
+    width:52px;height:1px;margin:26px auto 0;
+    background:var(--rule);
+  }
+
+  /* ---- メニュー ---- */
+  .items{
+    list-style:none;
+    display:flex;flex-direction:column;gap:30px;
+  }
+  .item .name{
+    font-family:var(--serif-ja);
+    font-size:25px;line-height:1.45;letter-spacing:.06em;
+    font-weight:600;
+  }
+  .item .desc{
+    margin-top:9px;
+    font-family:var(--sans-ja);
+    font-size:13px;line-height:1.7;letter-spacing:.06em;
+    color:var(--ink-soft);
+  }
+  .item .price{
+    margin-top:11px;
+    font-family:var(--serif-en);
+    font-size:31px;line-height:1;letter-spacing:.09em;text-indent:.09em;
+  }
+  .item .price .yen{font-size:.72em;margin-right:.06em;}
+
+  /* 一番人気 */
+  .item.pick .name{position:relative;}
+  .pick-label{
+    display:block;margin-bottom:8px;
+    font-family:var(--serif-ja);
+    font-size:11px;letter-spacing:.36em;text-indent:.36em;
+    color:var(--ink-soft);
+  }
+  .pick-label::before,.pick-label::after{
+    content:"";display:inline-block;
+    width:18px;height:1px;vertical-align:middle;
+    background:var(--rule);
+  }
+  .pick-label::before{margin-right:12px;}
+  .pick-label::after{margin-left:8px;}
+
+  /* ---- フッター ---- */
+  footer{
+    font-family:var(--serif-ja);
+    font-size:13px;line-height:1.9;letter-spacing:.16em;
+    color:var(--ink-mid);
+  }
+  .footer-rule{
+    width:100%;height:1px;margin:0 auto 22px;
+    background:linear-gradient(to right,rgba(207,192,169,0),var(--rule) 30%,var(--rule) 70%,rgba(207,192,169,0));
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="photo"></div>
+  <div class="veil"></div>
+  
+
+  <div class="content">
+    <header>
+      <p class="eyebrow">HAIR &amp; SCALP</p>
+      <h1>MENU</h1>
+      <p class="lede">髪質改善とヘッドスパで、<br>扱いやすい髪を育てる</p>
+      <div class="header-rule"></div>
+    </header>
+
+    <ul class="items">
+      <li class="item pick">
+        <p class="name"><span class="pick-label">SIGNATURE</span>カット髪質改善カラーTR</p>
+        <p class="desc">カット・カラー・髪質改善トリートメントを一度で叶える看板メニュー</p>
+        <p class="price"><span class="yen">¥</span>16,000</p>
+      </li>
+      <li class="item">
+        <p class="name">カット＋弱酸性髪質改善トリートメント</p>
+        <p class="desc">弱酸性で負担を抑え、内側から手触りとまとまりを整える</p>
+        <p class="price"><span class="yen">¥</span>14,000</p>
+      </li>
+      <li class="item">
+        <p class="name">カット＋白髪を楽しむ<br>デザインブリーチケアカラーTR</p>
+        <p class="desc">白髪を隠さず活かす。ケアブリーチで透明感のあるデザインに</p>
+        <p class="price"><span class="yen">¥</span>17,000</p>
+      </li>
+      <li class="item">
+        <p class="name">カット＋頭皮がほぐれる<br>天然アロマヘッドスパ＋TR</p>
+        <p class="desc">天然アロマのスパで頭皮をほぐしながら、髪も同時にケア</p>
+        <p class="price"><span class="yen">¥</span>9,000</p>
+      </li>
+      <li class="item">
+        <p class="name">頭皮がほぐれる天然アロマスパ＋カスタムTR</p>
+        <p class="desc">カットなしでも。頭皮環境を整えるスパとカスタムトリートメント</p>
+        <p class="price"><span class="yen">¥</span>5,500</p>
+      </li>
+      <li class="item">
+        <p class="name">【追加ヘッドスパ】</p>
+        <p class="desc">どのメニューにも追加できるリラクゼーションスパ</p>
+        <p class="price"><span class="yen">¥</span>3,000</p>
+      </li>
+    </ul>
+
+    <footer>
+      <div class="footer-rule"></div>
+      ご予約・メニューのご相談は<br>DMよりお気軽にどうぞ
+    </footer>
+  </div>
+</div>
+</body>
+</html>
