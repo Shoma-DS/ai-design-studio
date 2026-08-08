@@ -868,5 +868,28 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://clarive-womens-personal-gym-lp.vercel.app",
     "thumbnail": "assets/thumbnails/clarive-womens-personal-gym-lp.jpg",
     "author": "rina"
+  },
+  {
+    "slug": "crunchy-pop-ice-sand-lp",
+    "type": "lp",
+    "title": "CRUNCHY POP チョコクランチアイスサンドLP",
+    "heading": "ザクッと、ひんやり。気分まで弾ける。",
+    "category": "食品・EC",
+    "moodTags": [
+      "ポップ",
+      "カラフル"
+    ],
+    "productTags": [
+      "食品",
+      "アイス",
+      "お菓子"
+    ],
+    "featureTags": [
+      "レスポンシブ"
+    ],
+    "linkType": "external",
+    "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
+    "author": "saruga"
   }
 ];
