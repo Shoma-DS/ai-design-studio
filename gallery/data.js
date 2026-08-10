@@ -891,5 +891,28 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
     "thumbnail": "assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
     "author": "saruga"
+  },
+  {
+    "slug": "morning-bloom-call-lp",
+    "type": "lp",
+    "title": "MORNING BLOOM ボイスギフトLP",
+    "heading": "明日の朝を、少し楽しみに。",
+    "category": "食品・飲料",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "飲料",
+      "キャンペーン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "アコーディオン"
+    ],
+    "linkType": "external",
+    "url": "https://morning-bloom-call-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/morning-bloom-call-lp.jpg",
+    "author": "saruga"
   }
 ];

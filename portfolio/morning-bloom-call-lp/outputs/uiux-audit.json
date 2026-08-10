@@ -1,0 +1,337 @@
+{
+  "target": "portfolio/morning-bloom-call-lp/lp/index.html",
+  "results": [
+    {
+      "viewport": "mobile",
+      "size": "390×844",
+      "findings": [
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜14pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "main#top > section.hero > div.hero-copy > p",
+              "detail": "14.4px \"対象商品を読み取ると、今日のあなたへ届くオリジナル音声メッセージ。\""
+            },
+            {
+              "selector": "main#top > section.voices.reveal > p.note",
+              "detail": "12.0px \"※登場人物はすべて架空です。\""
+            }
+          ]
+        },
+        {
+          "id": "contrast-on-image",
+          "severity": "info",
+          "category": "アクセシビリティ",
+          "message": "背景画像の明るい部分に重なるとAA未満になりうる文字。スクリム（半透明の暗幕）を濃くするか、実画像で目視確認する",
+          "count": 30,
+          "examples": [
+            {
+              "selector": "main#top > section.intro.reveal > p.section-kicker",
+              "detail": "1.48〜14.23:1 \"GOOD MORNING, GOOD DAY.\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > h2",
+              "detail": "1.48〜14.23:1 \"人気の声で、あなたの朝がはじまる。\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > p",
+              "detail": "1.48〜14.23:1 \"慌ただしい朝にも、ひと息つける時間を。MORNING BLOOMを手に取ると、日\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"OAT\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"MINT\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"COCOA\""
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の43%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "main#top > section.hero > div.hero-copy",
+              "detail": "paddingBottom: 390.0px"
+            },
+            {
+              "selector": "main#top > section.hero > div.hero-copy > p.eyebrow",
+              "detail": "marginTop: 14.4px"
+            },
+            {
+              "selector": "main#top > section.hero > div.hero-copy > p.eyebrow",
+              "detail": "marginBottom: 14.4px"
+            },
+            {
+              "selector": "h1#hero-title",
+              "detail": "marginTop: 9.6px"
+            },
+            {
+              "selector": "h1#hero-title",
+              "detail": "marginBottom: 9.6px"
+            },
+            {
+              "selector": "main#top > section.hero > div.hero-copy > p",
+              "detail": "marginTop: 14.4px"
+            }
+          ]
+        },
+        {
+          "id": "center-align-overuse",
+          "severity": "info",
+          "category": "整列",
+          "message": "テキストブロックの73%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "46 / 63 ブロック"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 0個（うちファーストビュー内 0個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "なし"
+            }
+          ]
+        },
+        {
+          "id": "info-sticky-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "追従要素あり（1個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "html > body > header.site-header",
+              "detail": "\"MORNING BLOOM参加方法\""
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 63,
+        "interactives": 8,
+        "headings": 17,
+        "images": 1,
+        "fontFamilies": [
+          "system-ui",
+          "Yu Mincho"
+        ],
+        "fontSizes": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          19,
+          24,
+          27,
+          32,
+          40,
+          48
+        ],
+        "docHeight": 6970,
+        "viewportH": 844
+      }
+    },
+    {
+      "viewport": "desktop",
+      "size": "1440×900",
+      "findings": [
+        {
+          "id": "line-too-long",
+          "severity": "warn",
+          "category": "タイポグラフィ",
+          "message": "1行が長すぎて視線が戻りにくい（日本語は20〜45字が目安）",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "main#top > section.hero > p.period",
+              "detail": "約75字/行 \"キャンペーン期間 2026.8.10 — 9.30\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > p",
+              "detail": "約63字/行 \"慌ただしい朝にも、ひと息つける時間を。MORNING BLOOMを手に取ると、日\""
+            }
+          ]
+        },
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜13pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "main#top > section.voices.reveal > p.note",
+              "detail": "12.0px \"※登場人物はすべて架空です。\""
+            }
+          ]
+        },
+        {
+          "id": "contrast-on-image",
+          "severity": "info",
+          "category": "アクセシビリティ",
+          "message": "背景画像の明るい部分に重なるとAA未満になりうる文字。スクリム（半透明の暗幕）を濃くするか、実画像で目視確認する",
+          "count": 30,
+          "examples": [
+            {
+              "selector": "main#top > section.intro.reveal > p.section-kicker",
+              "detail": "1.48〜14.23:1 \"GOOD MORNING, GOOD DAY.\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > h2",
+              "detail": "1.48〜14.23:1 \"人気の声で、あなたの朝がはじまる。\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > p",
+              "detail": "1.48〜14.23:1 \"慌ただしい朝にも、ひと息つける時間を。MORNING BLOOMを手に取ると、日\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"OAT\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"MINT\""
+            },
+            {
+              "selector": "main#top > section.intro.reveal > div.flavors > span",
+              "detail": "1.48〜14.23:1 \"COCOA\""
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の37%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "h1#hero-title",
+              "detail": "marginTop: 18.7px"
+            },
+            {
+              "selector": "h1#hero-title",
+              "detail": "marginBottom: 18.7px"
+            },
+            {
+              "selector": "main#top > section.hero > div.hero-copy > a.button",
+              "detail": "paddingTop: 14.0px"
+            },
+            {
+              "selector": "main#top > section.hero > div.hero-copy > a.button",
+              "detail": "paddingBottom: 14.0px"
+            },
+            {
+              "selector": "main#top > section.hero > p.period",
+              "detail": "paddingTop: 14.0px"
+            },
+            {
+              "selector": "main#top > section.hero > p.period",
+              "detail": "paddingBottom: 14.0px"
+            }
+          ]
+        },
+        {
+          "id": "center-align-overuse",
+          "severity": "info",
+          "category": "整列",
+          "message": "テキストブロックの60%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "38 / 63 ブロック"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 0個（うちファーストビュー内 0個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "なし"
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 63,
+        "interactives": 8,
+        "headings": 17,
+        "images": 1,
+        "fontFamilies": [
+          "system-ui",
+          "Yu Mincho"
+        ],
+        "fontSizes": [
+          12,
+          13,
+          15,
+          16,
+          19,
+          24,
+          27,
+          40,
+          56,
+          64,
+          94
+        ],
+        "docHeight": 5794,
+        "viewportH": 900
+      }
+    }
+  ]
+}
