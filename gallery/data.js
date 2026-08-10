@@ -914,5 +914,30 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://morning-bloom-call-lp.vercel.app",
     "thumbnail": "assets/thumbnails/morning-bloom-call-lp.jpg",
     "author": "saruga"
+  },
+  {
+    "slug": "night-roast-reward-lp",
+    "type": "lp",
+    "title": "NIGHT ROAST ポイントキャンペーンLP",
+    "heading": "夜を味方に。500名に、小さなご褒美。",
+    "category": "食品・飲料",
+    "moodTags": [
+      "カッコイイ",
+      "上品"
+    ],
+    "productTags": [
+      "飲料",
+      "コーヒー",
+      "キャンペーン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "アコーディオン",
+      "アニメーション"
+    ],
+    "linkType": "external",
+    "url": "https://night-roast-reward-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/night-roast-reward-lp.jpg",
+    "author": "saruga"
   }
 ];
