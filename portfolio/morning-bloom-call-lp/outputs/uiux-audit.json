@@ -145,7 +145,7 @@
         "textElements": 63,
         "interactives": 8,
         "headings": 17,
-        "images": 1,
+        "images": 4,
         "fontFamilies": [
           "system-ui",
           "Yu Mincho"
@@ -163,7 +163,7 @@
           40,
           48
         ],
-        "docHeight": 6970,
+        "docHeight": 7103,
         "viewportH": 844
       }
     },
@@ -238,7 +238,7 @@
           "id": "spacing-off-grid",
           "severity": "info",
           "category": "反復",
-          "message": "余白の37%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "message": "余白の36%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
           "count": 1,
           "examples": [
             {
@@ -311,7 +311,7 @@
         "textElements": 63,
         "interactives": 8,
         "headings": 17,
-        "images": 1,
+        "images": 4,
         "fontFamilies": [
           "system-ui",
           "Yu Mincho"
@@ -329,7 +329,7 @@
           64,
           94
         ],
-        "docHeight": 5794,
+        "docHeight": 5838,
         "viewportH": 900
       }
     }
