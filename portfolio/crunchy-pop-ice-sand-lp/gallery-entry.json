@@ -1,0 +1,14 @@
+{
+  "slug": "crunchy-pop-ice-sand-lp",
+  "type": "lp",
+  "title": "CRUNCHY POP チョコクランチアイスサンドLP",
+  "heading": "ザクッと、ひんやり。気分まで弾ける。",
+  "category": "食品・EC",
+  "moodTags": ["ポップ", "カラフル"],
+  "productTags": ["食品", "アイス", "お菓子"],
+  "featureTags": ["レスポンシブ", "CTAボタン"],
+  "linkType": "external",
+  "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
+  "thumbnail": "assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
+  "author": "saruga"
+}
