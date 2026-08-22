@@ -940,5 +940,28 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://night-roast-reward-lp.vercel.app",
     "thumbnail": "assets/thumbnails/night-roast-reward-lp.jpg",
     "author": "saruga"
+  },
+  {
+    "slug": "sumikei-water-lp",
+    "type": "lp",
+    "title": "澄景水",
+    "heading": "山の時間を、そのまま一滴に。",
+    "category": "飲料・食品",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "天然水",
+      "飲料"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "ボタン実装"
+    ],
+    "linkType": "external",
+    "url": "https://sumikei-water-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/sumikei-water-lp.jpg",
+    "author": "saruga"
   }
 ];

@@ -1,0 +1,52 @@
+.aqua{color:var(--ink)}
+.aqua .cta{color:#fff}
+.scroll,footer p{font-size:12px}
+.quality li span{font-size:12px}
+footer a{min-height:44px;display:flex;align-items:center}
+.menu{min-width:44px;min-height:44px}
+.hero .scroll{min-height:44px}
+.cards article p{font-size:14px}
+
+/* Interactive CTA — inspired by the reference LP's blue panel and round arrow */
+.cta{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:58px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:3px;
+  background:linear-gradient(110deg,#005da8 0%,#0076c9 55%,#005da8 100%);
+  box-shadow:0 8px 0 rgba(0,74,128,.16),0 16px 32px rgba(0,91,157,.22);
+}
+.cta::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.25) 45%,transparent 65%);
+  transform:translateX(-120%);
+  transition:transform .55s ease;
+}
+.cta::after{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:7px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#7ee7ff,transparent);
+  opacity:.75;
+}
+.cta i{
+  width:30px;
+  height:30px;
+  border:2px solid rgba(255,255,255,.85);
+  box-shadow:0 0 0 4px rgba(255,255,255,.12);
+}
+.cta:hover{transform:translateY(-4px);box-shadow:0 11px 0 rgba(0,74,128,.13),0 20px 38px rgba(0,91,157,.28)}
+.cta:hover::before{transform:translateX(120%)}
+.cta:hover i{transform:translateX(4px) rotate(-8deg)}
+.cta:active{transform:translateY(1px);box-shadow:0 3px 0 rgba(0,74,128,.18),0 8px 18px rgba(0,91,157,.2)}
+.cta.light{border-color:#b7e7f5;background:linear-gradient(110deg,#fff,#eaf9fd 55%,#fff);box-shadow:0 8px 0 rgba(0,74,128,.2),0 16px 32px rgba(0,44,76,.18)}
+@media(max-width:767px){.cta{width:min(100%,320px);min-height:60px}}
+@media(prefers-reduced-motion:reduce){.cta::before{display:none}}
