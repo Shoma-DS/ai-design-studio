@@ -1,0 +1,412 @@
+{
+  "target": "portfolio/sumika-milk-tea-lp/lp/index.html",
+  "results": [
+    {
+      "viewport": "mobile",
+      "size": "390×844",
+      "findings": [
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜14pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 8,
+          "examples": [
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "13.0px \"商品を見る\""
+            },
+            {
+              "selector": "section#top > div.hero-copy > p",
+              "detail": "14.0px \"紅茶の輪郭と、ミルクのまろやかさ。一口のなかで、美しく重なる。\""
+            },
+            {
+              "selector": "section#lineup > div.cards > article.product-card.reveal > p",
+              "detail": "13.0px \"紅茶のコクとミルクの調和。270ml\""
+            },
+            {
+              "selector": "section#lineup > div.cards > article.product-card.reveal > p",
+              "detail": "13.0px \"軽やかな甘さと爽やかな後味。270ml\""
+            },
+            {
+              "selector": "section#lineup > div.cards > article.product-card.reveal > p",
+              "detail": "13.0px \"茶葉の香りをまっすぐ楽しむ。500ml\""
+            },
+            {
+              "selector": "main > section.final-cta > div > p",
+              "detail": "12.0px \"YOUR QUIET TEA MOMENT\""
+            }
+          ]
+        },
+        {
+          "id": "contrast-on-image",
+          "severity": "info",
+          "category": "アクセシビリティ",
+          "message": "背景画像の明るい部分に重なるとAA未満になりうる文字。スクリム（半透明の暗幕）を濃くするか、実画像で目視確認する",
+          "count": 4,
+          "examples": [
+            {
+              "selector": "section#story > div.story-inner.reveal > p.eyebrow",
+              "detail": "3.62〜5.80:1 \"OUR CRAFT\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > h2",
+              "detail": "1.00〜21.00:1 \"香りの一滴まで、ていねいに。\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > p",
+              "detail": "1.00〜21.00:1 \"茶葉の選定から抽出、ミルクとの調和まで。数字だけでは測れない香りと口あたりを、つ\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > div.signature",
+              "detail": "3.62〜5.80:1 \"SUMIKA TEA CRAFT\""
+            }
+          ]
+        },
+        {
+          "id": "font-size-variety",
+          "severity": "info",
+          "category": "反復",
+          "message": "文字サイズが14種類。タイプスケール（例: 12/14/16/20/24/32/40/56）に整理すると統一感が出る",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "9, 11, 12, 13, 14, 16, 18, 20, 23, 24, 30, 34, 38, 42 px"
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の33%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "body > header.header > a.brand > span",
+              "detail": "marginBottom: 6.0px"
+            },
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "paddingTop: 9.0px"
+            },
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "paddingBottom: 9.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy > h1",
+              "detail": "marginTop: 18.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy > h1",
+              "detail": "marginBottom: 22.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy > p",
+              "detail": "marginTop: 14.0px"
+            }
+          ]
+        },
+        {
+          "id": "center-align-overuse",
+          "severity": "info",
+          "category": "整列",
+          "message": "テキストブロックの52%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "32 / 62 ブロック"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 1個（うちファーストビュー内 0個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "\"どこで購入できますか？＋\""
+            }
+          ]
+        },
+        {
+          "id": "cta-below-fold",
+          "severity": "warn",
+          "category": "コンバージョン",
+          "message": "ファーストビュー内にCTAがない。最初の画面で次の行動を示す",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "info-sticky-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "追従要素あり（1個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "html > body > header.header",
+              "detail": "\"SUMIKA澄香 おいしさ商品ものづくり 商品を見る\""
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 62,
+        "interactives": 11,
+        "headings": 11,
+        "images": 1,
+        "fontFamilies": [
+          "Yu Mincho",
+          "Georgia",
+          "sans-serif"
+        ],
+        "fontSizes": [
+          9,
+          11,
+          12,
+          13,
+          14,
+          16,
+          18,
+          20,
+          23,
+          24,
+          30,
+          34,
+          38,
+          42
+        ],
+        "docHeight": 7770,
+        "viewportH": 844
+      }
+    },
+    {
+      "viewport": "desktop",
+      "size": "1440×900",
+      "findings": [
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜13pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 11,
+          "examples": [
+            {
+              "selector": "body > header.header > nav > a",
+              "detail": "13.0px \"おいしさ\""
+            },
+            {
+              "selector": "body > header.header > nav > a",
+              "detail": "13.0px \"商品\""
+            },
+            {
+              "selector": "body > header.header > nav > a",
+              "detail": "13.0px \"ものづくり\""
+            },
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "13.0px \"商品を見る\""
+            },
+            {
+              "selector": "section#top > a.scroll",
+              "detail": "12.0px \"SCROLL\""
+            },
+            {
+              "selector": "section#lineup > div.cards > article.product-card.reveal > p",
+              "detail": "13.0px \"紅茶のコクとミルクの調和。270ml\""
+            }
+          ]
+        },
+        {
+          "id": "line-too-long",
+          "severity": "warn",
+          "category": "タイポグラフィ",
+          "message": "1行が長すぎて視線が戻りにくい（日本語は20〜45字が目安）",
+          "count": 4,
+          "examples": [
+            {
+              "selector": "section#top > div.hero-copy > p",
+              "detail": "約75字/行 \"紅茶の輪郭と、ミルクのまろやかさ。一口のなかで、美しく重なる。\""
+            },
+            {
+              "selector": "section#faq > div.faq-list > details > p",
+              "detail": "約51字/行 \"このLPは自主制作の架空ブランドです。実際の販売は行っていません。\""
+            },
+            {
+              "selector": "section#faq > div.faq-list > details > p",
+              "detail": "約51字/行 \"ブランドコンセプト上は、冷温どちらでも香りが引き立つ設計を想定しています。\""
+            },
+            {
+              "selector": "section#faq > div.faq-list > details > p",
+              "detail": "約51字/行 \"乳成分を含む想定です。実商品ではないため、表示内容はデザイン上のサンプルです。\""
+            }
+          ]
+        },
+        {
+          "id": "contrast-on-image",
+          "severity": "info",
+          "category": "アクセシビリティ",
+          "message": "背景画像の明るい部分に重なるとAA未満になりうる文字。スクリム（半透明の暗幕）を濃くするか、実画像で目視確認する",
+          "count": 4,
+          "examples": [
+            {
+              "selector": "section#story > div.story-inner.reveal > p.eyebrow",
+              "detail": "3.62〜5.80:1 \"OUR CRAFT\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > h2",
+              "detail": "1.00〜21.00:1 \"香りの一滴まで、ていねいに。\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > p",
+              "detail": "1.00〜21.00:1 \"茶葉の選定から抽出、ミルクとの調和まで。数字だけでは測れない香りと口あたりを、つ\""
+            },
+            {
+              "selector": "section#story > div.story-inner.reveal > div.signature",
+              "detail": "3.62〜5.80:1 \"SUMIKA TEA CRAFT\""
+            }
+          ]
+        },
+        {
+          "id": "font-size-variety",
+          "severity": "info",
+          "category": "反復",
+          "message": "文字サイズが14種類。タイプスケール（例: 12/14/16/20/24/32/40/56）に整理すると統一感が出る",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "9, 11, 12, 13, 16, 18, 20, 23, 24, 54, 56, 58, 62, 72 px"
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の36%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "body > header.header > a.brand > span",
+              "detail": "marginBottom: 6.0px"
+            },
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "paddingTop: 10.0px"
+            },
+            {
+              "selector": "html > body > header.header > a.mini-cta",
+              "detail": "paddingBottom: 10.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy",
+              "detail": "paddingTop: 126.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy > h1",
+              "detail": "marginTop: 18.0px"
+            },
+            {
+              "selector": "section#top > div.hero-copy > h1",
+              "detail": "marginBottom: 22.0px"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 1個（うちファーストビュー内 0個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "\"どこで購入できますか？＋\""
+            }
+          ]
+        },
+        {
+          "id": "cta-below-fold",
+          "severity": "warn",
+          "category": "コンバージョン",
+          "message": "ファーストビュー内にCTAがない。最初の画面で次の行動を示す",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 65,
+        "interactives": 15,
+        "headings": 11,
+        "images": 1,
+        "fontFamilies": [
+          "Yu Mincho",
+          "Georgia",
+          "sans-serif"
+        ],
+        "fontSizes": [
+          9,
+          11,
+          12,
+          13,
+          16,
+          18,
+          20,
+          23,
+          24,
+          54,
+          56,
+          58,
+          62,
+          72
+        ],
+        "docHeight": 6594,
+        "viewportH": 900
+      }
+    }
+  ]
+}
