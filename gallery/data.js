@@ -885,8 +885,7 @@ window.PORTFOLIO_GALLERY_DATA = [
       "お菓子"
     ],
     "featureTags": [
-      "レスポンシブ",
-      "CTAボタン"
+      "レスポンシブ"
     ],
     "linkType": "external",
     "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
@@ -962,6 +961,54 @@ window.PORTFOLIO_GALLERY_DATA = [
     "linkType": "external",
     "url": "https://sumikei-water-lp.vercel.app",
     "thumbnail": "assets/thumbnails/sumikei-water-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "yukishizuku-water-mochi-lp",
+    "type": "lp",
+    "title": "雪しずく｜天然水仕立てのひとくち水もち",
+    "heading": "ひとくちで、涼がほどける。",
+    "category": "食品・EC",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "食品",
+      "スイーツ"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "ボタン実装"
+    ],
+    "linkType": "external",
+    "url": "https://yukishizuku-water-mochi-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/yukishizuku-water-mochi-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "sumika-milk-tea-lp",
+    "type": "lp",
+    "title": "澄香ミルクティー コンセプトLP",
+    "heading": "ほどける香り、満ちる余韻。",
+    "category": "食品・EC",
+    "moodTags": [
+      "上品",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "食品",
+      "飲料"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "固定ヘッダー",
+      "アコーディオン",
+      "レスポンシブ"
+    ],
+    "linkType": "external",
+    "url": "https://sumika-milk-tea-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/sumika-milk-tea-lp.jpg",
     "author": "saruga"
   }
 ];

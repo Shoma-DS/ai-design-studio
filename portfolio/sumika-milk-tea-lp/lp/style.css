@@ -259,6 +259,22 @@ summary:focus-visible {
   top: 30%;
   transform: rotate(-22deg);
 }
+.craft {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--cream);
+}
+.craft-visual {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+.craft-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .craft-row {
   min-height: 620px;
   display: grid;
