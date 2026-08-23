@@ -380,6 +380,23 @@ summary:focus-visible {
   padding: 42px 26px 30px;
   box-shadow: 0 1px 0 rgba(21, 42, 94, 0.1);
 }
+.bottle-illustration {
+  width: min(100%, 280px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 28px;
+  background-image: url("./images/product-lineup-illustrated-real-v4.png");
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+}
+.bottle-royal {
+  background-position: left center;
+}
+.bottle-light {
+  background-position: center center;
+}
+.bottle-straight {
+  background-position: right center;
+}
 .bottle {
   width: 112px;
   height: 260px;

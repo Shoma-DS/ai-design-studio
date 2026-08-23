@@ -64,23 +64,10 @@
           ]
         },
         {
-          "id": "font-size-variety",
-          "severity": "info",
-          "category": "反復",
-          "message": "文字サイズが13種類。タイプスケール（例: 12/14/16/20/24/32/40/56）に整理すると統一感が出る",
-          "count": 1,
-          "examples": [
-            {
-              "selector": "document",
-              "detail": "9, 12, 13, 14, 16, 18, 20, 23, 24, 30, 34, 38, 42 px"
-            }
-          ]
-        },
-        {
           "id": "spacing-off-grid",
           "severity": "info",
           "category": "反復",
-          "message": "余白の31%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "message": "余白の26%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
           "count": 1,
           "examples": [
             {
@@ -113,12 +100,12 @@
           "id": "center-align-overuse",
           "severity": "info",
           "category": "整列",
-          "message": "テキストブロックの60%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "message": "テキストブロックの58%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
           "count": 1,
           "examples": [
             {
               "selector": "document",
-              "detail": "32 / 53 ブロック"
+              "detail": "29 / 50 ブロック"
             }
           ]
         },
@@ -197,7 +184,7 @@
         }
       ],
       "stats": {
-        "textElements": 53,
+        "textElements": 50,
         "interactives": 11,
         "headings": 8,
         "images": 4,
@@ -215,13 +202,12 @@
           18,
           20,
           23,
-          24,
           30,
           34,
           38,
           42
         ],
-        "docHeight": 7448,
+        "docHeight": 7508,
         "viewportH": 844
       }
     },
@@ -267,11 +253,15 @@
           "severity": "warn",
           "category": "タイポグラフィ",
           "message": "1行が長すぎて視線が戻りにくい（日本語は20〜45字が目安）",
-          "count": 4,
+          "count": 5,
           "examples": [
             {
               "selector": "section#top > div.hero-copy > p",
               "detail": "約75字/行 \"紅茶の輪郭と、ミルクのまろやかさ。一口のなかで、美しく重なる。\""
+            },
+            {
+              "selector": "section#intro > p.body.reveal",
+              "detail": "約79字/行 \"しっかりとした紅茶感。やさしく包むミルク。甘さに頼らず、素材の調和で生まれる奥行\""
             },
             {
               "selector": "section#faq > div.faq-list > details > p",
@@ -316,7 +306,7 @@
           "id": "spacing-off-grid",
           "severity": "info",
           "category": "反復",
-          "message": "余白の34%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "message": "余白の29%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
           "count": 1,
           "examples": [
             {
@@ -349,12 +339,12 @@
           "id": "center-align-overuse",
           "severity": "info",
           "category": "整列",
-          "message": "テキストブロックの55%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "message": "テキストブロックの54%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
           "count": 1,
           "examples": [
             {
               "selector": "document",
-              "detail": "31 / 56 ブロック"
+              "detail": "29 / 54 ブロック"
             }
           ]
         },
@@ -420,7 +410,7 @@
         }
       ],
       "stats": {
-        "textElements": 56,
+        "textElements": 54,
         "interactives": 15,
         "headings": 8,
         "images": 4,
@@ -437,13 +427,12 @@
           18,
           20,
           23,
-          24,
           54,
           58,
           62,
           72
         ],
-        "docHeight": 6426,
+        "docHeight": 6446,
         "viewportH": 900
       }
     }
