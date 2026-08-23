@@ -1,0 +1,14 @@
+{
+  "slug": "asa-paku-morning-campaign-lp",
+  "type": "lp",
+  "title": "ASA PAKU 朝キャンペーンLP",
+  "heading": "朝は、ひとくちから。",
+  "category": "食品・飲料",
+  "moodTags": ["ポップ", "明るい", "親しみやすい"],
+  "productTags": ["お菓子", "キャンペーン"],
+  "featureTags": ["レスポンシブ", "カルーセル", "FAQ", "モーダル"],
+  "linkType": "external",
+  "url": "https://asa-paku-morning-campaign-lp.vercel.app",
+  "thumbnail": "assets/thumbnails/asa-paku-morning-campaign-lp.jpg",
+  "author": "saruga"
+}
