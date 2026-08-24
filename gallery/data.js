@@ -1036,5 +1036,28 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://asa-paku-morning-campaign-lp.vercel.app",
     "thumbnail": "assets/thumbnails/asa-paku-morning-campaign-lp.jpg",
     "author": "saruga"
+  },
+  {
+    "slug": "uminone-kaidashi-ramen-lp",
+    "type": "lp",
+    "title": "うみの音｜貝だしラーメンLP",
+    "heading": "ひと口すすれば、海の余韻。",
+    "category": "食品・EC",
+    "moodTags": [
+      "レトロ",
+      "ポップ"
+    ],
+    "productTags": [
+      "食品",
+      "ラーメン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "CTAボタン"
+    ],
+    "linkType": "external",
+    "url": "https://uminone-kaidashi-ramen-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/uminone-kaidashi-ramen-lp.jpg",
+    "author": "saruga"
   }
 ];

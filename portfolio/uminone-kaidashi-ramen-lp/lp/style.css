@@ -1,0 +1,516 @@
+:root {
+  --red: #e62323;
+  --ink: #24231f;
+  --blue: #86c6df;
+  --cream: #fff5df;
+  --yellow: #f2bd32;
+  --green: #9ca660;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: #f8f0df;
+  background-image: radial-gradient(#6e57310d 1px, transparent 1px);
+  background-size: 5px 5px;
+}
+a {
+  color: inherit;
+}
+.site-header {
+  height: 68px;
+  padding: 0 clamp(18px, 4vw, 64px);
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  background: var(--red);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 3px solid var(--ink);
+}
+.brand {
+  font-weight: 900;
+  font-size: 25px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+.site-header nav {
+  display: flex;
+  gap: 26px;
+  margin-left: auto;
+}
+.site-header nav a {
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+.mini-cta {
+  background: #fff;
+  color: var(--red);
+  padding: 10px 16px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  text-decoration: none;
+  font-weight: 900;
+}
+.hero {
+  max-width: 1440px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-inline: 3px solid var(--ink);
+}
+.hero picture,
+.hero img {
+  display: block;
+  width: 100%;
+}
+.hero-copy {
+  position: absolute;
+  left: 7%;
+  top: 12%;
+  max-width: 480px;
+}
+.kicker,
+.eyebrow {
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+.hero h1 {
+  font-size: clamp(48px, 7vw, 104px);
+  line-height: 0.93;
+  margin: 14px 0;
+  text-shadow: 3px 3px 0 #fff;
+  color: var(--red);
+  letter-spacing: -0.06em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #fff;
+  -webkit-text-stroke: 3px var(--red);
+}
+.hero-copy > p:last-of-type {
+  font-weight: 800;
+  max-width: 350px;
+  line-height: 1.8;
+}
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(100%, 340px);
+  margin-top: 24px;
+  padding: 18px 20px;
+  background: var(--red);
+  color: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  text-decoration: none;
+  font-weight: 900;
+  transition:
+    transform 0.16s,
+    box-shadow 0.16s;
+}
+.cta:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.cta:focus-visible,
+.mini-cta:focus-visible,
+.floating:focus-visible,
+summary:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 4px;
+}
+.paper,
+.flavors,
+.craft,
+.noodle,
+.howto,
+.buy,
+.faq {
+  max-width: 1200px;
+  margin: auto;
+  padding: clamp(72px, 9vw, 128px) clamp(24px, 7vw, 92px);
+}
+h2 {
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: 1.16;
+  margin: 12px 0 28px;
+  letter-spacing: -0.04em;
+}
+.intro {
+  position: relative;
+  text-align: center;
+  background: var(--cream);
+}
+.intro > p:last-of-type {
+  max-width: 700px;
+  margin: auto;
+  line-height: 2;
+}
+.eyebrow {
+  color: var(--red);
+  font-size: 13px;
+}
+.stamp {
+  position: absolute;
+  right: 8%;
+  bottom: 12%;
+  border: 4px double var(--red);
+  color: var(--red);
+  font-weight: 900;
+  padding: 12px;
+  transform: rotate(8deg);
+}
+.flavors {
+  background: #fff;
+}
+.flavors > h2,
+.flavors > .eyebrow {
+  text-align: center;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.cards article {
+  position: relative;
+  padding: 24px;
+  text-align: center;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.cards article > span {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--red);
+}
+.bowl {
+  width: 150px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 28px auto;
+  background: #e8bf72;
+  border: 10px solid #fff;
+  outline: 3px solid var(--ink);
+  font-size: 0;
+  box-shadow: inset 0 0 0 4px #a8682c;
+}
+.bowl.red {
+  background: #a8432d;
+}
+.bowl.green {
+  background: #73784b;
+}
+.cards h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.cards p {
+  line-height: 1.7;
+}
+.craft {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  background: var(--yellow);
+}
+.craft p,
+.noodle p {
+  line-height: 1.9;
+}
+.craft li {
+  margin: 12px 0;
+  font-weight: 800;
+}
+.diagram {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 390px;
+}
+.diagram i {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  font-style: normal;
+  font-weight: 900;
+}
+.diagram i:nth-child(1) {
+  top: 10px;
+  left: 10px;
+}
+.diagram i:nth-child(2) {
+  top: 20px;
+  right: 0;
+}
+.diagram i:nth-child(3) {
+  bottom: 10px;
+  left: 25%;
+}
+.diagram strong {
+  z-index: 1;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: var(--red);
+  color: #fff;
+  border: 4px solid var(--ink);
+  font-size: 28px;
+  transform: rotate(-4deg);
+}
+.noodle {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+  background: #fff;
+}
+.noodle-art {
+  font-family: serif;
+  font-size: 80px;
+  line-height: 0.65;
+  color: #9b4b12;
+  transform: rotate(-8deg);
+  text-shadow: 3px 3px 0 var(--yellow);
+}
+.howto {
+  text-align: center;
+  background: var(--blue);
+}
+.howto ol {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.howto li {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  padding: 24px;
+  font-weight: 800;
+}
+.howto li b {
+  display: block;
+  color: var(--red);
+  font-size: 48px;
+}
+.tip {
+  display: inline-block;
+  background: #fff;
+  padding: 12px 20px;
+  border: 2px dashed var(--ink);
+  font-weight: 800;
+}
+.buy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  background: var(--red);
+  color: #fff;
+}
+.buy .eyebrow {
+  color: var(--yellow);
+}
+.offer {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 32px;
+  border: 3px solid var(--ink);
+  box-shadow: 9px 9px 0 var(--ink);
+}
+.offer > strong {
+  display: block;
+  font-size: 54px;
+  color: var(--red);
+}
+.offer > span {
+  display: inline-block;
+  background: var(--yellow);
+  padding: 5px 10px;
+  font-weight: 900;
+}
+.dark {
+  background: var(--ink);
+}
+.offer > small {
+  display: block;
+  margin-top: 18px;
+  line-height: 1.7;
+}
+.buy > div > p {
+  line-height: 1.8;
+}
+.faq {
+  background: #fff;
+}
+.faq details {
+  border-top: 2px solid var(--ink);
+  padding: 20px 0;
+}
+.faq details:last-child {
+  border-bottom: 2px solid var(--ink);
+}
+summary {
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 19px;
+}
+.faq details p {
+  line-height: 1.8;
+  padding-left: 24px;
+}
+footer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 56px;
+  background: var(--cream);
+  border-top: 3px solid var(--ink);
+}
+footer p {
+  margin: 8px 0;
+}
+.floating {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 15;
+  background: var(--red);
+  color: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: 900;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 767px) {
+  .site-header {
+    height: 58px;
+  }
+  .site-header nav {
+    display: none;
+  }
+  .site-header .brand {
+    font-size: 20px;
+  }
+  .mini-cta {
+    margin-left: auto;
+    padding: 8px 10px;
+  }
+  .hero {
+    border: 0;
+  }
+  .hero img {
+    min-height: 720px;
+    object-fit: cover;
+  }
+  .hero-copy {
+    left: 22px;
+    right: 22px;
+    top: 5%;
+    max-width: none;
+  }
+  .hero h1 {
+    font-size: 55px;
+  }
+  .hero-copy > p:last-of-type {
+    font-size: 14px;
+    max-width: 280px;
+  }
+  .hero .cta {
+    margin-top: 14px;
+    width: 250px;
+    padding: 14px;
+  }
+  .stamp {
+    position: static;
+    display: inline-block;
+    margin-top: 28px;
+  }
+  .cards,
+  .craft,
+  .noodle,
+  .howto ol,
+  .buy {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    gap: 28px;
+  }
+  .craft,
+  .noodle,
+  .buy {
+    gap: 30px;
+  }
+  .noodle-art {
+    font-size: 56px;
+  }
+  .diagram {
+    min-height: 330px;
+  }
+  .floating {
+    left: 18px;
+    right: 18px;
+    bottom: 14px;
+    text-align: center;
+  }
+  .paper,
+  .flavors,
+  .craft,
+  .noodle,
+  .howto,
+  .buy,
+  .faq {
+    padding: 68px 24px;
+  }
+  footer {
+    padding: 48px 24px 90px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .cta {
+    transition: none;
+  }
+}
