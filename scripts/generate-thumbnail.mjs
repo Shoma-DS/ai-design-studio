@@ -22,7 +22,7 @@ fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 await page.goto(`file://${absoluteInput}`, { waitUntil: "networkidle" });
-await page.screenshot({ path: path.resolve(outputPath), type: "jpeg", quality: 85 });
+await page.screenshot({ path: path.resolve(outputPath), type: "jpeg", quality: 92 });
 await browser.close();
 
 console.log(`saved: ${outputPath}`);
