@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="すずの家のネギ丼調理マニュアル。分量と調理手順を掲載しています。">
+  <title>すずの家｜ネギ丼 調理マニュアル</title>
+  <style>
+    :root { --ink:#241d18; --red:#b83224; --gold:#e5a92e; --cream:#fff9ed; --line:#e2d6c5; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#eee8dd; font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.65; }
+    main { width:min(960px,calc(100% - 32px)); margin:32px auto; background:#fff; box-shadow:0 12px 36px #39251320; }
+    header { display:grid; grid-template-columns:1.25fr .75fr; min-height:270px; background:var(--ink); color:#fff; }
+    .hero-copy { padding:38px 42px; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { margin:0 0 4px; color:#ffd676; font-weight:800; letter-spacing:.16em; }
+    h1 { margin:0; font-size:clamp(34px,6vw,62px); line-height:1.1; letter-spacing:.06em; }
+    .subtitle { margin:12px 0 0; font-size:18px; font-weight:700; }
+    .hero-photo { width:100%; height:100%; min-height:270px; object-fit:cover; }
+    .content { padding:34px 42px 42px; }
+    h2 { margin:0 0 16px; padding-left:12px; border-left:7px solid var(--red); font-size:24px; }
+    .size-table { width:100%; border-collapse:collapse; margin-bottom:34px; font-size:17px; }
+    .size-table th,.size-table td { border:1px solid var(--line); padding:12px 14px; text-align:center; }
+    .size-table th { background:var(--ink); color:#fff; }
+    .size-table td:first-child { background:var(--cream); font-weight:900; }
+    ol { list-style:none; padding:0; margin:0; max-width:700px; counter-reset:step; display:grid; gap:16px; }
+    li { counter-increment:step; position:relative; padding:18px 20px 18px 76px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+    li::before { content:counter(step); position:absolute; left:18px; top:18px; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--red); color:#fff; font-size:22px; font-weight:900; }
+    li strong { display:block; margin-bottom:3px; font-size:20px; }
+    .note { margin-top:12px; padding:10px 13px; border-left:5px solid var(--gold); background:var(--cream); font-weight:700; }
+    footer { padding:13px 42px; background:var(--ink); color:#fff; text-align:center; font-weight:700; letter-spacing:.06em; }
+    @media (max-width:680px) {
+      main { width:100%; margin:0; }
+      header { grid-template-columns:1fr; }
+      .hero-copy,.content { padding:26px 22px; }
+      .hero-photo { max-height:240px; }
+      .size-table { font-size:14px; }
+      .size-table th,.size-table td { padding:9px 6px; }
+    }
+    @media print {
+      @page { size:A4; margin:8mm; }
+      body { background:#fff; }
+      main { width:100%; margin:0; box-shadow:none; zoom:.88; }
+      header { min-height:210px; }
+      .hero-copy { padding:25px 32px; }
+      .hero-photo { min-height:210px; }
+      .content { padding:22px 30px 25px; }
+      h1 { font-size:42px; }
+      h2 { font-size:20px; margin-bottom:10px; }
+      .size-table { margin-bottom:24px; font-size:14px; }
+      .size-table th,.size-table td { padding:7px 8px; }
+      ol { gap:9px; }
+      li { padding:10px 14px 10px 60px; line-height:1.45; }
+      li::before { left:13px; top:10px; width:34px; height:34px; font-size:18px; }
+      li strong { font-size:17px; }
+      .note { margin-top:7px; padding:6px 10px; }
+      footer { padding:8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="hero-copy">
+        <p class="eyebrow">すずの家 調理マニュアル</p>
+        <h1>ネギ丼</h1>
+        <p class="subtitle">分量と手順を守って、いつも同じ一杯に。</p>
+      </div>
+      <img class="hero-photo" src="./すずの家｜ネギ丼 調理マニュアル_files/IMG_8008.jpeg" width="259" height="194" alt="ネギ丼の完成写真">
+    </header>
+    <div class="content">
+      <section>
+        <h2>1杯分の材料</h2>
+        <table class="size-table">
+          <thead><tr><th>材料</th><th>分量</th></tr></thead>
+          <tbody>
+            <tr><td>ごはん</td><td>200g（約茶碗1杯分）</td></tr>
+            <tr><td>白ネギ</td><td>30g</td></tr>
+            <tr><td>豆板醤</td><td>1杯（5g）</td></tr>
+            <tr><td>ラーゴマタレ</td><td>2周半</td></tr>
+            <tr><td>こま切れ肉</td><td>20g</td></tr>
+            <tr><td>塩ラーメンのタレ</td><td>8cc</td></tr>
+            <tr><td>ゴマ</td><td>適量</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>調理手順</h2>
+        <ol>
+          <li><strong>辛ネギを作る</strong>白ネギ30g、豆板醤1杯（5g）、ラーゴマタレ2周半を入れ、全体をよくかき混ぜる。</li>
+          <li><strong>こま切れ肉を温める</strong>こま切れ肉20gに塩ラーメンのタレ8ccをかけ、レンジで温める。</li>
+          <li><strong>ごはんに盛り付ける</strong>白い器にごはん200g（約茶碗1杯分）をよそい、その上に辛ネギと温めたこま切れ肉（20g＋塩ラーメンのタレ8cc）を盛り付ける。肉は辛ネギの上にのせる。<div class="note">必ず白い器を使用します。</div></li>
+          <li><strong>仕上げる</strong>全体にゴマを振りかけ、盛り付けを整えたら完成。</li>
+        </ol>
+      </section>
+    </div>
+    <footer>白い器を使用し、盛り付けを整えて提供</footer>
+  </main>
+</body>
+</html>

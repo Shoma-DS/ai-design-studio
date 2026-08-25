@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="すずの家の券売機締め作業マニュアル。伝票発行、売上金の封入、釣銭確認の手順を掲載しています。">
+  <title>すずの家｜券売機 締め作業マニュアル</title>
+  <style>
+    :root { --ink:#251d18; --red:#b83224; --gold:#e5a92e; --cream:#fff8ea; --line:#ddd0bd; --pale:#f5eee3; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#eee8dd; font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.6; }
+    main { width:min(960px,calc(100% - 32px)); margin:32px auto; background:#fff; box-shadow:0 12px 36px #39251320; }
+    header { padding:34px 42px 30px; color:#fff; background:var(--ink); border-bottom:8px solid var(--gold); }
+    .eyebrow { margin:0 0 5px; color:#ffd676; font-weight:800; letter-spacing:.16em; }
+    h1 { margin:0; font-size:clamp(32px,6vw,58px); line-height:1.15; letter-spacing:.05em; }
+    .lead { display:flex; align-items:center; gap:14px; margin-top:18px; }
+    .time { flex:none; padding:8px 16px; border-radius:999px; color:var(--ink); background:#ffd676; font-size:18px; font-weight:900; }
+    .lead p { margin:0; font-weight:700; }
+    .content { padding:30px 42px 38px; }
+    .steps { display:grid; gap:18px; }
+    .step { position:relative; padding:22px 24px 22px 84px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    .num { position:absolute; left:22px; top:22px; display:grid; place-items:center; width:44px; height:44px; border-radius:50%; color:#fff; background:var(--red); font-size:24px; font-weight:900; }
+    h2 { margin:0 0 10px; font-size:23px; line-height:1.35; }
+    p { margin:8px 0; }
+    ul { margin:8px 0 0; padding-left:1.35em; }
+    li + li { margin-top:5px; }
+    .print-list { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+    .print-item { padding:12px 14px; border-left:5px solid var(--red); background:var(--pale); font-weight:800; }
+    .label-fields { display:grid; grid-template-columns:repeat(2,1fr); gap:7px 18px; margin:12px 0; padding:14px 18px; background:var(--cream); border:1px solid #ead9b7; }
+    .label-fields span::before { content:"□"; margin-right:8px; color:var(--red); font-weight:900; }
+    .formula { margin-top:13px; padding:14px 16px; border:2px solid var(--gold); border-radius:9px; background:#fffaf0; font-size:18px; font-weight:900; text-align:center; }
+    .warning { margin-top:14px; padding:13px 16px; border-left:6px solid var(--red); background:#fff0eb; font-weight:800; }
+    .storage { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+    .storage-box { padding:13px 15px; border:1px solid var(--line); border-radius:8px; background:var(--pale); }
+    .storage-box strong { display:block; margin-bottom:4px; color:var(--red); font-size:17px; }
+    .photo-section { margin-top:26px; padding-top:24px; border-top:2px dashed var(--line); }
+    .photo-section h2 { padding-left:11px; border-left:7px solid var(--red); }
+    figure { margin:14px 0 0; }
+    figure img { display:block; width:100%; max-height:620px; object-fit:contain; object-position:center; background:var(--pale); border:1px solid var(--line); }
+    figcaption { padding:9px 12px; color:#5d5149; background:var(--pale); font-size:14px; font-weight:700; text-align:center; }
+    footer { padding:14px 42px; color:#fff; background:var(--ink); text-align:center; font-weight:800; letter-spacing:.05em; }
+    @media (max-width:680px) {
+      main { width:100%; margin:0; }
+      header,.content { padding-left:22px; padding-right:22px; }
+      .lead { align-items:flex-start; flex-direction:column; }
+      .step { padding:72px 18px 20px; }
+      .num { left:18px; top:17px; }
+      .print-list,.label-fields { grid-template-columns:1fr; }
+      .storage { grid-template-columns:1fr; }
+    }
+    @media print {
+      @page { size:A4 landscape; margin:6mm; }
+      body { background:#fff; font-size:9px; line-height:1.28; }
+      main { width:100%; margin:0; box-shadow:none; }
+      header { padding:9px 18px 8px; border-bottom-width:4px; }
+      .eyebrow { margin-bottom:1px; font-size:7px; }
+      h1 { font-size:23px; }
+      .lead { margin-top:4px; gap:7px; }
+      .time { padding:2px 8px; font-size:9px; }
+      .content { display:grid; grid-template-columns:1.55fr .75fr; gap:10px; padding:8px 14px 9px; }
+      .steps { gap:5px; }
+      .step { padding:6px 9px 6px 38px; border-radius:5px; break-inside:avoid; }
+      .num { left:8px; top:6px; width:23px; height:23px; font-size:13px; }
+      h2 { margin-bottom:2px; font-size:12px; }
+      p { margin:2px 0; }
+      ul { margin-top:3px; }
+      li + li { margin-top:0; }
+      .print-list { gap:4px; margin-top:3px; }
+      .print-item { padding:3px 6px; border-left-width:3px; }
+      .label-fields { grid-template-columns:repeat(4,1fr); gap:1px 7px; margin:3px 0; padding:4px 7px; }
+      .formula { margin-top:3px; padding:4px; font-size:10px; }
+      .warning { margin-top:3px; padding:4px 7px; border-left-width:4px; }
+      .storage { gap:4px; margin-top:3px; }
+      .storage-box { padding:4px 7px; }
+      .storage-box strong { font-size:10px; }
+      .photo-section { margin:0; padding:0; border:0; align-self:start; }
+      .photo-section h2 { font-size:12px; border-left-width:5px; }
+      figure { margin-top:4px; }
+      figure img { width:100%; max-height:520px; object-fit:contain; }
+      figcaption { padding:3px; font-size:8px; }
+      footer { padding:4px; font-size:8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">すずの家 業務マニュアル</p>
+      <h1>券売機の締め作業</h1>
+      <div class="lead"><span class="time">1:30以降に実施</span><p>伝票・売上金・釣銭の金額を、最後まで必ず確認する。</p></div>
+    </header>
+
+    <div class="content">
+      <div class="steps">
+        <section class="step">
+          <span class="num">1</span>
+          <h2>券売機から伝票を2枚出す</h2>
+          <p>券売機の中にあるリモコンを操作し、<strong>「プリント」</strong>を選択する。</p>
+          <div class="print-list">
+            <div class="print-item">1 → 日計クリア＋プリント</div>
+            <div class="print-item">2 → 時間帯クリア＋プリント</div>
+          </div>
+          <p><strong>2種類の伝票が出たことを確認する。</strong></p>
+        </section>
+
+        <section class="step">
+          <span class="num">2</span>
+          <h2>封筒へ売上を記入して入れる</h2>
+          <p>シールに次の項目を記入し、封筒へ貼る。</p>
+          <div class="label-fields">
+            <span>日付</span><span>店名（すずの家）</span><span>店舗売上</span>
+            <span>Uber Eats</span><span>ロケットナウ</span><span>合計売上</span>
+            <span>小口金移動金額</span>
+          </div>
+          <p>店舗売上金を封筒に入れる。<strong>札束は必ずばらしてから入れる。</strong></p>
+        </section>
+
+        <section class="step">
+          <span class="num">3</span>
+          <h2>釣銭が合計97,000円あるか確認する</h2>
+          <p>次の釣銭をすべて数える。</p>
+          <ul>
+            <li>券売機内の小銭（コインケースに収納）</li>
+            <li>券売機内のお札</li>
+            <li>棒金（黒い袋に入っているもの）</li>
+            <li>両替金のお札</li>
+          </ul>
+          <div class="formula">券売機内の小銭 ＋ 券売機内のお札 ＋ 棒金 ＋ 両替金のお札 ＝ 97,000円 ならOK</div>
+          <div class="warning">小口金を移動した場合：移動金額を売上金から引き、その金額を釣銭のお札へ足す。最後に釣銭の合計が97,000円になることを確認する。</div>
+        </section>
+
+        <section class="step">
+          <span class="num">4</span>
+          <h2>券売機を閉めて、鍵をかける</h2>
+          <p>券売機の中を確認して扉を閉め、<strong>必ず鍵をかける。</strong></p>
+          <div class="warning">券売機の電源は落とさない。</div>
+        </section>
+
+        <section class="step">
+          <span class="num">5</span>
+          <h2>使用したものを指定場所へ戻す</h2>
+          <p>券売機の中にあるものを、次のとおりまとめて保管する。</p>
+          <ul>
+            <li><strong>小銭</strong>はコインケースに入れる。</li>
+            <li><strong>お札</strong>は1万円ずつの束にする。</li>
+            <li>小銭・お札・券売機の鍵を、両替金が入っている<strong>黒い袋</strong>に入れる。</li>
+            <li>棒金は、棒金用の<strong>黒い袋</strong>に戻す。</li>
+            <li>売上金を入れた封筒に伝票2枚をホチキスで留め、ひとまとめにする。</li>
+          </ul>
+          <div class="storage">
+            <div class="storage-box"><strong>炊飯ジャーの下</strong>① 小銭・お札・券売機の鍵を入れた黒い袋<br>② 空の封筒</div>
+            <div class="storage-box"><strong>上の棚の茶色ケース</strong>③ 棒金を入れた黒い袋<br>④ 売上金を記載するシール<br>⑤ 売上金入り封筒＋伝票2枚（ホチキス留め）</div>
+          </div>
+        </section>
+      </div>
+
+      <section class="photo-section">
+        <h2>封筒・伝票の完成例</h2>
+        <figure>
+          <img src="images/ticket-machine-closing-example.png" alt="売上を記入した封筒と、日計・時間帯の伝票2枚の完成例">
+          <figcaption>記入済みシールを貼った封筒と、券売機から出した2種類の伝票</figcaption>
+        </figure>
+      </section>
+    </div>
+    <footer>券売機は施錠する・電源は落とさない・すべて指定場所へ戻す</footer>
+  </main>
+</body>
+</html>

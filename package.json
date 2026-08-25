@@ -20,7 +20,7 @@
     "vite": "^7.2.6"
   },
   "devDependencies": {
-    "playwright": "^1.60.0"
+    "playwright": "^1.62.1"
   },
   "description": "AI design workspace for banners, thumbnails, SNS posts, slides, and landing pages."
 }

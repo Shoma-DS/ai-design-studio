@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="すずの家の油そば調理マニュアル。サイズ別の分量と調理手順を掲載しています。">
+  <title>すずの家｜油そば 調理マニュアル</title>
+  <style>
+    :root { --ink:#241d18; --red:#b83224; --gold:#e5a92e; --cream:#fff9ed; --line:#e2d6c5; }
+    * { box-sizing: border-box; }
+    body { margin:0; color:var(--ink); background:#eee8dd; font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.65; }
+    main { width:min(960px,calc(100% - 32px)); margin:32px auto; background:#fff; box-shadow:0 12px 36px #39251320; }
+    header { display:grid; grid-template-columns:1.25fr .75fr; min-height:270px; background:var(--ink); color:#fff; }
+    .hero-copy { padding:38px 42px; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { margin:0 0 4px; color:#ffd676; font-weight:800; letter-spacing:.16em; }
+    h1 { margin:0; font-size:clamp(34px,6vw,62px); line-height:1.1; letter-spacing:.06em; }
+    .subtitle { margin:12px 0 0; font-size:18px; font-weight:700; }
+    .hero-photo { width:100%; height:100%; min-height:270px; object-fit:cover; }
+    .content { padding:34px 42px 42px; }
+    h2 { margin:0 0 16px; padding-left:12px; border-left:7px solid var(--red); font-size:24px; }
+    .size-table { width:100%; border-collapse:collapse; margin-bottom:34px; font-size:17px; }
+    .size-table th,.size-table td { border:1px solid var(--line); padding:12px 14px; text-align:center; }
+    .size-table th { background:var(--ink); color:#fff; }
+    .size-table td:first-child { background:var(--cream); font-size:21px; font-weight:900; }
+    .common { margin:-20px 0 34px; padding:12px 16px; border-radius:8px; background:#fff0cf; font-weight:800; text-align:center; }
+    ol { list-style:none; padding:0; margin:0; max-width:700px; counter-reset:step; display:grid; gap:16px; }
+    li { counter-increment:step; position:relative; padding:18px 20px 18px 76px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+    li::before { content:counter(step); position:absolute; left:18px; top:18px; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--red); color:#fff; font-size:22px; font-weight:900; }
+    li strong { display:block; margin-bottom:3px; font-size:20px; }
+    .note { margin-top:12px; padding:10px 13px; border-left:5px solid var(--gold); background:var(--cream); font-weight:700; }
+    .topping { display:grid; grid-template-columns:repeat(2,1fr); gap:8px 24px; margin-top:8px; }
+    .topping span::before { content:"●"; margin-right:8px; color:var(--red); font-size:11px; }
+    footer { padding:13px 42px; background:var(--ink); color:#fff; text-align:center; font-weight:700; letter-spacing:.06em; }
+    @media (max-width:680px) {
+      main { width:100%; margin:0; }
+      header { grid-template-columns:1fr; }
+      .hero-copy,.content { padding:26px 22px; }
+      .hero-photo { max-height:240px; }
+      .size-table { font-size:14px; }
+      .size-table th,.size-table td { padding:9px 6px; }
+      .topping { grid-template-columns:1fr; }
+    }
+    @media print {
+      @page { size:A4 portrait; margin:6mm; }
+      body { background:#fff; }
+      main { width:100%; margin:0; box-shadow:none; }
+      header { min-height:150px; max-height:150px; }
+      .hero-copy { padding:18px 28px; }
+      .hero-photo { min-height:150px; max-height:150px; }
+      .eyebrow { font-size:12px; }
+      h1 { font-size:36px; }
+      .subtitle { margin-top:6px; font-size:14px; }
+      .content { padding:14px 24px 16px; }
+      h2 { margin-bottom:7px; font-size:17px; border-left-width:5px; }
+      .size-table { margin-bottom:15px; font-size:12px; line-height:1.35; }
+      .size-table th,.size-table td { padding:5px 6px; }
+      .size-table td:first-child { font-size:16px; }
+      .common { margin:-8px 0 14px; padding:5px; font-size:12px; }
+      ol { max-width:none; grid-template-columns:1fr; gap:5px; }
+      li { break-inside:avoid; padding:6px 10px 6px 45px; font-size:11.5px; line-height:1.35; }
+      li::before { left:9px; top:6px; width:28px; height:28px; font-size:15px; }
+      li strong { margin-bottom:2px; font-size:14px; }
+      .topping { grid-template-columns:1fr 1fr; gap:1px 16px; margin-top:3px; }
+      .note { margin-top:4px; padding:4px 7px; font-size:10.5px; }
+      footer { padding:6px; font-size:11px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="hero-copy">
+        <p class="eyebrow">すずの家 調理マニュアル</p>
+        <h1>油そば</h1>
+        <p class="subtitle">分量と手順を守って、いつも同じ一杯に。</p>
+      </div>
+      <img class="hero-photo" src="images/aburasoba-8010.jpeg" width="1477" height="1108" alt="油そばの完成写真">
+    </header>
+    <div class="content">
+      <section>
+        <h2>サイズ別の分量</h2>
+        <table class="size-table">
+          <thead><tr><th>サイズ</th><th>麺</th><th>醤油ダレ</th><th>鶏油</th></tr></thead>
+          <tbody>
+            <tr><td>並</td><td>1.5玉</td><td>レードル 0.9杯</td><td>レードル 1.9杯</td></tr>
+            <tr><td>大盛</td><td>2玉</td><td>レードル 1杯</td><td>レードル 2杯</td></tr>
+          </tbody>
+        </table>
+        <p class="common">並・大盛 共通：ニンニク 4g・豆板醤 1g</p>
+      </section>
+      <section>
+        <h2>調理手順</h2>
+        <ol>
+          <li><strong>麺を3分茹でる</strong>並は1.5玉、大盛は2玉。<div class="note">麺の硬さ変更（硬めなど）はできません。</div></li>
+          <li><strong>丼にタレ・油・ニンニク・豆板醤を入れる</strong>上の「サイズ別の分量」を確認し、醤油ダレ、鶏油、ニンニク4g、豆板醤1gを入れる。</li>
+          <li><strong>湯切りして混ぜる</strong>麺をしっかり湯切りして丼に入れ、軽く混ぜてから麺を整える。</li>
+          <li><strong>具材を盛り付ける</strong><div class="topping"><span>こま切れ肉 40g</span><span>薬味ネギ 15g</span><span>ホウレンソウ 20g</span><span>ガーリックチップ 10g</span><span>マヨネーズ 10g</span><span>のり 3枚</span></div><div class="note">1人前の場合、ホウレンソウとこま切れ肉は電子レンジで10秒温めてから盛り付けます。</div></li>
+        </ol>
+      </section>
+    </div>
+    <footer>盛り付けを整え、最終確認をして提供</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="すずの家の肉飯調理マニュアル。分量と調理手順を掲載しています。">
+  <title>すずの家｜肉飯 調理マニュアル</title>
+  <style>
+    :root { --ink:#241d18; --red:#b83224; --gold:#e5a92e; --cream:#fff9ed; --line:#e2d6c5; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#eee8dd; font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.65; }
+    main { width:min(960px,calc(100% - 32px)); margin:32px auto; background:#fff; box-shadow:0 12px 36px #39251320; }
+    header { display:grid; grid-template-columns:1.25fr .75fr; min-height:270px; background:var(--ink); color:#fff; }
+    .hero-copy { padding:38px 42px; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { margin:0 0 4px; color:#ffd676; font-weight:800; letter-spacing:.16em; }
+    h1 { margin:0; font-size:clamp(34px,6vw,62px); line-height:1.1; letter-spacing:.06em; }
+    .subtitle { margin:12px 0 0; font-size:18px; font-weight:700; }
+    .hero-photo { width:100%; height:100%; min-height:270px; object-fit:cover; image-rendering:auto; }
+    .hero-visual { min-height:270px; display:grid; place-items:center; background:linear-gradient(145deg,#f4c764,#b83224); }
+    .hero-bowl { width:170px; height:92px; display:grid; place-items:center; border-radius:12px 12px 85px 85px; background:#fff9ed; color:var(--ink); box-shadow:0 14px 24px #241d1850; font-size:30px; font-weight:900; letter-spacing:.12em; }
+    .content { padding:34px 42px 42px; }
+    h2 { margin:0 0 16px; padding-left:12px; border-left:7px solid var(--red); font-size:24px; }
+    .size-table { width:100%; border-collapse:collapse; margin-bottom:34px; font-size:17px; }
+    .size-table th,.size-table td { border:1px solid var(--line); padding:12px 14px; text-align:center; }
+    .size-table th { background:var(--ink); color:#fff; }
+    .size-table td:first-child { background:var(--cream); font-weight:900; }
+    ol { list-style:none; padding:0; margin:0; max-width:700px; counter-reset:step; display:grid; gap:16px; }
+    li { counter-increment:step; position:relative; padding:18px 20px 18px 76px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+    li::before { content:counter(step); position:absolute; left:18px; top:18px; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--red); color:#fff; font-size:22px; font-weight:900; }
+    li strong { display:block; margin-bottom:3px; font-size:20px; }
+    .note { margin-top:12px; padding:10px 13px; border-left:5px solid var(--gold); background:var(--cream); font-weight:700; }
+    footer { padding:13px 42px; background:var(--ink); color:#fff; text-align:center; font-weight:700; letter-spacing:.06em; }
+    @media (max-width:680px) {
+      main { width:100%; margin:0; }
+      header { grid-template-columns:1fr; }
+      .hero-copy,.content { padding:26px 22px; }
+      .hero-photo { max-height:240px; }
+      .size-table { font-size:14px; }
+      .size-table th,.size-table td { padding:9px 6px; }
+    }
+    @media print {
+      @page { size:A4 portrait; margin:6mm; }
+      body { background:#fff; }
+      main { width:100%; margin:0; box-shadow:none; break-inside:avoid; }
+      header { min-height:160px; max-height:160px; }
+      .hero-copy { padding:18px 28px; }
+      .hero-photo { min-height:160px; max-height:160px; }
+      .hero-visual { min-height:160px; max-height:160px; }
+      .hero-bowl { width:130px; height:70px; font-size:23px; }
+      .content { padding:14px 26px 16px; }
+      h1 { font-size:38px; }
+      .subtitle { margin-top:6px; font-size:14px; }
+      h2 { font-size:18px; margin-bottom:7px; }
+      .size-table { margin-bottom:12px; font-size:12px; line-height:1.3; }
+      .size-table th,.size-table td { padding:4px 7px; }
+      ol { gap:5px; max-width:none; }
+      li { padding:6px 12px 6px 50px; line-height:1.35; font-size:12px; break-inside:avoid; }
+      li::before { left:11px; top:7px; width:27px; height:27px; font-size:15px; }
+      li strong { margin-bottom:1px; font-size:14px; }
+      .note { margin-top:4px; padding:3px 8px; }
+      footer { padding:5px; font-size:11px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="hero-copy">
+        <p class="eyebrow">すずの家 調理マニュアル</p>
+        <h1>肉飯</h1>
+        <p class="subtitle">分量と手順を守って、いつも同じ一杯に。</p>
+      </div>
+      <div class="hero-visual" aria-label="肉飯のイメージ"><div class="hero-bowl">肉飯</div></div>
+    </header>
+    <div class="content">
+      <section>
+        <h2>1杯分の材料</h2>
+        <table class="size-table">
+          <thead><tr><th>材料</th><th>分量</th></tr></thead>
+          <tbody>
+            <tr><td>ごはん</td><td>200g（約茶碗1杯分）</td></tr>
+            <tr><td>こま切れ肉</td><td>40g</td></tr>
+            <tr><td>肉飯のタレ</td><td>2周</td></tr>
+            <tr><td>ネギ</td><td>れんげ約1/3杯分</td></tr>
+            <tr><td>ゴマ</td><td>適量</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>調理手順</h2>
+        <ol>
+          <li><strong>ごはんをよそう</strong>ごはん200g（約茶碗1杯分）をよそう。</li>
+          <li><strong>肉を温める</strong>こま切れ肉40gに肉飯のタレを2周かけ、レンジで10秒温める。<div class="note">こま切れ肉は必ず40gを使用し、加熱時間は10秒です。</div></li>
+          <li><strong>肉とネギを盛り付ける</strong>温めたこま切れ肉をごはんの中心に盛り付ける。ネギ（れんげ約1/3杯分）を、肉のまわりを囲むように振りかける。</li>
+          <li><strong>仕上げる</strong>ゴマを全体に振りかけ、盛り付けを整えたら完成。</li>
+        </ol>
+      </section>
+    </div>
+    <footer>肉はごはんの中心に、ネギは肉を囲むように盛り付ける</footer>
+  </main>
+</body>
+</html>

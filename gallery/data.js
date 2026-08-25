@@ -885,7 +885,8 @@ window.PORTFOLIO_GALLERY_DATA = [
       "お菓子"
     ],
     "featureTags": [
-      "レスポンシブ"
+      "レスポンシブ",
+      "CTAボタン"
     ],
     "linkType": "external",
     "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
