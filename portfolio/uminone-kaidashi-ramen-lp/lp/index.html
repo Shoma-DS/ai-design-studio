@@ -3,160 +3,65 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="貝だしの余韻を楽しむ架空のラーメンブランド、うみの音。"
-    />
+    <meta name="description" content="あさり・えび・昆布を重ねた、澄んだ貝だしラーメン。うみの音の架空ブランドLPです。" />
+    <meta property="og:title" content="うみの音｜貝だしラーメン" />
+    <meta property="og:description" content="ひと口すすれば、海の余韻。" />
+    <meta property="og:image" content="./images/hero-desktop-v2.png" />
     <title>うみの音｜貝だしラーメン</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top">うみの音</a>
-      <nav aria-label="メインナビ">
-        <a href="#flavors">三つの味</a><a href="#craft">おいしさの秘密</a
-        ><a href="#howto">楽しみ方</a>
-      </nav>
-      <a class="mini-cta" href="#buy">お取り寄せ</a>
+      <a class="brand" href="#top"><small>貝だし麺処</small><span>うみの音</span></a>
+      <nav aria-label="メインナビ"><a href="#flavors">お品書き</a><a href="#craft">だしのこと</a><a href="#howto">おいしい作り方</a></nav>
+      <a class="header-cta" href="#buy">お取り寄せ</a>
     </header>
+
     <main id="top">
       <section class="hero">
-      <picture
-          ><source
-            media="(max-width:767px)"
-            srcset="./images/mobile/hero-mobile.png" />
-        <img
-          src="./images/hero-desktop.png"
-          width="1536"
-          height="1024"
-            alt="湯気の立つ貝だしラーメンと手描きの海の仲間"
-        /></picture>
+        <picture><source media="(max-width: 767px)" srcset="./images/mobile/hero-mobile-v2.png" /><img src="./images/hero-desktop-v2.png" width="1536" height="1024" alt="自然光の差す店内に置かれた貝だしラーメン" fetchpriority="high" /></picture>
+        <div class="hero-shade"></div>
         <div class="hero-copy">
-          <p class="kicker">ひと口すすれば、海の余韻。</p>
-          <h1>貝だし、<br /><em>ほっと</em>する味。</h1>
-          <p>あさり・えび・昆布を重ねた、澄んだ旨みの一杯。</p>
-          <a class="cta" href="#flavors"><span>三つの味をみる</span><b>↓</b></a>
+          <p class="kicker">SHELLFISH BROTH RAMEN</p>
+          <h1>海の余韻を、<br />澄んだ一杯に。</h1>
+          <p>あさり、えび、昆布。<br />三つの旨みを、静かに重ねました。</p>
+          <a class="text-link" href="#flavors">三つの味を見る <span>↘</span></a>
         </div>
+        <p class="hero-note">ゆっくり炊いて、すっきり仕上げる。</p>
       </section>
-      <section class="intro paper reveal">
-        <p class="eyebrow">OUR STORY</p>
-        <h2>急がないから、<br />ちゃんとおいしい。</h2>
-        <p>
-          うみの音は、海の素材をていねいに重ねる架空のラーメン工房。派手な濃さではなく、最後のひと口まで飲みたくなる余韻を目指しました。
-        </p>
-        <div class="stamp">じんわり<br />三段だし</div>
+
+      <section class="story reveal">
+        <p class="section-label">私たちのこと <span>01</span></p>
+        <div class="story-grid"><h2>派手じゃない。<br />だから、また食べたくなる。</h2><div><p>うみの音は、海の素材をていねいに扱う小さなラーメン工房。強い味を足すのではなく、素材ごとの旨みがきれいに重なる順番を探しました。</p><p>飲み干したあとに、ほんのり残る貝の香り。そんな一杯を目指しています。</p></div></div>
       </section>
+
       <section id="flavors" class="flavors reveal">
-        <p class="eyebrow">3 FLAVORS</p>
-        <h2>今日は、どの海にする？</h2>
-        <div class="cards">
-          <article>
-            <span>01</span>
-            <div class="bowl">◯</div>
-            <h3>あさり塩</h3>
-            <p>澄んだ旨みと、柚子の香り。</p>
-          </article>
-          <article>
-            <span>02</span>
-            <div class="bowl red">◯</div>
-            <h3>えび味噌</h3>
-            <p>香ばしさとコクを、まろやかに。</p>
-          </article>
-          <article>
-            <span>03</span>
-            <div class="bowl green">◯</div>
-            <h3>昆布しょうゆ</h3>
-            <p>だしの甘みが続く、端正な味。</p>
-          </article>
+        <div class="section-heading"><p class="section-label">お品書き <span>02</span></p><h2>その日の気分で、<br />三つの海から。</h2></div>
+        <div class="menu-list">
+          <article><div class="ramen-photo"><img src="./images/menu-asari-shio.png" alt="あさり塩ラーメン" loading="lazy" /></div><div><p class="menu-no">一</p><h3>あさり塩</h3><p>澄んだ旨みと、柚子の香り。</p></div></article>
+          <article><div class="ramen-photo"><img src="./images/menu-ebi-miso.png" alt="えび味噌ラーメン" loading="lazy" /></div><div><p class="menu-no">二</p><h3>えび味噌</h3><p>香ばしさとコクを、まろやかに。</p></div></article>
+          <article><div class="ramen-photo"><img src="./images/menu-kombu-shoyu.png" alt="昆布しょうゆラーメン" loading="lazy" /></div><div><p class="menu-no">三</p><h3>昆布しょうゆ</h3><p>だしの甘みが続く、端正な味。</p></div></article>
         </div>
       </section>
+
       <section id="craft" class="craft reveal">
-        <div>
-          <p class="eyebrow">SECRET 01</p>
-          <h2>旨みを足すより、<br />順番を整える。</h2>
-          <p>
-            あさりのふくらみ、えびの香ばしさ、昆布の長い余韻。三つを一度に煮立てず、それぞれの良いところが重なる順番で仕立てます。
-          </p>
-          <ul>
-            <li>低温で引き出す昆布だし</li>
-            <li>香味油に移すえびの香り</li>
-            <li>仕上げに重ねるあさりエキス</li>
-          </ul>
-        </div>
-        <div class="diagram" aria-label="三段だしの図">
-          <i>昆布</i><i>えび</i><i>あさり</i><strong>三段<br />だし</strong>
-        </div>
+        <div class="craft-copy"><p class="section-label light">だしのこと <span>03</span></p><h2>旨みを足すより、<br />順番を整える。</h2><p>昆布は低い温度でじっくり。えびは香味油へ。あさりは仕上げに重ねる。それぞれの得意なところだけを引き出します。</p></div>
+        <ol class="layers"><li><span>朝</span><strong>昆布</strong><small>長く続く、土台の旨み</small></li><li><span>昼</span><strong>えび</strong><small>香味油に移す香ばしさ</small></li><li><span>仕上げ</span><strong>あさり</strong><small>ふくらみのある余韻</small></li></ol>
       </section>
-      <section class="noodle reveal">
-        <div class="noodle-art">〰〰〰<br />〰〰〰</div>
-        <div>
-          <p class="eyebrow">SECRET 02</p>
-          <h2>スープを連れてくる、<br />しなやかな細麺。</h2>
-          <p>
-            つるりとした口当たりと、ほどよい歯切れ。だしをまといやすい細さに整え、すすった瞬間の香りまで設計しました。
-          </p>
-        </div>
-      </section>
-      <section id="howto" class="howto reveal">
-        <p class="eyebrow">HOW TO ENJOY</p>
-        <h2>おいしい3分、できあがり。</h2>
-        <ol>
-          <li>
-            <b>1</b><span>どんぶりを<br />しっかり温める</span>
-          </li>
-          <li>
-            <b>2</b><span>麺をゆでて<br />湯切りは軽めに</span>
-          </li>
-          <li>
-            <b>3</b><span>香味油を最後に<br />ひと回し</span>
-          </li>
-        </ol>
-        <p class="tip">おすすめ：柚子皮、白ねぎ、半熟たまごを添えて。</p>
-      </section>
-      <section id="buy" class="buy reveal">
-        <div>
-          <p class="eyebrow">ONLINE STORE</p>
-          <h2>家で待つ夜に、<br />海のごほうびを。</h2>
-          <p>三つの味を2食ずつ。はじめての方にうれしい食べ比べセットです。</p>
-        </div>
-        <div class="offer">
-          <p>うみの音 はじめて箱</p>
-          <strong><small>税込</small> 2,480<small>円</small></strong
-          ><span>送料無料</span
-          ><a
-            class="cta dark"
-            href="mailto:hello@example.com?subject=うみの音%20はじめて箱"
-            ><span>このセットを注文する</span><b>→</b></a
-          ><small>※架空商品のデモLPです。実際の販売はありません。</small>
-        </div>
-      </section>
-      <section class="faq reveal">
-        <p class="eyebrow">FAQ</p>
-        <h2>よくあるご質問</h2>
-        <details>
-          <summary>辛みはありますか？</summary>
-          <p>
-            基本の三商品に強い辛みはありません。お好みで七味やラー油を加えてください。
-          </p>
-        </details>
-        <details>
-          <summary>賞味期限はどのくらいですか？</summary>
-          <p>架空商品ですが、設計上は製造から常温で6か月を想定しています。</p>
-        </details>
-        <details>
-          <summary>ギフト包装はできますか？</summary>
-          <p>
-            季節の掛け紙を選べる想定です。デモのため実注文には対応していません。
-          </p>
-        </details>
-      </section>
+
+      <section class="noodle reveal"><p class="section-label">麺のこと <span>04</span></p><div class="noodle-grid"><figure class="noodle-photo"><img src="./images/noodles-fresh.png" alt="木箱に整えられた打ちたての細麺" loading="lazy" /></figure><div><h2>スープを連れてくる、<br />しなやかな細麺。</h2><p>つるりとした口当たりと、ほどよい歯切れ。だしをまといやすい細さに整え、すすった瞬間の香りまで設計しました。</p></div></div></section>
+
+      <section id="howto" class="howto reveal"><div class="section-heading"><p class="section-label">おいしい作り方 <span>05</span></p><h2>ひと手間で、<br />店の味に近づきます。</h2></div><ol><li><b>01</b><span><strong>器を温める</strong>熱湯を注ぎ、盛り付ける直前まで。</span></li><li><b>02</b><span><strong>湯切りは軽めに</strong>麺に少し水分を残すのがこつ。</span></li><li><b>03</b><span><strong>香味油は最後に</strong>食べる直前に、ひと回し。</span></li></ol><p class="tip">柚子皮、白ねぎ、半熟たまごもよく合います。</p></section>
+
+      <section id="buy" class="buy reveal"><div><p class="section-label light">お取り寄せ <span>06</span></p><h2>家で待つ夜に、<br />海のごほうびを。</h2><p>三つの味を2食ずつ詰めた、はじめての方にうれしい食べ比べセットです。</p></div><div class="offer"><p>うみの音 はじめて箱</p><div class="price"><small>税込</small><strong>2,480</strong><span>円</span></div><p class="shipping">6食入り・送料無料</p><a class="buy-button" href="mailto:hello@example.com?subject=うみの音%20はじめて箱">このセットを注文する <span>→</span></a><small>※架空商品のデモLPです。実際の販売はありません。</small></div></section>
+
+      <section class="faq reveal"><p class="section-label">よくあるご質問 <span>07</span></p><div class="faq-grid"><h2>気になることを、<br />ご注文の前に。</h2><div><details><summary>辛みはありますか？</summary><p>基本の三商品に強い辛みはありません。お好みで七味やラー油を加えてください。</p></details><details><summary>賞味期限はどのくらいですか？</summary><p>架空商品ですが、設計上は製造から常温で6か月を想定しています。</p></details><details><summary>ギフト包装はできますか？</summary><p>季節の掛け紙を選べる想定です。デモのため実注文には対応していません。</p></details></div></div></section>
     </main>
-    <footer>
-      <a class="brand" href="#top">うみの音</a>
-      <p>貝だしラーメン工房</p>
-      <small>© 2026 UMINONE / Fictional portfolio project</small>
-    </footer>
-    <a class="floating" href="#buy">お取り寄せ <b>→</b></a>
+    <footer><a class="brand" href="#top"><small>貝だし麺処</small><span>うみの音</span></a><p>海の素材を、ていねいに。</p><small>© 2026 UMINONE / Fictional portfolio project</small></footer>
+    <a class="floating" href="#buy">お取り寄せ <span>→</span></a>
     <script src="./script.js"></script>
   </body>
 </html>
