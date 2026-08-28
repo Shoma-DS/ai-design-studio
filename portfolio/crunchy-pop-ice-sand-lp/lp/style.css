@@ -1,7 +1,23 @@
 :root { color-scheme: light; background: #4f2118; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #4f2118; }
+body { margin: 0; background: #4f2118; font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+.site-header { position: sticky; top: 0; z-index: 20; width: 100%; background: #4f2118; }
+.header-inner { width: min(100%, 1200px); min-height: 72px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; background: rgb(255 232 61 / 97%); border-bottom: 3px solid #4f2118; box-shadow: 0 0 48px rgb(0 0 0 / 22%); backdrop-filter: blur(10px); }
+.header-logo { position: relative; display: inline-flex; min-height: 52px; align-items: flex-end; color: #4f2118; font-family: Impact, "Arial Black", sans-serif; font-weight: 900; line-height: .84; letter-spacing: -.035em; text-decoration: none; transform: rotate(-2deg); }
+.header-logo::before { content: ""; position: absolute; top: 4px; left: 50%; width: 7px; height: 7px; background: #c9340a; clip-path: polygon(50% 0, 62% 36%, 100% 26%, 72% 54%, 100% 78%, 62% 68%, 50% 100%, 38% 68%, 0 78%, 28% 54%, 0 26%, 38% 36%); transform: translateX(-50%); }
+.header-logo-crunchy { padding-bottom: 6px; font-size: 23px; }
+.header-logo-pop { color: #c9340a; font-size: 28px; }
+.desktop-nav { display: flex; align-items: center; gap: 28px; }
+.desktop-nav a, .mobile-nav a { color: #4f2118; font-size: 15px; font-weight: 700; line-height: 1.4; text-decoration: none; }
+.desktop-nav > a:not(.header-cta) { padding: 12px 0; border-bottom: 2px solid transparent; transition: border-color 160ms ease; }
+.desktop-nav > a:not(.header-cta):hover { border-color: #4f2118; }
+.header-cta { display: inline-flex; min-height: 44px; padding: 10px 20px; align-items: center; justify-content: center; color: #fff !important; background: #c9340a; border: 2px solid #4f2118; border-radius: 7px; box-shadow: 3px 3px 0 #4f2118; transition: transform 160ms ease, box-shadow 160ms ease; }
+.header-cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #4f2118; }
+.header-cta:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #4f2118; }
+.menu-button, .mobile-nav { display: none; }
+.site-header a:focus-visible, .menu-button:focus-visible, .mobile-nav a:focus-visible { outline: 3px solid #1672ec; outline-offset: 4px; }
+.lp-section[id], .lp-cta-section[id] { scroll-margin-top: 72px; }
 .lp-shell { width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden; background: #ffe83d; box-shadow: 0 0 48px rgb(0 0 0 / 22%); }
 .lp-section { display: block; line-height: 0; }
 .lp-section img { display: block; width: 100%; height: auto; }
@@ -25,9 +41,27 @@ body { margin: 0; background: #4f2118; }
 @media (max-width: 767px) {
   body, .lp-shell { background: #ffe83d; }
   .lp-shell { max-width: 768px; box-shadow: none; }
+  .site-header { background: #ffe83d; }
+  .header-inner { width: 100%; min-height: 64px; padding: 0 20px; box-shadow: none; }
+  .header-logo { min-height: 48px; }
+  .header-logo-crunchy { font-size: 20px; }
+  .header-logo-pop { font-size: 25px; }
+  .desktop-nav { display: none; }
+  .menu-button { display: grid; width: 44px; height: 44px; padding: 10px; place-content: center; gap: 5px; color: #4f2118; background: transparent; border: 2px solid #4f2118; border-radius: 8px; cursor: pointer; }
+  .menu-button span { display: block; width: 20px; height: 2px; background: currentColor; transition: transform 200ms ease, opacity 200ms ease; }
+  .menu-button[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-button[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav { position: fixed; inset: 64px 0 auto; z-index: 19; padding: 24px 20px 32px; background: #ffe83d; border-bottom: 3px solid #4f2118; box-shadow: 0 12px 24px rgb(79 33 24 / 20%); }
+  .mobile-nav.is-open { display: grid; gap: 8px; }
+  .mobile-nav a { min-height: 48px; display: flex; align-items: center; justify-content: center; }
+  .mobile-nav .header-cta { margin-top: 8px; }
+  body.menu-open { overflow: hidden; }
+  .lp-section[id], .lp-cta-section[id] { scroll-margin-top: 64px; }
   .trial-set-button { right: 7.9%; bottom: 8.75%; width: 84.2%; height: 5.1%; border-radius: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .trial-set-button { transition: none; }
+  .header-cta, .menu-button span { transition: none; }
 }
