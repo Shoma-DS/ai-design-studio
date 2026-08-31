@@ -890,7 +890,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
     "author": "saruga"
   },
   {
@@ -913,7 +913,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://morning-bloom-call-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/morning-bloom-call-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/morning-bloom-call-lp.jpg",
     "author": "saruga"
   },
   {
@@ -938,7 +938,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://night-roast-reward-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/night-roast-reward-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/night-roast-reward-lp.jpg",
     "author": "saruga"
   },
   {

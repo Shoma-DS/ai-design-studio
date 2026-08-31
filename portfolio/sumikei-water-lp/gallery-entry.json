@@ -9,6 +9,6 @@
   "featureTags": ["レスポンシブ", "ボタン実装"],
   "linkType": "external",
   "url": "https://sumikei-water-lp.vercel.app",
-  "thumbnail": "assets/thumbnails/sumikei-water-lp.jpg",
+  "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/sumikei-water-lp.jpg",
   "author": "saruga"
 }
