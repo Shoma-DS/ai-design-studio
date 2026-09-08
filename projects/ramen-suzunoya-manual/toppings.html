@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="すずの家の各種トッピング調理・盛り付けマニュアル。">
+  <title>すずの家｜トッピング各種 マニュアル</title>
+  <style>
+    :root { --ink:#241d18; --red:#b83224; --gold:#e5a92e; --cream:#fff9ed; --line:#e2d6c5; --green:#376b45; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#eee8dd; font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; line-height:1.6; }
+    main { width:min(920px,calc(100% - 32px)); margin:32px auto; background:#fff; box-shadow:0 12px 36px #39251320; }
+    header { display:grid; grid-template-columns:1.05fr .95fr; min-height:310px; color:#fff; background:linear-gradient(125deg,var(--ink) 0 62%,#5b3424 62% 100%); }
+    .hero-copy { padding:38px 42px; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { margin:0 0 5px; color:#ffd676; font-weight:800; letter-spacing:.16em; }
+    h1 { margin:0; font-size:clamp(38px,7vw,64px); line-height:1.08; letter-spacing:.05em; }
+    h1 span { display:block; margin-top:7px; font-size:.38em; letter-spacing:.12em; }
+    .subtitle { margin:13px 0 0; font-size:18px; font-weight:700; }
+    .hero-photo { width:100%; height:100%; min-height:310px; object-fit:cover; }
+    .content { padding:32px 42px 40px; }
+    h2 { margin:0 0 14px; padding-left:12px; border-left:7px solid var(--red); font-size:24px; }
+    section + section { margin-top:28px; }
+    .toppings { display:grid; grid-template-columns:repeat(2,1fr); gap:11px; }
+    .topping { min-height:112px; padding:13px 15px; border:1px solid var(--line); border-radius:10px; background:#fff; }
+    .topping strong { display:block; color:var(--red); font-size:22px; line-height:1.25; }
+    .amount { display:block; margin-top:3px; font-size:17px; font-weight:900; }
+    .detail { display:block; margin-top:4px; font-size:14px; font-weight:700; }
+    .topping.egg { border:2px solid var(--gold); background:var(--cream); }
+    .examples { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .example { display:grid; grid-template-columns:1fr; gap:9px; align-items:center; padding:13px; border-radius:12px; background:var(--cream); text-align:center; }
+    .example img { width:62%; max-width:250px; height:auto; object-fit:contain; border-radius:8px; justify-self:center; }
+    .example strong { display:block; color:var(--red); font-size:24px; }
+    .example p { margin:7px 0 0; font-weight:800; }
+    .checks { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+    .checks li { padding:10px 13px; border:1px solid var(--line); border-radius:8px; font-weight:800; }
+    .checks li::before { content:"✓"; margin-right:9px; color:var(--green); font-size:20px; font-weight:900; }
+    footer { padding:12px 42px; color:#fff; background:var(--ink); text-align:center; font-weight:800; letter-spacing:.05em; }
+    @media (max-width:680px) {
+      main { width:100%; margin:0; }
+      header,.examples,.example { grid-template-columns:1fr; }
+      .hero-copy,.content { padding-left:22px; padding-right:22px; }
+      .hero-photo { min-height:240px; max-height:300px; }
+      .toppings { grid-template-columns:1fr; }
+    }
+    @media print {
+      @page { size:A4 portrait; margin:7mm; }
+      body { background:#fff; }
+      main { width:100%; margin:0; box-shadow:none; }
+      header { min-height:205px; max-height:205px; }
+      .hero-copy { padding:18px 27px; }
+      .hero-photo { min-height:205px; max-height:205px; }
+      .eyebrow { font-size:11px; }
+      h1 { font-size:39px; }
+      .subtitle { margin-top:7px; font-size:13px; }
+      .content { padding:16px 27px 18px; }
+      section + section { margin-top:14px; }
+      h2 { margin-bottom:7px; font-size:18px; border-left-width:5px; }
+      .toppings { gap:6px 9px; }
+      .topping { min-height:78px; padding:7px 10px; }
+      .topping strong { font-size:16px; }
+      .amount { margin-top:1px; font-size:13px; }
+      .detail { margin-top:1px; font-size:10.5px; line-height:1.35; }
+      .examples { grid-template-columns:repeat(2,1fr); gap:7px; }
+      .example { gap:4px; padding:7px; }
+      .example img { width:58%; height:auto; max-height:78px; object-fit:contain; }
+      .example strong { font-size:17px; }
+      .example p { margin-top:3px; font-size:11px; line-height:1.4; }
+      .checks { grid-template-columns:repeat(3,1fr); gap:5px; }
+      .checks li { padding:5px 7px; font-size:10.5px; line-height:1.35; }
+      .checks li::before { margin-right:4px; font-size:13px; }
+      footer { padding:6px; font-size:11px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="hero-copy">
+        <p class="eyebrow">すずの家 盛り付けマニュアル</p>
+        <h1>トッピング各種<span>全ラーメン共通</span></h1>
+        <p class="subtitle">注文内容と規定量を確認し、<br>見本どおりに盛り付ける。</p>
+      </div>
+      <img class="hero-photo" src="images/topping-chashu.jpeg" width="1477" height="1108" alt="チャーシュートッピングの完成見本">
+    </header>
+
+    <div class="content">
+      <section>
+        <h2>種類・規定量・準備</h2>
+        <div class="toppings">
+          <div class="topping">
+            <strong>チャーシュー</strong>
+            <span class="amount">＋3枚（合計4枚）</span>
+            <span class="detail">通常の1枚に3枚追加し、合計4枚を盛り付ける。</span>
+          </div>
+          <div class="topping egg">
+            <strong>味玉</strong>
+            <span class="amount">1玉</span>
+            <span class="detail">ゆで麺機で約1分温めてから盛り付ける。</span>
+          </div>
+          <div class="topping">
+            <strong>ホウレンソウ</strong>
+            <span class="amount">通常の2倍（40g）</span>
+            <span class="detail">量を確認して、見栄えよくまとめて盛る。</span>
+          </div>
+          <div class="topping">
+            <strong>ノリ</strong>
+            <span class="amount">＋3枚（合計6枚）</span>
+            <span class="detail">通常の3枚に3枚追加し、合計6枚を盛り付ける。</span>
+          </div>
+          <div class="topping">
+            <strong>辛ネギ</strong>
+            <span class="amount">白ネギ 30g</span>
+            <span class="detail">ラーゴマ2周半＋豆板醤スプーン1杯（5g）を加え、<br>全体をよく和える。</span>
+          </div>
+          <div class="topping">
+            <strong>薬味ネギ</strong>
+            <span class="amount">通常 15g</span>
+            <span class="detail">＋トッピング分 15g（合計30g）を盛り付ける。</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>トッピング例</h2>
+        <div class="examples">
+          <div class="example">
+            <img src="images/topping-chashu-example.jpeg" width="1477" height="1108" alt="チャーシュー4枚を盛り付けたラーメン">
+            <div>
+              <strong>チャーシュー</strong>
+              <p>通常の1枚に3枚追加し、合計4枚を見栄えよく盛り付ける。</p>
+            </div>
+          </div>
+          <div class="example">
+            <img src="images/topping-karanegi-example.png" width="1477" height="1108" alt="辛ネギを盛り付けたラーメン">
+            <div>
+              <strong>辛ネギ</strong>
+              <p>和えた辛ネギを中央に、ふんわり高さを出して盛り付ける。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>提供前の確認</h2>
+        <ul class="checks">
+          <li>注文された種類と数量が合っている</li>
+          <li>味玉は約1分温めている</li>
+          <li>丼のふちをきれいにして提供する</li>
+        </ul>
+      </section>
+    </div>
+    <footer>全ラーメン共通｜種類・数量・温度を最終確認</footer>
+  </main>
+</body>
+</html>

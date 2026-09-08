@@ -14,6 +14,12 @@
     return data.filter((item) => item.type === activeType);
   }
 
+  // DB内に旧形式の相対パスが残っていても、画像を配置している公開ギャラリーから取得する。
+  function thumbnailUrl(path) {
+    if (!path || /^(?:https?:|data:|\/)/i.test(path)) return path || "";
+    return new URL(path, "https://lp-portfolio-gallery-nine.vercel.app/").href;
+  }
+
   // overflow:hiddenだけだとホイール操作で背景がスクロールしてしまうため、
   // bodyをfixedにして現在位置を固定し、解除時に元のスクロール位置へ戻す。
   let lockedScrollY = 0;
@@ -409,7 +415,7 @@
       ].join("");
 
       card.innerHTML = `
-        <img class="card-thumb" src="${item.thumbnail}" alt="${item.title}" />
+        <img class="card-thumb" src="${thumbnailUrl(item.thumbnail)}" alt="${item.title}" />
         <div class="card-body">
           <span class="card-category">${item.category}</span>
           <p class="card-title">${item.title}</p>

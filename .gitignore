@@ -9,6 +9,8 @@ dist/
 *.log
 tmp/
 .tmp/
+.vercel
+.env*
 
 # 個人のX集客運用（チーム共有リポジトリには含めない）
 projects/x-auto-post/

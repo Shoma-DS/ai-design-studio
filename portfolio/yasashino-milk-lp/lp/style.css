@@ -1,0 +1,10 @@
+:root { color-scheme: light; background: #f4f0e8; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f4f0e8; }
+.lp-shell { width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden; background: #fffdf7; box-shadow: 0 0 40px rgb(58 52 44 / 8%); }
+.lp-section { display: block; line-height: 0; }
+.lp-section img { display: block; width: 100%; height: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 767px) { body, .lp-shell { background: #fffdf7; } .lp-shell { max-width: 768px; box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

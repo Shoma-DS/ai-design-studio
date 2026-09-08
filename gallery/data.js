@@ -868,5 +868,197 @@ window.PORTFOLIO_GALLERY_DATA = [
     "url": "https://clarive-womens-personal-gym-lp.vercel.app",
     "thumbnail": "assets/thumbnails/clarive-womens-personal-gym-lp.jpg",
     "author": "rina"
+  },
+  {
+    "slug": "crunchy-pop-ice-sand-lp",
+    "type": "lp",
+    "title": "CRUNCHY POP チョコクランチアイスサンドLP",
+    "heading": "ザクッと、ひんやり。気分まで弾ける。",
+    "category": "食品・EC",
+    "moodTags": [
+      "ポップ",
+      "カラフル"
+    ],
+    "productTags": [
+      "食品",
+      "アイス",
+      "お菓子"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "CTAボタン"
+    ],
+    "linkType": "external",
+    "url": "https://crunchy-pop-ice-sand-lp.vercel.app",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/crunchy-pop-ice-sand-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "morning-bloom-call-lp",
+    "type": "lp",
+    "title": "MORNING BLOOM ボイスギフトLP",
+    "heading": "明日の朝を、少し楽しみに。",
+    "category": "食品・飲料",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "飲料",
+      "キャンペーン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "アコーディオン"
+    ],
+    "linkType": "external",
+    "url": "https://morning-bloom-call-lp.vercel.app",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/morning-bloom-call-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "night-roast-reward-lp",
+    "type": "lp",
+    "title": "NIGHT ROAST ポイントキャンペーンLP",
+    "heading": "夜を味方に。500名に、小さなご褒美。",
+    "category": "食品・飲料",
+    "moodTags": [
+      "カッコイイ",
+      "上品"
+    ],
+    "productTags": [
+      "飲料",
+      "コーヒー",
+      "キャンペーン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "アコーディオン",
+      "アニメーション"
+    ],
+    "linkType": "external",
+    "url": "https://night-roast-reward-lp.vercel.app",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/night-roast-reward-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "sumikei-water-lp",
+    "type": "lp",
+    "title": "澄景水",
+    "heading": "山の時間を、そのまま一滴に。",
+    "category": "飲料・食品",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "天然水",
+      "飲料"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "ボタン実装"
+    ],
+    "linkType": "external",
+    "url": "https://sumikei-water-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/sumikei-water-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "yukishizuku-water-mochi-lp",
+    "type": "lp",
+    "title": "雪しずく｜天然水仕立てのひとくち水もち",
+    "heading": "ひとくちで、涼がほどける。",
+    "category": "食品・EC",
+    "moodTags": [
+      "爽やか",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "食品",
+      "スイーツ"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "ボタン実装"
+    ],
+    "linkType": "external",
+    "url": "https://yukishizuku-water-mochi-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/yukishizuku-water-mochi-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "sumika-milk-tea-lp",
+    "type": "lp",
+    "title": "澄香ミルクティー コンセプトLP",
+    "heading": "ほどける香り、満ちる余韻。",
+    "category": "食品・EC",
+    "moodTags": [
+      "上品",
+      "ナチュラル"
+    ],
+    "productTags": [
+      "食品",
+      "飲料"
+    ],
+    "featureTags": [
+      "アニメーション",
+      "固定ヘッダー",
+      "アコーディオン",
+      "レスポンシブ"
+    ],
+    "linkType": "external",
+    "url": "https://sumika-milk-tea-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/sumika-milk-tea-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "asa-paku-morning-campaign-lp",
+    "type": "lp",
+    "title": "ASA PAKU 朝キャンペーンLP",
+    "heading": "朝は、ひとくちから。",
+    "category": "食品・飲料",
+    "moodTags": [
+      "ポップ",
+      "明るい",
+      "親しみやすい"
+    ],
+    "productTags": [
+      "お菓子",
+      "キャンペーン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "カルーセル",
+      "FAQ",
+      "モーダル"
+    ],
+    "linkType": "external",
+    "url": "https://asa-paku-morning-campaign-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/asa-paku-morning-campaign-lp.jpg",
+    "author": "saruga"
+  },
+  {
+    "slug": "uminone-kaidashi-ramen-lp",
+    "type": "lp",
+    "title": "うみの音｜貝だしラーメンLP",
+    "heading": "ひと口すすれば、海の余韻。",
+    "category": "食品・EC",
+    "moodTags": [
+      "レトロ",
+      "ポップ"
+    ],
+    "productTags": [
+      "食品",
+      "ラーメン"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "CTAボタン"
+    ],
+    "linkType": "external",
+    "url": "https://uminone-kaidashi-ramen-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/uminone-kaidashi-ramen-lp.jpg",
+    "author": "saruga"
   }
 ];

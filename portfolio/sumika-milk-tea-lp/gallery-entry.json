@@ -1,0 +1,14 @@
+{
+  "slug": "sumika-milk-tea-lp",
+  "type": "lp",
+  "title": "澄香ミルクティー コンセプトLP",
+  "heading": "ほどける香り、満ちる余韻。",
+  "category": "食品・EC",
+  "moodTags": ["上品", "ナチュラル"],
+  "productTags": ["食品", "飲料"],
+  "featureTags": ["アニメーション", "固定ヘッダー", "アコーディオン", "レスポンシブ"],
+  "linkType": "external",
+  "url": "https://sumika-milk-tea-lp.vercel.app",
+  "thumbnail": "assets/thumbnails/sumika-milk-tea-lp.jpg",
+  "author": "saruga"
+}

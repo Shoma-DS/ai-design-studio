@@ -1,0 +1,330 @@
+{
+  "target": "portfolio/yukishizuku-water-mochi-lp/lp/index.html",
+  "results": [
+    {
+      "viewport": "mobile",
+      "size": "390×844",
+      "findings": [
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜14pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 6,
+          "examples": [
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > p",
+              "detail": "14.0px \"清らかな天然水を、ふるんとやわらかなひとくちの余韻に仕立てました。\""
+            },
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"きゅんと甘酸っぱい、紅いしずく。\""
+            },
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"陽だまりのように、明るく爽やか。\""
+            },
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"水そのものを味わう、澄んだ余韻。\""
+            },
+            {
+              "selector": "section#shop > div.content.final-copy > p > small",
+              "detail": "12.0px \"税込・送料別\""
+            },
+            {
+              "selector": "html > body > footer > small",
+              "detail": "13.3px \"© 2026 YUKI SHIZUKU CONCEPT.\""
+            }
+          ]
+        },
+        {
+          "id": "font-size-variety",
+          "severity": "info",
+          "category": "反復",
+          "message": "文字サイズが13種類。タイプスケール（例: 12/14/16/20/24/32/40/56）に整理すると統一感が出る",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "9, 12, 13, 14, 15, 16, 20, 21, 22, 28, 32, 34, 44 px"
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の53%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "body > header.site-header > a.brand > span",
+              "detail": "marginTop: 5.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > p.eyebrow",
+              "detail": "marginBottom: 14.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > p",
+              "detail": "marginBottom: 14.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > a.cta.cta-primary",
+              "detail": "paddingTop: 14.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > a.cta.cta-primary",
+              "detail": "paddingBottom: 14.0px"
+            },
+            {
+              "selector": "section#story > div.content.story-copy > p.eyebrow",
+              "detail": "marginBottom: 14.0px"
+            }
+          ]
+        },
+        {
+          "id": "center-align-overuse",
+          "severity": "info",
+          "category": "整列",
+          "message": "テキストブロックの92%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "47 / 51 ブロック"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 1個（うちファーストビュー内 1個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "\"雪しずくを購入する→\""
+            }
+          ]
+        },
+        {
+          "id": "info-sticky-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "追従要素あり（1個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "html > body > header.site-header",
+              "detail": "\"雪しずくYUKI SHIZUKU ものがたり味わい水のこと オンラインストア\""
+            }
+          ]
+        },
+        {
+          "id": "no-og-image",
+          "severity": "info",
+          "category": "情報設計",
+          "message": "og:image がない。SNSシェア時にサムネイルが出ない",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "head",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 51,
+        "interactives": 6,
+        "headings": 9,
+        "images": 6,
+        "fontFamilies": [
+          "Yu Mincho",
+          "sans-serif",
+          "serif"
+        ],
+        "fontSizes": [
+          9,
+          12,
+          13,
+          14,
+          15,
+          16,
+          20,
+          21,
+          22,
+          28,
+          32,
+          34,
+          44
+        ],
+        "docHeight": 4459,
+        "viewportH": 844
+      }
+    },
+    {
+      "viewport": "desktop",
+      "size": "1440×900",
+      "findings": [
+        {
+          "id": "font-label-small",
+          "severity": "info",
+          "category": "タイポグラフィ",
+          "message": "12〜13pxの小さいラベル・注釈。意図的なら可、本文なら引き上げる",
+          "count": 5,
+          "examples": [
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"きゅんと甘酸っぱい、紅いしずく。\""
+            },
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"陽だまりのように、明るく爽やか。\""
+            },
+            {
+              "selector": "div.content.products-copy > div.flavor-grid > article > p",
+              "detail": "13.0px \"水そのものを味わう、澄んだ余韻。\""
+            },
+            {
+              "selector": "section#shop > div.content.final-copy > p > small",
+              "detail": "12.0px \"税込・送料別\""
+            },
+            {
+              "selector": "html > body > footer > small",
+              "detail": "13.3px \"© 2026 YUKI SHIZUKU CONCEPT.\""
+            }
+          ]
+        },
+        {
+          "id": "spacing-off-grid",
+          "severity": "info",
+          "category": "反復",
+          "message": "余白の46%が4pxグリッドから外れている（8pxグリッドに寄せると整列と反復が効く）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "body > header.site-header > a.brand > span",
+              "detail": "marginTop: 5.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > p.eyebrow",
+              "detail": "marginBottom: 14.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > a.cta.cta-primary",
+              "detail": "paddingTop: 14.0px"
+            },
+            {
+              "selector": "main#top > section.visual-section.hero > div.content.hero-copy > a.cta.cta-primary",
+              "detail": "paddingBottom: 14.0px"
+            },
+            {
+              "selector": "section#story > div.content.story-copy > p.eyebrow",
+              "detail": "marginBottom: 14.0px"
+            },
+            {
+              "selector": "section#story > div.content.story-copy > ul.feature-list",
+              "detail": "marginTop: 13.0px"
+            }
+          ]
+        },
+        {
+          "id": "center-align-overuse",
+          "severity": "info",
+          "category": "整列",
+          "message": "テキストブロックの60%が中央揃え。左揃えの軸を通すと視線の起点が安定する",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "32 / 53 ブロック"
+            }
+          ]
+        },
+        {
+          "id": "info-cta",
+          "severity": "info",
+          "category": "コンバージョン",
+          "message": "CTA候補 0個（うちファーストビュー内 0個）",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "document",
+              "detail": "なし"
+            }
+          ]
+        },
+        {
+          "id": "no-og-image",
+          "severity": "info",
+          "category": "情報設計",
+          "message": "og:image がない。SNSシェア時にサムネイルが出ない",
+          "count": 1,
+          "examples": [
+            {
+              "selector": "head",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "slow-transition",
+          "severity": "info",
+          "category": "モーション",
+          "message": "transition が0.6秒超。UIの反応は0.15〜0.3秒、画面遷移でも0.5秒以内が体感の目安",
+          "count": 2,
+          "examples": [
+            {
+              "selector": "stylesheet",
+              "detail": "最長 0.7s"
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "textElements": 53,
+        "interactives": 9,
+        "headings": 9,
+        "images": 6,
+        "fontFamilies": [
+          "Yu Mincho",
+          "sans-serif",
+          "serif"
+        ],
+        "fontSizes": [
+          9,
+          12,
+          13,
+          15,
+          16,
+          20,
+          22,
+          25,
+          28,
+          32,
+          56,
+          78
+        ],
+        "docHeight": 5025,
+        "viewportH": 900
+      }
+    }
+  ]
+}

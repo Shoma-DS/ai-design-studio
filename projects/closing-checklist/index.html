@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>つばき家｜締めマニュアル</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #61707e;
+      --line: #d9e0e6;
+      --navy: #173b57;
+      --blue-soft: #edf5fa;
+      --amber: #e89019;
+      --amber-soft: #fff5df;
+      --red: #c9443d;
+      --red-soft: #fff0ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e9edf0;
+      color: var(--ink);
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      font-weight: 600;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 18px auto;
+      padding: 10mm 11mm 8mm;
+      background: white;
+      box-shadow: 0 8px 30px rgba(24, 40, 54, .12);
+    }
+    header {
+      display: block;
+      padding-bottom: 5mm;
+      border-bottom: 3px solid var(--navy);
+    }
+    h1 { margin: 0; font-size: 25px; letter-spacing: .08em; color: var(--navy); }
+    section { margin-top: 4mm; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 2.2mm;
+      font-size: 15px;
+      color: var(--navy);
+    }
+    .badge {
+      display: grid;
+      place-items: center;
+      min-width: 24px;
+      height: 24px;
+      padding: 0 7px;
+      border-radius: 12px;
+      color: white;
+      background: var(--navy);
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+    .note {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+    }
+    .items { border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+    .item {
+      display: grid;
+      grid-template-columns: 25px 1fr;
+      align-items: center;
+      min-height: 27px;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .item:last-child { border-bottom: 0; }
+    .item:nth-child(even) { background: #f8fafb; }
+    .num { text-align: center; color: var(--muted); font-size: 10px; }
+    .task { padding: 4px 7px; border-left: 1px solid var(--line); }
+    .check { display: none; }
+    .lead {
+      display: inline-block;
+      margin-right: 6px;
+      color: var(--red);
+      font-weight: 800;
+    }
+    .dinner .section-title { color: #8a5411; }
+    .dinner .badge { background: var(--amber); }
+    .dinner .items { border-color: #efd6ad; }
+    .dinner .item { border-color: #efd6ad; }
+    .dinner .item:nth-child(even) { background: var(--amber-soft); }
+    .final {
+      padding: 3mm;
+      border: 2px solid var(--red);
+      border-radius: 8px;
+      background: var(--red-soft);
+    }
+    .final .section-title { margin-bottom: 2mm; color: var(--red); }
+    .final .badge { background: var(--red); }
+    .final .items { background: white; border-color: #edc3bf; }
+    .final .item { grid-template-columns: 25px 1fr; border-color: #efd0cd; }
+    .final .item:nth-child(even) { background: #fff8f7; }
+    .page-no { position: absolute; right: 11mm; bottom: 6mm; color: var(--muted); font-size: 9px; font-weight: 500; }
+    .sheet { position: relative; overflow: hidden; }
+    .subhead { margin: 4mm 0 2mm; color: var(--navy); font-size: 13px; }
+    .memo { padding: 3mm 4mm; border-radius: 7px; background: var(--amber-soft); border: 1px solid #efd6ad; font-size: 11px; line-height: 1.7; }
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      body { background: white; }
+      .sheet { margin: 0; box-shadow: none; }
+      .sheet { break-after: page; }
+      .sheet:last-child { break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header><h1>つばき家｜締めマニュアル</h1></header>
+
+    <section>
+      <h2 class="section-title"><span class="badge">締め</span>通常の締め作業</h2>
+      <div class="items">
+        <div class="item"><span class="num">1</span><span class="task"><b class="lead">LO 22:30</b>のれん・のぼりを下げ、表札をクローズ。外の電気を消す（卵付近）</span><span class="check"></span></div>
+        <div class="item"><span class="num">2</span><span class="task">火を消す（スープ・種火・丼の鍋・麺器）</span><span class="check"></span></div>
+        <div class="item"><span class="num">3</span><span class="task">スープの粗熱を取って冷凍庫へ</span><span class="check"></span></div>
+        <div class="item"><span class="num">4</span><span class="task">麺器は水を流し、お湯がぬるくなった状態で洗う</span><span class="check"></span></div>
+        <div class="item"><span class="num">5</span><span class="task">食材と客席のニンニク・豆板醤を冷蔵庫にしまう</span><span class="check"></span></div>
+        <div class="item"><span class="num">6</span><span class="task">レードル・てぼ（麺を茹でる網）など、洗えるものを洗浄</span><span class="check"></span></div>
+        <div class="item"><span class="num">7</span><span class="task">炊飯器の米をタッパーに移し、ラップをかける</span><span class="check"></span></div>
+        <div class="item"><span class="num">8</span><span class="task">炊飯器を洗う</span><span class="check"></span></div>
+        <div class="item"><span class="num">9</span><span class="task">IH・台上・コンロ付近をダスターで拭く</span><span class="check"></span></div>
+        <div class="item"><span class="num">10</span><span class="task">ダスターは一度、食器用洗剤でもみ洗いしてから、お湯＋マジックリンにつける</span><span class="check"></span></div>
+        <div class="item"><span class="num">11</span><span class="task">元栓を締める</span><span class="check"></span></div>
+        <div class="item"><span class="num">12</span><span class="task">麺の写真を撮り、数を報告（デリバリーで出た麺数も含む）</span><span class="check"></span></div>
+        <div class="item"><span class="num">13</span><span class="task">ホワイトボードを撮影。売上・麺数を報告し、グループLINEへ締め作業内容を確認して投稿</span><span class="check"></span></div>
+        <div class="item"><span class="num">14</span><span class="task">食洗機を洗う</span><span class="check"></span></div>
+        <div class="item"><span class="num">15</span><span class="task">食器用タオルを交換する（干してあるものを新たに設置し、使っていたものは洗剤を使わずに手洗いして干す）</span><span class="check"></span></div>
+        <div class="item"><span class="num">16</span><span class="task">解凍確認（ほうれん草5袋、チャーシュー6本、刻みチャーシュー）</span><span class="check"></span></div>
+      </div>
+    </section>
+
+    <section class="dinner">
+      <h2 class="section-title"><span class="badge">出勤時</span>ディナー出勤時にやること<span class="note">引き継ぎ前に確認</span></h2>
+      <div class="items">
+        <div class="item"><span class="num">1</span><span class="task">タレ・鶏油を補充（箱の中身が少ない場合は、新しいタレを裏から持ってくる）</span><span class="check"></span></div>
+        <div class="item"><span class="num">2</span><span class="task">デリバリーの海苔・箸・容器を補充</span><span class="check"></span></div>
+        <div class="item"><span class="num">3</span><span class="task">日・火・木の締め作業時：器に客席用の豆板醤・ニンニクを移し、容器を洗って干す</span><span class="check"></span></div>
+        <div class="item"><span class="num">4</span><span class="task">シンクのゴミを捨て、シンクを洗う</span><span class="check"></span></div>
+        <div class="item"><span class="num">5</span><span class="task">チャーシューがタッパーに入っている場合、空いている皿に移す</span><span class="check"></span></div>
+        <div class="item"><span class="num">6</span><span class="task">米の仕込み</span><span class="check"></span></div>
+        <div class="item"><span class="num">7</span><span class="task">麺器横のタッパーの水を破棄する</span><span class="check"></span></div>
+      </div>
+    </section>
+    <span class="page-no">1 / 2</span>
+  </main>
+
+  <main class="sheet">
+    <header><h1>つばき家｜締めマニュアル</h1></header>
+    <section>
+      <h2 class="section-title"><span class="badge">会計</span>レジ締め</h2>
+      <div class="items">
+        <div class="item"><span class="num">1</span><span class="task">ニッケイ（インサツ＋クリア）：プリント ▶ 書込入力 ▶▶ 書込入力</span><span class="check"></span></div>
+        <div class="item"><span class="num">2</span><span class="task">ジカンタイ（インサツ＋クリア）：プリント ▶▶▶ ＋ 書込入力 ＋ 書込入力</span><span class="check"></span></div>
+        <div class="item"><span class="num">3</span><span class="task">回収：書込入力 → レバーを下げる → 回収プリント</span><span class="check"></span></div>
+        <div class="item"><span class="num">4</span><span class="task">レジ金を元に戻す</span><span class="check"></span></div>
+        <div class="item"><span class="num">5</span><span class="task">売上を封筒に移し、封筒にしまう</span><span class="check"></span></div>
+        <div class="item"><span class="num">6</span><span class="task">レジ金が合っているか確認する</span><span class="check"></span></div>
+        <div class="item"><span class="num">7</span><span class="task">合っていたら売上封筒をホチキスで留める</span><span class="check"></span></div>
+        <div class="item"><span class="num">8</span><span class="task"><b class="lead">注意</b>売上封筒は2回折ってホチキスで留め、お札がホチキスで留まらないようにする</span><span class="check"></span></div>
+        <div class="item"><span class="num">9</span><span class="task">赤いペンで売上封筒へ記載する</span><span class="check"></span></div>
+      </div>
+      <h3 class="subhead">封筒に記載する内容</h3>
+      <div class="memo">① ○月○日・つばき家　② 売上（日報に記載あり）　③ 小口現金（店長から指示があった時のみ）　④ 差し引き額＝売上－小口現金　⑤ Uber金額　⑥ rocket金額　⑦ ⑤＋⑥の合計</div>
+      <div class="memo" style="margin-top:2mm"><b>両替用のお札：</b>5,000円ずつに分け、ファイルに入れる</div>
+    </section>
+
+    <section class="final">
+      <h2 class="section-title"><span class="badge">重要</span>退店前の最終確認<span class="note">全項目チェック後に退店</span></h2>
+      <div class="items">
+        <div class="item"><span class="num">1</span><span class="task">券売機の電源OFF ／ 扉は開けたまま鍵を取る</span><span class="check"></span></div>
+        <div class="item"><span class="num">2</span><span class="task">お金をケースにしまう</span><span class="check"></span></div>
+        <div class="item"><span class="num">3</span><span class="task">元栓・ホワイトボード・麺の写真を確認</span><span class="check"></span></div>
+        <div class="item"><span class="num">4</span><span class="task">エアコン電源OFF（2台）</span><span class="check"></span></div>
+        <div class="item"><span class="num">5</span><span class="task">スープの寸胴・炊飯器が洗ってあるか</span><span class="check"></span></div>
+        <div class="item"><span class="num">6</span><span class="task">食材に蓋・ラップがされているか</span><span class="check"></span></div>
+        <div class="item"><span class="num">7</span><span class="task">タブレットの電源OFF（USEN・デリバリー・打刻）</span><span class="check"></span></div>
+        <div class="item"><span class="num">8</span><span class="task">ラーメン丼ぶりを温めている寸胴に蓋をする（ほこりや虫が入らないように）</span><span class="check"></span></div>
+        <div class="item"><span class="num">9</span><span class="task">ゴミが満タンの時はごみ捨てをする</span><span class="check"></span></div>
+        <div class="item"><span class="num">10</span><span class="task">打刻する</span><span class="check"></span></div>
+      </div>
+    </section>
+    <span class="page-no">2 / 2　すべてチェックしてから退店してください</span>
+  </main>
+</body>
+</html>
