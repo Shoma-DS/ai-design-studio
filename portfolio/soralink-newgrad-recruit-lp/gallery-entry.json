@@ -1,0 +1,13 @@
+{
+  "slug": "soralink-newgrad-recruit-lp",
+  "type": "lp",
+  "title": "株式会社ソラリンク 2028年卒 新卒採用LP",
+  "heading": "みちを、ひらけ。",
+  "category": "人材・求人",
+  "moodTags": ["信頼感", "誠実", "カッコイイ", "見やすい"],
+  "productTags": ["人材", "BtoB", "採用"],
+  "featureTags": ["レスポンシブ", "アニメーション", "固定ヘッダー", "固定CTA", "FAQ", "アコーディオン", "CTAボタン"],
+  "linkType": "external",
+  "url": "https://soralink-newgrad-recruit-lp.vercel.app",
+  "thumbnail": "assets/thumbnails/soralink-newgrad-recruit-lp.jpg"
+}

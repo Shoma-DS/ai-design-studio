@@ -961,7 +961,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://sumikei-water-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/sumikei-water-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/sumikei-water-lp.jpg",
     "author": "saruga"
   },
   {
@@ -984,7 +984,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://yukishizuku-water-mochi-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/yukishizuku-water-mochi-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/yukishizuku-water-mochi-lp.jpg",
     "author": "saruga"
   },
   {
@@ -1009,7 +1009,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://sumika-milk-tea-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/sumika-milk-tea-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/sumika-milk-tea-lp.jpg",
     "author": "saruga"
   },
   {
@@ -1035,7 +1035,7 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://asa-paku-morning-campaign-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/asa-paku-morning-campaign-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/asa-paku-morning-campaign-lp.jpg",
     "author": "saruga"
   },
   {
@@ -1058,7 +1058,38 @@ window.PORTFOLIO_GALLERY_DATA = [
     ],
     "linkType": "external",
     "url": "https://uminone-kaidashi-ramen-lp.vercel.app",
-    "thumbnail": "assets/thumbnails/uminone-kaidashi-ramen-lp.jpg",
+    "thumbnail": "https://lp-portfolio-gallery-nine.vercel.app/assets/thumbnails/uminone-kaidashi-ramen-lp.jpg",
     "author": "saruga"
+  },
+  {
+    "slug": "soralink-newgrad-recruit-lp",
+    "type": "lp",
+    "title": "株式会社ソラリンク 2028年卒 新卒採用LP",
+    "heading": "みちを、ひらけ。",
+    "category": "人材・求人",
+    "moodTags": [
+      "信頼感",
+      "誠実",
+      "カッコイイ",
+      "見やすい"
+    ],
+    "productTags": [
+      "人材",
+      "BtoB",
+      "採用"
+    ],
+    "featureTags": [
+      "レスポンシブ",
+      "アニメーション",
+      "固定ヘッダー",
+      "固定CTA",
+      "FAQ",
+      "アコーディオン",
+      "CTAボタン"
+    ],
+    "linkType": "external",
+    "url": "https://soralink-newgrad-recruit-lp.vercel.app",
+    "thumbnail": "assets/thumbnails/soralink-newgrad-recruit-lp.jpg",
+    "author": "rina"
   }
 ];
